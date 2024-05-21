@@ -15,7 +15,7 @@ namespace General.CLS
         DataTable tabla = new DataTable();
         MySqlConnection sqlConexion = new MySqlConnection();
 
-        Int32 _IDProducto;
+        string _IDProducto;
         string _Producto;
         Int32 _Stock;
         double _Precio;
@@ -25,15 +25,18 @@ namespace General.CLS
         DateTime _FechaVencimiento;
         Int32 _IDCategoria;
 
-
-        /*public  Productos(int idProducto, string producto)
+        public Productos(string idProducto, string producto)
         {
-            this.IDProducto = idProducto;
-            this.NombreProducto = producto;
-        }*/
+            this._IDProducto = idProducto;
+            this._Producto = producto;
+        }
 
-        public Int32 IDProducto { get => _IDProducto; set => _IDProducto = value; }
-        public string NombreProducto { get => _Producto; set => _Producto = value; }
+        public Productos()
+        {
+        }
+
+        public string IDProducto { get => _IDProducto; set => _IDProducto = value; }
+        public string Producto { get => _Producto; set => _Producto = value; }
         public Int32 Stock { get => _Stock; set => _Stock = value; }
         public double Precio { get => _Precio; set => _Precio = value; }
         public string Descripcion { get => _Descripcion; set => _Descripcion = value; }
@@ -42,10 +45,10 @@ namespace General.CLS
         public DateTime FechaVencimiento { get => _FechaVencimiento; set => _FechaVencimiento = value; }
         public Int32 IDCategoria { get => _IDCategoria; set => _IDCategoria = value; }
 
-        public string toString()
+        /*public string toString()
         {
             return this._IDProducto + " - " + this._Producto;
-        }
+        }*/
 
         public Boolean Insertar()
         {

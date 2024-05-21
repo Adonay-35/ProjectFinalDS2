@@ -100,62 +100,50 @@ namespace General.GUI
         {
             try
             {
-                if (Validar())
+                if (string.IsNullOrEmpty(txbIDUsuario.Text))
                 {
-                    CLS.Usuarios oUsuario = new CLS.Usuarios();
-                    try
-                    {
-                        oUsuario.IDUsuario = Convert.ToInt32(txbIDUsuario.Text);
-                    }
-                    catch (Exception)
-                    {
-                        oUsuario.IDUsuario = 0;
-                    }
+                    // Crear nuevo usuario
+                    CLS.Usuarios nuevoUsuario = new CLS.Usuarios(0, txbUsuario.Text); // Usa 0 para IDUsuario si es un nuevo usuario
+                    nuevoUsuario.Usuario = txbUsuario.Text;
+                    nuevoUsuario.Clave = txbClave.Text;
+                    nuevoUsuario.IDRol = Convert.ToInt32(cbRoles.SelectedValue);
+                    nuevoUsuario.IDEmpleado = Convert.ToInt32(txbIDEmpleado.Text);
+                    nuevoUsuario.IDEstado = Convert.ToInt32(cbEstados.SelectedValue);
 
-                    try
+                    if (nuevoUsuario.Insertar())
                     {
-                        oUsuario.IDRol = Convert.ToInt32(cbRoles.SelectedIndex);
-                        oUsuario.IDEstado = Convert.ToInt32(cbEstados.SelectedIndex);
-                        oUsuario.IDEmpleado = Convert.ToInt32(txbIDEmpleado.Text);
-                    }
-                    catch (Exception)
-                    {
-                        oUsuario.IDRol = 0;
-                        oUsuario.IDEstado = 0;
-                    }
-                    oUsuario.Usuario = txbUsuario.Text;
-                    oUsuario.Clave = txbClave.Text;
-                    if (txbIDUsuario.Text.Trim().Length == 0)
-                    {
-                        //GUARDAR NUEVO REGISTRO
-                        if (oUsuario.Insertar())
-                        {
-                            MessageBox.Show("Registro Guardado");
-                            Close();
-                        }
-                        else
-                        {
-                            MessageBox.Show("El registro no pudo ser almacenado");
-                        }
+                        MessageBox.Show("Usuario creado exitosamente");
                     }
                     else
                     {
-                        //ACTUALIZAT REGISTRO
-                        if (oUsuario.Actualizar())
-                        {
-                            MessageBox.Show("Registro Actualizado");
-                            Close();
-                        }
-                        else
-                        {
-                            MessageBox.Show("El registro no pudo ser actualizado");
-                        }
+                        MessageBox.Show("Error al crear usuario");
                     }
                 }
-            }
-            catch (Exception)
-            {
+                else
+                {
+                    // Actualizar usuario existente
+                    CLS.Usuarios usuarioExistente = new CLS.Usuarios(Convert.ToInt32(txbIDUsuario.Text), txbUsuario.Text);
+                    usuarioExistente.Usuario = txbUsuario.Text;
+                    usuarioExistente.Clave = txbClave.Text;
+                    usuarioExistente.IDRol = Convert.ToInt32(cbRoles.SelectedValue);
+                    usuarioExistente.IDEmpleado = Convert.ToInt32(txbIDEmpleado.Text);
+                    usuarioExistente.IDEstado = Convert.ToInt32(cbEstados.SelectedValue);
 
+                    if (usuarioExistente.Actualizar())
+                    {
+                        MessageBox.Show("Usuario actualizado exitosamente");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al actualizar usuario");
+                    }
+                }
+
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

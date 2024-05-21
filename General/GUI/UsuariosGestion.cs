@@ -71,7 +71,7 @@ namespace General.GUI
             {
                 if (MessageBox.Show("¿Desea ELIMINAR el registro seleccionado", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    CLS.Usuarios oUsuario = new CLS.Usuarios();
+                    CLS.Usuarios oUsuario = new CLS.Usuarios((Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDUsuario"].Value.ToString())), "dummyUser");
                     oUsuario.IDUsuario = (Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDUsuario"].Value.ToString()));
                     if (oUsuario.Elminar())
                     {
@@ -83,6 +83,7 @@ namespace General.GUI
                     }
                     Cargar();
                     lblRegistros.Text = _DATOS.Count.ToString();
+
                 }
             }
             catch (Exception)
@@ -95,16 +96,16 @@ namespace General.GUI
         {
             try
             {
-                if (MessageBox.Show("¿Desea EDITAR el registro seleccionado", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Desea EDITAR el registro seleccionado?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    UsuariosEdicion oUsuario = new UsuariosEdicion();
-                    oUsuario.txbIDUsuario.Text = dataGridView1.CurrentRow.Cells["IDUsuario"].Value.ToString();
-                    oUsuario.txbUsuario.Text = dataGridView1.CurrentRow.Cells["Usuario"].Value.ToString();
-                    oUsuario.txbClave.Text = dataGridView1.CurrentRow.Cells["Clave"].Value.ToString();
+                    UsuariosEdicion oUsuarioEdicion = new UsuariosEdicion();
+                    oUsuarioEdicion.txbIDUsuario.Text = dataGridView1.CurrentRow.Cells["IDUsuario"].Value.ToString();
+                    oUsuarioEdicion.txbUsuario.Text = dataGridView1.CurrentRow.Cells["Usuario"].Value.ToString();
+                    oUsuarioEdicion.txbClave.Text = dataGridView1.CurrentRow.Cells["Clave"].Value.ToString();
                     //oUsuario.cbRoles.SelectedItem = dataGridView1.CurrentRow.Cells["IDRol"].Value.ToString();
-                    oUsuario.txbIDEmpleado.Text = dataGridView1.CurrentRow.Cells["IDEmpleado"].Value.ToString();
+                    oUsuarioEdicion.txbIDEmpleado.Text = dataGridView1.CurrentRow.Cells["IDEmpleado"].Value.ToString();
                     //oUsuario.cbEstados.SelectedItem = dataGridView1.CurrentRow.Cells["IDEstado"].Value.ToString();
-                    oUsuario.ShowDialog();
+                    oUsuarioEdicion.ShowDialog();
                     Cargar();
                 }
             }
