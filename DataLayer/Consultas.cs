@@ -9,6 +9,7 @@ namespace DataLayer
 {
     public class Consultas
     {
+        //Prueba 
         public static DataTable USUARIOS()
         {
             DataTable Resultado = new DataTable();
