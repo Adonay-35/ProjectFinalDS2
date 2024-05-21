@@ -71,7 +71,7 @@ CREATE TABLE Ventas (
     FechaVenta datetime not null,
     IDUsuario int not null,
     IDCliente int not null,
-    IDProducto mediumtext not null,
+    IDProducto varchar(20) not null,
     Cantidad int not null,
     Total double not null
 );
@@ -84,6 +84,7 @@ ALTER TABLE Productos ADD CONSTRAINT fk_producto_proveedor FOREIGN KEY (IDProvee
 ALTER TABLE Productos ADD CONSTRAINT fk_producto_categoria FOREIGN KEY (IDCategoria) REFERENCES Categorias(IDCategoria);
 ALTER TABLE Ventas ADD CONSTRAINT fk_venta_usuario FOREIGN KEY (IDUsuario) REFERENCES Usuarios(IDUsuario);
 ALTER TABLE Ventas ADD CONSTRAINT fk_venta_cliente FOREIGN KEY (IDCliente) REFERENCES Clientes(IDCliente);
+ALTER TABLE Ventas MODIFY COLUMN IDProducto VARCHAR(20) NOT NULL;
 ALTER TABLE Ventas ADD CONSTRAINT fk_venta_producto FOREIGN KEY (IDProducto) REFERENCES Productos(IDProducto);
 
 -- INSERCIONES 
@@ -156,7 +157,7 @@ INSERT INTO Productos (IDProducto, Producto, Stock, Precio, FechaFabricacion, Fe
 ('PROD002', "Bolsa de papas fritas", 150, 0.99, "2024-01-01 14:00:00", "2024-01-02 14:00:00", "Bolsa de papas fritas de 100g", 2, 15),
 ('PROD003', "Jabón de manos", 200, 2.49, "2023-01-01 15:00:00", "2026-01-01 15:00:00", "Jabón líquido para manos con aroma a manzana", 3, 19),
 ('PROD004', "Caja de dulces surtidos", 80, 5.99, "2024-01-01 16:00:00", "2024-05-01 16:00:00", "Caja de dulces surtidos, ideal para regalo", 4, 15),
-('PROD005', "Lápiz de colores", '300', 3.49, 1.99, "2022-01-01 17:00:00", "2100-01-01 17:00:00", "Paquete de 12 lápices de colores surtidos", 5, 21);
+('PROD005', "Lápiz de colores", '300', 1.99, "2022-01-01 17:00:00", "2100-01-01 17:00:00", "Paquete de 12 lápices de colores surtidos", 5, 21);
 
 INSERT INTO Ventas (IDVenta, FechaVenta, IDUsuario, IDCliente, IDProducto, Cantidad, Total) VALUES
 ('VENTA001', '2024-05-01 08:30:00', 4, 1, 'PROD001', 4 , '7.96'),
@@ -198,21 +199,22 @@ CREATE PROCEDURE ObtenerUsuarios()
 BEGIN
 SELECT *
 FROM usuarios;
-END
+END $$
 
 DELIMITER $$
 CREATE PROCEDURE ObtenerClientes()
 BEGIN
 SELECT *
 FROM clientes;
-END
+END $$
 
-DELIMITER $$
+DELIMITER //
 CREATE PROCEDURE ObtenerProductos()
 BEGIN
-SELECT *
-FROM productos;
-END
+    SELECT IDProducto, Producto FROM Productos;
+END //
+DELIMITER ;
+
 
 DELIMITER $$
 CREATE PROCEDURE BuscarUsuario(IN usuario varchar(200))
@@ -243,7 +245,7 @@ CREATE PROCEDURE ObtenerProveedores()
 BEGIN
 SELECT *
 FROM proveedores;
-END
+END $$
 
 /* PROVEEDORES */
 DELIMITER $$
@@ -251,7 +253,7 @@ CREATE PROCEDURE ObtenerCategorias()
 BEGIN
 SELECT *
 FROM categorias;
-END
+END $$
 
 DELIMITER $$
 CREATE PROCEDURE BuscarProveedor(IN proveedor varchar(100))
@@ -274,15 +276,6 @@ BEGIN
 UPDATE proveedores 
 SET nomProveedor=nomProveedor, numContacto=numContacto, direccion=direccion, email=email
 WHERE idProveedor=id;
-END
-
-/* PRODUCTOS */
-DELIMITER $$
-CREATE PROCEDURE ObtenerProductos()
-BEGIN
-SELECT prod.*, prov.nomProveedor
-FROM productos prod
-INNER JOIN proveedores prov ON prod.idProveedor=prov.idProveedor;
 END
 
 DELIMITER $$

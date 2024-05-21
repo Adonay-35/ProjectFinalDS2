@@ -123,7 +123,7 @@ namespace General.CLS
             return Resultado;
         }
 
-        /*public List<Usuarios> ObtenerUsuarios()
+        public List<Usuarios> ObtenerUsuarios()
         {
             List<Usuarios> listaUsuarios = new List<Usuarios>();
 
@@ -156,9 +156,9 @@ namespace General.CLS
                     sqlConexion.Close();
                 }
             }
-        }*/
+        }
 
-        /*public List<Clientes> ObtenerClientes()
+        public List<Clientes> ObtenerClientes()
         {
             List<Clientes> listaClientes = new List<Clientes>();
 
@@ -192,9 +192,9 @@ namespace General.CLS
                     sqlConexion.Close();
                 }
             }
-        }*/
+        }
 
-        /*public List<Productos> ObtenerProductos()
+        public List<Productos> ObtenerProductos()
         {
             List<Productos> listaProductos = new List<Productos>();
 
@@ -209,7 +209,7 @@ namespace General.CLS
                 while (resultado.Read())
                 {
                     listaProductos.Add(new Productos(
-                        resultado.GetInt32(0),
+                        resultado.GetString(0),
                         resultado.GetString(1)
                         ));
                 }
@@ -227,7 +227,12 @@ namespace General.CLS
                     sqlConexion.Close();
                 }
             }
-        }*/
-    }
+        }
 
+
+    }
 }
+
+    
+
+

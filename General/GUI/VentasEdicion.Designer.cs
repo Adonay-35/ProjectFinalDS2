@@ -79,9 +79,9 @@
             this.txbIDProducto.AutoSize = true;
             this.txbIDProducto.Location = new System.Drawing.Point(97, 249);
             this.txbIDProducto.Name = "txbIDProducto";
-            this.txbIDProducto.Size = new System.Drawing.Size(61, 13);
+            this.txbIDProducto.Size = new System.Drawing.Size(55, 13);
             this.txbIDProducto.TabIndex = 44;
-            this.txbIDProducto.Text = "IDProducto";
+            this.txbIDProducto.Text = "Productos";
             // 
             // txbCantidad
             // 
@@ -95,18 +95,18 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(97, 194);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 13);
+            this.label4.Size = new System.Drawing.Size(44, 13);
             this.label4.TabIndex = 42;
-            this.label4.Text = "IDCliente";
+            this.label4.Text = "Clientes";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(97, 136);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 13);
+            this.label3.Size = new System.Drawing.Size(48, 13);
             this.label3.TabIndex = 40;
-            this.label3.Text = "IDUsuario";
+            this.label3.Text = "Usuarios";
             // 
             // txbIDVenta
             // 

@@ -105,7 +105,7 @@ namespace General.GUI
                     if (MessageBox.Show("¿Desea ELIMINAR el registro seleccionado?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         Productos oProducto = new Productos();
-                        oProducto.IDProducto = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDProducto"].Value.ToString());
+                        oProducto.IDProducto = Convert.ToString(dataGridView1.CurrentRow.Cells["IDProducto"].Value.ToString());
 
                         if (oProducto.Eliminar())
                         {

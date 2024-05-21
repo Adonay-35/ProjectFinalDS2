@@ -115,11 +115,11 @@ namespace General.GUI
                     Productos oProducto = new Productos();
                     try
                     {
-                        oProducto.IDProducto = Convert.ToInt32(txbProducto.Text);
+                        oProducto.IDProducto = Convert.ToString(txbIDProducto.Text);
                     }
                     catch (Exception)
                     {
-                        oProducto.IDProducto = 0;
+
                     }
 
                     try
@@ -133,7 +133,7 @@ namespace General.GUI
                         oProducto.IDProveedor = 0;
                         //oProducto.IDEstado = 0;
                     }
-                    oProducto.NombreProducto = txbProducto.Text.Trim();
+                    oProducto.Producto = txbProducto.Text.Trim();
                     oProducto.Stock = Convert.ToInt32(txbStock.Text);
                     oProducto.Precio = Convert.ToDouble(txbPrecio.Text);
                     oProducto.Descripcion = txbDescripcion.Text.Trim();

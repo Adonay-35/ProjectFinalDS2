@@ -69,7 +69,7 @@ namespace General.GUI
             return Valido;
         }
 
-        /*private void MostrarUsuarios(ComboBox cbUsarios)
+        private void MostrarUsuarios(ComboBox cbUsarios)
         {
             List<Usuarios> datos = metodosventas.ObtenerUsuarios();
             cbUsuarios.Items.Add("Selecciona una opción");
@@ -78,9 +78,9 @@ namespace General.GUI
                cbUsarios.Items.Add(dato.Usuario);
             }
             cbUsarios.SelectedIndex = 0;
-        }*/
+        }
 
-        /*private void MostrarClientes(ComboBox cbClientes)
+        private void MostrarClientes(ComboBox cbClientes)
         {
 
             List<Clientes> datos = metodosventas.ObtenerClientes();
@@ -90,18 +90,20 @@ namespace General.GUI
                 cbClientes.Items.Add(dato.Nombres);
             }
             cbClientes.SelectedIndex = 0;
-        }/*
+        }
 
-        /*private void MostrarProductos(ComboBox cbProductos)
+        private void MostrarProductos(ComboBox cbProductos)
         {
             List<Productos> datos = metodosventas.ObtenerProductos();
             cbProductos.Items.Add("Selecciona una opción");
             foreach (Productos dato in datos)
             {
-                cbProductos.Items.Add(dato.NombreProducto);
+                cbProductos.Items.Add(dato.Producto);
             }
             cbProductos.SelectedIndex = 0;
-        }*/
+        }
+
+
 
         public VentasEdicion()
         {
@@ -137,6 +139,7 @@ namespace General.GUI
                     {
                         oVenta.IDUsuario = Convert.ToInt32(cbUsuarios.SelectedIndex);
                         oVenta.IDCliente = Convert.ToInt32(cbClientes.SelectedIndex);
+                        oVenta.IDProducto = Convert.ToString(cbProductos.SelectedIndex);
 
                     }
                     catch (Exception)
@@ -189,9 +192,9 @@ namespace General.GUI
 
         private void VentasEdicion_Load(object sender, EventArgs e)
         {
-            //this.MostrarUsuarios(cbUsuarios);
-            //this.MostrarClientes(cbClientes);
-            //this.MostrarProductos(cbProductos);
+            this.MostrarUsuarios(cbUsuarios);
+            this.MostrarClientes(cbClientes);
+            this.MostrarProductos(cbProductos);
         }
     }   
 }
