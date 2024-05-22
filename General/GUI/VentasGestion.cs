@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 namespace General.GUI
 {
+    
     public partial class VentasGestion : Form
     {
         BindingSource _DATOS = new BindingSource();
