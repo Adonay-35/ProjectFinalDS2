@@ -36,7 +36,7 @@ namespace General.GUI
             Cargar();
             lblRegistros.Text = _DATOS.Count.ToString();
         }
-
+        //
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             try
