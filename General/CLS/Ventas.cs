@@ -174,8 +174,7 @@ namespace General.CLS
                 {
                     listaClientes.Add(new Clientes(
                         resultado.GetInt32(0),
-                        resultado.GetString(1),
-                        resultado.GetString(2)
+                        resultado.GetString(1)
                         ));
                 }
 

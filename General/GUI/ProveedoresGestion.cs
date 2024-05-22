@@ -14,11 +14,31 @@ namespace General.GUI
     {
         BindingSource _DATOS = new BindingSource();
 
-        private void CargarProveedores()
+        private void Cargar()
         {
             try
             {
                 _DATOS.DataSource = DataLayer.Consultas.PROVEEDORES();
+                FiltrarLocalmente();
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        private void FiltrarLocalmente()
+        {
+            try
+            {
+                if (txbFiltro.Text.Trim().Length <= 0)
+                {
+                    _DATOS.RemoveFilter();
+                }
+                else
+                {
+                    _DATOS.Filter = "Proveedor like '%" + txbFiltro.Text + "%'";
+                }
                 dataGridView1.AutoGenerateColumns = false;
                 dataGridView1.DataSource = _DATOS;
             }
@@ -27,6 +47,7 @@ namespace General.GUI
 
             }
         }
+
         public ProveedoresGestion()
         {
             InitializeComponent();
@@ -34,7 +55,8 @@ namespace General.GUI
 
         private void ProveedoresGestion_Load(object sender, EventArgs e)
         {
-            CargarProveedores();
+            Cargar();
+            lblRegistros.Text = _DATOS.Count.ToString();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -58,7 +80,7 @@ namespace General.GUI
                     {
                         MessageBox.Show("El registro no ha sido eliminado");
                     }
-                    CargarProveedores();
+                    Cargar();
                 }
             }
             catch (Exception)
@@ -82,7 +104,7 @@ namespace General.GUI
                     oProveedor.txbDireccion.Text = dataGridView1.CurrentRow.Cells["Direccion"].Value.ToString();
                     oProveedor.txbCorreo.Text = dataGridView1.CurrentRow.Cells["Correo"].Value.ToString();
                     oProveedor.ShowDialog();
-                    CargarProveedores();
+                    Cargar();
                 }
             }
             catch (Exception)
@@ -97,13 +119,18 @@ namespace General.GUI
             {
                 ProveedoresEdicion f = new ProveedoresEdicion();
                 f.ShowDialog();
-                CargarProveedores();
+                Cargar();
             }
             catch (Exception)
             {
 
                 throw;
             }
+        }
+
+        private void txbFiltro_TextChanged(object sender, EventArgs e)
+        {
+            FiltrarLocalmente();
         }
     }
 }

@@ -21,6 +21,17 @@ namespace General.CLS
         public string Direccion { get => _Direccion; set => _Direccion = value; }
         public string Correo { get => _Correo; set => _Correo = value; }
 
+
+        public Proveedores(int idPreveedor, string proveedor)
+        {
+            this._IDProveedor = idPreveedor;
+            this._Proveedor = proveedor;
+        }
+
+        public Proveedores()
+        {
+        }
+
         public Boolean Insertar()
         {
             Boolean Resultado = false;

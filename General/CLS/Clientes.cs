@@ -19,6 +19,17 @@ namespace General.CLS
         public string Apellidos { get => _Apellidos; set => _Apellidos = value; }
         public string Correo { get => _Correo; set => _Correo = value; }
 
+
+        public Clientes(int idCliente, string cliente)
+        {
+            this._IDCliente = idCliente;
+            this._Nombres = cliente;
+        }
+
+        public Clientes()
+        {
+        }
+
         public Boolean Insertar()
         {
             Boolean Resultado = false;
