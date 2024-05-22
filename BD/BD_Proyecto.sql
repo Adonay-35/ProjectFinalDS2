@@ -36,7 +36,7 @@ CREATE TABLE Proveedores(
 	Proveedor varchar(100) not null,
 	Contacto double not null,
 	Direccion varchar(200) not null,
-	Email varchar(80) not null
+	Correo varchar(80) not null
 );
 
 CREATE TABLE Categorias(
@@ -111,7 +111,7 @@ INSERT INTO Empleados (IDEmpleado, Nombres, Apellidos, DUI, Direccion, Telefono,
 (4, "Laura Isabel", "Pérez Rodríguez", "44444444-4", "Colonia 4, Caserío 4, casa 4", "4234-5678", "empleado4@correo.com"),
 (5, "Carlos Andrés", "Hernández Bonilla", "55555555-5", "Colonia 5, Caserío 5, casa 5", "5234-5678", "empleado5@correo.com");
 
-INSERT INTO Proveedores (IDProveedor, Proveedor, Contacto, Direccion, Email) VALUES
+INSERT INTO Proveedores (IDProveedor, Proveedor, Contacto, Direccion, Correo) VALUES
 (1,'Refrescos Delicia', 12345678, 'Calle Primavera #123, Ciudad del Sol', 'ventas@refrescosdelicia.com'),
 (2,'Distribuidora de Golosinas', 98765432, 'Avenida Central #456, Barrio Nuevo', 'ventas@golosinasdistribuidora.com'),
 (3,'Suministros Industriales Hermanos Pérez', 32178904, 'Calle Industria #789, Zona Industrial', 'ventas@suministroshermanosperez.com'),

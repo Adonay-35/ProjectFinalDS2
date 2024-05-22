@@ -98,9 +98,5 @@ namespace General.GUI
             Close();
         }
 
-        private void ClientesEdicion_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

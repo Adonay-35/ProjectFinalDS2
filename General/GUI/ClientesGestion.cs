@@ -14,13 +14,12 @@ namespace General.GUI
     {
         BindingSource _DATOS = new BindingSource();
 
-        private void CargarClientes()
+        private void Cargar()
         {
             try
             {
                 _DATOS.DataSource = DataLayer.Consultas.CLIENTES();
-                dataGridView1.AutoGenerateColumns = false;
-                dataGridView1.DataSource = _DATOS;
+                FiltrarLocalmente();
             }
             catch (Exception)
             {
@@ -34,7 +33,8 @@ namespace General.GUI
 
         private void ClientesGestion_Load(object sender, EventArgs e)
         {
-            CargarClientes();
+            Cargar();
+            lblRegistros.Text = _DATOS.Count.ToString();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -57,7 +57,7 @@ namespace General.GUI
                     {
                         MessageBox.Show("Lo siento, pero no puedes eliminar los clientes que tienen registros de ventas asociados");
                     }
-                    CargarClientes();
+                    Cargar();
                 }
             }
             catch (Exception)
@@ -72,7 +72,7 @@ namespace General.GUI
             {
                 ClientesEdicion f = new ClientesEdicion();
                 f.ShowDialog();
-                CargarClientes();
+                Cargar();
             }
             catch (Exception)
             {
@@ -94,7 +94,7 @@ namespace General.GUI
                     oCliente.txbApellidos.Text = dataGridView1.CurrentRow.Cells["Apellidos"].Value.ToString();
                     oCliente.txbCorreo.Text = dataGridView1.CurrentRow.Cells["Correo"].Value.ToString();
                     oCliente.ShowDialog();
-                    CargarClientes();
+                    Cargar();
                 }
             }
             catch (Exception)
@@ -102,6 +102,33 @@ namespace General.GUI
                 throw;
 
             }
+        }
+
+
+        private void FiltrarLocalmente()
+        {
+            try
+            {
+                if (txbFiltro.Text.Trim().Length <= 0)
+                {
+                    _DATOS.RemoveFilter();
+                }
+                else
+                {
+                    _DATOS.Filter = "Nombres like '%" + txbFiltro.Text + "%'";
+                }
+                dataGridView1.AutoGenerateColumns = false;
+                dataGridView1.DataSource = _DATOS;
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        private void txbFiltro_TextChanged(object sender, EventArgs e)
+        {
+            FiltrarLocalmente();
         }
     }
 }
