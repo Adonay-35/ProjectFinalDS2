@@ -10,6 +10,36 @@ namespace DataLayer
     public class Consultas
     {
         //Prueba 
+        public static DataTable PROVEEDORES()
+        {
+            DataTable Resultado = new DataTable();
+            string Consulta = @"SELECT IDProveedor, Proveedor, Contacto, Direccion, Correo FROM proveedores ORDER BY IDProveedor ASC;";
+            DBOperacion operacion = new DBOperacion();
+            try
+            {
+                Resultado = operacion.Consultar(Consulta);
+            }
+            catch (Exception)
+            {
+
+            }
+            return Resultado;
+        }
+        public static DataTable CLIENTES()
+        {
+            DataTable Resultado = new DataTable();
+            string Consulta = @"SELECT IDCliente, Nombres, Apellidos, Correo FROM clientes ORDER BY IDCliente ASC;";
+            DBOperacion operacion = new DBOperacion();
+            try
+            {
+                Resultado = operacion.Consultar(Consulta);
+            }
+            catch (Exception)
+            {
+
+            }
+            return Resultado;
+        }
         public static DataTable USUARIOS()
         {
             DataTable Resultado = new DataTable();
@@ -38,7 +68,7 @@ namespace DataLayer
             }
             catch (Exception)
             {
-                
+
             }
             return Resultado;
         }
@@ -55,11 +85,12 @@ namespace DataLayer
             }
             catch (Exception)
             {
-               
+
             }
             return resultado;
         }
-
-
     }
-}
+
+ }
+
+
