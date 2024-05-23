@@ -43,9 +43,9 @@
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             this.IDVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -61,9 +61,9 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IDVenta,
             this.FechaVenta,
-            this.IDUsuario,
-            this.IDCliente,
-            this.IDProducto,
+            this.Usuario,
+            this.Cliente,
+            this.Producto,
             this.Cantidad,
             this.Total});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -185,29 +185,29 @@
             this.FechaVenta.ReadOnly = true;
             this.FechaVenta.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
-            // IDUsuario
+            // Usuario
             // 
-            this.IDUsuario.DataPropertyName = "IDUsuario";
-            this.IDUsuario.HeaderText = "IDUsuario";
-            this.IDUsuario.Name = "IDUsuario";
-            this.IDUsuario.ReadOnly = true;
-            this.IDUsuario.Width = 150;
+            this.Usuario.DataPropertyName = "Usuario";
+            this.Usuario.HeaderText = "Usuario";
+            this.Usuario.Name = "Usuario";
+            this.Usuario.ReadOnly = true;
+            this.Usuario.Width = 150;
             // 
-            // IDCliente
+            // Cliente
             // 
-            this.IDCliente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.IDCliente.DataPropertyName = "IDCliente";
-            this.IDCliente.HeaderText = "IDCliente";
-            this.IDCliente.Name = "IDCliente";
-            this.IDCliente.ReadOnly = true;
+            this.Cliente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Cliente.DataPropertyName = "Cliente";
+            this.Cliente.HeaderText = "Cliente";
+            this.Cliente.Name = "Cliente";
+            this.Cliente.ReadOnly = true;
             // 
-            // IDProducto
+            // Producto
             // 
-            this.IDProducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.IDProducto.DataPropertyName = "IDProducto";
-            this.IDProducto.HeaderText = "IDProducto";
-            this.IDProducto.Name = "IDProducto";
-            this.IDProducto.ReadOnly = true;
+            this.Producto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Producto.DataPropertyName = "Producto";
+            this.Producto.HeaderText = "Producto";
+            this.Producto.Name = "Producto";
+            this.Producto.ReadOnly = true;
             // 
             // Cantidad
             // 
@@ -263,9 +263,9 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel4;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDVenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaVenta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDUsuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Usuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
     }

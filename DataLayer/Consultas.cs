@@ -73,7 +73,7 @@ namespace DataLayer
         public static DataTable USUARIOS()
         {
             DataTable Resultado = new DataTable();
-            string Consulta = @"SELECT * FROM Usuarios;";
+            string Consulta = @"SELECT * FROM VistaUsuarios;";
             DBOperacion operacion = new DBOperacion();
             try
             {
@@ -89,8 +89,7 @@ namespace DataLayer
         public static DataTable PRODUCTOS()
         {
             DataTable Resultado = new DataTable();
-            string Consulta = @"SELECT IDProducto, Producto, Stock, Precio, FechaFabricacion, FechaVencimiento, Descripcion, IDProveedor, IDCategoria
-                                FROM Productos ORDER BY Producto ASC;";
+            string Consulta = @"SELECT *  FROM VistaProductos";
             DBOperacion operacion = new DBOperacion();
             try
             {
@@ -106,8 +105,7 @@ namespace DataLayer
         public static DataTable VENTAS()
         {
             DataTable resultado = new DataTable();
-            string consulta = @"SELECT IDVenta, FechaVenta, IDUsuario, IDCliente, IDProducto, Cantidad, Total
-                        FROM Ventas ORDER BY FechaVenta ASC;";
+            string consulta = @"SELECT *  FROM VistaVentas";
             DBOperacion operacion = new DBOperacion();
             try
             {

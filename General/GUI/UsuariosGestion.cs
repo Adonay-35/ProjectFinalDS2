@@ -103,7 +103,7 @@ namespace General.GUI
                     oUsuarioEdicion.txbUsuario.Text = dataGridView1.CurrentRow.Cells["Usuario"].Value.ToString();
                     oUsuarioEdicion.txbClave.Text = dataGridView1.CurrentRow.Cells["Clave"].Value.ToString();
                     //oUsuario.cbRoles.SelectedItem = dataGridView1.CurrentRow.Cells["IDRol"].Value.ToString();
-                    oUsuarioEdicion.txbIDEmpleado.Text = dataGridView1.CurrentRow.Cells["IDEmpleado"].Value.ToString();
+                    oUsuarioEdicion.txbIDEmpleado.Text = dataGridView1.CurrentRow.Cells["Empleado"].Value.ToString();
                     //oUsuario.cbEstados.SelectedItem = dataGridView1.CurrentRow.Cells["IDEstado"].Value.ToString();
                     oUsuarioEdicion.ShowDialog();
                     Cargar();

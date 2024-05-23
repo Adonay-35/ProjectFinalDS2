@@ -68,9 +68,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(137, 206);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 13);
+            this.label4.Size = new System.Drawing.Size(54, 13);
             this.label4.TabIndex = 26;
-            this.label4.Text = "IDEmpleado";
+            this.label4.Text = "Empleado";
             // 
             // txbClave
             // 

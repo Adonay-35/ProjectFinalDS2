@@ -32,6 +32,7 @@ namespace ProyectoCRUD.CLS
             }
             return Resultado;
         }
+
         public AppManager()
         {
             SplashScreen();
