@@ -201,5 +201,43 @@ namespace General.CLS
                 }
             }
         }
+
+        public List<Empleados> ObtenerEmpleados()
+        {
+            List<Empleados> listaEmpleados = new List<Empleados>();
+
+            try
+            {
+                sqlConexion.ConnectionString = "Server=localhost;Port=3307;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
+                MySqlCommand comando = new MySqlCommand("ObtenerEmpleados", sqlConexion);
+                comando.CommandType = CommandType.StoredProcedure;
+                sqlConexion.Open();
+                resultado = comando.ExecuteReader();
+
+                while (resultado.Read())
+                {
+                    listaEmpleados.Add(
+                        new Empleados(
+                            resultado.GetInt32(0),
+                            resultado.GetString(1),
+                            resultado.GetString(2)
+                            )
+                        );
+                }
+
+                return listaEmpleados;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (sqlConexion.State == ConnectionState.Open)
+                {
+                    sqlConexion.Close();
+                }
+            }
+        }
     }
 }

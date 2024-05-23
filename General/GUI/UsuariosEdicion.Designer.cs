@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.label5 = new System.Windows.Forms.Label();
-            this.txbIDEmpleado = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txbClave = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,6 +43,7 @@
             this.cbEstados = new System.Windows.Forms.ComboBox();
             this.cbRoles = new System.Windows.Forms.ComboBox();
             this.Notificador = new System.Windows.Forms.ErrorProvider(this.components);
+            this.cbEmpleados = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.Notificador)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,13 +55,6 @@
             this.label5.Size = new System.Drawing.Size(23, 13);
             this.label5.TabIndex = 28;
             this.label5.Text = "Rol";
-            // 
-            // txbIDEmpleado
-            // 
-            this.txbIDEmpleado.Location = new System.Drawing.Point(140, 222);
-            this.txbIDEmpleado.Name = "txbIDEmpleado";
-            this.txbIDEmpleado.Size = new System.Drawing.Size(307, 20);
-            this.txbIDEmpleado.TabIndex = 27;
             // 
             // label4
             // 
@@ -171,16 +164,24 @@
             this.Notificador.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.Notificador.ContainerControl = this;
             // 
+            // cbEmpleados
+            // 
+            this.cbEmpleados.FormattingEnabled = true;
+            this.cbEmpleados.Location = new System.Drawing.Point(140, 222);
+            this.cbEmpleados.Name = "cbEmpleados";
+            this.cbEmpleados.Size = new System.Drawing.Size(307, 21);
+            this.cbEmpleados.TabIndex = 33;
+            // 
             // UsuariosEdicion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(568, 450);
+            this.Controls.Add(this.cbEmpleados);
             this.Controls.Add(this.cbRoles);
             this.Controls.Add(this.cbEstados);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txbIDEmpleado);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txbClave);
             this.Controls.Add(this.label3);
@@ -202,7 +203,6 @@
 
         #endregion
         private System.Windows.Forms.Label label5;
-        public System.Windows.Forms.TextBox txbIDEmpleado;
         private System.Windows.Forms.Label label4;
         public System.Windows.Forms.TextBox txbClave;
         private System.Windows.Forms.Label label3;
@@ -216,5 +216,6 @@
         public System.Windows.Forms.ComboBox cbEstados;
         public System.Windows.Forms.ComboBox cbRoles;
         private System.Windows.Forms.ErrorProvider Notificador;
+        public System.Windows.Forms.ComboBox cbEmpleados;
     }
 }
