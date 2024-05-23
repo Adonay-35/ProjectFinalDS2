@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,6 +16,7 @@ namespace ProyectoCRUD.GUI
         private Boolean _Autorizado = false;
 
         public bool Autorizado { get => _Autorizado; }
+
         public Login()
         {
             InitializeComponent();
@@ -39,6 +41,16 @@ namespace ProyectoCRUD.GUI
                 lblMensaje.Text = "USUARIO O CLAVE ERRONEOS.";
             }
         }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            DialogResult opcion = MessageBox.Show("¿Deseas salir?", "SIV", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (opcion == DialogResult.OK)
+            {
+                Application.Exit();
+            }
+        }
+
     }
     }
 
