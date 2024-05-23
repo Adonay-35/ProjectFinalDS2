@@ -110,21 +110,6 @@ namespace ProyectoCRUD.GUI
             }
         }
 
-        private void rolesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                General.GUI.RolesGestion f = new General.GUI.RolesGestion();
-                f.MdiParent = this;
-                f.Show();
-
-            }
-            catch (Exception)
-            {
-
-            }
-        }
-
         private void menuSalir_Click(object sender, EventArgs e)
         {
             DialogResult opcion = MessageBox.Show("¿Deseas salir del SIV?", "SIV", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
@@ -142,6 +127,21 @@ namespace ProyectoCRUD.GUI
                 this.Close();
                 Login Login = new Login();
                 Login.Show();
+            }
+        }
+
+        private void rolesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                General.GUI.RolesGestion f = new General.GUI.RolesGestion();
+                f.MdiParent = this;
+                f.Show();
+
+            }
+            catch (Exception)
+            {
+
             }
         }
     }
