@@ -130,5 +130,20 @@ namespace ProyectoCRUD.GUI
                 Login.Show();
             }
         }
+
+        private void rolesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                General.GUI.RolesGestion f = new General.GUI.RolesGestion();
+                f.MdiParent = this;
+                f.Show();
+
+            }
+            catch (Exception)
+            {
+
+            }
+        }
     }
 }
