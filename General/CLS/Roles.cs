@@ -30,5 +30,88 @@ namespace General.CLS
         {
             return this._IDRol + " - " + this._Rol;
         }
+
+        public Boolean Insertar()
+        {
+            Boolean Resultado = false;
+            DataLayer.DBOperacion Operacion = new DataLayer.DBOperacion();
+
+            StringBuilder Sentencia = new StringBuilder();
+            Sentencia.Append("INSERT INTO roles(IDRol, Rol) VALUES (");
+            Sentencia.Append(_IDRol + ", '" + _Rol + "');");
+
+
+
+            try
+            {
+                if (Operacion.EjecutarSentencia(Sentencia.ToString()) >= 0)
+                {
+                    Resultado = true;
+                }
+                else
+                {
+                    Resultado = false;
+                }
+            }
+            catch (Exception)
+            {
+                Resultado = false;
+            }
+            return Resultado;
+        }
+        public Boolean Actualizar()
+        {
+            Boolean Resultado = false;
+            DataLayer.DBOperacion Operacion = new DataLayer.DBOperacion();
+
+            StringBuilder Sentencia = new StringBuilder();
+            Sentencia.Append("UPDATE roles SET ");
+            Sentencia.Append("Rol='" + _Rol + "' ");
+            Sentencia.Append("WHERE IDRol=" + _IDRol + ";");
+
+            try
+            {
+                if (Operacion.EjecutarSentencia(Sentencia.ToString()) >= 0)
+                {
+                    Resultado = true;
+                }
+                else
+                {
+                    Resultado = false;
+                }
+            }
+            catch (Exception)
+            {
+                Resultado = false;
+            }
+            return Resultado;
+        }
+
+        public Boolean Eliminar()
+        {
+            Boolean Resultado = false;
+            DataLayer.DBOperacion Operacion = new DataLayer.DBOperacion();
+
+            StringBuilder Sentencia = new StringBuilder();
+            Sentencia.Append("DELETE FROM roles ");
+            Sentencia.Append("WHERE IDRol =" + _IDRol + ";");
+
+            try
+            {
+                if (Operacion.EjecutarSentencia(Sentencia.ToString()) >= 0)
+                {
+                    Resultado = true;
+                }
+                else
+                {
+                    Resultado = false;
+                }
+            }
+            catch (Exception)
+            {
+                Resultado = false;
+            }
+            return Resultado;
+        }
     }
 }
