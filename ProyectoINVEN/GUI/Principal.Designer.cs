@@ -34,6 +34,7 @@
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.empleadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,7 +42,7 @@
             this.menuLogout = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.rolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.categoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,7 +69,8 @@
             this.clientesToolStripMenuItem,
             this.proveedoresToolStripMenuItem,
             this.empleadosToolStripMenuItem,
-            this.rolesToolStripMenuItem});
+            this.rolesToolStripMenuItem,
+            this.categoriasToolStripMenuItem});
             this.generalToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.generalToolStripMenuItem.Name = "generalToolStripMenuItem";
             this.generalToolStripMenuItem.Size = new System.Drawing.Size(73, 23);
@@ -101,6 +103,13 @@
             this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.empleadosToolStripMenuItem.Text = "Empleados";
             this.empleadosToolStripMenuItem.Click += new System.EventHandler(this.empleadosToolStripMenuItem_Click);
+            // 
+            // rolesToolStripMenuItem
+            // 
+            this.rolesToolStripMenuItem.Name = "rolesToolStripMenuItem";
+            this.rolesToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.rolesToolStripMenuItem.Text = "Roles";
+            this.rolesToolStripMenuItem.Click += new System.EventHandler(this.rolesToolStripMenuItem_Click);
             // 
             // productosToolStripMenuItem
             // 
@@ -155,12 +164,12 @@
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // rolesToolStripMenuItem
+            // categoriasToolStripMenuItem
             // 
-            this.rolesToolStripMenuItem.Name = "rolesToolStripMenuItem";
-            this.rolesToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
-            this.rolesToolStripMenuItem.Text = "Roles";
-            this.rolesToolStripMenuItem.Click += new System.EventHandler(this.rolesToolStripMenuItem_Click);
+            this.categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
+            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.categoriasToolStripMenuItem.Text = "Categorias";
+            this.categoriasToolStripMenuItem.Click += new System.EventHandler(this.categoriasToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -199,5 +208,6 @@
         private System.Windows.Forms.ToolStripMenuItem menuLogout;
         private System.Windows.Forms.ToolStripMenuItem menuSalir;
         private System.Windows.Forms.ToolStripMenuItem rolesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem categoriasToolStripMenuItem;
     }
 }

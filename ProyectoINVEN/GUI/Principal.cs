@@ -145,5 +145,20 @@ namespace ProyectoCRUD.GUI
 
             }
         }
+
+        private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                General.GUI.CategoriasGestion f = new General.GUI.CategoriasGestion();
+                f.MdiParent = this;
+                f.Show();
+
+            }
+            catch (Exception)
+            {
+
+            }
+        }
     }
 }

@@ -55,6 +55,12 @@
     <Compile Include="CLS\Roles.cs" />
     <Compile Include="CLS\Usuarios.cs" />
     <Compile Include="CLS\Ventas.cs" />
+    <Compile Include="GUI\CategoriasEdicion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\CategoriasEdicion.Designer.cs">
+      <DependentUpon>CategoriasEdicion.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\ClientesEdicion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,12 @@
     </Compile>
     <Compile Include="GUI\EmpleadosGestion.Designer.cs">
       <DependentUpon>EmpleadosGestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\CategoriasGestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\CategoriasGestion.Designer.cs">
+      <DependentUpon>CategoriasGestion.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\ProductosEdicion.cs">
       <SubType>Form</SubType>
@@ -157,6 +169,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="GUI\CategoriasEdicion.resx">
+      <DependentUpon>CategoriasEdicion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\CategoriasGestion.resx">
+      <DependentUpon>CategoriasGestion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\ClientesEdicion.resx">
       <DependentUpon>ClientesEdicion.cs</DependentUpon>
     </EmbeddedResource>
