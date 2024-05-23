@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="CLS\Categorias.cs" />
     <Compile Include="CLS\Clientes.cs" />
+    <Compile Include="CLS\Empleados.cs" />
     <Compile Include="CLS\Estados.cs" />
     <Compile Include="CLS\Productos.cs" />
     <Compile Include="CLS\Proveedores.cs" />
@@ -65,6 +66,18 @@
     </Compile>
     <Compile Include="GUI\ClientesGestion.Designer.cs">
       <DependentUpon>ClientesGestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\EmpleadosEdicion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\EmpleadosEdicion.Designer.cs">
+      <DependentUpon>EmpleadosEdicion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\EmpleadosGestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\EmpleadosGestion.Designer.cs">
+      <DependentUpon>EmpleadosGestion.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\ProductosEdicion.cs">
       <SubType>Form</SubType>
@@ -89,6 +102,18 @@
     </Compile>
     <Compile Include="GUI\ProveedoresGestion.Designer.cs">
       <DependentUpon>ProveedoresGestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\RolesEdicion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\RolesEdicion.Designer.cs">
+      <DependentUpon>RolesEdicion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\RolesGestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\RolesGestion.Designer.cs">
+      <DependentUpon>RolesGestion.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\UsuariosEdicion.cs">
       <SubType>Form</SubType>
@@ -138,6 +163,12 @@
     <EmbeddedResource Include="GUI\ClientesGestion.resx">
       <DependentUpon>ClientesGestion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\EmpleadosEdicion.resx">
+      <DependentUpon>EmpleadosEdicion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\EmpleadosGestion.resx">
+      <DependentUpon>EmpleadosGestion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\ProductosEdicion.resx">
       <DependentUpon>ProductosEdicion.cs</DependentUpon>
     </EmbeddedResource>
@@ -149,6 +180,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ProveedoresGestion.resx">
       <DependentUpon>ProveedoresGestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\RolesEdicion.resx">
+      <DependentUpon>RolesEdicion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\RolesGestion.resx">
+      <DependentUpon>RolesGestion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\UsuariosEdicion.resx">
       <DependentUpon>UsuariosEdicion.cs</DependentUpon>
