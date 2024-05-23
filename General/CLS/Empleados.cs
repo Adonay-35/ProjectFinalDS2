@@ -1,6 +1,8 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,7 +10,11 @@ namespace General.CLS
 {
     internal class Empleados
     {
-         Int32 _IDEmpleado;
+        MySqlDataReader resultado;
+        DataTable tabla = new DataTable();
+        MySqlConnection sqlConexion = new MySqlConnection();
+
+        Int32 _IDEmpleado;
          string _Nombres;
          string _Apellidos;
          string _DUI;
@@ -16,10 +22,10 @@ namespace General.CLS
          string _Telefono;
          string _Correo;
 
-        public Empleados(int idEmpleado, string empleado, string apellidos)
+        public Empleados(int idEmpleado, string nombres, string apellidos)
         {
             this._IDEmpleado = idEmpleado;
-            this._Nombres = empleado;
+            this._Nombres = nombres;
             this._Apellidos = apellidos;
         }
 
@@ -28,7 +34,7 @@ namespace General.CLS
         }
 
 
-    public Int32 IDEmpleado { get => _IDEmpleado; set => _IDEmpleado = value; }
+        public Int32 IDEmpleado { get => _IDEmpleado; set => _IDEmpleado = value; }
         public string Nombres { get => _Nombres; set => _Nombres = value; }
         public string Apellidos { get => _Apellidos; set => _Apellidos = value; }
         public string Dui { get => _DUI; set => _DUI = value; }
@@ -122,6 +128,11 @@ namespace General.CLS
                 Resultado = false;
             }
             return Resultado;
+        }
+
+        public string toString()
+        {
+            return this.Nombres + " " + this.Apellidos;
         }
     }
 }

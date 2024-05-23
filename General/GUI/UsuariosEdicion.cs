@@ -34,9 +34,9 @@ namespace General.GUI
                     Valido = false;
                 }
 
-                if (txbIDEmpleado.Text.Trim().Length == 0)
+                if (cbEmpleados.Text.Trim().Length == 0)
                 {
-                    Notificador.SetError(txbIDEmpleado, "Este campo no puede quedar vacio");
+                    Notificador.SetError(cbEmpleados, "Este campo no puede quedar vacio");
                     Valido = false;
                 }
 
@@ -78,6 +78,7 @@ namespace General.GUI
         {
             this.MostrarEstados(cbEstados);
             this.MostrarRoles(cbRoles);
+            this.MostrarEmpleados(cbEmpleados);
         }
 
         private void MostrarRoles(ComboBox cbRoles)
@@ -89,6 +90,17 @@ namespace General.GUI
                 cbRoles.Items.Add(dato.Rol);
             }
             cbRoles.SelectedIndex = 0;
+        }
+
+        private void MostrarEmpleados(ComboBox cbEmpleados)
+        {
+            List<Empleados> datos = metodosUsuarios.ObtenerEmpleados();
+            cbEmpleados.Items.Add("Selecciona una opción");
+            foreach (Empleados dato in datos)
+            {
+                cbEmpleados.Items.Add(dato.Nombres + " " + dato.Apellidos);
+            }
+            cbEmpleados.SelectedIndex = 0;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -107,7 +119,7 @@ namespace General.GUI
                     nuevoUsuario.Usuario = txbUsuario.Text;
                     nuevoUsuario.Clave = txbClave.Text;
                     nuevoUsuario.IDRol = Convert.ToInt32(cbRoles.SelectedValue);
-                    nuevoUsuario.IDEmpleado = Convert.ToInt32(txbIDEmpleado.Text);
+                    nuevoUsuario.IDEmpleado = Convert.ToInt32(cbEmpleados.SelectedValue);
                     nuevoUsuario.IDEstado = Convert.ToInt32(cbEstados.SelectedValue);
 
                     if (nuevoUsuario.Insertar())
@@ -126,7 +138,7 @@ namespace General.GUI
                     usuarioExistente.Usuario = txbUsuario.Text;
                     usuarioExistente.Clave = txbClave.Text;
                     usuarioExistente.IDRol = Convert.ToInt32(cbRoles.SelectedValue);
-                    usuarioExistente.IDEmpleado = Convert.ToInt32(txbIDEmpleado.Text);
+                    usuarioExistente.IDEmpleado = Convert.ToInt32(cbEmpleados.SelectedValue);
                     usuarioExistente.IDEstado = Convert.ToInt32(cbEstados.SelectedValue);
 
                     if (usuarioExistente.Actualizar())

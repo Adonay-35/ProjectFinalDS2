@@ -208,6 +208,13 @@ SELECT *
 FROM clientes;
 END $$
 
+DELIMITER $$
+CREATE PROCEDURE ObtenerEmpleados()
+BEGIN
+SELECT *
+FROM empleados;
+END $$
+
 DELIMITER //
 CREATE PROCEDURE ObtenerProductos()
 BEGIN
