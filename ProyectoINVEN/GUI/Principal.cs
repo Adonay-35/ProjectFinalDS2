@@ -130,6 +130,7 @@ namespace ProyectoCRUD.GUI
             }
         }
 
+
         private void rolesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
