@@ -9,6 +9,22 @@ namespace DataLayer
 {
     public class Consultas
     {
+        public static DataTable ROLES()
+        {
+            DataTable Resultado = new DataTable();
+            string Consulta = @"SELECT IDRol, Rol FROM roles ORDER BY IDRol ASC;";
+            DBOperacion operacion = new DBOperacion();
+            try
+            {
+                Resultado = operacion.Consultar(Consulta);
+            }
+            catch (Exception)
+            {
+
+            }
+            return Resultado;
+        }
+
         public static DataTable EMPLEADOS()
         {
             DataTable Resultado = new DataTable();
