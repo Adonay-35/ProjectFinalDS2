@@ -94,7 +94,7 @@ namespace General.CLS
                     Resultado = false;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Resultado = false;
             }
