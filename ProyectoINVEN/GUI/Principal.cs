@@ -1,4 +1,5 @@
-﻿using SesionManager;
+﻿using ProyectoCRUD.CLS;
+using SesionManager;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -107,6 +108,26 @@ namespace ProyectoCRUD.GUI
             catch (Exception)
             {
 
+            }
+        }
+
+        private void menuSalir_Click(object sender, EventArgs e)
+        {
+            DialogResult opcion = MessageBox.Show("¿Deseas salir del SIV?", "SIV", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (opcion == DialogResult.OK)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void menuLogout_Click(object sender, EventArgs e)
+        {
+            DialogResult opcion = MessageBox.Show("¿Deseas cerrar sesión?", "SIV", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (opcion == DialogResult.OK)
+            {
+                this.Close();
+                Login Login = new Login();
+                Login.Show();
             }
         }
     }

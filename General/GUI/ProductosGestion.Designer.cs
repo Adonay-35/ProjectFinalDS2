@@ -48,8 +48,8 @@
             this.FechaFabricacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaVencimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDProveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -68,8 +68,8 @@
             this.FechaFabricacion,
             this.FechaVencimiento,
             this.Descripcion,
-            this.IDProveedor,
-            this.IDCategoria});
+            this.Proveedor,
+            this.Categoria});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 25);
             this.dataGridView1.Name = "dataGridView1";
@@ -228,19 +228,19 @@
             this.Descripcion.Name = "Descripcion";
             this.Descripcion.ReadOnly = true;
             // 
-            // IDProveedor
+            // Proveedor
             // 
-            this.IDProveedor.DataPropertyName = "IDProveedor";
-            this.IDProveedor.HeaderText = "IDProveedor";
-            this.IDProveedor.Name = "IDProveedor";
-            this.IDProveedor.ReadOnly = true;
+            this.Proveedor.DataPropertyName = "Proveedor";
+            this.Proveedor.HeaderText = "Proveedor";
+            this.Proveedor.Name = "Proveedor";
+            this.Proveedor.ReadOnly = true;
             // 
-            // IDCategoria
+            // Categoria
             // 
-            this.IDCategoria.DataPropertyName = "IDCategoria";
-            this.IDCategoria.HeaderText = "IDCategoria";
-            this.IDCategoria.Name = "IDCategoria";
-            this.IDCategoria.ReadOnly = true;
+            this.Categoria.DataPropertyName = "Categoria";
+            this.Categoria.HeaderText = "Categoria";
+            this.Categoria.Name = "Categoria";
+            this.Categoria.ReadOnly = true;
             // 
             // ProductosGestion
             // 
@@ -285,7 +285,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaFabricacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaVencimiento;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDProveedor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDCategoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Proveedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
     }
 }
