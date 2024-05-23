@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace General.GUI
 {
-    public partial class RolesGestion : Form
+    public partial class CategoriasGestion : Form
     {
         BindingSource _DATOS = new BindingSource();
 
@@ -18,7 +18,7 @@ namespace General.GUI
         {
             try
             {
-                _DATOS.DataSource = DataLayer.Consultas.ROLES();
+                _DATOS.DataSource = DataLayer.Consultas.CATEGORIAS();
                 FiltrarLocalmente();
             }
             catch (Exception)
@@ -37,7 +37,7 @@ namespace General.GUI
                 }
                 else
                 {
-                    _DATOS.Filter = "Rol like '%" + txbFiltro.Text + "%'";
+                    _DATOS.Filter = "Categoria like '%" + txbFiltro.Text + "%'";
                 }
                 dataGridView1.AutoGenerateColumns = false;
                 dataGridView1.DataSource = _DATOS;
@@ -47,29 +47,16 @@ namespace General.GUI
 
             }
         }
-
-        public RolesGestion()
+        public CategoriasGestion()
         {
             InitializeComponent();
         }
-
-        private void RolesGestion_Load(object sender, EventArgs e)
-        {
-            Cargar();
-            lblRegistros.Text = _DATOS.Count.ToString();
-        }
-
-        private void txbFiltro_TextChanged(object sender, EventArgs e)
-        {
-            FiltrarLocalmente();
-        }
-
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             try
             {
-                RolesEdicion f = new RolesEdicion();
+                CategoriasEdicion f = new CategoriasEdicion();
                 f.ShowDialog();
                 Cargar();
                 lblRegistros.Text = _DATOS.Count.ToString();
@@ -80,17 +67,16 @@ namespace General.GUI
             }
         }
 
-
         private void btnEditar_Click(object sender, EventArgs e)
         {
             try
             {
                 if (MessageBox.Show("¿Desea EDITAR el registro seleccionado?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    RolesEdicion oRolesEdicion = new RolesEdicion();
-                    oRolesEdicion.txbIDRol.Text = dataGridView1.CurrentRow.Cells["IDRol"].Value.ToString();
-                    oRolesEdicion.txbRol.Text = dataGridView1.CurrentRow.Cells["Rol"].Value.ToString();
-                    oRolesEdicion.ShowDialog();
+                    CategoriasEdicion oCategoriasEdicion = new CategoriasEdicion();
+                    oCategoriasEdicion.txbIDCategoria.Text = dataGridView1.CurrentRow.Cells["IDCategoria"].Value.ToString();
+                    oCategoriasEdicion.txbCategoria.Text = dataGridView1.CurrentRow.Cells["Categoria"].Value.ToString();
+                    oCategoriasEdicion.ShowDialog();
                     Cargar();
                 }
             }
@@ -106,9 +92,9 @@ namespace General.GUI
             {
                 if (MessageBox.Show("¿Desea ELIMINAR el registro seleccionado", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    CLS.Roles oRol = new CLS.Roles((Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDRol"].Value.ToString())), "dummyRol");
-                    oRol.IDRol = (Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDRol"].Value.ToString()));
-                    if (oRol.Eliminar())
+                    CLS.Categorias oCategoria = new CLS.Categorias((Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDCategoria"].Value.ToString())), "dummyCategoria");
+                    oCategoria.IDCategoria = (Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDCategoria"].Value.ToString()));
+                    if (oCategoria.EliminarCategoria())
                     {
                         MessageBox.Show("Registro eliminado");
                     }
@@ -118,13 +104,24 @@ namespace General.GUI
                     }
                     Cargar();
                     lblRegistros.Text = _DATOS.Count.ToString();
-
                 }
             }
             catch (Exception)
             {
 
             }
+        }
+
+
+        private void CategoriasGestion_Load(object sender, EventArgs e)
+        {
+            Cargar();
+            lblRegistros.Text = _DATOS.Count.ToString();
+        }
+
+        private void txbFiltro_TextChanged(object sender, EventArgs e)
+        {
+            FiltrarLocalmente();
         }
     }
 }
