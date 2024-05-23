@@ -23,13 +23,12 @@ namespace General.CLS
             this._Rol = rol;
         }
 
+        public Roles()
+        {
+        }
+
         public int IDRol { get => _IDRol; set => _IDRol = value; }
         public string Rol { get => _Rol; set => _Rol = value; }
-
-        public string toString()
-        {
-            return this._IDRol + " - " + this._Rol;
-        }
 
         public Boolean Insertar()
         {
