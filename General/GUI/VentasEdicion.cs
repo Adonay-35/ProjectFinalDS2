@@ -121,72 +121,58 @@ namespace General.GUI
             {
                 if (Validar())
                 {
-                    // CREAR UN OBJETO A PARTIR DE LA CLASE ENTIDAD
-                    // SINCRONIZAR EL OBJETO CON LA GUI
-                    Ventas oVenta = new Ventas();
-                    try
-                    {
 
-                        oVenta.IDVenta = Convert.ToInt32(txbIDVenta.Text);
-
-                    }
-                    catch (Exception)
-                    {
-                        oVenta.IDUsuario = 0;
-                    }
-
-                    try
-                    {
+                    if (string.IsNullOrEmpty(txbIDVenta.Text))
+                    { 
+                        // CREAR UN OBJETO A PARTIR DE LA CLASE ENTIDAD
+                        // SINCRONIZAR EL OBJETO CON LA GUI
+                        Ventas oVenta = new Ventas(Convert.ToString(txbIDVenta.Text));
+                        oVenta.FechaVenta = Convert.ToDateTime(txbFechaVenta.Text);
                         oVenta.IDUsuario = Convert.ToInt32(cbUsuarios.SelectedIndex);
                         oVenta.IDCliente = Convert.ToInt32(cbClientes.SelectedIndex);
                         oVenta.IDProducto = Convert.ToString(cbProductos.SelectedIndex);
+                        oVenta.Cantidad = Convert.ToInt32(txbCantidad.Text);
+                        oVenta.Total = Convert.ToDouble(txbTotal.Text);
 
-                    }
-                    catch (Exception)
-                    {
-                        oVenta.IDVenta = 0;
-                        oVenta.IDCliente = 0;
-                        
-                    }
-
-                    oVenta.FechaVenta = Convert.ToDateTime(txbFechaVenta.Text);
-                    oVenta.IDUsuario = Convert.ToInt32(cbUsuarios.Text);
-                    oVenta.IDCliente = Convert.ToInt32(cbClientes.Text);
-                    oVenta.IDProducto = Convert.ToString(cbProductos.Text);
-                    oVenta.Cantidad = Convert.ToInt32(txbCantidad.Text);
-                    oVenta.Total = Convert.ToDouble(txbTotal.Text);
-
-                    if (txbIDVenta.Text.Trim().Length == 0)
-                    {
                         // GUARDAR NUEVO REGISTRO
                         if (oVenta.Insertar())
                         {
                             MessageBox.Show("Registro Guardado");
-                            Close();
+                            
                         }
                         else
                         {
                             MessageBox.Show("El registro no pudo ser almacenado");
                         }
                     }
-                        else
+                    else
                     {
+                        Ventas oVenta = new Ventas(Convert.ToString(txbIDVenta.Text));
+
+                        oVenta.FechaVenta = Convert.ToDateTime(txbFechaVenta.Text);
+                        oVenta.IDUsuario = Convert.ToInt32(cbUsuarios.SelectedIndex);
+                        oVenta.IDCliente = Convert.ToInt32(cbClientes.SelectedIndex);
+                        oVenta.IDProducto = Convert.ToString(cbProductos.SelectedIndex);
+                        oVenta.Cantidad = Convert.ToInt32(txbCantidad.Text);
+                        oVenta.Total = Convert.ToDouble(txbTotal.Text);
+
                         // ACTUALIZAR REGISTRO
                         if (oVenta.Actualizar())
                         {
                             MessageBox.Show("Registro Actualizado");
-                            Close();
+                            
                         }
                         else
                         {
                             MessageBox.Show("El registro no pudo ser actualizado");
                         }
                     }
+                    this.Close();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
         }
 

@@ -114,7 +114,6 @@
             // 
             this.txbIDProducto.Location = new System.Drawing.Point(80, 21);
             this.txbIDProducto.Name = "txbIDProducto";
-            this.txbIDProducto.ReadOnly = true;
             this.txbIDProducto.Size = new System.Drawing.Size(103, 20);
             this.txbIDProducto.TabIndex = 36;
             // 

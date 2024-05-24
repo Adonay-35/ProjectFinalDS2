@@ -21,22 +21,17 @@ namespace General.GUI
             Boolean valido = true;
             try
             {
-                if (txbIDProducto.Text.Trim().Length == 0)
-                {
-                    Notificador.SetError(txbIDProducto, "El campo 'ID Producto' no puede quedar vacío");
-                    valido = false;
-                }
                 if (txbProducto.Text.Trim().Length == 0)
                 {
                     Notificador.SetError(txbProducto, "El campo 'Nombre Producto' no puede quedar vacío");
                     valido = false;
                 }
-                if (txbStock.Text.Trim().Length == 0 || !int.TryParse(txbStock.Text, out int stock) || stock <= 0)
+                if (txbStock.Text.Trim().Length == 0)
                 {
                     Notificador.SetError(txbStock, "El campo 'Stock' debe ser un valor mayor que cero");
                     valido = false;
                 }
-                if (txbPrecio.Text.Trim().Length == 0 || !double.TryParse(txbPrecio.Text, out double precio) || precio <= 0)
+                if (txbPrecio.Text.Trim().Length == 0)
                 {
                     Notificador.SetError(txbPrecio, "El campo 'Precio' debe ser un valor mayor que cero");
                     valido = false;
@@ -46,22 +41,22 @@ namespace General.GUI
                     Notificador.SetError(txbDescripcion, "El campo 'Descripción' no puede quedar vacío");
                     valido = false;
                 }
-                if (txbFechaFabricacion.Text.Trim().Length == 0 || !DateTime.TryParse(txbFechaFabricacion.Text, out DateTime fechaCreacion))
+                if (txbFechaFabricacion.Text.Trim().Length == 0)
                 {
                     Notificador.SetError(txbFechaFabricacion, "El campo 'Fecha de Creación' no puede quedar vacío y debe ser una fecha válida");
                     valido = false;
                 }
-                if (txbFechaVencimiento.Text.Trim().Length == 0 || !DateTime.TryParse(txbFechaVencimiento.Text, out DateTime fechaVencimiento))
+                if (txbFechaVencimiento.Text.Trim().Length == 0)
                 {
                     Notificador.SetError(txbFechaVencimiento, "El campo 'Fecha de Vencimiento' no puede quedar vacío y debe ser una fecha válida");
                     valido = false;
                 }
-                if (cbProveedor.Text.Trim().Length == 0 || !int.TryParse(cbProveedor.Text, out int idProveedor) || idProveedor <= 0)
+                if (cbProveedor.Text.Trim().Length == 0)
                 {
                     Notificador.SetError(cbProveedor, "El campo 'ID Proveedor' debe ser un valor mayor que cero");
                     valido = false;
                 }
-                if (cbCategoria.Text.Trim().Length == 0 || !int.TryParse(cbCategoria.Text, out int idCategoria) || idCategoria <= 0)
+                if (cbCategoria.Text.Trim().Length == 0)
                 {
                     Notificador.SetError(cbCategoria, "El campo 'ID Categoría' debe ser un valor mayor que cero");
                     valido = false;
@@ -110,72 +105,54 @@ namespace General.GUI
             {
                 if (Validar())
                 {
-                    // CREAR UN OBJETO A PARTIR DE LA CLASE ENTIDAD
-                    // SINCRONIZAR EL OBJETO CON LA GUI
-                    Productos oProducto = new Productos();
-                    try
-                    {
-                        oProducto.IDProducto = Convert.ToString(txbIDProducto.Text);
-                    }
-                    catch (Exception)
-                    {
+                    // Crear un nuevo producto
+                    CLS.Productos oProducto = new CLS.Productos();
 
-                    }
-
-                    try
-                    {
-                        oProducto.IDProveedor = Convert.ToInt32(cbProveedor.SelectedIndex);
-                        oProducto.IDCategoria = Convert.ToInt32(cbCategoria.SelectedIndex);
-                        
-                    }
-                    catch (Exception)
-                    {
-                        oProducto.IDProveedor = 0;
-                        //oProducto.IDEstado = 0;
-                    }
-                    oProducto.Producto = txbProducto.Text.Trim();
+                    oProducto.Producto = txbProducto.Text;
                     oProducto.Stock = Convert.ToInt32(txbStock.Text);
                     oProducto.Precio = Convert.ToDouble(txbPrecio.Text);
-                    oProducto.Descripcion = txbDescripcion.Text.Trim();
-                    oProducto.IDProveedor = Convert.ToInt32(cbProveedor.Text);
+                    oProducto.Descripcion = txbDescripcion.Text;
+                    oProducto.IDProveedor = Convert.ToInt32(cbProveedor.SelectedIndex);
                     oProducto.FechaFabricacion = Convert.ToDateTime(txbFechaFabricacion.Text);
                     oProducto.FechaVencimiento = Convert.ToDateTime(txbFechaVencimiento.Text);
-                    oProducto.IDCategoria = Convert.ToInt32(cbCategoria.Text);
+                    oProducto.IDCategoria = Convert.ToInt32(cbCategoria.SelectedIndex);
 
-                    if (string.IsNullOrWhiteSpace(txbIDProducto.Text))
+                    if (string.IsNullOrEmpty(txbIDProducto.Text.Trim()))
                     {
-                        // GUARDAR NUEVO REGISTRO
+                        // Crear un nuevo producto
                         if (oProducto.Insertar())
                         {
-                            MessageBox.Show("Registro Guardado");
+                            MessageBox.Show("Producto creado exitosamente");
                             Close();
                         }
                         else
                         {
-                            MessageBox.Show("El registro no pudo ser almacenado");
+                            MessageBox.Show("Error al crear producto");
                         }
                     }
                     else
                     {
-                        // ACTUALIZAR REGISTRO
+                        oProducto.IDProducto = Convert.ToInt32(txbIDProducto.Text);
+                        // Actualizar un producto existente
                         if (oProducto.Actualizar())
                         {
-                            MessageBox.Show("Registro Actualizado");
+                            MessageBox.Show("Producto actualizado exitosamente");
                             Close();
                         }
                         else
                         {
-                            MessageBox.Show("El registro no pudo ser actualizado");
+                            MessageBox.Show("Error al actualizar producto");
                         }
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                MessageBox.Show("Error: " + ex.Message);
             }
-
         }
+
+
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
