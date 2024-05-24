@@ -82,21 +82,24 @@ namespace General.GUI
         {
             try
             {
-                if (MessageBox.Show("¿Desea EDITAR el registro seleccionado?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (dataGridView1.SelectedRows.Count > 0)
                 {
-                    ProductosEdicion oProducto = new ProductosEdicion();
+                    if (MessageBox.Show("¿Desea EDITAR el registro seleccionado?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        ProductosEdicion oProducto = new ProductosEdicion();
+                        oProducto.txbIDProducto.Text = dataGridView1.CurrentRow.Cells["IDProducto"].Value.ToString();
+                        oProducto.txbProducto.Text = dataGridView1.CurrentRow.Cells["Producto"].Value.ToString();
+                        oProducto.txbStock.Text = dataGridView1.CurrentRow.Cells["Stock"].Value.ToString();
+                        oProducto.txbPrecio.Text = dataGridView1.CurrentRow.Cells["Precio"].Value.ToString();
+                        oProducto.txbDescripcion.Text = dataGridView1.CurrentRow.Cells["Descripcion"].Value.ToString();
+                        oProducto.cbProveedor.Text = dataGridView1.CurrentRow.Cells["Proveedor"].Value.ToString();
+                        oProducto.txbFechaFabricacion.Text = dataGridView1.CurrentRow.Cells["FechaFabricacion"].Value.ToString();
+                        oProducto.txbFechaVencimiento.Text = dataGridView1.CurrentRow.Cells["FechaVencimiento"].Value.ToString();
+                        oProducto.cbCategoria.Text = dataGridView1.CurrentRow.Cells["Categoria"].Value.ToString();
+                        oProducto.ShowDialog();
 
-                    oProducto.txbIDProducto.Text = dataGridView1.CurrentRow.Cells["IDProducto"].Value.ToString();
-                    oProducto.txbProducto.Text = dataGridView1.CurrentRow.Cells["Producto"].Value.ToString();
-                    oProducto.txbStock.Text = dataGridView1.CurrentRow.Cells["Stock"].Value.ToString();
-                    oProducto.txbPrecio.Text = dataGridView1.CurrentRow.Cells["Precio"].Value.ToString();
-                    oProducto.txbDescripcion.Text = dataGridView1.CurrentRow.Cells["Descripcion"].Value.ToString();
-                    oProducto.cbProveedor.SelectedItem = dataGridView1.CurrentRow.Cells["Proveedor"].Value.ToString();
-                    oProducto.txbFechaFabricacion.Text = dataGridView1.CurrentRow.Cells["FechaFabricacion"].Value.ToString();
-                    oProducto.txbFechaVencimiento.Text = dataGridView1.CurrentRow.Cells["FechaVencimiento"].Value.ToString();
-                    oProducto.cbCategoria.SelectedItem = dataGridView1.CurrentRow.Cells["Categoria"].Value.ToString();
-                    oProducto.ShowDialog();
-                    Cargar();
+                        Cargar();
+                    }
                 }
             }
             catch (Exception)

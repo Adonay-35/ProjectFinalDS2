@@ -99,6 +99,9 @@ namespace General.GUI
                 if (MessageBox.Show("¿Desea EDITAR el registro seleccionado?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     UsuariosEdicion oUsuarioEdicion = new UsuariosEdicion();
+                    oUsuarioEdicion.MostrarRoles(oUsuarioEdicion.cbRoles);
+                    oUsuarioEdicion.MostrarEmpleados(oUsuarioEdicion.cbEmpleados);
+                    oUsuarioEdicion.MostrarEstados(oUsuarioEdicion.cbEstados);
                     oUsuarioEdicion.txbIDUsuario.Text = dataGridView1.CurrentRow.Cells["IDUsuario"].Value.ToString();
                     oUsuarioEdicion.txbUsuario.Text = dataGridView1.CurrentRow.Cells["Usuario"].Value.ToString();
                     oUsuarioEdicion.txbClave.Text = dataGridView1.CurrentRow.Cells["Clave"].Value.ToString();
