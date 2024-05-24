@@ -79,7 +79,7 @@ namespace General.CLS
             Sentencia.Append("UPDATE usuarios  SET ");
             Sentencia.Append("Usuario ='" + _Usuario + "',");
             Sentencia.Append("Clave = MD5('" + _Clave + "'),");
-            Sentencia.Append("IDRol ='" + _IDRol + "',");
+            Sentencia.Append("IDRol =" + _IDRol + ",");
             Sentencia.Append("IDEmpleado =" + _IDEmpleado + ",");
             Sentencia.Append("IDEstado =" + _IDEstado);
             Sentencia.Append(" WHERE IDUsuario =" + _IDUsuario + ";");
@@ -133,7 +133,7 @@ namespace General.CLS
 
             try
             {
-                sqlConexion.ConnectionString = "Server=localhost;Port=3306;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
+                sqlConexion.ConnectionString = "Server=localhost;Port=3307;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
                 MySqlCommand comando = new MySqlCommand("ObtenerRoles", sqlConexion);
                 comando.CommandType = CommandType.StoredProcedure;
                 sqlConexion.Open();
@@ -170,7 +170,7 @@ namespace General.CLS
 
             try
             {
-                sqlConexion.ConnectionString = "Server=localhost;Port=3306;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
+                sqlConexion.ConnectionString = "Server=localhost;Port=3307;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
                 MySqlCommand comando = new MySqlCommand("ObtenerEstados", sqlConexion);
                 comando.CommandType = CommandType.StoredProcedure;
                 sqlConexion.Open();

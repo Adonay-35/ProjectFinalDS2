@@ -89,7 +89,7 @@ namespace General.GUI
             {
                 cbRoles.Items.Add(dato.Rol);
             }
-            cbRoles.SelectedIndex = 0;
+            //cbRoles.SelectedIndex = 0;
         }
 
         private void MostrarEmpleados(ComboBox cbEmpleados)
@@ -118,9 +118,9 @@ namespace General.GUI
                     CLS.Usuarios nuevoUsuario = new CLS.Usuarios(0, txbUsuario.Text); // Usa 0 para IDUsuario si es un nuevo usuario
                     nuevoUsuario.Usuario = txbUsuario.Text;
                     nuevoUsuario.Clave = txbClave.Text;
-                    nuevoUsuario.IDRol = Convert.ToInt32(cbRoles.SelectedValue);
-                    nuevoUsuario.IDEmpleado = Convert.ToInt32(cbEmpleados.SelectedValue);
-                    nuevoUsuario.IDEstado = Convert.ToInt32(cbEstados.SelectedValue);
+                    nuevoUsuario.IDRol = Convert.ToInt32(cbRoles.SelectedIndex);
+                    nuevoUsuario.IDEmpleado = Convert.ToInt32(cbEmpleados.SelectedIndex);
+                    nuevoUsuario.IDEstado = Convert.ToInt32(cbEstados.SelectedIndex);
 
                     if (nuevoUsuario.Insertar())
                     {
@@ -137,9 +137,9 @@ namespace General.GUI
                     CLS.Usuarios usuarioExistente = new CLS.Usuarios(Convert.ToInt32(txbIDUsuario.Text), txbUsuario.Text);
                     usuarioExistente.Usuario = txbUsuario.Text;
                     usuarioExistente.Clave = txbClave.Text;
-                    usuarioExistente.IDRol = Convert.ToInt32(cbRoles.SelectedValue);
-                    usuarioExistente.IDEmpleado = Convert.ToInt32(cbEmpleados.SelectedValue);
-                    usuarioExistente.IDEstado = Convert.ToInt32(cbEstados.SelectedValue);
+                    usuarioExistente.IDRol = Convert.ToInt32(cbRoles.SelectedIndex);
+                    usuarioExistente.IDEmpleado = Convert.ToInt32(cbEmpleados.SelectedIndex);
+                    usuarioExistente.IDEstado = Convert.ToInt32(cbEstados.SelectedIndex);
 
                     if (usuarioExistente.Actualizar())
                     {
