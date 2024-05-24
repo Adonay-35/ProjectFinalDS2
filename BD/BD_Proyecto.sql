@@ -211,7 +211,7 @@ END $$
 DELIMITER $$
 CREATE PROCEDURE ObtenerEmpleados()
 BEGIN
-SELECT *
+SELECT IDEmpleado, Nombres,Apellidos
 FROM empleados;
 END $$
 
