@@ -89,7 +89,7 @@ namespace General.GUI
             {
                 cbRoles.Items.Add(dato.Rol);
             }
-            //cbRoles.SelectedIndex = 0;
+            cbRoles.SelectedIndex = 0;
         }
 
         private void MostrarEmpleados(ComboBox cbEmpleados)
