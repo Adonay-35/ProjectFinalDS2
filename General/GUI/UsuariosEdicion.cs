@@ -63,25 +63,30 @@ namespace General.GUI
             InitializeComponent();
         }
 
-        private void MostrarEstados(ComboBox cbEstados)
+        public void MostrarEstados(ComboBox cbEstados)
         {
             List<Estados> datos = metodosUsuarios.ObtenerEstados();
             cbEstados.Items.Add("Selecciona una opción");
             foreach (Estados dato in datos)
             {
-                cbEstados.Items.Add(dato.Estado + 1 + "- " + dato.Descripcion);
+                cbEstados.Items.Add(dato.Descripcion);
             }
-            cbEstados.SelectedIndex = 0;
         }
 
         private void UsuariosEdicion_Load(object sender, EventArgs e)
         {
-            this.MostrarEstados(cbEstados);
-            this.MostrarRoles(cbRoles);
-            this.MostrarEmpleados(cbEmpleados);
+            if(string.IsNullOrEmpty(txbIDUsuario.Text))
+            {
+                this.MostrarEstados(cbEstados);
+                this.MostrarRoles(cbRoles);
+                this.MostrarEmpleados(cbEmpleados);
+                cbEmpleados.SelectedIndex = 0;
+                cbEstados.SelectedIndex = 0;
+                cbRoles.SelectedIndex = 0;
+            }
         }
 
-        private void MostrarRoles(ComboBox cbRoles)
+        public void MostrarRoles(ComboBox cbRoles)
         {
             List<Roles> datos = metodosUsuarios.ObtenerRoles();
             cbRoles.Items.Add("Selecciona una opción");
@@ -89,10 +94,9 @@ namespace General.GUI
             {
                 cbRoles.Items.Add(dato.Rol);
             }
-            //cbRoles.SelectedIndex = 0;
         }
 
-        private void MostrarEmpleados(ComboBox cbEmpleados)
+        public void MostrarEmpleados(ComboBox cbEmpleados)
         {
             List<Empleados> datos = metodosUsuarios.ObtenerEmpleados();
             cbEmpleados.Items.Add("Selecciona una opción");
@@ -100,7 +104,6 @@ namespace General.GUI
             {
                 cbEmpleados.Items.Add(dato.Nombres + " " + dato.Apellidos);
             }
-            cbEmpleados.SelectedIndex = 0;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -121,6 +124,7 @@ namespace General.GUI
                     nuevoUsuario.IDRol = Convert.ToInt32(cbRoles.SelectedIndex);
                     nuevoUsuario.IDEmpleado = Convert.ToInt32(cbEmpleados.SelectedIndex);
                     nuevoUsuario.IDEstado = Convert.ToInt32(cbEstados.SelectedIndex);
+                    
 
                     if (nuevoUsuario.Insertar())
                     {
