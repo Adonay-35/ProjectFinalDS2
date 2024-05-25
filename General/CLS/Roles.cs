@@ -39,8 +39,6 @@ namespace General.CLS
             Sentencia.Append("INSERT INTO roles(IDRol, Rol) VALUES (");
             Sentencia.Append(_IDRol + ", '" + _Rol + "');");
 
-
-
             try
             {
                 if (Operacion.EjecutarSentencia(Sentencia.ToString()) >= 0)
