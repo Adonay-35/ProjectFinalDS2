@@ -14,7 +14,7 @@ namespace General.GUI
 {
     public partial class ProductosEdicion : Form
     {
-        Productos metodosProveedores = new Productos();
+        Productos metodosProductos = new Productos();
 
         private Boolean Validar()
         {
@@ -77,25 +77,23 @@ namespace General.GUI
 
         private void MostrarProveedores(ComboBox cbProveedor)
         {
-            List<Proveedores> datos = metodosProveedores.ObtenerProveedores();
+            List<Proveedores> datos = metodosProductos.ObtenerProveedores();
             cbProveedor.Items.Add("Selecciona una opción");
             foreach (Proveedores dato in datos)
             {
                 cbProveedor.Items.Add(dato.Proveedor);
-            }
-            cbProveedor.SelectedIndex = 0;
+            };
         }
 
         private void MostrarCategorias(ComboBox cbCategoria)
         {
 
-            List<Categorias> datos = metodosProveedores.ObtenerCategorias();
+            List<Categorias> datos = metodosProductos.ObtenerCategorias();
             cbCategoria.Items.Add("Selecciona una opción");
             foreach (Categorias dato in datos)
             {
                 cbCategoria.Items.Add(dato.Categoria);
             }
-            cbCategoria.SelectedIndex = 0;
         }
 
 
@@ -162,7 +160,17 @@ namespace General.GUI
         private void ProductosEdicion_Load(object sender, EventArgs e)
         {
             this.MostrarProveedores(cbProveedor);
-            this.MostrarCategorias(cbCategoria); 
+            this.MostrarCategorias(cbCategoria);
+
+            if (string.IsNullOrEmpty(txbIDProducto.Text))
+            {
+                cbProveedor.SelectedIndex = 0;
+                cbCategoria.SelectedIndex = 0;
+            }
+            else
+            {
+             
+            }
         }
     }
 }

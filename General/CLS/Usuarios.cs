@@ -216,8 +216,7 @@ namespace General.CLS
 
                 while (resultado.Read())
                 {
-                    listaEmpleados.Add(
-                        new Empleados(
+                    listaEmpleados.Add(new Empleados(
                             resultado.GetInt32(0),
                             resultado.GetString(1),
                             resultado.GetString(2)
