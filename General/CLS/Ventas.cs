@@ -14,15 +14,15 @@ namespace General.CLS
         DataTable tabla = new DataTable();
         MySqlConnection sqlConexion = new MySqlConnection();
 
-        string _IDVenta;
+        Int32 _IDVenta;
         DateTime _FechaVenta;
         Int32 _IDUsuario;
         Int32 _IDCliente;
-        string _IDProducto;
+        Int32 _IDProducto;
         Int32 _Cantidad;
         double _Total;
 
-        public Ventas(String idVenta)
+        public Ventas(int idVenta)
         {
             this._IDVenta = idVenta;
         }
@@ -31,12 +31,12 @@ namespace General.CLS
         { 
         }
 
-        public string IDVenta { get => _IDVenta; set => _IDVenta = value; }
+        public int IDVenta { get => _IDVenta; set => _IDVenta = value; }
         public DateTime FechaVenta { get => _FechaVenta; set => _FechaVenta = value; }
-        public Int32 IDUsuario { get => _IDUsuario; set => _IDUsuario = value; }
-        public Int32 IDCliente { get => _IDCliente; set => _IDCliente = value; }
-        public string IDProducto { get => _IDProducto; set => _IDProducto = value; }
-        public Int32 Cantidad { get => _Cantidad; set => _Cantidad = value; }
+        public int IDUsuario { get => _IDUsuario; set => _IDUsuario = value; }
+        public int IDCliente { get => _IDCliente; set => _IDCliente = value; }
+        public int IDProducto { get => _IDProducto; set => _IDProducto = value; }
+        public int Cantidad { get => _Cantidad; set => _Cantidad = value; }
         public double Total { get => _Total; set => _Total = value; }
 
 
@@ -48,13 +48,12 @@ namespace General.CLS
 
             StringBuilder Sentencia = new StringBuilder();
             Sentencia.Append("INSERT INTO ventas (FechaVenta, IDUsuario, IDCliente, IDProducto, Cantidad, Total) VALUES (");
-            Sentencia.Append("'" + _IDVenta + "', ");
-            Sentencia.Append("'" + _FechaVenta.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
-            Sentencia.Append(_IDUsuario + ", ");
-            Sentencia.Append(_IDCliente + ", ");
-            Sentencia.Append(_IDProducto + "', ");
-            Sentencia.Append("'" + _Cantidad + "', ");
-            Sentencia.Append("'" + _Total + ");");
+            Sentencia.Append("'" + _FechaVenta.ToString("yyyy-MM-dd HH:mm:ss") + "', "); 
+            Sentencia.Append(_IDUsuario + ", ");  
+            Sentencia.Append(_IDCliente + ", ");  
+            Sentencia.Append(_IDProducto + ", ");  
+            Sentencia.Append(_Cantidad + ", "); 
+            Sentencia.Append(_Total + ");"); 
 
             try
             {
@@ -73,6 +72,7 @@ namespace General.CLS
             }
             return Resultado;
         }
+
 
         public Boolean Actualizar()
         {
@@ -186,7 +186,8 @@ namespace General.CLS
                 {
                     listaClientes.Add(new Clientes(
                         resultado.GetInt32(0),
-                        resultado.GetString(1)
+                        resultado.GetString(1),
+                        resultado.GetString(2)
                         ));
                 }
 

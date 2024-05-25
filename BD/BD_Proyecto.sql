@@ -54,7 +54,7 @@ CREATE TABLE Usuarios(
 );
 
 CREATE TABLE Productos (
-    IDProducto int auto_increment key not null,
+    IDProducto int auto_increment primary key,
     Producto varchar(200) not null,
     Stock int not null,
     Precio double not null,
@@ -67,7 +67,7 @@ CREATE TABLE Productos (
 
 
 CREATE TABLE Ventas (
-    IDVenta int auto_increment primary key null,
+    IDVenta int auto_increment primary key,
     FechaVenta datetime not null,
     IDUsuario int not null,
     IDCliente int not null,
@@ -159,11 +159,11 @@ INSERT INTO Productos (Producto, Stock, Precio, FechaFabricacion, FechaVencimien
 ('Lápiz de colores', 300, 1.99, '2022-01-01 17:00:00', '2100-01-01 17:00:00', 'Paquete de 12 lápices de colores surtidos', 5, 21);
 
 INSERT INTO Ventas (FechaVenta, IDUsuario, IDCliente, IDProducto, Cantidad, Total) VALUES
-('2024-05-01 08:30:00', 4, 1, 'PROD001', 4 , 7.96),
-('2024-05-02 10:15:00', 4, 2, 'PROD003', 3 , 7.47),
-('2024-05-03 13:45:00', 5, 3, 'PROD004', 5 , 29.95),
-('2024-05-04 15:20:00', 3, 4, 'PROD001', 4 , 7.96),
-('2024-05-05 17:00:00', 5, 5, 'PROD002', 7 , 6.93);
+('2024-05-01 08:30:00', 4, 1, '1', 4 , 7.96),
+('2024-05-02 10:15:00', 4, 2, '3', 3 , 7.47),
+('2024-05-03 13:45:00', 5, 3, '4', 5 , 29.95),
+('2024-05-04 15:20:00', 3, 4, '5', 4 , 7.96),
+('2024-05-05 17:00:00', 5, 5, '2', 7 , 6.93);
 
 
 

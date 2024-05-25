@@ -75,7 +75,7 @@ namespace General.GUI
         }
 
 
-        private void MostrarProveedores(ComboBox cbProveedor)
+        public void MostrarProveedores(ComboBox cbProveedor)
         {
             List<Proveedores> datos = metodosProductos.ObtenerProveedores();
             cbProveedor.Items.Add("Selecciona una opción");
@@ -85,7 +85,7 @@ namespace General.GUI
             };
         }
 
-        private void MostrarCategorias(ComboBox cbCategoria)
+        public void MostrarCategorias(ComboBox cbCategoria)
         {
 
             List<Categorias> datos = metodosProductos.ObtenerCategorias();
@@ -103,20 +103,21 @@ namespace General.GUI
             {
                 if (Validar())
                 {
-                    // Crear un nuevo producto
-                    CLS.Productos oProducto = new CLS.Productos();
-
-                    oProducto.Producto = txbProducto.Text;
-                    oProducto.Stock = Convert.ToInt32(txbStock.Text);
-                    oProducto.Precio = Convert.ToDouble(txbPrecio.Text);
-                    oProducto.Descripcion = txbDescripcion.Text;
-                    oProducto.IDProveedor = Convert.ToInt32(cbProveedor.SelectedIndex);
-                    oProducto.FechaFabricacion = Convert.ToDateTime(txbFechaFabricacion.Text);
-                    oProducto.FechaVencimiento = Convert.ToDateTime(txbFechaVencimiento.Text);
-                    oProducto.IDCategoria = Convert.ToInt32(cbCategoria.SelectedIndex);
-
+                   
                     if (string.IsNullOrEmpty(txbIDProducto.Text.Trim()))
                     {
+                        // Crear un nuevo producto
+                        CLS.Productos oProducto = new CLS.Productos();
+
+                        oProducto.Producto = txbProducto.Text;
+                        oProducto.Stock = Convert.ToInt32(txbStock.Text);
+                        oProducto.Precio = Convert.ToDouble(txbPrecio.Text);
+                        oProducto.Descripcion = txbDescripcion.Text;
+                        oProducto.IDProveedor = Convert.ToInt32(cbProveedor.SelectedIndex);
+                        oProducto.FechaFabricacion = Convert.ToDateTime(txbFechaFabricacion.Text);
+                        oProducto.FechaVencimiento = Convert.ToDateTime(txbFechaVencimiento.Text);
+                        oProducto.IDCategoria = Convert.ToInt32(cbCategoria.SelectedIndex);
+
                         // Crear un nuevo producto
                         if (oProducto.Insertar())
                         {
@@ -130,7 +131,18 @@ namespace General.GUI
                     }
                     else
                     {
+                       
+                        // Crear un nuevo producto
+                        CLS.Productos oProducto = new CLS.Productos();
                         oProducto.IDProducto = Convert.ToInt32(txbIDProducto.Text);
+                        oProducto.Producto = txbProducto.Text;
+                        oProducto.Stock = Convert.ToInt32(txbStock.Text);
+                        oProducto.Precio = Convert.ToDouble(txbPrecio.Text);
+                        oProducto.Descripcion = txbDescripcion.Text;
+                        oProducto.IDProveedor = Convert.ToInt32(cbProveedor.SelectedIndex);
+                        oProducto.FechaFabricacion = Convert.ToDateTime(txbFechaFabricacion.Text);
+                        oProducto.FechaVencimiento = Convert.ToDateTime(txbFechaVencimiento.Text);
+                        oProducto.IDCategoria = Convert.ToInt32(cbCategoria.SelectedIndex);
                         // Actualizar un producto existente
                         if (oProducto.Actualizar())
                         {
@@ -159,18 +171,14 @@ namespace General.GUI
 
         private void ProductosEdicion_Load(object sender, EventArgs e)
         {
-            this.MostrarProveedores(cbProveedor);
-            this.MostrarCategorias(cbCategoria);
 
             if (string.IsNullOrEmpty(txbIDProducto.Text))
             {
+                this.MostrarProveedores(cbProveedor);
+                this.MostrarCategorias(cbCategoria);
                 cbProveedor.SelectedIndex = 0;
                 cbCategoria.SelectedIndex = 0;
-            }
-            else
-            {
-             
-            }
+            }    
         }
     }
 }

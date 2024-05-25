@@ -20,10 +20,11 @@ namespace General.CLS
         public string Correo { get => _Correo; set => _Correo = value; }
 
 
-        public Clientes(int idCliente, string cliente)
+        public Clientes(int idCliente, string nombre, string apellidos)
         {
             this._IDCliente = idCliente;
-            this._Nombres = cliente;
+            this._Nombres = nombre;
+            this._Apellidos = apellidos;
         }
 
         public Clientes()
