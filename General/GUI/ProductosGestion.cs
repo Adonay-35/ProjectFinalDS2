@@ -87,6 +87,8 @@ namespace General.GUI
                     if (MessageBox.Show("¿Desea EDITAR el registro seleccionado?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         ProductosEdicion oProducto = new ProductosEdicion();
+                        oProducto.MostrarProveedores(oProducto.cbProveedor);
+                        oProducto.MostrarCategorias(oProducto.cbCategoria);
                         oProducto.txbIDProducto.Text = dataGridView1.CurrentRow.Cells["IDProducto"].Value.ToString();
                         oProducto.txbProducto.Text = dataGridView1.CurrentRow.Cells["Producto"].Value.ToString();
                         oProducto.txbStock.Text = dataGridView1.CurrentRow.Cells["Stock"].Value.ToString();

@@ -27,9 +27,6 @@ SELECT
     P.FechaVencimiento, 
     P.Descripcion, 
     PR.Proveedor, 
-    PR.Contacto, 
-    PR.Direccion, 
-    PR.Correo, 
     C.Categoria
 FROM 
     Productos P

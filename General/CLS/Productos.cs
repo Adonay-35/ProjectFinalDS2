@@ -35,15 +35,15 @@ namespace General.CLS
         {
         }
 
-        public Int32 IDProducto { get => _IDProducto; set => _IDProducto = value; }
+        public int IDProducto { get => _IDProducto; set => _IDProducto = value; }
         public string Producto { get => _Producto; set => _Producto = value; }
-        public Int32 Stock { get => _Stock; set => _Stock = value; }
+        public int Stock { get => _Stock; set => _Stock = value; }
         public double Precio { get => _Precio; set => _Precio = value; }
         public string Descripcion { get => _Descripcion; set => _Descripcion = value; }
-        public Int32 IDProveedor { get => _IDProveedor; set => _IDProveedor = value; }
+        public int IDProveedor { get => _IDProveedor; set => _IDProveedor = value; }
         public DateTime FechaFabricacion { get => _FechaFabricacion; set => _FechaFabricacion = value; }
         public DateTime FechaVencimiento { get => _FechaVencimiento; set => _FechaVencimiento = value; }
-        public Int32 IDCategoria { get => _IDCategoria; set => _IDCategoria = value; }
+        public int IDCategoria { get => _IDCategoria; set => _IDCategoria = value; }
 
         public Boolean Insertar()
         {
@@ -156,7 +156,8 @@ namespace General.CLS
                             listaProveedores.Add(new Proveedores(
                                 resultado.GetInt32(0),
                                 resultado.GetString(1)
-                                ));
+                                )
+                             );
                         }
 
                 return listaProveedores;
@@ -178,8 +179,8 @@ namespace General.CLS
         {
             List<Categorias> listaCategorias = new List<Categorias>();
             try 
-            { 
-                MySqlConnection sqlConexion = new MySqlConnection("Server=localhost;Port=3306;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;");
+            {
+                sqlConexion.ConnectionString = "Server=localhost;Port=3306;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
                 MySqlCommand comando = new MySqlCommand("ObtenerCategorias", sqlConexion);
                 comando.CommandType = CommandType.StoredProcedure;
                 sqlConexion.Open();

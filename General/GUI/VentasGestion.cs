@@ -39,7 +39,7 @@ namespace General.GUI
                 }
                 else
                 {
-                    _DATOS.Filter = "IDVenta like '%" + txbFiltro.Text + "%'"; 
+                    _DATOS.Filter = "Cliente like '%" + txbFiltro.Text + "%'"; 
 
                 }
                 dataGridView1.AutoGenerateColumns = false;
@@ -75,6 +75,9 @@ namespace General.GUI
                     if (MessageBox.Show("¿Desea EDITAR el registro seleccionado?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         VentasEdicion oVenta = new VentasEdicion();
+                        oVenta.MostrarUsuarios(oVenta.cbUsuarios);
+                        oVenta.MostrarClientes(oVenta.cbClientes);
+                        oVenta.MostrarProductos(oVenta.cbProductos);
                         oVenta.txbIDVenta.Text = dataGridView1.CurrentRow.Cells["IDVenta"].Value.ToString();
                         oVenta.txbFechaVenta.Text = dataGridView1.CurrentRow.Cells["FechaVenta"].Value.ToString();
                         oVenta.cbUsuarios.SelectedItem = dataGridView1.CurrentRow.Cells["Usuario"].Value.ToString();
@@ -103,7 +106,7 @@ namespace General.GUI
                     if (MessageBox.Show("¿Desea ELIMINAR el registro seleccionado?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         Ventas oVenta = new Ventas();
-                        oVenta.IDVenta = Convert.ToString(dataGridView1.CurrentRow.Cells["IDVenta"].Value.ToString());
+                        oVenta.IDVenta = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDVenta"].Value.ToString());
 
                         if (oVenta.Eliminar())
                         {
