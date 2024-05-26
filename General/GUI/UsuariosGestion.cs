@@ -1,4 +1,5 @@
-﻿using System;
+﻿using General.CLS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -104,7 +105,8 @@ namespace General.GUI
                     oUsuarioEdicion.MostrarEstados(oUsuarioEdicion.cbEstados);
                     oUsuarioEdicion.txbIDUsuario.Text = dataGridView1.CurrentRow.Cells["IDUsuario"].Value.ToString();
                     oUsuarioEdicion.txbUsuario.Text = dataGridView1.CurrentRow.Cells["Usuario"].Value.ToString();
-                    oUsuarioEdicion.txbClave.Text = dataGridView1.CurrentRow.Cells["Clave"].Value.ToString();
+
+                    //oUsuarioEdicion.txbClave.Text = dataGridView1.CurrentRow.Cells.["Clave"].Value.ToString();
                     oUsuarioEdicion.cbRoles.SelectedItem = dataGridView1.CurrentRow.Cells["Rol"].Value.ToString();
                     oUsuarioEdicion.cbEmpleados.SelectedItem = dataGridView1.CurrentRow.Cells["Empleado"].Value.ToString();
                     oUsuarioEdicion.cbEstados.SelectedItem = dataGridView1.CurrentRow.Cells["Estado"].Value.ToString();
