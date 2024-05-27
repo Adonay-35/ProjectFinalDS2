@@ -50,7 +50,7 @@ namespace General.CLS
             StringBuilder Sentencia = new StringBuilder();
             Sentencia.Append("INSERT INTO usuarios(Usuario,Clave,IDRol,IDEmpleado,IDEstado) VALUES(");
             Sentencia.Append("'" + _Usuario + "',");
-            Sentencia.Append("('" + claveEncriptada + "'),");
+            Sentencia.Append("'" + claveEncriptada + "',");
             Sentencia.Append(_IDRol + ",");
             Sentencia.Append(_IDEmpleado + ",");
             Sentencia.Append(_IDEstado + ");");
