@@ -120,7 +120,7 @@ namespace General.GUI
                     // Crear nuevo usuario
                     CLS.Usuarios nuevoUsuario = new CLS.Usuarios(0, txbUsuario.Text); // Usa 0 para IDUsuario si es un nuevo usuario
                     nuevoUsuario.Usuario = txbUsuario.Text;
-                    nuevoUsuario.Clave = Encryptar.GetSHA256(txbClave.Text);
+                    nuevoUsuario.Clave = txbClave.Text;
                     nuevoUsuario.IDRol = Convert.ToInt32(cbRoles.SelectedIndex);
                     nuevoUsuario.IDEmpleado = Convert.ToInt32(cbEmpleados.SelectedIndex);
                     nuevoUsuario.IDEstado = Convert.ToInt32(cbEstados.SelectedIndex);
@@ -140,7 +140,7 @@ namespace General.GUI
                     // Actualizar usuario existente
                     CLS.Usuarios usuarioExistente = new CLS.Usuarios(Convert.ToInt32(txbIDUsuario.Text), txbUsuario.Text);
                     usuarioExistente.Usuario = txbUsuario.Text;
-                    usuarioExistente.Clave = Encryptar.GetSHA256(txbClave.Text);
+                    usuarioExistente.Clave = txbClave.Text;
                     usuarioExistente.IDRol = Convert.ToInt32(cbRoles.SelectedIndex);
                     usuarioExistente.IDEmpleado = Convert.ToInt32(cbEmpleados.SelectedIndex);
                     usuarioExistente.IDEstado = Convert.ToInt32(cbEstados.SelectedIndex);
