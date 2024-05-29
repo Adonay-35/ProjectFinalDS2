@@ -23,8 +23,8 @@ SELECT
     P.Producto, 
     P.Stock, 
     P.Precio, 
-    P.FechaFabricacion, 
-    P.FechaVencimiento, 
+    DATE_FORMAT(P.FechaFabricacion, '%d-%m-%Y' ) AS FechaFabricacion, 
+    DATE_FORMAT(P.FechaVencimiento, '%d-%m-%Y' ) AS FechaVencimiento, 
     P.Descripcion, 
     PR.Proveedor, 
     C.Categoria
@@ -39,11 +39,12 @@ ORDER BY
     
 CREATE VIEW VistaVentas AS
 SELECT 
-    V.IDVenta, 
-    V.FechaVenta, 
+    V.IDVenta,
+    DATE_FORMAT(V.FechaVenta, '%d-%m-%Y' ) AS FechaVenta, 
     U.Usuario AS Usuario, 
     CONCAT(C.Nombres, ' ', C.Apellidos) AS Cliente, 
     P.Producto AS Producto, 
+    P.Precio,
     V.Cantidad, 
     V.Total
 FROM 

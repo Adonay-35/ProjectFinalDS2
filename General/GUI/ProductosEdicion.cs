@@ -41,14 +41,14 @@ namespace General.GUI
                     Notificador.SetError(txbDescripcion, "El campo 'Descripción' no puede quedar vacío");
                     valido = false;
                 }
-                if (txbFechaFabricacion.Text.Trim().Length == 0)
-                {
-                    Notificador.SetError(txbFechaFabricacion, "El campo 'Fecha de Creación' no puede quedar vacío y debe ser una fecha válida");
-                    valido = false;
-                }
                 if (txbFechaVencimiento.Text.Trim().Length == 0)
                 {
-                    Notificador.SetError(txbFechaVencimiento, "El campo 'Fecha de Vencimiento' no puede quedar vacío y debe ser una fecha válida");
+                    Notificador.SetError(txbFechaVencimiento, "El campo 'Fecha de Creación' no puede quedar vacío y debe ser una fecha válida");
+                    valido = false;
+                }
+                if (txbFechaFabricacion.Text.Trim().Length == 0)
+                {
+                    Notificador.SetError(txbFechaFabricacion, "El campo 'Fecha de Vencimiento' no puede quedar vacío y debe ser una fecha válida");
                     valido = false;
                 }
                 if (cbProveedor.Text.Trim().Length == 0)
