@@ -22,7 +22,7 @@ create table Distritos(
 );
 
 create table Direcciones(
-	ID_Direccion int primary key ,
+	ID_Direccion int auto_increment primary key ,
     Linea1 varchar(100) not null,
     Linea2 varchar(100) not null,
     ID_Distrito varchar(5) not null,
@@ -599,6 +599,34 @@ CREATE PROCEDURE ObtenerEmpleados()
 BEGIN
 SELECT IDEmpleado, Nombres,Apellidos
 FROM empleados;
+END $$
+
+DELIMITER $$
+CREATE PROCEDURE ObtenerDepartamentos()
+BEGIN
+SELECT ID_Departamento, Departamento
+FROM departamentos;
+END $$
+
+DELIMITER $$
+CREATE PROCEDURE ObtenerMunicipios()
+BEGIN
+SELECT ID_Municipio, Municipio
+FROM municipios;
+END $$
+
+DELIMITER $$
+CREATE PROCEDURE ObtenerDistritos()
+BEGIN
+SELECT ID_Distrito, Distrito
+FROM distritos;
+END $$
+
+DELIMITER $$
+CREATE PROCEDURE ObtenerDirecciones()
+BEGIN
+SELECT ID_Direccion, Linea
+FROM direcciones;
 END $$
 
 DELIMITER //
