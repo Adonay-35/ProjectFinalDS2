@@ -39,15 +39,15 @@ namespace General.GUI
                 }
                 else
                 {
-                    _DATOS.Filter = "IDVenta like '%" + txbFiltro.Text + "%'"; 
+                    _DATOS.Filter = "Cliente like '%" + txbFiltro.Text + "%'"; 
 
                 }
                 dataGridView1.AutoGenerateColumns = false;
                 dataGridView1.DataSource = _DATOS;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Error al filtrar ventas: " + ex.Message);
+                
             }
         }
 
@@ -58,10 +58,11 @@ namespace General.GUI
                 VentasEdicion f = new VentasEdicion();
                 f.ShowDialog();
                 Cargar();
+                lblRegistros.Text = _DATOS.Count.ToString();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Error al agregar venta: " + ex.Message);
+                throw;
             }
         }
 
@@ -74,11 +75,15 @@ namespace General.GUI
                     if (MessageBox.Show("¿Desea EDITAR el registro seleccionado?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         VentasEdicion oVenta = new VentasEdicion();
+                        oVenta.MostrarUsuarios(oVenta.cbUsuarios);
+                        oVenta.MostrarClientes(oVenta.cbClientes);
+                        oVenta.MostrarProductos(oVenta.cbProductos);
                         oVenta.txbIDVenta.Text = dataGridView1.CurrentRow.Cells["IDVenta"].Value.ToString();
-                        oVenta.txbFechaVenta.Text = dataGridView1.CurrentRow.Cells["FechaVenta"].Value.ToString();
-                        oVenta.cbUsuarios.Text = dataGridView1.CurrentRow.Cells["IDUsuario"].Value.ToString();
-                        oVenta.cbClientes.Text = dataGridView1.CurrentRow.Cells["IDCliente"].Value.ToString();
-                        oVenta.cbProductos.Text = dataGridView1.CurrentRow.Cells["IDProducto"].Value.ToString();
+                        //oVenta.txbFechaVenta.Text = dataGridView1.CurrentRow.Cells["FechaVenta"].Value.ToString();
+                        oVenta.cbUsuarios.SelectedItem = dataGridView1.CurrentRow.Cells["Usuario"].Value.ToString();
+                        oVenta.cbClientes.SelectedItem = dataGridView1.CurrentRow.Cells["Cliente"].Value.ToString();
+                        oVenta.cbProductos.SelectedItem = dataGridView1.CurrentRow.Cells["Producto"].Value.ToString();
+                        oVenta.txbPrecio.Text = dataGridView1.CurrentRow.Cells["Precio"].Value.ToString();
                         oVenta.txbCantidad.Text = dataGridView1.CurrentRow.Cells["Cantidad"].Value.ToString();
                         oVenta.txbTotal.Text = dataGridView1.CurrentRow.Cells["Total"].Value.ToString();
                         oVenta.ShowDialog();
@@ -87,9 +92,9 @@ namespace General.GUI
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Error al editar venta: " + ex.Message);
+                throw;
             }
         }
 
@@ -117,9 +122,9 @@ namespace General.GUI
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Error al eliminar venta: " + ex.Message);
+               
             }
         }
 

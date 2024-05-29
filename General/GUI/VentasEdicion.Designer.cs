@@ -33,11 +33,9 @@
             this.cbClientes = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txbIDProducto = new System.Windows.Forms.Label();
-            this.txbCantidad = new System.Windows.Forms.TextBox();
+            this.txbPrecio = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txbIDVenta = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -45,7 +43,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.cbUsuarios = new System.Windows.Forms.ComboBox();
             this.Notificador = new System.Windows.Forms.ErrorProvider(this.components);
-            this.txbFechaVenta = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dtpFechVenta = new System.Windows.Forms.DateTimePicker();
+            this.txbIDVenta = new System.Windows.Forms.TextBox();
+            this.txbCantidad = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Notificador)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,9 +72,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(97, 304);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(49, 13);
+            this.label6.Size = new System.Drawing.Size(37, 13);
             this.label6.TabIndex = 45;
-            this.label6.Text = "Cantidad";
+            this.label6.Text = "Precio";
             // 
             // txbIDProducto
             // 
@@ -83,12 +85,12 @@
             this.txbIDProducto.TabIndex = 44;
             this.txbIDProducto.Text = "Productos";
             // 
-            // txbCantidad
+            // txbPrecio
             // 
-            this.txbCantidad.Location = new System.Drawing.Point(100, 323);
-            this.txbCantidad.Name = "txbCantidad";
-            this.txbCantidad.Size = new System.Drawing.Size(307, 20);
-            this.txbCantidad.TabIndex = 43;
+            this.txbPrecio.Location = new System.Drawing.Point(100, 323);
+            this.txbPrecio.Name = "txbPrecio";
+            this.txbPrecio.Size = new System.Drawing.Size(307, 20);
+            this.txbPrecio.TabIndex = 43;
             // 
             // label4
             // 
@@ -108,23 +110,6 @@
             this.label3.TabIndex = 40;
             this.label3.Text = "Usuarios";
             // 
-            // txbIDVenta
-            // 
-            this.txbIDVenta.Location = new System.Drawing.Point(100, 31);
-            this.txbIDVenta.Name = "txbIDVenta";
-            this.txbIDVenta.ReadOnly = true;
-            this.txbIDVenta.Size = new System.Drawing.Size(103, 20);
-            this.txbIDVenta.TabIndex = 38;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(97, 75);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 13);
-            this.label2.TabIndex = 37;
-            this.label2.Text = "FechaVenta";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -136,7 +121,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(332, 400);
+            this.btnCancelar.Location = new System.Drawing.Point(332, 458);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 35;
@@ -146,7 +131,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(100, 400);
+            this.btnGuardar.Location = new System.Drawing.Point(100, 458);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 34;
@@ -156,7 +141,7 @@
             // 
             // txbTotal
             // 
-            this.txbTotal.Location = new System.Drawing.Point(100, 362);
+            this.txbTotal.Location = new System.Drawing.Point(100, 423);
             this.txbTotal.Name = "txbTotal";
             this.txbTotal.Size = new System.Drawing.Size(307, 20);
             this.txbTotal.TabIndex = 48;
@@ -164,7 +149,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(97, 346);
+            this.label7.Location = new System.Drawing.Point(97, 407);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(31, 13);
             this.label7.TabIndex = 47;
@@ -183,19 +168,56 @@
             this.Notificador.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.Notificador.ContainerControl = this;
             // 
-            // txbFechaVenta
+            // label2
             // 
-            this.txbFechaVenta.Location = new System.Drawing.Point(100, 100);
-            this.txbFechaVenta.Name = "txbFechaVenta";
-            this.txbFechaVenta.Size = new System.Drawing.Size(307, 20);
-            this.txbFechaVenta.TabIndex = 54;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(97, 54);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 13);
+            this.label2.TabIndex = 37;
+            this.label2.Text = "FechaVenta";
+            // 
+            // dtpFechVenta
+            // 
+            this.dtpFechVenta.Location = new System.Drawing.Point(100, 94);
+            this.dtpFechVenta.Name = "dtpFechVenta";
+            this.dtpFechVenta.Size = new System.Drawing.Size(307, 20);
+            this.dtpFechVenta.TabIndex = 50;
+            // 
+            // txbIDVenta
+            // 
+            this.txbIDVenta.Location = new System.Drawing.Point(100, 31);
+            this.txbIDVenta.Name = "txbIDVenta";
+            this.txbIDVenta.ReadOnly = true;
+            this.txbIDVenta.Size = new System.Drawing.Size(75, 20);
+            this.txbIDVenta.TabIndex = 51;
+            // 
+            // txbCantidad
+            // 
+            this.txbCantidad.Location = new System.Drawing.Point(100, 372);
+            this.txbCantidad.Name = "txbCantidad";
+            this.txbCantidad.Size = new System.Drawing.Size(307, 20);
+            this.txbCantidad.TabIndex = 53;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(97, 356);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(49, 13);
+            this.label5.TabIndex = 52;
+            this.label5.Text = "Cantidad";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // VentasEdicion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(512, 450);
-            this.Controls.Add(this.txbFechaVenta);
+            this.ClientSize = new System.Drawing.Size(512, 506);
+            this.Controls.Add(this.txbCantidad);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txbIDVenta);
+            this.Controls.Add(this.dtpFechVenta);
             this.Controls.Add(this.cbUsuarios);
             this.Controls.Add(this.txbTotal);
             this.Controls.Add(this.label7);
@@ -203,10 +225,9 @@
             this.Controls.Add(this.cbClientes);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txbIDProducto);
-            this.Controls.Add(this.txbCantidad);
+            this.Controls.Add(this.txbPrecio);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txbIDVenta);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancelar);
@@ -227,11 +248,9 @@
         public System.Windows.Forms.ComboBox cbClientes;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label txbIDProducto;
-        public System.Windows.Forms.TextBox txbCantidad;
+        public System.Windows.Forms.TextBox txbPrecio;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        public System.Windows.Forms.TextBox txbIDVenta;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
@@ -239,6 +258,10 @@
         private System.Windows.Forms.Label label7;
         public System.Windows.Forms.ComboBox cbUsuarios;
         private System.Windows.Forms.ErrorProvider Notificador;
-        public System.Windows.Forms.TextBox txbFechaVenta;
+        private System.Windows.Forms.Label label2;
+        public System.Windows.Forms.DateTimePicker dtpFechVenta;
+        public System.Windows.Forms.TextBox txbIDVenta;
+        public System.Windows.Forms.TextBox txbCantidad;
+        private System.Windows.Forms.Label label5;
     }
 }

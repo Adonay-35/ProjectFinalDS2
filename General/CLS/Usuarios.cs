@@ -45,10 +45,12 @@ namespace General.CLS
             Boolean Resultado = false;
             DataLayer.DBOperacion Operacion = new DataLayer.DBOperacion();
 
+            string claveEncriptada = Encryptar.GetSHA256(_Clave);
+
             StringBuilder Sentencia = new StringBuilder();
             Sentencia.Append("INSERT INTO usuarios(Usuario,Clave,IDRol,IDEmpleado,IDEstado) VALUES(");
             Sentencia.Append("'" + _Usuario + "',");
-            Sentencia.Append("MD5('" + _Clave + "'),");
+            Sentencia.Append("'" + claveEncriptada + "',");
             Sentencia.Append(_IDRol + ",");
             Sentencia.Append(_IDEmpleado + ",");
             Sentencia.Append(_IDEstado + ");");
@@ -75,11 +77,13 @@ namespace General.CLS
             Boolean Resultado = false;
             DataLayer.DBOperacion Operacion = new DataLayer.DBOperacion();
 
+            string claveEncriptada = Encryptar.GetSHA256(_Clave);
+
             StringBuilder Sentencia = new StringBuilder();
             Sentencia.Append("UPDATE usuarios  SET ");
             Sentencia.Append("Usuario ='" + _Usuario + "',");
-            Sentencia.Append("Clave = MD5('" + _Clave + "'),");
-            Sentencia.Append("IDRol ='" + _IDRol + "',");
+            Sentencia.Append("Clave = ('" + claveEncriptada + "'),");
+            Sentencia.Append("IDRol =" + _IDRol + ",");
             Sentencia.Append("IDEmpleado =" + _IDEmpleado + ",");
             Sentencia.Append("IDEstado =" + _IDEstado);
             Sentencia.Append(" WHERE IDUsuario =" + _IDUsuario + ";");
@@ -94,7 +98,7 @@ namespace General.CLS
                     Resultado = false;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Resultado = false;
             }
@@ -133,7 +137,7 @@ namespace General.CLS
 
             try
             {
-                sqlConexion.ConnectionString = "Server=localhost;Port=3306;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
+                sqlConexion.ConnectionString = "Server=localhost;Port=3307;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
                 MySqlCommand comando = new MySqlCommand("ObtenerRoles", sqlConexion);
                 comando.CommandType = CommandType.StoredProcedure;
                 sqlConexion.Open();
@@ -170,7 +174,7 @@ namespace General.CLS
 
             try
             {
-                sqlConexion.ConnectionString = "Server=localhost;Port=3306;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
+                sqlConexion.ConnectionString = "Server=localhost;Port=3307;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
                 MySqlCommand comando = new MySqlCommand("ObtenerEstados", sqlConexion);
                 comando.CommandType = CommandType.StoredProcedure;
                 sqlConexion.Open();
@@ -188,6 +192,43 @@ namespace General.CLS
                 }
 
                 return listaEstados;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (sqlConexion.State == ConnectionState.Open)
+                {
+                    sqlConexion.Close();
+                }
+            }
+        }
+
+        public List<Empleados> ObtenerEmpleados()
+        {
+            List<Empleados> listaEmpleados = new List<Empleados>();
+
+            try
+            {
+                sqlConexion.ConnectionString = "Server=localhost;Port=3307;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
+                MySqlCommand comando = new MySqlCommand("ObtenerEmpleados", sqlConexion);
+                comando.CommandType = CommandType.StoredProcedure;
+                sqlConexion.Open();
+                resultado = comando.ExecuteReader();
+
+                while (resultado.Read())
+                {
+                    listaEmpleados.Add(new Empleados(
+                            resultado.GetInt32(0),
+                            resultado.GetString(1),
+                            resultado.GetString(2)
+                            )
+                        );
+                }
+
+                return listaEmpleados;
             }
             catch (Exception ex)
             {

@@ -15,7 +15,7 @@ namespace General.CLS
         DataTable tabla = new DataTable();
         MySqlConnection sqlConexion = new MySqlConnection();
 
-        string _IDProducto;
+        Int32 _IDProducto;
         string _Producto;
         Int32 _Stock;
         double _Precio;
@@ -25,7 +25,7 @@ namespace General.CLS
         DateTime _FechaVencimiento;
         Int32 _IDCategoria;
 
-        public Productos(string idProducto, string producto)
+        public Productos(int idProducto, string producto)
         {
             this._IDProducto = idProducto;
             this._Producto = producto;
@@ -35,20 +35,15 @@ namespace General.CLS
         {
         }
 
-        public string IDProducto { get => _IDProducto; set => _IDProducto = value; }
+        public int IDProducto { get => _IDProducto; set => _IDProducto = value; }
         public string Producto { get => _Producto; set => _Producto = value; }
-        public Int32 Stock { get => _Stock; set => _Stock = value; }
+        public int Stock { get => _Stock; set => _Stock = value; }
         public double Precio { get => _Precio; set => _Precio = value; }
         public string Descripcion { get => _Descripcion; set => _Descripcion = value; }
-        public Int32 IDProveedor { get => _IDProveedor; set => _IDProveedor = value; }
+        public int IDProveedor { get => _IDProveedor; set => _IDProveedor = value; }
         public DateTime FechaFabricacion { get => _FechaFabricacion; set => _FechaFabricacion = value; }
         public DateTime FechaVencimiento { get => _FechaVencimiento; set => _FechaVencimiento = value; }
-        public Int32 IDCategoria { get => _IDCategoria; set => _IDCategoria = value; }
-
-        /*public string toString()
-        {
-            return this._IDProducto + " - " + this._Producto;
-        }*/
+        public int IDCategoria { get => _IDCategoria; set => _IDCategoria = value; }
 
         public Boolean Insertar()
         {
@@ -56,17 +51,15 @@ namespace General.CLS
             DataLayer.DBOperacion Operacion = new DataLayer.DBOperacion();
 
             StringBuilder Sentencia = new StringBuilder();
-            Sentencia.Append("INSERT INTO Productos(IDProducto, Producto, Stock, Precio, Descripcion, IDProveedor, FechaCreacion, FechaVencimiento, IDCategoria) VALUES(");
-            Sentencia.Append("'" + _IDProducto + "', ");
-            Sentencia.Append("'" + _Producto + "', ");
-            Sentencia.Append(_Stock + ", ");
-            Sentencia.Append(_Precio + ", ");
-            Sentencia.Append("'" + _Descripcion + "', ");
-            Sentencia.Append(_IDProveedor + ", ");
-            Sentencia.Append("'" + _FechaFabricacion.ToString("yyyy-MM-dd") + "', ");
-            Sentencia.Append("'" + _FechaVencimiento.ToString("yyyy-MM-dd") + "', ");
+            Sentencia.Append("INSERT INTO Productos(Producto, Stock, Precio, Descripcion, IDProveedor, FechaFabricacion, FechaVencimiento, IDCategoria) VALUES(");
+            Sentencia.Append("'" + _Producto + "',");
+            Sentencia.Append(_Stock + ",");
+            Sentencia.Append(_Precio + ",");
+            Sentencia.Append("'" + _Descripcion + "',");
+            Sentencia.Append(_IDProveedor + ",");
+            Sentencia.Append("'" + _FechaFabricacion.ToString("yyyy-MM-dd") + "',");
+            Sentencia.Append("'" + _FechaVencimiento.ToString("yyyy-MM-dd") + "',");
             Sentencia.Append(_IDCategoria + ");");
-
             try
             {
                 if (Operacion.EjecutarSentencia(Sentencia.ToString()) >= 0)
@@ -91,17 +84,16 @@ namespace General.CLS
             DataLayer.DBOperacion Operacion = new DataLayer.DBOperacion();
 
             StringBuilder Sentencia = new StringBuilder();
-            Sentencia.Append("UPDATE Productos SET ");
-            Sentencia.Append("Producto='" + _Producto + "', ");
-            Sentencia.Append("Stock=" + _Stock + ", ");
-            Sentencia.Append("Precio=" + _Precio + ", ");
-            Sentencia.Append("Descripcion='" + _Descripcion + "', ");
-            Sentencia.Append("IDProveedor=" + _IDProveedor + ", ");
-            Sentencia.Append("FechaCreacion='" + _FechaFabricacion.ToString("yyyy-MM-dd") + "', ");
-            Sentencia.Append("FechaVencimiento='" + _FechaVencimiento.ToString("yyyy-MM-dd") + "', ");
-            Sentencia.Append("IDCategoria=" + _IDCategoria);
-            Sentencia.Append(" WHERE IDProducto='" + _IDProducto + "';");
-
+            Sentencia.Append("UPDATE productos SET ");
+            Sentencia.Append("Producto ='" + _Producto + "',");
+            Sentencia.Append("Stock =" + _Stock + ",");
+            Sentencia.Append("Precio =" + _Precio + ",");
+            Sentencia.Append("Descripcion ='" + _Descripcion + "',");
+            Sentencia.Append("IDProveedor =" + _IDProveedor + ",");
+            Sentencia.Append("FechaFabricacion ='" + _FechaFabricacion.ToString("yyyy-MM-dd") + "',");
+            Sentencia.Append("FechaVencimiento ='" + _FechaVencimiento.ToString("yyyy-MM-dd") + "',");
+            Sentencia.Append("IDCategoria =" + _IDCategoria);
+            Sentencia.Append(" WHERE IDProducto ='" + _IDProducto + "';");
             try
             {
                 if (Operacion.EjecutarSentencia(Sentencia.ToString()) >= 0)
@@ -127,8 +119,7 @@ namespace General.CLS
 
             StringBuilder Sentencia = new StringBuilder();
             Sentencia.Append("DELETE FROM Productos");
-            Sentencia.Append(" WHERE IDProducto='" + _IDProducto + "';");
-
+            Sentencia.Append(" WHERE IDProducto ='" + _IDProducto + "';");
             try
             {
                 if (Operacion.EjecutarSentencia(Sentencia.ToString()) >= 0)
@@ -147,6 +138,7 @@ namespace General.CLS
             return Resultado;
         }
 
+
         public List<Proveedores> ObtenerProveedores()
         {
             List<Proveedores> listaProveedores = new List<Proveedores>();
@@ -164,7 +156,8 @@ namespace General.CLS
                             listaProveedores.Add(new Proveedores(
                                 resultado.GetInt32(0),
                                 resultado.GetString(1)
-                                ));
+                                )
+                             );
                         }
 
                 return listaProveedores;
@@ -186,8 +179,8 @@ namespace General.CLS
         {
             List<Categorias> listaCategorias = new List<Categorias>();
             try 
-            { 
-                MySqlConnection sqlConexion = new MySqlConnection("Server=localhost;Port=3306;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;");
+            {
+                sqlConexion.ConnectionString = "Server=localhost;Port=3306;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
                 MySqlCommand comando = new MySqlCommand("ObtenerCategorias", sqlConexion);
                 comando.CommandType = CommandType.StoredProcedure;
                 sqlConexion.Open();

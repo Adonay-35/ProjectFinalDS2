@@ -19,17 +19,11 @@ namespace General.GUI
             Boolean Valido = true;
             try
             {
-                if (txbIDVenta.Text.Trim().Length == 0)
-                {
-                    Notificador.SetError(txbIDVenta, "Este campo no puede quedar vacío");
-                    Valido = false;
-                }
-
-                if (!DateTime.TryParse(txbFechaVenta.Text, out _))
-                {
-                    Notificador.SetError(txbFechaVenta, "Fecha no válida");
-                    Valido = false;
-                }
+                //if (!DateTime.TryParse(txbFechaVenta.Text, out _))
+                //{
+                //    Notificador.SetError(txbFechaVenta, "Fecha no válida");
+                //    Valido = false;
+                //}
 
                 if (cbUsuarios.Text.Trim().Length == 0)
                 {
@@ -49,9 +43,9 @@ namespace General.GUI
                     Valido = false;
                 }
 
-                if (txbCantidad.Text.Trim().Length == 0 || !int.TryParse(txbCantidad.Text, out _))
+                if (txbPrecio.Text.Trim().Length == 0 || !int.TryParse(txbPrecio.Text, out _))
                 {
-                    Notificador.SetError(txbCantidad, "Este campo no puede quedar vacío y debe ser un número válido");
+                    Notificador.SetError(txbPrecio, "Este campo no puede quedar vacío y debe ser un número válido");
                     Valido = false;
                 }
 
@@ -69,7 +63,7 @@ namespace General.GUI
             return Valido;
         }
 
-        private void MostrarUsuarios(ComboBox cbUsarios)
+        public void MostrarUsuarios(ComboBox cbUsarios)
         {
             List<Usuarios> datos = metodosventas.ObtenerUsuarios();
             cbUsuarios.Items.Add("Selecciona una opción");
@@ -77,22 +71,20 @@ namespace General.GUI
             {
                cbUsarios.Items.Add(dato.Usuario);
             }
-            cbUsarios.SelectedIndex = 0;
         }
 
-        private void MostrarClientes(ComboBox cbClientes)
+        public void MostrarClientes(ComboBox cbClientes)
         {
 
             List<Clientes> datos = metodosventas.ObtenerClientes();
             cbClientes.Items.Add("Selecciona una opción");
             foreach (Clientes dato in datos)
             {
-                cbClientes.Items.Add(dato.Nombres);
+                cbClientes.Items.Add(dato.Nombres + " " + dato.Apellidos);
             }
-            cbClientes.SelectedIndex = 0;
         }
 
-        private void MostrarProductos(ComboBox cbProductos)
+        public void MostrarProductos(ComboBox cbProductos)
         {
             List<Productos> datos = metodosventas.ObtenerProductos();
             cbProductos.Items.Add("Selecciona una opción");
@@ -100,7 +92,6 @@ namespace General.GUI
             {
                 cbProductos.Items.Add(dato.Producto);
             }
-            cbProductos.SelectedIndex = 0;
         }
 
 
@@ -121,61 +112,50 @@ namespace General.GUI
             {
                 if (Validar())
                 {
-                    // CREAR UN OBJETO A PARTIR DE LA CLASE ENTIDAD
-                    // SINCRONIZAR EL OBJETO CON LA GUI
-                    Ventas oVenta = new Ventas();
-                    try
+                    if (string.IsNullOrEmpty(txbIDVenta.Text.Trim()))
                     {
 
-                        oVenta.IDVenta = Convert.ToInt32(txbIDVenta.Text);
+                        Ventas oVenta = new Ventas();
 
-                    }
-                    catch (Exception)
-                    {
-                        oVenta.IDUsuario = 0;
-                    }
-
-                    try
-                    {
+                        //oVenta.FechaVenta = Convert.ToDateTime(txbFechaVenta.Text);
                         oVenta.IDUsuario = Convert.ToInt32(cbUsuarios.SelectedIndex);
                         oVenta.IDCliente = Convert.ToInt32(cbClientes.SelectedIndex);
-                        oVenta.IDProducto = Convert.ToString(cbProductos.SelectedIndex);
+                        oVenta.IDProducto = Convert.ToInt32(cbProductos.SelectedIndex);
+                        oVenta.Precio = Convert.ToDouble(txbPrecio.Text);
+                        oVenta.Cantidad = Convert.ToInt32(txbPrecio.Text);
+                        oVenta.Total = Convert.ToDouble(txbTotal.Text);
 
-                    }
-                    catch (Exception)
-                    {
-                        oVenta.IDVenta = 0;
-                        oVenta.IDCliente = 0;
-                        
-                    }
-
-                    oVenta.FechaVenta = Convert.ToDateTime(txbFechaVenta.Text);
-                    oVenta.IDUsuario = Convert.ToInt32(cbUsuarios.Text);
-                    oVenta.IDCliente = Convert.ToInt32(cbClientes.Text);
-                    oVenta.IDProducto = Convert.ToString(cbProductos.Text);
-                    oVenta.Cantidad = Convert.ToInt32(txbCantidad.Text);
-                    oVenta.Total = Convert.ToDouble(txbTotal.Text);
-
-                    if (txbIDVenta.Text.Trim().Length == 0)
-                    {
                         // GUARDAR NUEVO REGISTRO
                         if (oVenta.Insertar())
                         {
                             MessageBox.Show("Registro Guardado");
                             Close();
+
                         }
                         else
                         {
                             MessageBox.Show("El registro no pudo ser almacenado");
                         }
                     }
-                        else
+                    else
                     {
+                        Ventas oVenta = new Ventas();
+
+                        //oVenta.FechaVenta = Convert.ToDateTime(txbFechaVenta.Text);
+                        oVenta.IDUsuario = Convert.ToInt32(cbUsuarios.SelectedIndex);
+                        oVenta.IDCliente = Convert.ToInt32(cbClientes.SelectedIndex);
+                        oVenta.IDProducto = Convert.ToInt32(cbProductos.SelectedIndex);
+                        oVenta.Precio = Convert.ToDouble(txbPrecio.Text);
+                        oVenta.Cantidad = Convert.ToInt32(txbCantidad.Text);
+                        oVenta.Total = Convert.ToDouble(txbTotal.Text);
+                        oVenta.IDVenta = Convert.ToInt32(txbIDVenta.Text);
+
                         // ACTUALIZAR REGISTRO
                         if (oVenta.Actualizar())
                         {
                             MessageBox.Show("Registro Actualizado");
                             Close();
+
                         }
                         else
                         {
@@ -184,17 +164,30 @@ namespace General.GUI
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void VentasEdicion_Load(object sender, EventArgs e)
         {
-            this.MostrarUsuarios(cbUsuarios);
-            this.MostrarClientes(cbClientes);
-            this.MostrarProductos(cbProductos);
+            if (string.IsNullOrEmpty(txbIDVenta.Text))
+            {
+                this.MostrarUsuarios(cbUsuarios);
+                this.MostrarClientes(cbClientes);
+                this.MostrarProductos(cbProductos);
+                cbUsuarios.SelectedIndex = 0;
+                cbClientes.SelectedIndex = 0;
+                cbProductos.SelectedIndex = 0;
+            }
+ 
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }   
 }

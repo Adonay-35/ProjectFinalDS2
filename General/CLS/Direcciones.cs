@@ -1,39 +1,35 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace General.CLS
 {
-    internal class Categorias
+    internal class Direcciones
     {
-        Int32 _IDCategoria;
-        String _Categoria;
+        Int32 _ID_Direccion;
+        string _Linea1;
+        string _Linea2;
+        Int32 _ID_Distrito;
+        Int32 _CodigoPostal;
 
-        public Categorias(int idCategoria, string categoria)
-        {
-            this._IDCategoria = idCategoria;
-            this._Categoria = categoria;
-        }
 
-        public Categorias()
-        { 
-        }
 
-        public Int32 IDCategoria { get => _IDCategoria; set => _IDCategoria = value; }
-        public string Categoria { get => _Categoria; set => _Categoria = value; }
+        public Int32 ID_Direccion { get => _ID_Direccion; set => _ID_Direccion = value; }
+        public string Linea1 { get => _Linea1; set => _Linea1 = value; }
+        public string Linea2 { get => _Linea2; set => _Linea2 = value; }
+        public int ID_Distrito { get => _ID_Distrito; set => _ID_Distrito = value; }
+        public int CodigoPostal { get => _CodigoPostal; set => _CodigoPostal = value; }
 
-        public Boolean InsertarCategoria()
+        public Boolean Insertar()
         {
             Boolean Resultado = false;
             DataLayer.DBOperacion Operacion = new DataLayer.DBOperacion();
 
             StringBuilder Sentencia = new StringBuilder();
-            Sentencia.Append("INSERT INTO categorias(IDCategoria, Categoria) VALUES (");
-            Sentencia.Append(_IDCategoria + ", '" + _Categoria + "');");
+            Sentencia.Append("INSERT INTO Direcciones(IDDireccion, Linea1, Linea2, CodigoPostal) VALUES(");
+            Sentencia.Append("'" + _Linea1 + "', '" + _Linea2 + "', " + _CodigoPostal + ");");
 
             try
             {
@@ -53,15 +49,17 @@ namespace General.CLS
             return Resultado;
         }
 
-        public Boolean ActualizarCategoria()
+        public Boolean Actualizar()
         {
             Boolean Resultado = false;
             DataLayer.DBOperacion Operacion = new DataLayer.DBOperacion();
 
             StringBuilder Sentencia = new StringBuilder();
-            Sentencia.Append("UPDATE categorias SET ");
-            Sentencia.Append("Categoria='" + _Categoria + "' ");
-            Sentencia.Append("WHERE IDCategoria=" + _IDCategoria + ";");
+            Sentencia.Append("UPDATE Direcciones SET ");
+            Sentencia.Append("Linea1='" + _Linea1 + "', ");
+            Sentencia.Append("Linea2='" + _Linea2 + "', ");
+            Sentencia.Append("CodigoPostal=" + _CodigoPostal + " ");
+            Sentencia.Append("WHERE IDDireccion=" + _ID_Direccion + ";");
 
             try
             {
@@ -81,14 +79,14 @@ namespace General.CLS
             return Resultado;
         }
 
-        public Boolean EliminarCategoria()
+        public Boolean Eliminar()
         {
             Boolean Resultado = false;
             DataLayer.DBOperacion Operacion = new DataLayer.DBOperacion();
 
             StringBuilder Sentencia = new StringBuilder();
-            Sentencia.Append("DELETE FROM categorias ");
-            Sentencia.Append("WHERE IDCategoria=" + _IDCategoria + ";");
+            Sentencia.Append("DELETE FROM Direcciones ");
+            Sentencia.Append("WHERE IDDireccion =" + _ID_Direccion + ";");
 
             try
             {
@@ -110,4 +108,3 @@ namespace General.CLS
 
     }
 }
-

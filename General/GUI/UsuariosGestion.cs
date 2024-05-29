@@ -1,4 +1,5 @@
-﻿using System;
+﻿using General.CLS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -99,12 +100,16 @@ namespace General.GUI
                 if (MessageBox.Show("¿Desea EDITAR el registro seleccionado?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     UsuariosEdicion oUsuarioEdicion = new UsuariosEdicion();
+                    oUsuarioEdicion.MostrarRoles(oUsuarioEdicion.cbRoles);
+                    oUsuarioEdicion.MostrarEmpleados(oUsuarioEdicion.cbEmpleados);
+                    oUsuarioEdicion.MostrarEstados(oUsuarioEdicion.cbEstados);
                     oUsuarioEdicion.txbIDUsuario.Text = dataGridView1.CurrentRow.Cells["IDUsuario"].Value.ToString();
                     oUsuarioEdicion.txbUsuario.Text = dataGridView1.CurrentRow.Cells["Usuario"].Value.ToString();
-                    oUsuarioEdicion.txbClave.Text = dataGridView1.CurrentRow.Cells["Clave"].Value.ToString();
-                    //oUsuario.cbRoles.SelectedItem = dataGridView1.CurrentRow.Cells["IDRol"].Value.ToString();
-                    oUsuarioEdicion.txbIDEmpleado.Text = dataGridView1.CurrentRow.Cells["IDEmpleado"].Value.ToString();
-                    //oUsuario.cbEstados.SelectedItem = dataGridView1.CurrentRow.Cells["IDEstado"].Value.ToString();
+
+                    //oUsuarioEdicion.txbClave.Text = dataGridView1.CurrentRow.Cells.["Clave"].Value.ToString();
+                    oUsuarioEdicion.cbRoles.SelectedItem = dataGridView1.CurrentRow.Cells["Rol"].Value.ToString();
+                    oUsuarioEdicion.cbEmpleados.SelectedItem = dataGridView1.CurrentRow.Cells["Empleado"].Value.ToString();
+                    oUsuarioEdicion.cbEstados.SelectedItem = dataGridView1.CurrentRow.Cells["Estado"].Value.ToString();
                     oUsuarioEdicion.ShowDialog();
                     Cargar();
                 }

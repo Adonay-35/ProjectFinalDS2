@@ -47,9 +47,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.cbProveedor = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txbFechaFabricacion = new System.Windows.Forms.TextBox();
-            this.txbFechaVencimiento = new System.Windows.Forms.TextBox();
             this.Notificador = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txbFechaFabricacion = new System.Windows.Forms.DateTimePicker();
+            this.txbFechaVencimiento = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.Notificador)).BeginInit();
             this.SuspendLayout();
             // 
@@ -206,24 +206,24 @@
             this.label9.TabIndex = 51;
             this.label9.Text = "Proveedores";
             // 
+            // Notificador
+            // 
+            this.Notificador.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.Notificador.ContainerControl = this;
+            // 
             // txbFechaFabricacion
             // 
             this.txbFechaFabricacion.Location = new System.Drawing.Point(80, 255);
             this.txbFechaFabricacion.Name = "txbFechaFabricacion";
             this.txbFechaFabricacion.Size = new System.Drawing.Size(307, 20);
-            this.txbFechaFabricacion.TabIndex = 53;
+            this.txbFechaFabricacion.TabIndex = 55;
             // 
             // txbFechaVencimiento
             // 
             this.txbFechaVencimiento.Location = new System.Drawing.Point(80, 315);
             this.txbFechaVencimiento.Name = "txbFechaVencimiento";
             this.txbFechaVencimiento.Size = new System.Drawing.Size(307, 20);
-            this.txbFechaVencimiento.TabIndex = 54;
-            // 
-            // Notificador
-            // 
-            this.Notificador.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.Notificador.ContainerControl = this;
+            this.txbFechaVencimiento.TabIndex = 56;
             // 
             // ProductosEdicion
             // 
@@ -279,8 +279,8 @@
         private System.Windows.Forms.Label label8;
         public System.Windows.Forms.ComboBox cbProveedor;
         private System.Windows.Forms.Label label9;
-        public System.Windows.Forms.TextBox txbFechaFabricacion;
-        public System.Windows.Forms.TextBox txbFechaVencimiento;
         private System.Windows.Forms.ErrorProvider Notificador;
+        public System.Windows.Forms.DateTimePicker txbFechaVencimiento;
+        public System.Windows.Forms.DateTimePicker txbFechaFabricacion;
     }
 }

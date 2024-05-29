@@ -149,21 +149,17 @@
             // 
             // Proveedor
             // 
-            this.Proveedor.DataPropertyName = "IDProveedor";
-            this.Proveedor.HeaderText = "IDProveedor";
-            this.Proveedor.MinimumWidth = 8;
-            this.Proveedor.Name = "IDProveedor";
+            this.Proveedor.DataPropertyName = "Proveedor";
+            this.Proveedor.HeaderText = "Proveedor";
+            this.Proveedor.Name = "Proveedor";
             this.Proveedor.ReadOnly = true;
-            this.Proveedor.Width = 150;
             // 
             // Categoria
             // 
-            this.Categoria.DataPropertyName = "IDCategoria";
-            this.Categoria.HeaderText = "IDCategoria";
-            this.Categoria.MinimumWidth = 8;
-            this.Categoria.Name = "IDCategoria";
+            this.Categoria.DataPropertyName = "Categoria";
+            this.Categoria.HeaderText = "Categoria";
+            this.Categoria.Name = "Categoria";
             this.Categoria.ReadOnly = true;
-            this.Categoria.Width = 150;
             // 
             // statusStrip1
             // 

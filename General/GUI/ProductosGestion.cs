@@ -51,18 +51,30 @@ namespace General.GUI
         }
 
 
-
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private void btnEliminar_Click(object sender, EventArgs e)
         {
+
             try
             {
-                ProductosEdicion f = new ProductosEdicion();
-                f.ShowDialog();
-                Cargar();
+                if (MessageBox.Show("¿Desea ELIMINAR el registro seleccionado?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    CLS.Productos oProducto = new CLS.Productos();
+                    oProducto.IDProducto = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDProducto"].Value.ToString());
+                    if (oProducto.Eliminar())
+                    {
+                        MessageBox.Show("Registro eliminado");
+                    }
+                    else
+                    {
+                        MessageBox.Show("El Registro no ha sido eliminado");
+                    }
+                    Cargar();
+                    lblRegistros.Text = _DATOS.Count.ToString();
+                }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Error al agregar producto: " + ex.Message);
+                throw;
             }
         }
 
@@ -75,15 +87,17 @@ namespace General.GUI
                     if (MessageBox.Show("¿Desea EDITAR el registro seleccionado?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         ProductosEdicion oProducto = new ProductosEdicion();
+                        oProducto.MostrarProveedores(oProducto.cbProveedor);
+                        oProducto.MostrarCategorias(oProducto.cbCategoria);
                         oProducto.txbIDProducto.Text = dataGridView1.CurrentRow.Cells["IDProducto"].Value.ToString();
                         oProducto.txbProducto.Text = dataGridView1.CurrentRow.Cells["Producto"].Value.ToString();
                         oProducto.txbStock.Text = dataGridView1.CurrentRow.Cells["Stock"].Value.ToString();
                         oProducto.txbPrecio.Text = dataGridView1.CurrentRow.Cells["Precio"].Value.ToString();
                         oProducto.txbDescripcion.Text = dataGridView1.CurrentRow.Cells["Descripcion"].Value.ToString();
-                        oProducto.cbProveedor.Text = dataGridView1.CurrentRow.Cells["IDProveedor"].Value.ToString();
+                        oProducto.cbProveedor.Text = dataGridView1.CurrentRow.Cells["Proveedor"].Value.ToString();
                         oProducto.txbFechaFabricacion.Text = dataGridView1.CurrentRow.Cells["FechaFabricacion"].Value.ToString();
                         oProducto.txbFechaVencimiento.Text = dataGridView1.CurrentRow.Cells["FechaVencimiento"].Value.ToString();
-                        oProducto.cbCategoria.Text = dataGridView1.CurrentRow.Cells["IDCategoria"].Value.ToString();
+                        oProducto.cbCategoria.Text = dataGridView1.CurrentRow.Cells["Categoria"].Value.ToString();
                         oProducto.ShowDialog();
 
                         Cargar();
@@ -92,39 +106,25 @@ namespace General.GUI
             }
             catch (Exception)
             {
-
+                throw;
             }
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void btnAgregar_Click(object sender, EventArgs e)
         {
             try
             {
-                if (dataGridView1.SelectedRows.Count > 0)
-                {
-                    if (MessageBox.Show("¿Desea ELIMINAR el registro seleccionado?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        Productos oProducto = new Productos();
-                        oProducto.IDProducto = Convert.ToString(dataGridView1.CurrentRow.Cells["IDProducto"].Value.ToString());
-
-                        if (oProducto.Eliminar())
-                        {
-                            MessageBox.Show("Registro eliminado");
-                        }
-                        else
-                        {
-                            MessageBox.Show("El registro no ha sido eliminado");
-                        }
-
-                        Cargar();
-                    }
-                }
+                ProductosEdicion f = new ProductosEdicion();
+                f.ShowDialog();
+                Cargar();
+                lblRegistros.Text = _DATOS.Count.ToString();
             }
             catch (Exception)
             {
-
+                throw;
             }
         }
+
 
         public ProductosGestion()
         {

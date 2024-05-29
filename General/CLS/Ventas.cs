@@ -18,32 +18,45 @@ namespace General.CLS
         DateTime _FechaVenta;
         Int32 _IDUsuario;
         Int32 _IDCliente;
-        string _IDProducto;
+        Int32 _IDProducto;
+        double _Precio;
         Int32 _Cantidad;
         double _Total;
 
-        public Int32 IDVenta { get => _IDVenta; set => _IDVenta = value; }
+        public Ventas(int idVenta)
+        {
+            this._IDVenta = idVenta;
+        }
+
+        public Ventas()
+        { 
+        }
+
+        public int IDVenta { get => _IDVenta; set => _IDVenta = value; }
         public DateTime FechaVenta { get => _FechaVenta; set => _FechaVenta = value; }
-        public Int32 IDUsuario { get => _IDUsuario; set => _IDUsuario = value; }
-        public Int32 IDCliente { get => _IDCliente; set => _IDCliente = value; }
-        public string IDProducto { get => _IDProducto; set => _IDProducto = value; }
-        public Int32 Cantidad { get => _Cantidad; set => _Cantidad = value; }
+        public int IDUsuario { get => _IDUsuario; set => _IDUsuario = value; }
+        public int IDCliente { get => _IDCliente; set => _IDCliente = value; }
+        public int IDProducto { get => _IDProducto; set => _IDProducto = value; }
+        public double Precio { get => _Precio; set => _Precio = value; }
+        public int Cantidad { get => _Cantidad; set => _Cantidad = value; }
         public double Total { get => _Total; set => _Total = value; }
 
 
-        public bool Insertar()
-        {
-            bool Resultado = false;
-            DataLayer.DBOperacion Operacion = new DataLayer.DBOperacion();
 
+        public Boolean Insertar()
+        {
+            Boolean Resultado = false;
+            DataLayer.DBOperacion Operacion = new DataLayer.DBOperacion();
+            _FechaVenta = DateTime.Now;
             StringBuilder Sentencia = new StringBuilder();
-            Sentencia.Append("INSERT INTO Ventas(FechaVenta, IDUsuario, IDCliente, IDProducto, Cantidad, Total) VALUES(");
-            Sentencia.Append("FechaVenta='" + _FechaVenta.ToString("yyyy-MM-dd") + "', ");
-            Sentencia.Append("IDUsuario=" + _IDUsuario + ", ");
-            Sentencia.Append("IDCliente=" + _IDCliente + ", ");
-            Sentencia.Append("IDProducto='" + _IDProducto + "', ");
-            Sentencia.Append("Cantidad=" + _Cantidad + ", ");
-            Sentencia.Append("Total=" + _Total);
+            Sentencia.Append("INSERT INTO ventas (FechaVenta, IDUsuario, IDCliente, IDProducto, Precio, Cantidad, Total) VALUES (");
+            Sentencia.Append("'" + _FechaVenta.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
+            Sentencia.Append(_IDUsuario + ", ");  
+            Sentencia.Append(_IDCliente + ", ");  
+            Sentencia.Append(_IDProducto + ", ");
+            Sentencia.Append(_Precio + ", ");
+            Sentencia.Append(_Cantidad + ", "); 
+            Sentencia.Append(_Total + ");"); 
 
             try
             {
@@ -63,20 +76,22 @@ namespace General.CLS
             return Resultado;
         }
 
-        public bool Actualizar()
+
+        public Boolean Actualizar()
         {
-            bool Resultado = false;
+            Boolean Resultado = false;
             DataLayer.DBOperacion Operacion = new DataLayer.DBOperacion();
 
             StringBuilder Sentencia = new StringBuilder();
             Sentencia.Append("UPDATE Ventas SET ");
-            Sentencia.Append("FechaVenta='" + _FechaVenta.ToString("yyyy-MM-dd") + "', ");
-            Sentencia.Append("IDUsuario=" + _IDUsuario + ", ");
-            Sentencia.Append("IDCliente=" + _IDCliente + ", ");
-            Sentencia.Append("IDProducto='" + _IDProducto + "', ");
-            Sentencia.Append("Cantidad=" + _Cantidad + ", ");
-            Sentencia.Append("Total=" + _Total);
-            Sentencia.Append(" WHERE IDVenta='" + _IDVenta + "';");
+            Sentencia.Append("FechaVenta = '" + _FechaVenta.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
+            Sentencia.Append("IDUsuario = " + _IDUsuario + ", ");
+            Sentencia.Append("IDCliente = " + _IDCliente + ", ");
+            Sentencia.Append("IDProducto = '" + _IDProducto + "', ");
+            Sentencia.Append("Precio = " + _Precio + ", ");
+            Sentencia.Append("Cantidad = " + _Cantidad + ", "); 
+            Sentencia.Append("Total = " + _Total);
+            Sentencia.Append(" WHERE IDVenta = '" + _IDVenta + "';");
 
             try
             {
@@ -95,6 +110,7 @@ namespace General.CLS
             }
             return Resultado;
         }
+
 
         public bool Eliminar()
         {
@@ -102,7 +118,7 @@ namespace General.CLS
             DataLayer.DBOperacion Operacion = new DataLayer.DBOperacion();
 
             StringBuilder Sentencia = new StringBuilder();
-            Sentencia.Append("DELETE FROM Ventas ");
+            Sentencia.Append("DELETE FROM ventas ");
             Sentencia.Append("WHERE IDVenta='" + _IDVenta + "';");
 
             try
@@ -174,7 +190,8 @@ namespace General.CLS
                 {
                     listaClientes.Add(new Clientes(
                         resultado.GetInt32(0),
-                        resultado.GetString(1)
+                        resultado.GetString(1),
+                        resultado.GetString(2)
                         ));
                 }
 
@@ -208,7 +225,7 @@ namespace General.CLS
                 while (resultado.Read())
                 {
                     listaProductos.Add(new Productos(
-                        resultado.GetString(0),
+                        resultado.GetInt32(0),
                         resultado.GetString(1)
                         ));
                 }
