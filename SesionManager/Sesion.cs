@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ namespace SesionManager
         private static readonly object _lock = new object();
 
         String _Usuario;
+        string _Clave;
 
         public Boolean ValidarPermiso(Int32 pIDOpcion)
         {
@@ -64,6 +66,5 @@ namespace SesionManager
         {
 
         }
-
     }
 }

@@ -45,10 +45,12 @@ namespace General.CLS
             Boolean Resultado = false;
             DataLayer.DBOperacion Operacion = new DataLayer.DBOperacion();
 
+            string claveEncriptada = Encryptar.GetSHA256(_Clave);
+
             StringBuilder Sentencia = new StringBuilder();
             Sentencia.Append("INSERT INTO usuarios(Usuario,Clave,IDRol,IDEmpleado,IDEstado) VALUES(");
             Sentencia.Append("'" + _Usuario + "',");
-            Sentencia.Append("MD5('" + _Clave + "'),");
+            Sentencia.Append("'" + claveEncriptada + "',");
             Sentencia.Append(_IDRol + ",");
             Sentencia.Append(_IDEmpleado + ",");
             Sentencia.Append(_IDEstado + ");");
@@ -75,10 +77,12 @@ namespace General.CLS
             Boolean Resultado = false;
             DataLayer.DBOperacion Operacion = new DataLayer.DBOperacion();
 
+            string claveEncriptada = Encryptar.GetSHA256(_Clave);
+
             StringBuilder Sentencia = new StringBuilder();
             Sentencia.Append("UPDATE usuarios  SET ");
             Sentencia.Append("Usuario ='" + _Usuario + "',");
-            Sentencia.Append("Clave = MD5('" + _Clave + "'),");
+            Sentencia.Append("Clave = ('" + claveEncriptada + "'),");
             Sentencia.Append("IDRol =" + _IDRol + ",");
             Sentencia.Append("IDEmpleado =" + _IDEmpleado + ",");
             Sentencia.Append("IDEstado =" + _IDEstado);

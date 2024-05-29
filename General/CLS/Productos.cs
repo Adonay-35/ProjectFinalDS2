@@ -57,8 +57,8 @@ namespace General.CLS
             Sentencia.Append(_Precio + ",");
             Sentencia.Append("'" + _Descripcion + "',");
             Sentencia.Append(_IDProveedor + ",");
-            Sentencia.Append("'" + _FechaFabricacion.ToString("yyyy-MM-dd HH:mm:ss") + "',");
-            Sentencia.Append("'" + _FechaVencimiento.ToString("yyyy-MM-dd HH:mm:ss") + "',");
+            Sentencia.Append("'" + _FechaFabricacion.ToString("yyyy-MM-dd") + "',");
+            Sentencia.Append("'" + _FechaVencimiento.ToString("yyyy-MM-dd") + "',");
             Sentencia.Append(_IDCategoria + ");");
             try
             {
@@ -90,8 +90,8 @@ namespace General.CLS
             Sentencia.Append("Precio =" + _Precio + ",");
             Sentencia.Append("Descripcion ='" + _Descripcion + "',");
             Sentencia.Append("IDProveedor =" + _IDProveedor + ",");
-            Sentencia.Append("FechaFabricacion ='" + _FechaFabricacion.ToString("yyyy-MM-dd HH:mm:ss") + "',");
-            Sentencia.Append("FechaVencimiento ='" + _FechaVencimiento.ToString("yyyy-MM-dd HH:mm:ss") + "',");
+            Sentencia.Append("FechaFabricacion ='" + _FechaFabricacion.ToString("yyyy-MM-dd") + "',");
+            Sentencia.Append("FechaVencimiento ='" + _FechaVencimiento.ToString("yyyy-MM-dd") + "',");
             Sentencia.Append("IDCategoria =" + _IDCategoria);
             Sentencia.Append(" WHERE IDProducto ='" + _IDProducto + "';");
             try

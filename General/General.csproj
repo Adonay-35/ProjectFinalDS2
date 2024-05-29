@@ -48,8 +48,13 @@
   <ItemGroup>
     <Compile Include="CLS\Categorias.cs" />
     <Compile Include="CLS\Clientes.cs" />
+    <Compile Include="CLS\Departamentos.cs" />
+    <Compile Include="CLS\Direcciones.cs" />
+    <Compile Include="CLS\Distritos.cs" />
     <Compile Include="CLS\Empleados.cs" />
+    <Compile Include="CLS\Encryptar.cs" />
     <Compile Include="CLS\Estados.cs" />
+    <Compile Include="CLS\Municipios.cs" />
     <Compile Include="CLS\Productos.cs" />
     <Compile Include="CLS\Proveedores.cs" />
     <Compile Include="CLS\Roles.cs" />
