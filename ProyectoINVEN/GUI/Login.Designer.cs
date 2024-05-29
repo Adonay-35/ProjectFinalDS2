@@ -52,7 +52,6 @@
             this.txbClave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbClave.Location = new System.Drawing.Point(31, 143);
             this.txbClave.Name = "txbClave";
-            this.txbClave.PasswordChar = '*';
             this.txbClave.Size = new System.Drawing.Size(263, 22);
             this.txbClave.TabIndex = 12;
             // 

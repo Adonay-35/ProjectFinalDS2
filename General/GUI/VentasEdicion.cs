@@ -19,11 +19,11 @@ namespace General.GUI
             Boolean Valido = true;
             try
             {
-                if (!DateTime.TryParse(txbFechaVenta.Text, out _))
-                {
-                    Notificador.SetError(txbFechaVenta, "Fecha no válida");
-                    Valido = false;
-                }
+                //if (!DateTime.TryParse(txbFechaVenta.Text, out _))
+                //{
+                //    Notificador.SetError(txbFechaVenta, "Fecha no válida");
+                //    Valido = false;
+                //}
 
                 if (cbUsuarios.Text.Trim().Length == 0)
                 {
@@ -43,9 +43,9 @@ namespace General.GUI
                     Valido = false;
                 }
 
-                if (txbCantidad.Text.Trim().Length == 0 || !int.TryParse(txbCantidad.Text, out _))
+                if (txbPrecio.Text.Trim().Length == 0 || !int.TryParse(txbPrecio.Text, out _))
                 {
-                    Notificador.SetError(txbCantidad, "Este campo no puede quedar vacío y debe ser un número válido");
+                    Notificador.SetError(txbPrecio, "Este campo no puede quedar vacío y debe ser un número válido");
                     Valido = false;
                 }
 
@@ -117,11 +117,12 @@ namespace General.GUI
 
                         Ventas oVenta = new Ventas();
 
-                        oVenta.FechaVenta = Convert.ToDateTime(txbFechaVenta.Text);
+                        //oVenta.FechaVenta = Convert.ToDateTime(txbFechaVenta.Text);
                         oVenta.IDUsuario = Convert.ToInt32(cbUsuarios.SelectedIndex);
                         oVenta.IDCliente = Convert.ToInt32(cbClientes.SelectedIndex);
                         oVenta.IDProducto = Convert.ToInt32(cbProductos.SelectedIndex);
-                        oVenta.Cantidad = Convert.ToInt32(txbCantidad.Text);
+                        oVenta.Precio = Convert.ToDouble(txbPrecio.Text);
+                        oVenta.Cantidad = Convert.ToInt32(txbPrecio.Text);
                         oVenta.Total = Convert.ToDouble(txbTotal.Text);
 
                         // GUARDAR NUEVO REGISTRO
@@ -140,10 +141,11 @@ namespace General.GUI
                     {
                         Ventas oVenta = new Ventas();
 
-                        oVenta.FechaVenta = Convert.ToDateTime(txbFechaVenta.Text);
+                        //oVenta.FechaVenta = Convert.ToDateTime(txbFechaVenta.Text);
                         oVenta.IDUsuario = Convert.ToInt32(cbUsuarios.SelectedIndex);
                         oVenta.IDCliente = Convert.ToInt32(cbClientes.SelectedIndex);
                         oVenta.IDProducto = Convert.ToInt32(cbProductos.SelectedIndex);
+                        oVenta.Precio = Convert.ToDouble(txbPrecio.Text);
                         oVenta.Cantidad = Convert.ToInt32(txbCantidad.Text);
                         oVenta.Total = Convert.ToDouble(txbTotal.Text);
                         oVenta.IDVenta = Convert.ToInt32(txbIDVenta.Text);
@@ -181,5 +183,11 @@ namespace General.GUI
             }
  
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }   
 }
