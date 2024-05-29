@@ -37,8 +37,8 @@
             this.FechaFabricacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaVencimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDProveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblRegistros = new System.Windows.Forms.ToolStripStatusLabel();
@@ -71,8 +71,8 @@
             this.FechaFabricacion,
             this.FechaVencimiento,
             this.Descripcion,
-            this.IDProveedor,
-            this.IDCategoria});
+            this.Proveedor,
+            this.Categoria});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 34);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -147,23 +147,23 @@
             this.Descripcion.Name = "Descripcion";
             this.Descripcion.ReadOnly = true;
             // 
-            // IDProveedor
+            // Proveedor
             // 
-            this.IDProveedor.DataPropertyName = "IDProveedor";
-            this.IDProveedor.HeaderText = "IDProveedor";
-            this.IDProveedor.MinimumWidth = 8;
-            this.IDProveedor.Name = "IDProveedor";
-            this.IDProveedor.ReadOnly = true;
-            this.IDProveedor.Width = 150;
+            this.Proveedor.DataPropertyName = "IDProveedor";
+            this.Proveedor.HeaderText = "IDProveedor";
+            this.Proveedor.MinimumWidth = 8;
+            this.Proveedor.Name = "IDProveedor";
+            this.Proveedor.ReadOnly = true;
+            this.Proveedor.Width = 150;
             // 
-            // IDCategoria
+            // Categoria
             // 
-            this.IDCategoria.DataPropertyName = "IDCategoria";
-            this.IDCategoria.HeaderText = "IDCategoria";
-            this.IDCategoria.MinimumWidth = 8;
-            this.IDCategoria.Name = "IDCategoria";
-            this.IDCategoria.ReadOnly = true;
-            this.IDCategoria.Width = 150;
+            this.Categoria.DataPropertyName = "IDCategoria";
+            this.Categoria.HeaderText = "IDCategoria";
+            this.Categoria.MinimumWidth = 8;
+            this.Categoria.Name = "IDCategoria";
+            this.Categoria.ReadOnly = true;
+            this.Categoria.Width = 150;
             // 
             // statusStrip1
             // 
@@ -324,8 +324,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaFabricacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaVencimiento;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDProveedor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDCategoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Proveedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
