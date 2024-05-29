@@ -45,74 +45,83 @@
             // 
             // txbCorreo
             // 
-            this.txbCorreo.Location = new System.Drawing.Point(23, 208);
+            this.txbCorreo.Location = new System.Drawing.Point(11, 318);
+            this.txbCorreo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txbCorreo.Name = "txbCorreo";
-            this.txbCorreo.Size = new System.Drawing.Size(307, 20);
+            this.txbCorreo.Size = new System.Drawing.Size(450, 26);
             this.txbCorreo.TabIndex = 68;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(20, 192);
+            this.label5.Location = new System.Drawing.Point(7, 293);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 13);
+            this.label5.Size = new System.Drawing.Size(57, 20);
             this.label5.TabIndex = 67;
             this.label5.Text = "Correo";
             // 
             // txbApellidos
             // 
-            this.txbApellidos.Location = new System.Drawing.Point(23, 145);
+            this.txbApellidos.Location = new System.Drawing.Point(11, 221);
+            this.txbApellidos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txbApellidos.Name = "txbApellidos";
-            this.txbApellidos.Size = new System.Drawing.Size(307, 20);
+            this.txbApellidos.Size = new System.Drawing.Size(450, 26);
             this.txbApellidos.TabIndex = 66;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 129);
+            this.label3.Location = new System.Drawing.Point(7, 196);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.Size = new System.Drawing.Size(65, 20);
             this.label3.TabIndex = 65;
             this.label3.Text = "Apellido";
             // 
             // txbNombres
             // 
-            this.txbNombres.Location = new System.Drawing.Point(23, 84);
+            this.txbNombres.Location = new System.Drawing.Point(11, 127);
+            this.txbNombres.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txbNombres.Name = "txbNombres";
-            this.txbNombres.Size = new System.Drawing.Size(307, 20);
+            this.txbNombres.Size = new System.Drawing.Size(450, 26);
             this.txbNombres.TabIndex = 64;
             // 
             // txbIDCliente
             // 
-            this.txbIDCliente.Location = new System.Drawing.Point(23, 24);
+            this.txbIDCliente.Location = new System.Drawing.Point(11, 35);
+            this.txbIDCliente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txbIDCliente.Name = "txbIDCliente";
             this.txbIDCliente.ReadOnly = true;
-            this.txbIDCliente.Size = new System.Drawing.Size(103, 20);
+            this.txbIDCliente.Size = new System.Drawing.Size(144, 26);
             this.txbIDCliente.TabIndex = 63;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 68);
+            this.label2.Location = new System.Drawing.Point(7, 103);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 13);
+            this.label2.Size = new System.Drawing.Size(73, 20);
             this.label2.TabIndex = 62;
             this.label2.Text = "Nombres";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 8);
+            this.label1.Location = new System.Drawing.Point(7, 10);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 13);
+            this.label1.Size = new System.Drawing.Size(75, 20);
             this.label1.TabIndex = 61;
             this.label1.Text = "IDCliente";
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(253, 252);
+            this.btnCancelar.Location = new System.Drawing.Point(357, 386);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(104, 35);
             this.btnCancelar.TabIndex = 60;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -120,9 +129,10 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(21, 252);
+            this.btnGuardar.Location = new System.Drawing.Point(9, 386);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardar.Size = new System.Drawing.Size(104, 35);
             this.btnGuardar.TabIndex = 59;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -134,9 +144,9 @@
             // 
             // ClientesEdicion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(340, 282);
+            this.ClientSize = new System.Drawing.Size(466, 471);
             this.Controls.Add(this.txbCorreo);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txbApellidos);
@@ -147,9 +157,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ClientesEdicion";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "ClientesEdicion";
             ((System.ComponentModel.ISupportInitialize)(this.Notificador)).EndInit();
             this.ResumeLayout(false);
