@@ -118,6 +118,22 @@ namespace DataLayer
             return Resultado;
         }
 
+        public static DataTable DIRECCIONES()
+        {
+            DataTable Resultado = new DataTable();
+            string Consulta = @"SELECT ID_Direccion, Linea1, Linea2, CodigoPostal FROM Direcciones ORDER BY ID_Direccion ASC;";
+            DBOperacion operacion = new DBOperacion();
+            try
+            {
+                Resultado = operacion.Consultar(Consulta);
+            }
+            catch (Exception)
+            {
+
+            }
+            return Resultado;
+        }
+
         public static DataTable VENTAS()
         {
             DataTable resultado = new DataTable();

@@ -469,18 +469,18 @@ INSERT INTO Distritos VALUES
 	('USO04', 'San Francisco Javier', 'USO');
 
 -- Direcciones 
-INSERT INTO Direcciones VALUES
--- Linea1, Linea2, ID_Distrito, CodigoPostal
-	('Col Madera, Calle 1, #1N', 'Frente al parque', 'SON02', '02311'),  -- 1					
-	('Barrio El Caldero, Av 2, #2I', 'Frente al amate', 'SOE01', '02306'), -- 2
-	('Res El Cangrejo, Av 3, #3A', 'Frente a la playa', 'SOO01', '02302'), -- 3
-	('Barrio El Centro, Av 4, #4S', 'Frente a catedral', 'SOC01', '02301'), -- 4
-	('Col La Frontera, Calle 5, #5G', 'Km 10', 'AHS03', '02113'), -- 5
-	('Res Buenavista, Calle 6, #6A', 'Contiguo a Alcaldia', 'SAC01', '02201'), -- 6
-	('Res Altavista, Av 7, #7S', 'Contiguo al ISSS', 'SSC03', '01101'), -- 7
-	('Col Las Margaritas, Pje 20, #2-4', 'Junto a ANDA', 'AHS01', '02114'),-- 8
-	('Urb Las Magnolias, Pol 21, #2-6', 'Casa de esquina', 'LLO01', '01115'),-- 9
-	('Caserio Florencia, 3era Calle, #5', 'Casa rosada', 'SON01', '02305');-- 10
+INSERT INTO Direcciones (Linea1, Linea2, ID_Distrito, CodigoPostal) VALUES
+    ("Col Madera, Calle 1, #1N", "Frente al parque", 'SON02', '02311'),  
+    ("Barrio El Caldero, Av 2, #2I", "Frente al amate", 'SOE01', '02306'), 
+    ("Res El Cangrejo, Av 3, #3A", "Frente a la playa", 'SOO01', '02302'), 
+    ("Barrio El Centro, Av 4, #4S", "Frente a catedral", 'SOC01', '02301'), 
+    ("Col La Frontera, Calle 5, #5G", "Km 10", 'AHS03', '02113'), 
+    ("Res Buenavista, Calle 6, #6A", "Contiguo a Alcaldia", 'SAC01', '02201'), 
+    ("Res Altavista, Av 7, #7S", "Contiguo al ISSS", 'SSC03', '01101'), 
+    ("Col Las Margaritas, Pje 20, #2-4", "Junto a ANDA", 'AHS01', '02114'), 
+    ("Urb Las Magnolias, Pol 21, #2-6", "Casa de esquina", 'LLO01', '01115'), 
+    ("Caserio Florencia, 3era Calle, #5", "Casa rosada", 'SON01', '02305');
+
 
 INSERT INTO Roles (Rol) VALUES
 ("Administrador"),
@@ -491,26 +491,26 @@ INSERT INTO Estados (Estado, Descripcion) VALUES
 ('0', "Inactivo"),
 ('1', "Activo");
 
-INSERT INTO Clientes (Nombres, Apellidos, Correo) VALUES
-("Juan Daniel", "López Pérez", "cliente1@correo.com"),
-("Pedro Armando", "Escamoso Barrientos", "cliente2@correo.com"),
-("José María", "Zotelo Bran", "cliente3@correo.com"),
-("María José", "Pérez Zosa", "cliente4@correo.com"),
-("Flor Del Carmen", "Najarro Hernádez", "cliente5@correo.com");
+INSERT INTO Clientes (Nombres, Apellidos, Correo, ID_Direccion) VALUES
+("Juan Daniel", "López Pérez", "cliente1@correo.com", 1),
+("Pedro Armando", "Escamoso Barrientos", "cliente2@correo.com", 2),
+("José María", "Zotelo Bran", "cliente3@correo.com", 3),
+("María José", "Pérez Zosa", "cliente4@correo.com", 4),
+("Flor Del Carmen", "Najarro Hernádez", "cliente5@correo.com", 5);
 
-INSERT INTO Empleados (Nombres, Apellidos, DUI, Direccion, Telefono, Correo) VALUES
-("Juan José", "López Pérez", "11111111-1", "Colonia 1, Caserío 1, casa 1", "1234-5678", "empleado1@correo.com"),
-("María Elena", "García Martínez", "22222222-2", "Colonia 2, Caserío 2, casa 2", "2234-5678", "empleado2@correo.com"),
-("Pedro Antonio", "Martínez López", "33333333-3", "Colonia 3, Caserío 3, casa 3", "3234-5678", "empleado3@correo.com"),
-("Laura Isabel", "Pérez Rodríguez", "44444444-4", "Colonia 4, Caserío 4, casa 4", "4234-5678", "empleado4@correo.com"),
-("Carlos Andrés", "Hernández Bonilla", "55555555-5", "Colonia 5, Caserío 5, casa 5", "5234-5678", "empleado5@correo.com");
+INSERT INTO Empleados (Nombres, Apellidos, DUI, ID_Direccion, Telefono, Correo) VALUES
+("Juan José", "López Pérez", "11111111-1", 1, "1234-5678", "empleado1@correo.com"),
+("María Elena", "García Martínez", "22222222-2", 2, "2234-5678", "empleado2@correo.com"),
+("Pedro Antonio", "Martínez López", "33333333-3", 3, "3234-5678", "empleado3@correo.com"),
+("Laura Isabel", "Pérez Rodríguez", "44444444-4", 4, "4234-5678", "empleado4@correo.com"),
+("Carlos Andrés", "Hernández Bonilla", "55555555-5", 5, "5234-5678", "empleado5@correo.com");
 
-INSERT INTO Proveedores (Proveedor, Contacto, Direccion, Correo) VALUES
-('Refrescos Delicia', 12345678, 'Calle Primavera #123, Ciudad del Sol', 'ventas@refrescosdelicia.com'),
-('Distribuidora de Golosinas', 98765432, 'Avenida Central #456, Barrio Nuevo', 'ventas@golosinasdistribuidora.com'),
-('Suministros Industriales Hermanos Pérez', 32178904, 'Calle Industria #789, Zona Industrial', 'ventas@suministroshermanosperez.com'),
-('Electrodomésticos Vargas', 56789012, 'Calle Tecnología #234, Urbanización Moderna', 'ventas@electrodomesticosvargas.com'),
-('Distribuidora de Juguetes Felices', 87654321, 'Avenida de los Niños #567, Barrio Jardín', 'ventas@juguetesfelices.com');
+INSERT INTO Proveedores (Proveedor, Contacto, ID_Direccion, Correo) VALUES
+('Refrescos Delicia', 12345678, 1, 'ventas@refrescosdelicia.com'),
+('Distribuidora de Golosinas', 98765432, 2, 'ventas@golosinasdistribuidora.com'),
+('Suministros Industriales Hermanos Pérez', 32178904, 3, 'ventas@suministroshermanosperez.com'),
+('Electrodomésticos Vargas', 56789012, 4, 'ventas@electrodomesticosvargas.com'),
+('Distribuidora de Juguetes Felices', 67890123, 5, 'ventas@juguetesfelices.com');
 
 INSERT INTO Categorias (Categoria) VALUES
 ('Lácteos'),
