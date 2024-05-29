@@ -19,6 +19,7 @@ namespace General.CLS
         Int32 _IDUsuario;
         Int32 _IDCliente;
         Int32 _IDProducto;
+        double _Precio;
         Int32 _Cantidad;
         double _Total;
 
@@ -36,6 +37,7 @@ namespace General.CLS
         public int IDUsuario { get => _IDUsuario; set => _IDUsuario = value; }
         public int IDCliente { get => _IDCliente; set => _IDCliente = value; }
         public int IDProducto { get => _IDProducto; set => _IDProducto = value; }
+        public double Precio { get => _Precio; set => _Precio = value; }
         public int Cantidad { get => _Cantidad; set => _Cantidad = value; }
         public double Total { get => _Total; set => _Total = value; }
 
@@ -45,13 +47,14 @@ namespace General.CLS
         {
             Boolean Resultado = false;
             DataLayer.DBOperacion Operacion = new DataLayer.DBOperacion();
-
+            _FechaVenta = DateTime.Now;
             StringBuilder Sentencia = new StringBuilder();
-            Sentencia.Append("INSERT INTO ventas (FechaVenta, IDUsuario, IDCliente, IDProducto, Cantidad, Total) VALUES (");
-            Sentencia.Append("'" + _FechaVenta.ToString("yyyy-MM-dd HH:mm:ss") + "', "); 
+            Sentencia.Append("INSERT INTO ventas (FechaVenta, IDUsuario, IDCliente, IDProducto, Precio, Cantidad, Total) VALUES (");
+            Sentencia.Append("'" + _FechaVenta.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
             Sentencia.Append(_IDUsuario + ", ");  
             Sentencia.Append(_IDCliente + ", ");  
-            Sentencia.Append(_IDProducto + ", ");  
+            Sentencia.Append(_IDProducto + ", ");
+            Sentencia.Append(_Precio + ", ");
             Sentencia.Append(_Cantidad + ", "); 
             Sentencia.Append(_Total + ");"); 
 
@@ -84,7 +87,8 @@ namespace General.CLS
             Sentencia.Append("FechaVenta = '" + _FechaVenta.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
             Sentencia.Append("IDUsuario = " + _IDUsuario + ", ");
             Sentencia.Append("IDCliente = " + _IDCliente + ", ");
-            Sentencia.Append("IDProducto = '" + _IDProducto + "', "); 
+            Sentencia.Append("IDProducto = '" + _IDProducto + "', ");
+            Sentencia.Append("Precio = " + _Precio + ", ");
             Sentencia.Append("Cantidad = " + _Cantidad + ", "); 
             Sentencia.Append("Total = " + _Total);
             Sentencia.Append(" WHERE IDVenta = '" + _IDVenta + "';");
