@@ -34,10 +34,10 @@ namespace ProyectoCRUD.CLS
         }
         public AppManager()
         {
-            SplashScreen();
+            //SplashScreen();
             if (LoginScreen())
             {
-                Principal f = new Principal();
+                FPrincipal f = new FPrincipal();
                 f.ShowDialog();
             }
         }

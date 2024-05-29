@@ -36,8 +36,95 @@ namespace ProyectoCRUD.GUI
             }
             else
             {
-                lblMensaje.Text = "USUARIO O CLAVE ERRONEOS.";
+                MessageBox.Show("Las credenciales ingresadas no son válidas. Por favor, inténtelo nuevamente.", 
+                "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //lblMensaje.ForeColor = Color.Red;
+                //lblMensaje.Text = "USUARIO O CLAVE ERRONEOS";
+
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void txbUsuario_Enter(object sender, EventArgs e)
+        {
+            if (txbUsuario.Text == "USUARIO")
+            {
+                txbUsuario.Text = "";
+                txbUsuario.ForeColor = Color.LightGray;
+
+            }
+
+        }
+
+        private void txbUsuario_Leave(object sender, EventArgs e)
+        {
+            if (txbUsuario.Text == "")
+            {
+                txbUsuario.Text = "USUARIO";
+                txbUsuario.ForeColor = Color.DimGray;
+            }
+
+        }
+
+        private void txbClave_Enter(object sender, EventArgs e)
+        {
+            if (txbClave.Text == "CONTRASEÑA")
+            {
+                txbClave.Text = "";
+                txbClave.ForeColor = Color.LightGray;
+                txbClave.UseSystemPasswordChar = true;
+            }
+            
+        }
+
+        private void txbClave_Leave(object sender, EventArgs e)
+        {
+            if (txbClave.Text == "")
+            {
+                txbClave.Text = "CONTRASEÑA";
+                txbClave.ForeColor = Color.DimGray;
+                
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void txbClave_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
     }
