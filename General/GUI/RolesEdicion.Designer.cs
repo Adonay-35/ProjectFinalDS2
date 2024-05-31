@@ -41,58 +41,42 @@
             // 
             // txbRol
             // 
-<<<<<<< HEAD
             this.txbRol.Location = new System.Drawing.Point(93, 179);
-=======
-
-            this.txbRol.Location = new System.Drawing.Point(140, 212);
-            this.txbRol.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txbRol.Location = new System.Drawing.Point(93, 179);
-
->>>>>>> 2009d1e448be5357596773ea12ca16823d4aa77a
             this.txbRol.Name = "txbRol";
-            this.txbRol.Size = new System.Drawing.Size(458, 26);
+            this.txbRol.Size = new System.Drawing.Size(307, 20);
             this.txbRol.TabIndex = 27;
             // 
             // txbIDRol
             // 
-            this.txbIDRol.Location = new System.Drawing.Point(140, 120);
-            this.txbIDRol.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txbIDRol.Location = new System.Drawing.Point(93, 78);
             this.txbIDRol.Name = "txbIDRol";
             this.txbIDRol.ReadOnly = true;
-            this.txbIDRol.Size = new System.Drawing.Size(152, 26);
+            this.txbIDRol.Size = new System.Drawing.Size(103, 20);
             this.txbIDRol.TabIndex = 26;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-<<<<<<< HEAD
-=======
-            this.label2.Location = new System.Drawing.Point(135, 188);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
->>>>>>> 2009d1e448be5357596773ea12ca16823d4aa77a
             this.label2.Location = new System.Drawing.Point(90, 163);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(33, 20);
+            this.label2.Size = new System.Drawing.Size(23, 13);
             this.label2.TabIndex = 25;
             this.label2.Text = "Rol";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(135, 95);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(90, 62);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 20);
+            this.label1.Size = new System.Drawing.Size(34, 13);
             this.label1.TabIndex = 24;
             this.label1.Text = "IDRol";
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(488, 532);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCancelar.Location = new System.Drawing.Point(325, 346);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(112, 35);
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 29;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -100,10 +84,9 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(140, 532);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnGuardar.Location = new System.Drawing.Point(93, 346);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(112, 35);
+            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 28;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -116,18 +99,17 @@
             // 
             // RolesEdicion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(738, 600);
+            this.ClientSize = new System.Drawing.Size(492, 390);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txbRol);
             this.Controls.Add(this.txbIDRol);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "RolesEdicion";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RolesEdicion";
             ((System.ComponentModel.ISupportInitialize)(this.Notificador)).EndInit();
             this.ResumeLayout(false);

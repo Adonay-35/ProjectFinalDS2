@@ -12,17 +12,12 @@ create table Departamentos(
 create table Municipios(
 	ID_Municipio int auto_increment primary key,
 	Municipio varchar(60) not null,
-<<<<<<< HEAD
 	ID_Departamento int
-=======
-	ID_Departamento int not null
->>>>>>> 2009d1e448be5357596773ea12ca16823d4aa77a
 );
 
 create table Distritos(
 	ID_Distrito int auto_increment primary key,
 	Distrito varchar(60) not null,
-<<<<<<< HEAD
 	ID_Municipio int
 );
 
@@ -36,38 +31,22 @@ create table Direcciones(
 
 CREATE TABLE Roles(
 	IDRol int auto_increment primary key,
-=======
-	ID_Municipio int not null
-);
-
-CREATE TABLE Roles(
-	ID_Rol int auto_increment primary key,
->>>>>>> 2009d1e448be5357596773ea12ca16823d4aa77a
 	Rol varchar(50) not null
 );
 
 CREATE TABLE Estados(
-<<<<<<< HEAD
 	IDEstado int auto_increment primary key,
-=======
-	ID_Estado int auto_increment primary key,
->>>>>>> 2009d1e448be5357596773ea12ca16823d4aa77a
 	Estado boolean not null,
 	Descripcion varchar(10) not null
 );
 
 CREATE TABLE Empleados (
-<<<<<<< HEAD
 	IDEmpleado int auto_increment primary key,
-=======
-	ID_Empleado int auto_increment primary key,
->>>>>>> 2009d1e448be5357596773ea12ca16823d4aa77a
     Nombres varchar(50) not null,
     Apellidos varchar(50) not null,
     DUI varchar(10) not null,
     Telefono varchar(9) not null,
     Correo varchar(50) not null,
-<<<<<<< HEAD
 	Linea1 varchar(100) not null,
     Linea2 varchar(100) not null,
     ID_Distrito int,
@@ -91,36 +70,10 @@ CREATE TABLE Clientes (
 
 CREATE TABLE Proveedores(
 	IDProveedor int auto_increment primary key,
-=======
-    Linea1 varchar(100) not null,
-	Linea2 varchar(100) not null,
-	ID_Distrito int not null,
-	CodigoPostal int not null,
-	ID_Departamento int not null,
-	ID_Municipio int not null
-);
-
-CREATE TABLE Clientes (
-	ID_Cliente int auto_increment primary key,
-    Nombres varchar(50) not null,
-    Apellidos varchar(50) not null,
-    Correo varchar(50) not null,
-    Linea1 varchar(100) not null,
-	Linea2 varchar(100) not null,
-	ID_Distrito int not null,
-	CodigoPostal int not null,
-	ID_Departamento int not null,
-	ID_Municipio int not null
-);
-
-CREATE TABLE Proveedores(
-	ID_Proveedor int auto_increment primary key,
->>>>>>> 2009d1e448be5357596773ea12ca16823d4aa77a
 	Proveedor varchar(100) not null,
 	Contacto double not null,
 	Correo varchar(80) not null,
 	Linea1 varchar(100) not null,
-<<<<<<< HEAD
     Linea2 varchar(100) not null,
     ID_Distrito int,
     CodigoPostal int,
@@ -130,22 +83,10 @@ CREATE TABLE Proveedores(
 
 CREATE TABLE Categorias(
 	IDCategoria int auto_increment primary key,
-=======
-	Linea2 varchar(100) not null,
-	ID_Distrito int not null,
-	CodigoPostal int not null,
-	ID_Departamento int not null,
-	ID_Municipio int not null
-);
-
-CREATE TABLE Categorias(
-	ID_Categoria int auto_increment primary key,
->>>>>>> 2009d1e448be5357596773ea12ca16823d4aa77a
     Categoria varchar(50) not null
 );
 
 CREATE TABLE Usuarios(
-<<<<<<< HEAD
 	IDUsuario int auto_increment primary key,
 	Usuario varchar(50) not null,
 	Clave varchar(200) not null,
@@ -189,87 +130,15 @@ ALTER TABLE Ventas ADD CONSTRAINT fk_venta_producto FOREIGN KEY (IDCliente) REFE
 ALTER TABLE Municipios ADD CONSTRAINT fk_municipio_departamento FOREIGN KEY (ID_Departamento) REFERENCES Departamentos(ID_Departamento);
 ALTER TABLE Distritos ADD CONSTRAINT fk_distrito_muncipio FOREIGN KEY (ID_Municipio) REFERENCES Municipios(ID_Municipio);
 ALTER TABLE Direcciones ADD CONSTRAINT fk_direccion_distrito FOREIGN KEY (ID_Distrito) REFERENCES Distritos(ID_Distrito);
-=======
-	ID_Usuario int auto_increment primary key,
-	Usuario varchar(50) not null,
-	Clave varchar(200) not null,
-	ID_Rol int not null,
-	ID_Empleado int not null,
-    ID_Estado int not null
-);
-
-CREATE TABLE Productos (
-    ID_Producto int auto_increment primary key,
-    Producto varchar(200) not null,
-    FechaFabricacion datetime not null,
-    FechaVencimiento datetime not null,
-    Descripcion varchar(100) not null,
-    PrecioCompra double not null,
-    ID_Proveedor int not null,
-    ID_Categoria int not null
-);
-
-CREATE TABLE Compras (
-    ID_Compra int auto_increment primary key,
-    FechaCompra datetime not null,
-    ID_Usuario int not null,
-    ID_Proveedor int not null,
-    ID_Producto  int not null,
-    CantidadEntrante int not null,
-    TotalPagar double not null
-);
-
-CREATE TABLE Ventas (
-    ID_Venta int auto_increment primary key,
-    FechaVenta datetime not null,
-    ID_Usuario int not null,
-    ID_Cliente int not null,
-    ID_Producto  int not null,
-    PrecioVenta double not null,
-    CantidadSaliente int not null,
-    TotalCobrar double not null
-);
-
-CREATE TABLE Kardex(
-	ID_Kardex int auto_increment primary key,
-    ID_Compra int not null,
-    ID_Venta int not null,
-    Stock int not null
-);
-
--- LLAVES FORANEAS
-ALTER TABLE Municipios ADD CONSTRAINT fk_municipio_departamento FOREIGN KEY (ID_Departamento) REFERENCES Departamentos(ID_Departamento);
-ALTER TABLE Distritos ADD CONSTRAINT fk_distrito_muncipio FOREIGN KEY (ID_Municipio) REFERENCES Municipios(ID_Municipio);
->>>>>>> 2009d1e448be5357596773ea12ca16823d4aa77a
 ALTER TABLE Empleados ADD CONSTRAINT fk_empleado_departamento FOREIGN KEY (ID_Departamento) REFERENCES Departamentos(ID_Departamento);
 ALTER TABLE Empleados ADD CONSTRAINT fk_empleado_distrito FOREIGN KEY (ID_Distrito) REFERENCES Distritos(ID_Distrito);
 ALTER TABLE Empleados ADD CONSTRAINT fk_empleado_municipio FOREIGN KEY (ID_Municipio) REFERENCES Municipios(ID_Municipio);
 ALTER TABLE Clientes ADD CONSTRAINT fk_cliente_departamento FOREIGN KEY (ID_Departamento) REFERENCES Departamentos(ID_Departamento);
 ALTER TABLE Clientes ADD CONSTRAINT fk_cliente_distrito FOREIGN KEY (ID_Distrito) REFERENCES Distritos(ID_Distrito);
 ALTER TABLE Clientes ADD CONSTRAINT fk_cliente_municipio FOREIGN KEY (ID_Municipio) REFERENCES Municipios(ID_Municipio);
-<<<<<<< HEAD
 ALTER TABLE Proveedores ADD CONSTRAINT fk_proveedor_departamento FOREIGN KEY (ID_Departamento) REFERENCES Departamentos(ID_Departamento);
 ALTER TABLE Proveedores ADD CONSTRAINT fk_proveedor_distrito FOREIGN KEY (ID_Distrito) REFERENCES Distritos(ID_Distrito);
 ALTER TABLE Proveedores ADD CONSTRAINT fk_proveedor_municipio FOREIGN KEY (ID_Municipio) REFERENCES Municipios(ID_Municipio);
-=======
-ALTER TABLE Proveedores ADD CONSTRAINT fk_proveedor_distrito FOREIGN KEY (ID_Distrito) REFERENCES Distritos(ID_Distrito);
-ALTER TABLE Proveedores ADD CONSTRAINT fk_proveedor_departamento FOREIGN KEY (ID_Departamento) REFERENCES Departamentos(ID_Departamento);
-ALTER TABLE Proveedores ADD CONSTRAINT fk_proveedor_municipio FOREIGN KEY (ID_Municipio) REFERENCES Municipios(ID_Municipio);
-ALTER TABLE Usuarios ADD CONSTRAINT fk_usuario_rol FOREIGN KEY (ID_Rol) REFERENCES Roles(ID_Rol);
-ALTER TABLE Usuarios ADD CONSTRAINT fk_usuario_empleado FOREIGN KEY (ID_Empleado) REFERENCES Empleados(ID_Empleado);
-ALTER TABLE Usuarios ADD CONSTRAINT fk_usuario_estado FOREIGN KEY (ID_Estado) REFERENCES Estados(ID_Estado);
-ALTER TABLE Productos ADD CONSTRAINT fk_producto_proveedor FOREIGN KEY (ID_Proveedor) REFERENCES Proveedores(ID_Proveedor);
-ALTER TABLE Productos ADD CONSTRAINT fk_producto_categoria FOREIGN KEY (ID_Categoria) REFERENCES Categorias(ID_Categoria);
-ALTER TABLE Compras ADD CONSTRAINT fk_compra_usuario FOREIGN KEY (ID_Usuario) REFERENCES Usuarios(ID_Usuario);
-ALTER TABLE Compras ADD CONSTRAINT fk_compra_proveedor FOREIGN KEY (ID_Proveedor) REFERENCES Proveedores(ID_Proveedor);
-ALTER TABLE Compras ADD CONSTRAINT fk_compra_producto FOREIGN KEY (ID_Producto) REFERENCES Productos(ID_Producto);
-ALTER TABLE Ventas ADD CONSTRAINT fk_venta_usuario FOREIGN KEY (ID_Usuario) REFERENCES Usuarios(ID_Usuario);
-ALTER TABLE Ventas ADD CONSTRAINT fk_venta_cliente FOREIGN KEY (ID_Cliente) REFERENCES Clientes(ID_Cliente);
-ALTER TABLE Ventas ADD CONSTRAINT fk_venta_producto FOREIGN KEY (ID_Producto) REFERENCES Productos(ID_Producto);
-ALTER TABLE Kardex ADD CONSTRAINT fk_kardex_compra FOREIGN KEY (ID_Compra) REFERENCES Compras(ID_Compra);
-ALTER TABLE Kardex ADD CONSTRAINT fk_kardex_venta FOREIGN KEY (ID_Venta) REFERENCES Ventas(ID_Venta);
-
->>>>>>> 2009d1e448be5357596773ea12ca16823d4aa77a
 
 -- INSERCIONES 
 -- DIRECCIONES
@@ -610,7 +479,6 @@ INSERT INTO Distritos (Distrito, ID_Municipio) VALUES
 ('Alegría', 44),
 ('Santiago de María', 44);
 
-<<<<<<< HEAD
 -- Direcciones 
 INSERT INTO Direcciones (Linea1, Linea2, ID_Distrito, CodigoPostal) VALUES
     ("Col Madera, Calle 1, #1N", "Frente al parque", 1, '02311'),  
@@ -624,8 +492,6 @@ INSERT INTO Direcciones (Linea1, Linea2, ID_Distrito, CodigoPostal) VALUES
     ("Urb Las Magnolias, Pol 21, #2-6", "Casa de esquina", 9, '01115'), 
     ("Caserio Florencia, 3era Calle, #5", "Casa rosada", 10, '02305');
 
-=======
->>>>>>> 2009d1e448be5357596773ea12ca16823d4aa77a
 INSERT INTO Roles (Rol) VALUES
 ("Administrador"),
 ("Almacenista"),
@@ -683,11 +549,7 @@ INSERT INTO Categorias (Categoria) VALUES
 ('Juguetes'),
 ('Mascotas');/*(Comida y accesorios para mascotas)*/
 
-<<<<<<< HEAD
 INSERT INTO Usuarios(Usuario, Clave, IDRol, IDEmpleado, IDEstado) VALUES
-=======
-INSERT INTO Usuarios(Usuario, Clave, ID_Rol, ID_Empleado, ID_Estado) VALUES
->>>>>>> 2009d1e448be5357596773ea12ca16823d4aa77a
 ("Admin",  SHA2('adm', 256), 1, 1, 1),
 ("Almacen",  SHA2('alm', 256), 2, 2, 2),
 ("Ventas",  SHA2('vnt', 256), 1, 3, 1),
@@ -697,7 +559,6 @@ INSERT INTO Usuarios(Usuario, Clave, ID_Rol, ID_Empleado, ID_Estado) VALUES
 /*A los productos que no venzan se les pondrá como año de vencimiento "2100-01-01" y a los productos tales como frutas u hortalizas
 que no tengan fechas especificadas se les dará un aproximado de vida de 10 días a partir de
 su ingreso al sistema (se debe verificar su estado de manera física)*/
-<<<<<<< HEAD
 INSERT INTO Productos (Producto, Stock, Precio, FechaFabricacion, FechaVencimiento,Descripcion, IDProveedor, IDCategoria) VALUES
 ('Refresco de cola', 100, 1.99, '2024-01-01 13:00:00', '2025-01-01 13:00:00', 'Refresco de cola en lata de 355ml', 1, 6),
 ('Bolsa de papas fritas', 150, 0.99, '2024-01-01 14:00:00', '2024-01-02 14:00:00', 'Bolsa de papas fritas de 100g', 2, 15),
@@ -713,35 +574,6 @@ INSERT INTO Ventas (FechaVenta, IDUsuario, IDCliente, IDProducto, Cantidad, Tota
 ('2024-05-05 17:00:00', 5, 5, '2', 7 , 6.93);
 
 
-=======
-INSERT INTO Productos (Producto, FechaFabricacion, FechaVencimiento,Descripcion, PrecioCompra, ID_Proveedor, ID_Categoria) VALUES
-('Refresco de cola', '2024-01-01 13:00:00', '2025-01-01 13:00:00', 'Refresco de cola en lata de 355ml', 1.99, 1, 6),
-('Bolsa de papas fritas', '2024-01-01 14:00:00', '2024-01-02 14:00:00', 'Bolsa de papas fritas de 100g', 2.49, 2, 15),
-('Jabón de manos', '2023-01-01 15:00:00', '2026-01-01 15:00:00', 'Jabón líquido para manos con aroma a manzana', 5.99, 3, 19),
-('Caja de dulces surtidos', '2024-01-01 16:00:00', '2024-05-01 16:00:00', 'Caja de dulces surtidos, ideal para regalo', 1.99, 4, 15),
-('Lápiz de colores', '2022-01-01 17:00:00', '2100-01-01 17:00:00', 'Paquete de 12 lápices de colores surtidos', 0.99, 5, 21);
-
-INSERT INTO Compras (FechaCompra, ID_Usuario, ID_Proveedor, ID_Producto, CantidadEntrante, TotalPagar) VALUES
-('2024-01-01 08:30:00', 4, 1, 1, 4, 7.96),
-('2024-01-02 10:15:00', 4, 2, 3, 3, 7.47),
-('2024-01-03 13:45:00', 5, 3, 4, 5, 29.95),
-('2024-01-04 15:20:00', 3, 4, 5, 4, 7.96),
-('2024-01-05 17:00:00', 5, 5, 2, 7, 6.93);
-
-INSERT INTO Ventas (FechaVenta, ID_Usuario, ID_Cliente, ID_Producto, PrecioVenta, CantidadSaliente, TotalCobrar) VALUES
-('2024-05-01 08:30:00', 4, 1, 1, 1.99, 4, 7.96),
-('2024-05-02 10:15:00', 4, 2, 3, 2.49, 3, 7.47),
-('2024-05-03 13:45:00', 5, 3, 4, 5.99, 5, 29.95),
-('2024-05-04 15:20:00', 3, 4, 5, 1.99, 4, 7.96),
-('2024-05-05 17:00:00', 5, 5, 2, 0.99, 7, 6.93);
-
-INSERT INTO Kardex (ID_Compra, ID_Venta, Stock) VALUES
-(1, 1, 0),
-(2, 2, 0),
-(3, 3, 0),
-(4, 4, 0),
-(5, 5, 0)
->>>>>>> 2009d1e448be5357596773ea12ca16823d4aa77a
 
 /* PROCEDIMIENTOS ALMACENADOS */
 
@@ -794,11 +626,7 @@ END $$
 DELIMITER $$
 CREATE PROCEDURE ObtenerDepartamentos()
 BEGIN
-<<<<<<< HEAD
 SELECT ID_Departamento, Departamento, Pais
-=======
-SELECT ID_Departamento, Departamento
->>>>>>> 2009d1e448be5357596773ea12ca16823d4aa77a
 FROM departamentos;
 END $$
 
@@ -816,20 +644,12 @@ SELECT ID_Distrito, Distrito
 FROM distritos;
 END $$
 
-<<<<<<< HEAD
 /*DELIMITER $$
-=======
-DELIMITER $$
->>>>>>> 2009d1e448be5357596773ea12ca16823d4aa77a
 CREATE PROCEDURE ObtenerDirecciones()
 BEGIN
 SELECT ID_Direccion, Linea
 FROM direcciones;
-<<<<<<< HEAD
 END $$*/
-=======
-END $$
->>>>>>> 2009d1e448be5357596773ea12ca16823d4aa77a
 
 DELIMITER //
 CREATE PROCEDURE ObtenerProductos()
@@ -974,8 +794,4 @@ BEGIN
 SELECT *
 FROM Usuarios
 WHERE Usuarios.Usuario=Usuario AND Usuarios.Clave=Clave;
-<<<<<<< HEAD
 END
-=======
-END
->>>>>>> 2009d1e448be5357596773ea12ca16823d4aa77a
