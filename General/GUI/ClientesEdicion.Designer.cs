@@ -106,7 +106,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 13);
             this.label1.TabIndex = 61;
-            this.label1.Text = "IDCliente";
+            this.label1.Text = "ID_Cliente";
             // 
             // btnCancelar
             // 
