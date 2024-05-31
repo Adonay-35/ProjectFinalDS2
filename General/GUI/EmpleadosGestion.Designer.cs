@@ -104,7 +104,7 @@
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.SteelBlue;
             this.dataGridView1.Location = new System.Drawing.Point(0, 31);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -124,7 +124,7 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(865, 383);
+            this.dataGridView1.Size = new System.Drawing.Size(950, 365);
             this.dataGridView1.TabIndex = 10;
             // 
             // IDEmpleado
@@ -237,10 +237,10 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.lblRegistros});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 414);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 396);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 9, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(865, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(950, 22);
             this.statusStrip1.TabIndex = 9;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -271,7 +271,7 @@
             this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(865, 31);
+            this.toolStrip1.Size = new System.Drawing.Size(950, 31);
             this.toolStrip1.TabIndex = 8;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -316,7 +316,6 @@
             // 
             this.txbFiltro.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.txbFiltro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txbFiltro.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txbFiltro.Name = "txbFiltro";
             this.txbFiltro.Size = new System.Drawing.Size(134, 31);
             this.txbFiltro.TextChanged += new System.EventHandler(this.txbFiltro_TextChanged);
@@ -346,7 +345,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(865, 436);
+            this.ClientSize = new System.Drawing.Size(950, 418);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
