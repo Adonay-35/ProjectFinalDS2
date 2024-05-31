@@ -12,7 +12,7 @@ namespace DataLayer
         public static DataTable CATEGORIAS()
         {
             DataTable Resultado = new DataTable();
-            string Consulta = @"SELECT IDCategoria, Categoria FROM categorias ORDER BY IDCategoria ASC;";
+            string Consulta = @"SELECT ID_Categoria, Categoria FROM categorias ORDER BY ID_Categoria ASC;";
             DBOperacion operacion = new DBOperacion();
             try
             {
@@ -28,7 +28,7 @@ namespace DataLayer
         public static DataTable ROLES()
         {
             DataTable Resultado = new DataTable();
-            string Consulta = @"SELECT IDRol, Rol FROM roles ORDER BY IDRol ASC;";
+            string Consulta = @"SELECT ID_Rol, Rol FROM roles ORDER BY ID_Rol ASC;";
             DBOperacion operacion = new DBOperacion();
             try
             {

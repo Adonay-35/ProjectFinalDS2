@@ -145,7 +145,11 @@ namespace General.GUI
             FiltrarLocalmente();
         }
 
+<<<<<<< HEAD
+        private void toolStripButton1_Click_1(object sender, EventArgs e)
+=======
         private void toolStripButton1_Click(object sender, EventArgs e)
+>>>>>>> 2009d1e448be5357596773ea12ca16823d4aa77a
         {
             Close();
         }

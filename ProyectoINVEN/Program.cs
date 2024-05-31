@@ -14,8 +14,13 @@ namespace ProyectoCRUD
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+<<<<<<< HEAD
+            //Application.Run(new CLS.AppManager());
+           Application.Run(new GUI.FPrincipal());
+=======
             Application.Run(new CLS.AppManager());
            //Application.Run(new GUI.FPrincipal());
+>>>>>>> 2009d1e448be5357596773ea12ca16823d4aa77a
         }
     }
 }

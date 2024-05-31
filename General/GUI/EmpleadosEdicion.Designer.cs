@@ -294,6 +294,8 @@
             this.txbLinea1.Size = new System.Drawing.Size(353, 20);
             this.txbLinea1.TabIndex = 93;
             // 
+<<<<<<< HEAD
+=======
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.SystemColors.Control;
@@ -332,6 +334,7 @@
             this.txbLinea1.Size = new System.Drawing.Size(315, 24);
             this.txbLinea1.TabIndex = 93;
             // 
+>>>>>>> 2009d1e448be5357596773ea12ca16823d4aa77a
             // EmpleadosEdicion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
