@@ -37,6 +37,7 @@
             this.panelInventarioSumin = new System.Windows.Forms.Panel();
             this.btnProveedor = new System.Windows.Forms.Button();
             this.btnInventario = new System.Windows.Forms.Button();
+
             this.btnProductos = new System.Windows.Forms.Button();
             this.btnInventarioSumin = new System.Windows.Forms.Button();
             this.panelPersonalClientes = new System.Windows.Forms.Panel();
@@ -95,6 +96,7 @@
             this.panelRegistros.Controls.Add(this.btnCategorias);
             this.panelRegistros.Controls.Add(this.btnVentas);
             this.panelRegistros.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelRegistros.Location = new System.Drawing.Point(0, 732);
             this.panelRegistros.Location = new System.Drawing.Point(0, 532);
             this.panelRegistros.Margin = new System.Windows.Forms.Padding(2);
             this.panelRegistros.Name = "panelRegistros";
@@ -144,6 +146,7 @@
             this.btnRegistros.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnRegistros.Image = ((System.Drawing.Image)(resources.GetObject("btnRegistros.Image")));
             this.btnRegistros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRegistros.Location = new System.Drawing.Point(0, 654);
             this.btnRegistros.Location = new System.Drawing.Point(0, 481);
             this.btnRegistros.Margin = new System.Windows.Forms.Padding(2);
             this.btnRegistros.Name = "btnRegistros";
@@ -168,6 +171,10 @@
             this.panelInventarioSumin.Location = new System.Drawing.Point(0, 396);
             this.panelInventarioSumin.Margin = new System.Windows.Forms.Padding(2);
             this.panelInventarioSumin.Name = "panelInventarioSumin";
+
+            this.panelInventarioSumin.Size = new System.Drawing.Size(292, 46);
+            this.panelInventarioSumin.TabIndex = 6;
+            // 
             this.panelInventarioSumin.Size = new System.Drawing.Size(195, 85);
             this.panelInventarioSumin.TabIndex = 6;
             // 
@@ -526,7 +533,6 @@
         private System.Windows.Forms.Button btnVentas;
         private System.Windows.Forms.Button btnRegistros;
         private System.Windows.Forms.Panel panelInventarioSumin;
-        private System.Windows.Forms.Button btnInventario;
         private System.Windows.Forms.Button btnProductos;
         private System.Windows.Forms.Button btnInventarioSumin;
         private System.Windows.Forms.Panel panelPersonalClientes;
