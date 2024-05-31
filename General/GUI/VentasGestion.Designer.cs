@@ -32,9 +32,9 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.IDVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -108,32 +108,32 @@
             this.FechaVenta.ReadOnly = true;
             this.FechaVenta.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
-            // IDUsuario
+            // Usuario
             // 
-            this.IDUsuario.DataPropertyName = "IDUsuario";
-            this.IDUsuario.HeaderText = "IDUsuario";
-            this.IDUsuario.MinimumWidth = 8;
-            this.IDUsuario.Name = "IDUsuario";
-            this.IDUsuario.ReadOnly = true;
-            this.IDUsuario.Width = 150;
+            this.Usuario.DataPropertyName = "Usuario";
+            this.Usuario.HeaderText = "Usuario";
+            this.Usuario.MinimumWidth = 8;
+            this.Usuario.Name = "Usuario";
+            this.Usuario.ReadOnly = true;
+            this.Usuario.Width = 150;
             // 
-            // IDCliente
+            // Cliente
             // 
-            this.IDCliente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.IDCliente.DataPropertyName = "IDCliente";
-            this.IDCliente.HeaderText = "IDCliente";
-            this.IDCliente.MinimumWidth = 8;
-            this.IDCliente.Name = "IDCliente";
-            this.IDCliente.ReadOnly = true;
+            this.Cliente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Cliente.DataPropertyName = "Cliente";
+            this.Cliente.HeaderText = "Cliente";
+            this.Cliente.MinimumWidth = 8;
+            this.Cliente.Name = "Cliente";
+            this.Cliente.ReadOnly = true;
             // 
-            // IDProducto
+            // Producto
             // 
-            this.IDProducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.IDProducto.DataPropertyName = "IDProducto";
-            this.IDProducto.HeaderText = "IDProducto";
-            this.IDProducto.MinimumWidth = 8;
-            this.IDProducto.Name = "IDProducto";
-            this.IDProducto.ReadOnly = true;
+            this.Producto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Producto.DataPropertyName = "Producto";
+            this.Producto.HeaderText = "Producto";
+            this.Producto.MinimumWidth = 8;
+            this.Producto.Name = "Producto";
+            this.Producto.ReadOnly = true;
             // 
             // Cantidad
             // 

@@ -57,21 +57,13 @@
             this.label5.TabIndex = 28;
             this.label5.Text = "Rol";
             // 
-            // txbIDEmpleado
-            // 
-            this.txbIDEmpleado.Location = new System.Drawing.Point(24, 332);
-            this.txbIDEmpleado.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txbIDEmpleado.Name = "txbIDEmpleado";
-            this.txbIDEmpleado.Size = new System.Drawing.Size(458, 26);
-            this.txbIDEmpleado.TabIndex = 27;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(20, 307);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 20);
+            this.label4.Size = new System.Drawing.Size(81, 20);
             this.label4.TabIndex = 26;
             this.label4.Text = "Empleado";
             // 
@@ -188,9 +180,10 @@
             // cbEmpleados
             // 
             this.cbEmpleados.FormattingEnabled = true;
-            this.cbEmpleados.Location = new System.Drawing.Point(140, 222);
+            this.cbEmpleados.Location = new System.Drawing.Point(24, 348);
+            this.cbEmpleados.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbEmpleados.Name = "cbEmpleados";
-            this.cbEmpleados.Size = new System.Drawing.Size(307, 21);
+            this.cbEmpleados.Size = new System.Drawing.Size(458, 28);
             this.cbEmpleados.TabIndex = 33;
             // 
             // UsuariosEdicion
