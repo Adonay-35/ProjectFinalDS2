@@ -13,17 +13,11 @@ namespace General.GUI
 {
     public partial class RolesEdicion : Form
     {
-        private Boolean Validar()
+        private bool Validar()
         {
-            Boolean Valido = true;
+            bool Valido = true;
             try
             {
-                if (txbIDRol.Text.Trim().Length == 0)
-                {
-                    Notificador.SetError(txbIDRol, "Este campo no puede quedar vacio");
-                    Valido = false;
-                }
-
                 if (txbRol.Text.Trim().Length == 0)
                 {
                     Notificador.SetError(txbRol, "Este campo no puede quedar vacio");
@@ -51,36 +45,39 @@ namespace General.GUI
         {
             try
             {
-                if (string.IsNullOrEmpty(txbIDRol.Text))
+                if (Validar())
                 {
-                    CLS.Roles nuevoRol = new CLS.Roles(0,txbRol.Text);
-                    nuevoRol.Rol = txbRol.Text;
-
-                    if (nuevoRol.Insertar())
+                    if (string.IsNullOrEmpty(txbIDRol.Text))
                     {
-                        MessageBox.Show("Rol creado exitosamente");
+                        CLS.Roles nuevoRol = new CLS.Roles(0, txbRol.Text);
+                        nuevoRol.Rol = txbRol.Text;
+
+                        if (nuevoRol.Insertar())
+                        {
+                            MessageBox.Show("Rol creado exitosamente");
+                            Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al crear rol");
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Error al crear rol");
+                        CLS.Roles rolExistente = new CLS.Roles(Convert.ToInt32(txbIDRol.Text), txbRol.Text);
+                        rolExistente.Rol = txbRol.Text;
+
+                        if (rolExistente.Actualizar())
+                        {
+                            MessageBox.Show("Usuario actualizado exitosamente");
+                            Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al actualizar usuario");
+                        }
                     }
                 }
-                else
-                {
-                    CLS.Roles rolExistente = new CLS.Roles(Convert.ToInt32(txbIDRol.Text), txbRol.Text);
-                    rolExistente.Rol = txbRol.Text;
-
-                    if (rolExistente.Actualizar())
-                    {
-                        MessageBox.Show("Usuario actualizado exitosamente");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error al actualizar usuario");
-                    }
-                }
-
-                this.Close();
             }
             catch (Exception ex)
             {

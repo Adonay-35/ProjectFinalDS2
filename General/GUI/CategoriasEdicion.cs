@@ -13,17 +13,11 @@ namespace General.GUI
 {
     public partial class CategoriasEdicion : Form
     {
-        private Boolean Validar()
+        private bool Validar()
         {
-            Boolean Valido = true;
+            bool Valido = true;
             try
             {
-                if (txbIDCategoria.Text.Trim().Length == 0)
-                {
-                    Notificador.SetError(txbIDCategoria, "Este campo no puede quedar vacío");
-                    Valido = false;
-                }
-
                 if (txbCategoria.Text.Trim().Length == 0)
                 {
                     Notificador.SetError(txbCategoria, "Este campo no puede quedar vacío");
@@ -41,40 +35,44 @@ namespace General.GUI
         {
             try
             {
-                if (string.IsNullOrEmpty(txbIDCategoria.Text))
+                if (Validar())
                 {
-                    CLS.Categorias nuevaCategoria = new CLS.Categorias(0, txbCategoria.Text);
-                    nuevaCategoria.Categoria = txbCategoria.Text;
 
-                    if (nuevaCategoria.InsertarCategoria())
+                    if (string.IsNullOrEmpty(txbIDCategoria.Text))
                     {
-                        MessageBox.Show("Categoría creada exitosamente");
+                        CLS.Categorias nuevaCategoria = new CLS.Categorias(0, txbCategoria.Text);
+                        nuevaCategoria.Categoria = txbCategoria.Text;
+
+                        if (nuevaCategoria.InsertarCategoria())
+                        {
+                            MessageBox.Show("Categoría creada exitosamente");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al crear la categoría");
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Error al crear la categoría");
+                        CLS.Categorias categoriaExistente = new CLS.Categorias(Convert.ToInt32(txbIDCategoria.Text), txbCategoria.Text);
+                        categoriaExistente.Categoria = txbCategoria.Text;
+
+                        if (categoriaExistente.ActualizarCategoria())
+                        {
+                            MessageBox.Show("Categoría actualizada exitosamente");
+                            Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al actualizar la categoría");
+                            Close();
+                        }
                     }
                 }
-                else
-                {
-                    CLS.Categorias categoriaExistente = new CLS.Categorias(Convert.ToInt32(txbIDCategoria.Text), txbCategoria.Text);
-                    categoriaExistente.Categoria = txbCategoria.Text;
-
-                    if (categoriaExistente.ActualizarCategoria())
-                    {
-                        MessageBox.Show("Categoría actualizada exitosamente");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error al actualizar la categoría");
-                    }
-                }
-
-                this.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
 
