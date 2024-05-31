@@ -150,7 +150,8 @@ namespace General.GUI
             Close();
         }
 
-        private void ClientesEdicion_Load(object sender, EventArgs e)
+
+        private void ClientesEdicion_Load_1(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txbIDCliente.Text))
             {
@@ -164,3 +165,4 @@ namespace General.GUI
         }
     }
 }
+

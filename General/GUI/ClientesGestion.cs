@@ -13,6 +13,7 @@ namespace General.GUI
 {
     public partial class ClientesGestion : Form
     {
+
         BindingSource _DATOS = new BindingSource();
 
         public void Cargar()
@@ -61,7 +62,7 @@ namespace General.GUI
             lblRegistros.Text = _DATOS.Count.ToString();
         }
         //
-      
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             try

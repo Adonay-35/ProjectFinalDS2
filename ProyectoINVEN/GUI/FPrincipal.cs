@@ -242,5 +242,10 @@ namespace ProyectoCRUD.GUI
         {
             btnRegistros.BackColor = Color.FromArgb(11, 7, 17);
         }
+
+        private void btnProveedor_Click(object sender, EventArgs e)
+        {
+            AbrirPanelContenedor(new General.GUI.ProveedoresGestion());
+        }
     }
 }

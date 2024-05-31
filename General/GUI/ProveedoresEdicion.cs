@@ -1,5 +1,4 @@
 ﻿using General.CLS;
-using MySql.Data.MySqlClient.Memcached;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -180,7 +179,8 @@ namespace General.GUI
             Close();
         }
 
-        private void ProveedoresEdicion_Load(object sender, EventArgs e)
+
+        private void ProveedoresEdicion_Load_1(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txbProveedor.Text))
             {

@@ -11,6 +11,7 @@ namespace General.CLS
 {
     internal class Proveedores
     {
+
         MySqlDataReader resultado;
         DataTable tabla = new DataTable();
         MySqlConnection sqlConexion = new MySqlConnection();

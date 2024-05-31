@@ -74,7 +74,7 @@ namespace DataLayer
         public static DataTable CLIENTES()
         {
             DataTable Resultado = new DataTable();
-            string Consulta = @"SELECT * FROM VistaClientes;";
+            string Consulta = @"SELECT * FROM VistaClientes";
             DBOperacion operacion = new DBOperacion();
             try
             {
@@ -117,7 +117,6 @@ namespace DataLayer
             }
             return Resultado;
         }
-
 
         public static DataTable VENTAS()
         {

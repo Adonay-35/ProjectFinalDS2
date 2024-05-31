@@ -13,47 +13,9 @@ namespace General.GUI
 {
     public partial class GestionarDirecciones : Form
     {
-        Direcciones metodosDirecciones = new Direcciones();
-
-        BindingSource _DATOS = new BindingSource();
-
-
         public GestionarDirecciones()
         {
             InitializeComponent();
-        }
-
-
-        public void MostrarMunicipios(ComboBox cbMunicipios)
-        {
-            List<Municipios> datos = metodosDirecciones.ObtenerMunicipios();
-            cbMunicipios.Items.Add("Selecciona una opción");
-            foreach (Municipios dato in datos)
-            {
-                cbMunicipios.Items.Add(dato.Municipio);
-            };
-        }
-
-        public void MostrarDistritos(ComboBox cbDistritos)
-        {
-
-            List<Distritos> datos = metodosDirecciones.ObtenerDistritos();
-            cbDistritos.Items.Add("Selecciona una opción");
-            foreach (Distritos dato in datos)
-            {
-                cbDistritos.Items.Add(dato.Distrito);
-            }
-        }
-
-        public void MostrarDepartamentos(ComboBox cbDepartamentos)
-        {
-
-            List<Departamentos> datos = metodosDirecciones.ObtenerDepartamentos();
-            cbDepartamentos.Items.Add("Selecciona una opción");
-            foreach (Departamentos dato in datos)
-            {
-                cbDepartamentos.Items.Add(dato.Departamento);
-            }
         }
 
         private void GestionarDirecciones_Load(object sender, EventArgs e)
@@ -123,7 +85,7 @@ namespace General.GUI
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            Close();
+
         }
 
 

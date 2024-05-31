@@ -15,17 +15,17 @@ namespace General.CLS
         MySqlConnection sqlConexion = new MySqlConnection();
 
         Int32 _IDEmpleado;
-         string _Nombres;
-         string _Apellidos;
-         string _DUI;
-         string _Telefono;
-         string _Correo;
-         string _Linea1;
-         string _Linea2;
-         Int32 _CodigoPostal;
-         Int32 _ID_Departamento;
-         Int32 _ID_Distrito;
-         Int32 _ID_Municipio;
+        string _Nombres;
+        string _Apellidos;
+        string _DUI;
+        string _Telefono;
+        string _Correo;
+        string _Linea1;
+        string _Linea2;
+        Int32 _CodigoPostal;
+        Int32 _ID_Departamento;
+        Int32 _ID_Distrito;
+        Int32 _ID_Municipio;
 
         public Empleados(int idEmpleado, string nombres, string apellidos)
         {

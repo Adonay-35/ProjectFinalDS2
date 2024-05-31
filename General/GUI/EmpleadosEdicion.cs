@@ -51,7 +51,7 @@ namespace General.GUI
                 }
                 if (txbLinea2.Text.Trim().Length == 0)
                 {
-                    Notificador.SetError(txbLinea2 , "Este campo no puede estar vacío");
+                    Notificador.SetError(txbLinea2, "Este campo no puede estar vacío");
                     Valido = false;
                 }
                 if (txbCodigoPostal.Text.Trim().Length == 0)
@@ -194,7 +194,7 @@ namespace General.GUI
 
         }
 
-        private void EmpleadosEdicion_Load(object sender, EventArgs e)
+        private void EmpleadosEdicion_Load_1(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txbIDEmpleado.Text))
             {
