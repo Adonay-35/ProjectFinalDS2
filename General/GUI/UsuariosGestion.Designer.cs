@@ -68,13 +68,13 @@
             this.Rol,
             this.Estado});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 34);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 38);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1200, 626);
+            this.dataGridView1.Size = new System.Drawing.Size(1200, 622);
             this.dataGridView1.TabIndex = 10;
             // 
             // IDUsuario
@@ -109,6 +109,7 @@
             this.Empleado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Empleado.DataPropertyName = "Empleado";
             this.Empleado.HeaderText = "Empleado";
+            this.Empleado.MinimumWidth = 8;
             this.Empleado.Name = "Empleado";
             this.Empleado.ReadOnly = true;
             // 
@@ -116,13 +117,16 @@
             // 
             this.Rol.DataPropertyName = "Rol";
             this.Rol.HeaderText = "Rol";
+            this.Rol.MinimumWidth = 8;
             this.Rol.Name = "Rol";
             this.Rol.ReadOnly = true;
+            this.Rol.Width = 150;
             // 
             // Estado
             // 
             this.Estado.DataPropertyName = "Estado";
             this.Estado.HeaderText = "Estado";
+            this.Estado.MinimumWidth = 8;
             this.Estado.Name = "Estado";
             this.Estado.ReadOnly = true;
             this.Estado.Width = 90;
@@ -168,7 +172,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.toolStrip1.Size = new System.Drawing.Size(1200, 34);
+            this.toolStrip1.Size = new System.Drawing.Size(1200, 38);
             this.toolStrip1.TabIndex = 8;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -177,35 +181,35 @@
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
             this.btnEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(102, 29);
+            this.btnEliminar.Size = new System.Drawing.Size(102, 33);
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 34);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 38);
             // 
             // btnEditar
             // 
             this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
             this.btnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(85, 29);
+            this.btnEditar.Size = new System.Drawing.Size(85, 33);
             this.btnEditar.Text = "Editar";
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 34);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 38);
             // 
             // btnAgregar
             // 
             this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
             this.btnAgregar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(104, 29);
+            this.btnAgregar.Size = new System.Drawing.Size(104, 33);
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
@@ -213,8 +217,9 @@
             // 
             this.txbFiltro.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.txbFiltro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txbFiltro.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txbFiltro.Name = "txbFiltro";
-            this.txbFiltro.Size = new System.Drawing.Size(299, 34);
+            this.txbFiltro.Size = new System.Drawing.Size(299, 38);
             this.txbFiltro.Click += new System.EventHandler(this.txbFiltro_TextChanged);
             // 
             // toolStripLabel4
@@ -222,20 +227,20 @@
             this.toolStripLabel4.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripLabel4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripLabel4.Image")));
             this.toolStripLabel4.Name = "toolStripLabel4";
-            this.toolStripLabel4.Size = new System.Drawing.Size(80, 29);
+            this.toolStripLabel4.Size = new System.Drawing.Size(80, 33);
             this.toolStripLabel4.Text = "Filtrar";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 34);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 38);
             // 
             // toolStripButton1
             // 
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(87, 29);
+            this.toolStripButton1.Size = new System.Drawing.Size(87, 33);
             this.toolStripButton1.Text = "Cerrar";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 

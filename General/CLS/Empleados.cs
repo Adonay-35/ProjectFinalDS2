@@ -49,7 +49,7 @@ namespace General.CLS
             DataLayer.DBOperacion Operacion = new DataLayer.DBOperacion();
 
             StringBuilder Sentencia = new StringBuilder();
-            Sentencia.Append("INSERT INTO empleados(IDEmpleado, Nombres, Apellidos, DUI, Direccion, Telefono, Correo) VALUES (");
+            Sentencia.Append("INSERT INTO empleados(IDEmpleado, Nombres, Apellidos, DUI, ID_Direccion, Telefono, Correo) VALUES (");
             Sentencia.Append(_IDEmpleado + ", '" + _Nombres + "', '" + _Apellidos + "', '" + _DUI + "', '" + _Direccion + "', '" + _Telefono + "', '" + _Correo + "');");
 
             try

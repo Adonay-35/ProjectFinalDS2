@@ -84,6 +84,7 @@ namespace ProyectoCRUD.GUI
         private void btnRoles_Click(object sender, EventArgs e)
         {
             //Codigode invocacion de formularios
+            AbrirPanelContenedor(new General.GUI.RolesGestion());
 
             OcultarSubmenu();
         }
@@ -132,6 +133,7 @@ namespace ProyectoCRUD.GUI
         private void btnCategorias_Click(object sender, EventArgs e)
         {
             //Codigode invocacion de formularios
+            AbrirPanelContenedor(new General.GUI.CategoriasGestion());
 
             OcultarSubmenu();
         }
