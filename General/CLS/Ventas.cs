@@ -146,11 +146,7 @@ namespace General.CLS
 
             try
             {
-<<<<<<< HEAD
                 sqlConexion.ConnectionString = "Server=localhost;Port=3007;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
-=======
-                sqlConexion.ConnectionString = "Server=localhost;Port=3006;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
->>>>>>> 2009d1e448be5357596773ea12ca16823d4aa77a
                 MySqlCommand comando = new MySqlCommand("ObtenerUsuarios", sqlConexion);
                 comando.CommandType = CommandType.StoredProcedure;
                 sqlConexion.Open();
@@ -185,11 +181,7 @@ namespace General.CLS
 
             try
             {
-<<<<<<< HEAD
                 sqlConexion.ConnectionString = "Server=localhost;Port=3007;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
-=======
-                sqlConexion.ConnectionString = "Server=localhost;Port=3006;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
->>>>>>> 2009d1e448be5357596773ea12ca16823d4aa77a
                 MySqlCommand comando = new MySqlCommand("ObtenerClientes", sqlConexion);
                 comando.CommandType = CommandType.StoredProcedure;
                 sqlConexion.Open();
@@ -225,11 +217,7 @@ namespace General.CLS
 
             try
             {
-<<<<<<< HEAD
                 sqlConexion.ConnectionString = "Server=localhost;Port=3007;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
-=======
-                sqlConexion.ConnectionString = "Server=localhost;Port=3006;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
->>>>>>> 2009d1e448be5357596773ea12ca16823d4aa77a
                 MySqlCommand comando = new MySqlCommand("ObtenerProductos", sqlConexion);
                 comando.CommandType = CommandType.StoredProcedure;
                 sqlConexion.Open();

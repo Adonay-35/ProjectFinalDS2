@@ -124,11 +124,7 @@ namespace General.CLS
 
             try
             {
-<<<<<<< HEAD
                 sqlConexion.ConnectionString = "Server=localhost;Port=3307;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
-=======
-                sqlConexion.ConnectionString = "Server=localhost;Port=3306;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
->>>>>>> 2009d1e448be5357596773ea12ca16823d4aa77a
                 MySqlCommand comando = new MySqlCommand("ObtenerMunicipios", sqlConexion);
                 comando.CommandType = CommandType.StoredProcedure;
                 sqlConexion.Open();
@@ -163,11 +159,7 @@ namespace General.CLS
             List<Distritos> listaDistritos = new List<Distritos>();
             try
             {
-<<<<<<< HEAD
                 sqlConexion.ConnectionString = "Server=localhost;Port=3307;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
-=======
-                sqlConexion.ConnectionString = "Server=localhost;Port=3306;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
->>>>>>> 2009d1e448be5357596773ea12ca16823d4aa77a
                 MySqlCommand comando = new MySqlCommand("ObtenerDistritos", sqlConexion);
                 comando.CommandType = CommandType.StoredProcedure;
                 sqlConexion.Open();
@@ -201,11 +193,7 @@ namespace General.CLS
             List<Departamentos> listaDepartamentos = new List<Departamentos>();
             try
             {
-<<<<<<< HEAD
                 sqlConexion.ConnectionString = "Server=localhost;Port=3307;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
-=======
-                sqlConexion.ConnectionString = "Server=localhost;Port=3306;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
->>>>>>> 2009d1e448be5357596773ea12ca16823d4aa77a
                 MySqlCommand comando = new MySqlCommand("ObtenerDepartamentos", sqlConexion);
                 comando.CommandType = CommandType.StoredProcedure;
                 sqlConexion.Open();
