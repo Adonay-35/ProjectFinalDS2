@@ -71,21 +71,6 @@
             this.label5.TabIndex = 57;
             this.label5.Text = "Correo";
             // 
-            // txbDireccion
-            // 
-            this.txbDireccion.Location = new System.Drawing.Point(15, 255);
-            this.txbDireccion.Name = "txbDireccion";
-            this.txbDireccion.Size = new System.Drawing.Size(307, 20);
-            this.txbDireccion.TabIndex = 56;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 218);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(52, 13);
-            this.label4.TabIndex = 55;
-            this.label4.Text = "Direccion";
             // 
             // txbContacto
             // 
