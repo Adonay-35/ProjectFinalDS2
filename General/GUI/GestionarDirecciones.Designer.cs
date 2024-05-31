@@ -1,6 +1,6 @@
 ﻿namespace General.GUI
 {
-    partial class GestionarDirecciones
+    partial class dataGridView1
     {
         /// <summary>
         /// Required designer variable.
@@ -172,7 +172,7 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             // 
-            // GestionarDirecciones
+            // dataGridView1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -192,7 +192,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txbIDProducto);
             this.Controls.Add(this.label1);
-            this.Name = "GestionarDirecciones";
+            this.Name = "dataGridView1";
             this.Text = "GestionarDirecciones";
             this.Load += new System.EventHandler(this.GestionarDirecciones_Load);
             this.ResumeLayout(false);
