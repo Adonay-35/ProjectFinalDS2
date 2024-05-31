@@ -1,4 +1,5 @@
-﻿using System;
+﻿using General.CLS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace General.GUI
 {
     public partial class EmpleadosEdicion : Form
     {
+        Empleados metodosEmpleados = new Empleados();
         private bool Validar()
         {
             bool Valido = true;
@@ -19,32 +21,57 @@ namespace General.GUI
             {
                 if (txbNombre.Text.Trim().Length == 0)
                 {
-                    Notificador.SetError(txbNombre, "El campo Nombres no puede estar vacío");
+                    Notificador.SetError(txbNombre, "Este campo no puede estar vacío");
                     Valido = false;
                 }
                 if (txbApellido.Text.Trim().Length == 0)
                 {
-                    Notificador.SetError(txbApellido, "El campo Apellidos no puede estar vacío");
+                    Notificador.SetError(txbApellido, "Este campo no puede estar vacío");
                     Valido = false;
                 }
                 if (txbDui.Text.Trim().Length == 0)
                 {
-                    Notificador.SetError(txbDui, "El campo DUI no puede estar vacío");
-                    Valido = false;
-                }
-                if (txbDireccion.Text.Trim().Length == 0)
-                {
-                    Notificador.SetError(txbDireccion, "El campo Dirección no puede estar vacío");
+                    Notificador.SetError(txbDui, "Este campo no puede estar vacío");
                     Valido = false;
                 }
                 if (txbTelefono.Text.Trim().Length == 0)
                 {
-                    Notificador.SetError(txbTelefono, "El campo Teléfono no puede estar vacío");
+                    Notificador.SetError(txbTelefono, "Este campo no puede estar vacío");
                     Valido = false;
                 }
                 if (txbCorreo.Text.Trim().Length == 0)
                 {
-                    Notificador.SetError(txbCorreo, "El campo Correo no puede estar vacío");
+                    Notificador.SetError(txbCorreo, "Este campo no puede estar vacío");
+                    Valido = false;
+                }
+                if (txbLinea1.Text.Trim().Length == 0)
+                {
+                    Notificador.SetError(txbLinea1, "Este campo no puede estar vacío");
+                    Valido = false;
+                }
+                if (txbLinea2.Text.Trim().Length == 0)
+                {
+                    Notificador.SetError(txbLinea2, "Este campo no puede estar vacío");
+                    Valido = false;
+                }
+                if (txbCodigoPostal.Text.Trim().Length == 0)
+                {
+                    Notificador.SetError(txbCodigoPostal, "Este campo no puede estar vacío");
+                    Valido = false;
+                }
+                if (cbDepartamentos.SelectedIndex == -1)
+                {
+                    Notificador.SetError(cbDepartamentos, "Este campo no puede estar vacío");
+                    Valido = false;
+                }
+                if (cbMunicipios.SelectedIndex == -1 || cbMunicipios.Text.Trim().Length == 0)
+                {
+                    Notificador.SetError(cbMunicipios, "Este campo no puede estar vacío");
+                    Valido = false;
+                }
+                if (cbDistritos.SelectedIndex == -1 || cbDistritos.Text.Trim().Length == 0)
+                {
+                    Notificador.SetError(cbDistritos, "Este campo no puede estar vacío");
                     Valido = false;
                 }
             }
@@ -67,6 +94,39 @@ namespace General.GUI
             Close();
         }
 
+
+        public void MostrarMunicipios(ComboBox cbMunicipios)
+        {
+            List<Municipios> datos = metodosEmpleados.ObtenerMunicipios();
+            cbMunicipios.Items.Add("Selecciona una opción");
+            foreach (Municipios dato in datos)
+            {
+                cbMunicipios.Items.Add(dato.Municipio);
+            };
+        }
+
+        public void MostrarDistritos(ComboBox cbDistritos)
+        {
+
+            List<Distritos> datos = metodosEmpleados.ObtenerDistritos();
+            cbDistritos.Items.Add("Selecciona una opción");
+            foreach (Distritos dato in datos)
+            {
+                cbDistritos.Items.Add(dato.Distrito);
+            }
+        }
+
+        public void MostrarDepartamentos(ComboBox cbDepartamentos)
+        {
+
+            List<Departamentos> datos = metodosEmpleados.ObtenerDepartamentos();
+            cbDepartamentos.Items.Add("Selecciona una opción");
+            foreach (Departamentos dato in datos)
+            {
+                cbDepartamentos.Items.Add(dato.Departamento);
+            }
+        }
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
@@ -78,9 +138,14 @@ namespace General.GUI
                     oEmpleado.Nombres = txbNombre.Text;
                     oEmpleado.Apellidos = txbApellido.Text;
                     oEmpleado.Dui = txbDui.Text;
-                    oEmpleado.Direccion = txbDireccion.Text;
                     oEmpleado.Telefono = txbTelefono.Text;
                     oEmpleado.Correo = txbCorreo.Text;
+                    oEmpleado.Linea1 = txbLinea1.Text;
+                    oEmpleado.Linea2 = txbLinea2.Text;
+                    oEmpleado.CodigoPostal = Convert.ToInt32(txbCodigoPostal.Text);
+                    oEmpleado.IDDepartamento = Convert.ToInt32(cbDepartamentos.SelectedIndex);
+                    oEmpleado.IDMunicipio = Convert.ToInt32(cbMunicipios.SelectedIndex);
+                    oEmpleado.IDDistrito = Convert.ToInt32(cbDistritos.SelectedIndex);
 
                     if (txbIDEmpleado.Text.Trim().Length == 0)
                     {
@@ -97,6 +162,19 @@ namespace General.GUI
                     else
                     {
                         oEmpleado.IDEmpleado = Convert.ToInt32(txbIDEmpleado.Text);
+
+                        oEmpleado.Nombres = txbNombre.Text;
+                        oEmpleado.Apellidos = txbApellido.Text;
+                        oEmpleado.Dui = txbDui.Text;
+                        oEmpleado.Telefono = txbTelefono.Text;
+                        oEmpleado.Correo = txbCorreo.Text;
+                        oEmpleado.Linea1 = txbLinea1.Text;
+                        oEmpleado.Linea2 = txbLinea2.Text;
+                        oEmpleado.CodigoPostal = Convert.ToInt32(txbCodigoPostal.Text);
+                        oEmpleado.IDDepartamento = Convert.ToInt32(cbDepartamentos.SelectedIndex);
+                        oEmpleado.IDMunicipio = Convert.ToInt32(cbMunicipios.SelectedIndex);
+                        oEmpleado.IDDistrito = Convert.ToInt32(cbDistritos.SelectedIndex);
+
                         if (oEmpleado.Actualizar())
                         {
                             MessageBox.Show("Registro actualizado");
@@ -114,6 +192,19 @@ namespace General.GUI
                 MessageBox.Show("Error: " + ex.Message);
             }
 
+        }
+
+        private void EmpleadosEdicion_Load_1(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txbIDEmpleado.Text))
+            {
+                this.MostrarMunicipios(cbMunicipios);
+                this.MostrarDistritos(cbDistritos);
+                this.MostrarDepartamentos(cbDepartamentos);
+                cbMunicipios.SelectedIndex = 0;
+                cbDistritos.SelectedIndex = 0;
+                cbDepartamentos.SelectedIndex = 0;
+            }
         }
     }
 }

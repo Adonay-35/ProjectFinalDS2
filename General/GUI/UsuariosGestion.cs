@@ -66,32 +66,6 @@ namespace General.GUI
             FiltrarLocalmente();
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (MessageBox.Show("¿Desea ELIMINAR el registro seleccionado", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    CLS.Usuarios oUsuario = new CLS.Usuarios((Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDUsuario"].Value.ToString())), "dummyUser");
-                    oUsuario.IDUsuario = (Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDUsuario"].Value.ToString()));
-                    if (oUsuario.Elminar())
-                    {
-                        MessageBox.Show("Registro eliminado");
-                    }
-                    else
-                    {
-                        MessageBox.Show("El Registro no ha sido eliminado");
-                    }
-                    Cargar();
-                    lblRegistros.Text = _DATOS.Count.ToString();
-
-                }
-            }
-            catch (Exception)
-            {
-
-            }
-        }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
@@ -120,6 +94,34 @@ namespace General.GUI
             }
         }
 
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show("¿Desea ELIMINAR el registro seleccionado", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    CLS.Usuarios oUsuario = new CLS.Usuarios((Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDUsuario"].Value.ToString())), "dummyUser");
+                    oUsuario.IDUsuario = (Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDUsuario"].Value.ToString()));
+                    if (oUsuario.Elminar())
+                    {
+                        MessageBox.Show("Registro eliminado");
+                    }
+                    else
+                    {
+                        MessageBox.Show("El Registro no ha sido eliminado");
+                    }
+                    Cargar();
+                    lblRegistros.Text = _DATOS.Count.ToString();
+
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             try
@@ -135,6 +137,14 @@ namespace General.GUI
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
 
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

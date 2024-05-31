@@ -43,15 +43,25 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txbTelefono = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txbDireccion = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.Notificador = new System.Windows.Forms.ErrorProvider(this.components);
+            this.cbDepartamentos = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cbDistritos = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cbMunicipios = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txbCodigoPostal = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txbLinea2 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txbLinea1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.Notificador)).BeginInit();
             this.SuspendLayout();
             // 
             // txbDui
             // 
-            this.txbDui.Location = new System.Drawing.Point(90, 178);
+            this.txbDui.Location = new System.Drawing.Point(90, 194);
             this.txbDui.Name = "txbDui";
             this.txbDui.Size = new System.Drawing.Size(307, 20);
             this.txbDui.TabIndex = 43;
@@ -116,7 +126,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(322, 415);
+            this.btnCancelar.Location = new System.Drawing.Point(530, 425);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 35;
@@ -126,7 +136,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(90, 415);
+            this.btnGuardar.Location = new System.Drawing.Point(322, 425);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 34;
@@ -136,7 +146,7 @@
             // 
             // txbCorreo
             // 
-            this.txbCorreo.Location = new System.Drawing.Point(90, 373);
+            this.txbCorreo.Location = new System.Drawing.Point(90, 368);
             this.txbCorreo.Name = "txbCorreo";
             this.txbCorreo.Size = new System.Drawing.Size(307, 20);
             this.txbCorreo.TabIndex = 53;
@@ -144,7 +154,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(87, 347);
+            this.label7.Location = new System.Drawing.Point(87, 333);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(38, 13);
             this.label7.TabIndex = 52;
@@ -152,7 +162,7 @@
             // 
             // txbTelefono
             // 
-            this.txbTelefono.Location = new System.Drawing.Point(90, 310);
+            this.txbTelefono.Location = new System.Drawing.Point(90, 288);
             this.txbTelefono.Name = "txbTelefono";
             this.txbTelefono.Size = new System.Drawing.Size(307, 20);
             this.txbTelefono.TabIndex = 51;
@@ -160,43 +170,136 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(87, 279);
+            this.label8.Location = new System.Drawing.Point(87, 239);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(49, 13);
             this.label8.TabIndex = 50;
             this.label8.Text = "Telefono";
             // 
-            // txbDireccion
-            // 
-            this.txbDireccion.Location = new System.Drawing.Point(90, 240);
-            this.txbDireccion.Name = "txbDireccion";
-            this.txbDireccion.Size = new System.Drawing.Size(307, 20);
-            this.txbDireccion.TabIndex = 49;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(87, 212);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(52, 13);
-            this.label9.TabIndex = 48;
-            this.label9.Text = "Direccion";
-            // 
             // Notificador
             // 
             this.Notificador.ContainerControl = this;
+            // 
+            // cbDepartamentos
+            // 
+            this.cbDepartamentos.FormattingEnabled = true;
+            this.cbDepartamentos.Location = new System.Drawing.Point(508, 212);
+            this.cbDepartamentos.Name = "cbDepartamentos";
+            this.cbDepartamentos.Size = new System.Drawing.Size(353, 21);
+            this.cbDepartamentos.TabIndex = 104;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(505, 196);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(79, 13);
+            this.label5.TabIndex = 103;
+            this.label5.Text = "Departamentos";
+            // 
+            // cbDistritos
+            // 
+            this.cbDistritos.FormattingEnabled = true;
+            this.cbDistritos.Location = new System.Drawing.Point(508, 364);
+            this.cbDistritos.Name = "cbDistritos";
+            this.cbDistritos.Size = new System.Drawing.Size(353, 21);
+            this.cbDistritos.TabIndex = 102;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(505, 348);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(44, 13);
+            this.label6.TabIndex = 101;
+            this.label6.Text = "Distritos";
+            // 
+            // cbMunicipios
+            // 
+            this.cbMunicipios.FormattingEnabled = true;
+            this.cbMunicipios.Location = new System.Drawing.Point(508, 284);
+            this.cbMunicipios.Name = "cbMunicipios";
+            this.cbMunicipios.Size = new System.Drawing.Size(353, 21);
+            this.cbMunicipios.TabIndex = 100;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(505, 268);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(57, 13);
+            this.label10.TabIndex = 99;
+            this.label10.Text = "Municipios";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(505, 136);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(69, 13);
+            this.label11.TabIndex = 98;
+            this.label11.Text = "CodigoPostal";
+            // 
+            // txbCodigoPostal
+            // 
+            this.txbCodigoPostal.Location = new System.Drawing.Point(508, 152);
+            this.txbCodigoPostal.Name = "txbCodigoPostal";
+            this.txbCodigoPostal.Size = new System.Drawing.Size(175, 20);
+            this.txbCodigoPostal.TabIndex = 97;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(505, 83);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(39, 13);
+            this.label12.TabIndex = 96;
+            this.label12.Text = "Linea2";
+            // 
+            // txbLinea2
+            // 
+            this.txbLinea2.Location = new System.Drawing.Point(508, 99);
+            this.txbLinea2.Name = "txbLinea2";
+            this.txbLinea2.Size = new System.Drawing.Size(353, 20);
+            this.txbLinea2.TabIndex = 95;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(505, 27);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(39, 13);
+            this.label13.TabIndex = 94;
+            this.label13.Text = "Linea1";
+            // 
+            // txbLinea1
+            // 
+            this.txbLinea1.Location = new System.Drawing.Point(508, 43);
+            this.txbLinea1.Name = "txbLinea1";
+            this.txbLinea1.Size = new System.Drawing.Size(353, 20);
+            this.txbLinea1.TabIndex = 93;
             // 
             // EmpleadosEdicion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(541, 450);
+            this.ClientSize = new System.Drawing.Size(966, 460);
+            this.Controls.Add(this.cbDepartamentos);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.cbDistritos);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.cbMunicipios);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.txbCodigoPostal);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.txbLinea2);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.txbLinea1);
             this.Controls.Add(this.txbCorreo);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txbTelefono);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.txbDireccion);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.txbDui);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txbApellido);
@@ -210,6 +313,7 @@
             this.Name = "EmpleadosEdicion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EmpleadosEdicion";
+            this.Load += new System.EventHandler(this.EmpleadosEdicion_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.Notificador)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -231,8 +335,18 @@
         private System.Windows.Forms.Label label7;
         public System.Windows.Forms.TextBox txbTelefono;
         private System.Windows.Forms.Label label8;
-        public System.Windows.Forms.TextBox txbDireccion;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ErrorProvider Notificador;
+        public System.Windows.Forms.ComboBox cbDepartamentos;
+        private System.Windows.Forms.Label label5;
+        public System.Windows.Forms.ComboBox cbDistritos;
+        private System.Windows.Forms.Label label6;
+        public System.Windows.Forms.ComboBox cbMunicipios;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        public System.Windows.Forms.TextBox txbCodigoPostal;
+        private System.Windows.Forms.Label label12;
+        public System.Windows.Forms.TextBox txbLinea2;
+        private System.Windows.Forms.Label label13;
+        public System.Windows.Forms.TextBox txbLinea1;
     }
 }

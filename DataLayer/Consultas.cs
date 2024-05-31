@@ -12,7 +12,7 @@ namespace DataLayer
         public static DataTable CATEGORIAS()
         {
             DataTable Resultado = new DataTable();
-            string Consulta = @"SELECT IDCategoria, Categoria FROM categorias ORDER BY IDCategoria ASC;";
+            string Consulta = @"SELECT ID_Categoria, Categoria FROM categorias ORDER BY ID_Categoria ASC;";
             DBOperacion operacion = new DBOperacion();
             try
             {
@@ -28,7 +28,7 @@ namespace DataLayer
         public static DataTable ROLES()
         {
             DataTable Resultado = new DataTable();
-            string Consulta = @"SELECT IDRol, Rol FROM roles ORDER BY IDRol ASC;";
+            string Consulta = @"SELECT ID_Rol, Rol FROM roles ORDER BY ID_Rol ASC;";
             DBOperacion operacion = new DBOperacion();
             try
             {
@@ -44,7 +44,7 @@ namespace DataLayer
         public static DataTable EMPLEADOS()
         {
             DataTable Resultado = new DataTable();
-            string Consulta = @"SELECT IDEmpleado, Nombres, Apellidos, DUI, Direccion, Telefono, Correo FROM empleados ORDER BY IDEmpleado ASC;";
+            string Consulta = @"SELECT * FROM VistaEmpleados";
             DBOperacion operacion = new DBOperacion();
             try
             {
@@ -59,7 +59,7 @@ namespace DataLayer
         public static DataTable PROVEEDORES()
         {
             DataTable Resultado = new DataTable();
-            string Consulta = @"SELECT IDProveedor, Proveedor, Contacto, Direccion, Correo FROM proveedores ORDER BY IDProveedor ASC;";
+            string Consulta = @"SELECT * FROM VistaProveedores";
             DBOperacion operacion = new DBOperacion();
             try
             {
@@ -74,7 +74,7 @@ namespace DataLayer
         public static DataTable CLIENTES()
         {
             DataTable Resultado = new DataTable();
-            string Consulta = @"SELECT IDCliente, Nombres, Apellidos, Correo FROM clientes ORDER BY IDCliente ASC;";
+            string Consulta = @"SELECT * FROM VistaClientes";
             DBOperacion operacion = new DBOperacion();
             try
             {

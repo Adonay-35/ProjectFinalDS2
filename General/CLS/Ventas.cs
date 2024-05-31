@@ -47,8 +47,9 @@ namespace General.CLS
         {
             Boolean Resultado = false;
             DataLayer.DBOperacion Operacion = new DataLayer.DBOperacion();
-            _FechaVenta = DateTime.Now;
+
             StringBuilder Sentencia = new StringBuilder();
+
             Sentencia.Append("INSERT INTO ventas (FechaVenta, IDUsuario, IDCliente, IDProducto, Precio, Cantidad, Total) VALUES (");
             Sentencia.Append("'" + _FechaVenta.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
             Sentencia.Append(_IDUsuario + ", ");  
@@ -145,7 +146,7 @@ namespace General.CLS
 
             try
             {
-                sqlConexion.ConnectionString = "Server=localhost;Port=3306;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
+                sqlConexion.ConnectionString = "Server=localhost;Port=3007;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
                 MySqlCommand comando = new MySqlCommand("ObtenerUsuarios", sqlConexion);
                 comando.CommandType = CommandType.StoredProcedure;
                 sqlConexion.Open();
@@ -180,7 +181,7 @@ namespace General.CLS
 
             try
             {
-                sqlConexion.ConnectionString = "Server=localhost;Port=3306;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
+                sqlConexion.ConnectionString = "Server=localhost;Port=3007;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
                 MySqlCommand comando = new MySqlCommand("ObtenerClientes", sqlConexion);
                 comando.CommandType = CommandType.StoredProcedure;
                 sqlConexion.Open();
@@ -216,7 +217,7 @@ namespace General.CLS
 
             try
             {
-                sqlConexion.ConnectionString = "Server=localhost;Port=3306;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
+                sqlConexion.ConnectionString = "Server=localhost;Port=3007;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
                 MySqlCommand comando = new MySqlCommand("ObtenerProductos", sqlConexion);
                 comando.CommandType = CommandType.StoredProcedure;
                 sqlConexion.Open();
@@ -244,8 +245,6 @@ namespace General.CLS
                 }
             }
         }
-
-
     }
 }
 
