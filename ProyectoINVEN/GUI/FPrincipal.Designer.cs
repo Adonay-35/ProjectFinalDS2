@@ -35,7 +35,6 @@
             this.btnVentas = new System.Windows.Forms.Button();
             this.btnRegistros = new System.Windows.Forms.Button();
             this.panelInventarioSumin = new System.Windows.Forms.Panel();
-            this.btnInventario = new System.Windows.Forms.Button();
             this.btnProductos = new System.Windows.Forms.Button();
             this.btnInventarioSumin = new System.Windows.Forms.Button();
             this.panelPersonalClientes = new System.Windows.Forms.Panel();
@@ -93,7 +92,7 @@
             this.panelRegistros.Controls.Add(this.btnCategorias);
             this.panelRegistros.Controls.Add(this.btnVentas);
             this.panelRegistros.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelRegistros.Location = new System.Drawing.Point(0, 772);
+            this.panelRegistros.Location = new System.Drawing.Point(0, 732);
             this.panelRegistros.Name = "panelRegistros";
             this.panelRegistros.Size = new System.Drawing.Size(292, 86);
             this.panelRegistros.TabIndex = 8;
@@ -139,7 +138,7 @@
             this.btnRegistros.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnRegistros.Image = ((System.Drawing.Image)(resources.GetObject("btnRegistros.Image")));
             this.btnRegistros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRegistros.Location = new System.Drawing.Point(0, 694);
+            this.btnRegistros.Location = new System.Drawing.Point(0, 654);
             this.btnRegistros.Name = "btnRegistros";
             this.btnRegistros.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnRegistros.Size = new System.Drawing.Size(292, 78);
@@ -155,29 +154,12 @@
             // panelInventarioSumin
             // 
             this.panelInventarioSumin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.panelInventarioSumin.Controls.Add(this.btnInventario);
             this.panelInventarioSumin.Controls.Add(this.btnProductos);
             this.panelInventarioSumin.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelInventarioSumin.Location = new System.Drawing.Point(0, 608);
             this.panelInventarioSumin.Name = "panelInventarioSumin";
-            this.panelInventarioSumin.Size = new System.Drawing.Size(292, 86);
+            this.panelInventarioSumin.Size = new System.Drawing.Size(292, 46);
             this.panelInventarioSumin.TabIndex = 6;
-            // 
-            // btnInventario
-            // 
-            this.btnInventario.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnInventario.FlatAppearance.BorderSize = 0;
-            this.btnInventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInventario.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnInventario.Location = new System.Drawing.Point(0, 40);
-            this.btnInventario.Name = "btnInventario";
-            this.btnInventario.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnInventario.Size = new System.Drawing.Size(292, 40);
-            this.btnInventario.TabIndex = 1;
-            this.btnInventario.Text = "Inventario";
-            this.btnInventario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInventario.UseVisualStyleBackColor = true;
-            this.btnInventario.Click += new System.EventHandler(this.btnInventario_Click);
             // 
             // btnProductos
             // 
@@ -483,7 +465,6 @@
         private System.Windows.Forms.Button btnVentas;
         private System.Windows.Forms.Button btnRegistros;
         private System.Windows.Forms.Panel panelInventarioSumin;
-        private System.Windows.Forms.Button btnInventario;
         private System.Windows.Forms.Button btnProductos;
         private System.Windows.Forms.Button btnInventarioSumin;
         private System.Windows.Forms.Panel panelPersonalClientes;
