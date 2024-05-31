@@ -14,44 +14,40 @@ namespace General.GUI
     public partial class VentasEdicion : Form
     {
         Ventas metodosventas = new Ventas();
-        private Boolean Validar()
+        private bool Validar()
         {
-            Boolean Valido = true;
+            bool Valido = true;
             try
             {
-                //if (!DateTime.TryParse(txbFechaVenta.Text, out _))
-                //{
-                //    Notificador.SetError(txbFechaVenta, "Fecha no válida");
-                //    Valido = false;
-                //}
-
-                if (cbUsuarios.Text.Trim().Length == 0)
+                if (cbUsuarios.SelectedIndex == -1)
                 {
                     Notificador.SetError(cbUsuarios, "Este campo no puede quedar vacío");
                     Valido = false;
                 }
-
-                if (cbClientes.Text.Trim().Length == 0)
+                if (cbClientes.SelectedIndex == -1)
                 {
                     Notificador.SetError(cbClientes, "Este campo no puede quedar vacío");
                     Valido = false;
                 }
-
-                if (cbProductos.Text.Trim().Length == 0)
+                if (cbProductos.SelectedIndex == -1)
                 {
                     Notificador.SetError(cbProductos, "Este campo no puede quedar vacío");
                     Valido = false;
                 }
-
-                if (txbPrecio.Text.Trim().Length == 0 || !int.TryParse(txbPrecio.Text, out _))
+                if (txbCantidad.Text.Trim().Length == 0)
                 {
-                    Notificador.SetError(txbPrecio, "Este campo no puede quedar vacío y debe ser un número válido");
+                    Notificador.SetError(txbCantidad, "Este campo no puede quedar vacío");
+                    Valido = false;
+                }
+                if (txbPrecio.Text.Trim().Length == 0)
+                {
+                    Notificador.SetError(txbPrecio, "Este campo no puede quedar vacío");
                     Valido = false;
                 }
 
-                if (txbTotal.Text.Trim().Length == 0 || !double.TryParse(txbTotal.Text, out _))
+                if (txbTotal.Text.Trim().Length == 0)
                 {
-                    Notificador.SetError(txbTotal, "Este campo no puede quedar vacío y debe ser un número válido");
+                    Notificador.SetError(txbTotal, "Este campo no puede quedar vacío");
                     Valido = false;
                 }
             }
@@ -93,8 +89,6 @@ namespace General.GUI
                 cbProductos.Items.Add(dato.Producto);
             }
         }
-
-
 
         public VentasEdicion()
         {
