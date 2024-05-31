@@ -103,6 +103,10 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.SteelBlue;
+
+            this.dataGridView1.Location = new System.Drawing.Point(0, 33);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+
             this.dataGridView1.Location = new System.Drawing.Point(0, 31);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
@@ -240,6 +244,7 @@
             // toolStrip1
             // 
             this.toolStrip1.BackColor = System.Drawing.Color.Snow;
+            this.toolStrip1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnEliminar,
@@ -263,7 +268,11 @@
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
             this.btnEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEliminar.Name = "btnEliminar";
+
+            this.btnEliminar.Size = new System.Drawing.Size(113, 28);
+
             this.btnEliminar.Size = new System.Drawing.Size(90, 28);
+
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
@@ -278,7 +287,11 @@
             this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
             this.btnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEditar.Name = "btnEditar";
+
+            this.btnEditar.Size = new System.Drawing.Size(91, 28);
+
             this.btnEditar.Size = new System.Drawing.Size(73, 28);
+
             this.btnEditar.Text = "Editar";
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
@@ -293,7 +306,11 @@
             this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
             this.btnAgregar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAgregar.Name = "btnAgregar";
+
+            this.btnAgregar.Size = new System.Drawing.Size(117, 28);
+
             this.btnAgregar.Size = new System.Drawing.Size(90, 28);
+
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
@@ -312,13 +329,21 @@
             this.toolStripLabel4.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripLabel4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripLabel4.Image")));
             this.toolStripLabel4.Name = "toolStripLabel4";
+
+            this.toolStripLabel4.Size = new System.Drawing.Size(85, 28);
+
             this.toolStripLabel4.Size = new System.Drawing.Size(68, 28);
+
             this.toolStripLabel4.Text = "Filtrar";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
+
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 33);
+
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 31);
+
             // 
             // toolStripButton1
             // 
@@ -326,7 +351,11 @@
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
+
+            this.toolStripButton1.Size = new System.Drawing.Size(98, 28);
+
             this.toolStripButton1.Size = new System.Drawing.Size(77, 28);
+
             this.toolStripButton1.Text = "Cerrar";
             // 
             // ClientesGestion
