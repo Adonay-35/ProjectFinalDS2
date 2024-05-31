@@ -59,7 +59,7 @@
             // 
             this.txbCorreo.Location = new System.Drawing.Point(46, 274);
             this.txbCorreo.Name = "txbCorreo";
-            this.txbCorreo.Size = new System.Drawing.Size(307, 20);
+            this.txbCorreo.Size = new System.Drawing.Size(450, 26);
             this.txbCorreo.TabIndex = 68;
             // 
             // label5
@@ -67,7 +67,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(49, 244);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 13);
+            this.label5.Size = new System.Drawing.Size(57, 20);
             this.label5.TabIndex = 67;
             this.label5.Text = "Correo";
             // 
@@ -75,7 +75,7 @@
             // 
             this.txbApellidos.Location = new System.Drawing.Point(46, 195);
             this.txbApellidos.Name = "txbApellidos";
-            this.txbApellidos.Size = new System.Drawing.Size(307, 20);
+            this.txbApellidos.Size = new System.Drawing.Size(450, 26);
             this.txbApellidos.TabIndex = 66;
             // 
             // label3
@@ -91,7 +91,7 @@
             // 
             this.txbNombres.Location = new System.Drawing.Point(47, 108);
             this.txbNombres.Name = "txbNombres";
-            this.txbNombres.Size = new System.Drawing.Size(307, 20);
+            this.txbNombres.Size = new System.Drawing.Size(450, 26);
             this.txbNombres.TabIndex = 64;
             // 
             // txbIDCliente
@@ -99,7 +99,7 @@
             this.txbIDCliente.Location = new System.Drawing.Point(46, 33);
             this.txbIDCliente.Name = "txbIDCliente";
             this.txbIDCliente.ReadOnly = true;
-            this.txbIDCliente.Size = new System.Drawing.Size(103, 20);
+            this.txbIDCliente.Size = new System.Drawing.Size(144, 26);
             this.txbIDCliente.TabIndex = 63;
             // 
             // label2
@@ -107,7 +107,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(44, 73);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 13);
+            this.label2.Size = new System.Drawing.Size(73, 20);
             this.label2.TabIndex = 62;
             this.label2.Text = "Nombres";
             // 
@@ -116,7 +116,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(43, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 13);
+            this.label1.Size = new System.Drawing.Size(75, 20);
             this.label1.TabIndex = 61;
             this.label1.Text = "IDCliente";
             // 
@@ -124,7 +124,7 @@
             // 
             this.btnCancelar.Location = new System.Drawing.Point(473, 412);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(104, 35);
             this.btnCancelar.TabIndex = 60;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -134,7 +134,7 @@
             // 
             this.btnGuardar.Location = new System.Drawing.Point(218, 412);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardar.Size = new System.Drawing.Size(104, 35);
             this.btnGuardar.TabIndex = 59;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -245,7 +245,7 @@
             // 
             // ClientesEdicion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(842, 447);
             this.Controls.Add(this.cbDepartamentos);
@@ -270,9 +270,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ClientesEdicion";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "ClientesEdicion";
             this.Load += new System.EventHandler(this.ClientesEdicion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Notificador)).EndInit();

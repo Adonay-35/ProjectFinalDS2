@@ -137,6 +137,14 @@ namespace General.GUI
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
 
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
