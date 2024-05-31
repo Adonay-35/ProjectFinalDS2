@@ -1,4 +1,5 @@
-﻿using System;
+﻿using General.CLS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -142,6 +143,11 @@ namespace General.GUI
         private void txbFiltro_TextChanged(object sender, EventArgs e)
         {
             FiltrarLocalmente();
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

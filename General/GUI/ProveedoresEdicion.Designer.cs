@@ -31,8 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.txbCorreo = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txbDireccion = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.txbContacto = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txbProveedor = new System.Windows.Forms.TextBox();
@@ -99,7 +97,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 127);
+            this.label3.Location = new System.Drawing.Point(62, 144);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 53;
@@ -107,14 +105,14 @@
             // 
             // txbProveedor
             // 
-            this.txbProveedor.Location = new System.Drawing.Point(15, 82);
+            this.txbProveedor.Location = new System.Drawing.Point(65, 88);
             this.txbProveedor.Name = "txbProveedor";
             this.txbProveedor.Size = new System.Drawing.Size(307, 20);
             this.txbProveedor.TabIndex = 52;
             // 
             // txbIDProveedor
             // 
-            this.txbIDProveedor.Location = new System.Drawing.Point(15, 22);
+            this.txbIDProveedor.Location = new System.Drawing.Point(65, 28);
             this.txbIDProveedor.Name = "txbIDProveedor";
             this.txbIDProveedor.ReadOnly = true;
             this.txbIDProveedor.Size = new System.Drawing.Size(103, 20);
@@ -123,7 +121,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 66);
+            this.label2.Location = new System.Drawing.Point(62, 68);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 50;
@@ -132,7 +130,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 6);
+            this.label1.Location = new System.Drawing.Point(62, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 13);
             this.label1.TabIndex = 49;
@@ -280,8 +278,6 @@
             this.Controls.Add(this.txbLinea1);
             this.Controls.Add(this.txbCorreo);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txbDireccion);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.txbContacto);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txbProveedor);
@@ -305,8 +301,6 @@
 
         public System.Windows.Forms.TextBox txbCorreo;
         private System.Windows.Forms.Label label5;
-        public System.Windows.Forms.TextBox txbDireccion;
-        private System.Windows.Forms.Label label4;
         public System.Windows.Forms.TextBox txbContacto;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.TextBox txbProveedor;

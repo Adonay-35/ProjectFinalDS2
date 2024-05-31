@@ -67,7 +67,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(17, 264);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 13);
+            this.label5.Size = new System.Drawing.Size(57, 20);
             this.label5.TabIndex = 67;
             this.label5.Text = "Correo";
             // 
@@ -83,9 +83,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(17, 179);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.Size = new System.Drawing.Size(49, 13);
             this.label3.TabIndex = 65;
-            this.label3.Text = "Apellido";
+            this.label3.Text = "Apellidos";
             // 
             // txbNombres
             // 
@@ -107,7 +107,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(17, 95);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 13);
+            this.label2.Size = new System.Drawing.Size(73, 20);
             this.label2.TabIndex = 62;
             this.label2.Text = "Nombres";
             // 
@@ -116,7 +116,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(17, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 13);
+            this.label1.Size = new System.Drawing.Size(75, 20);
             this.label1.TabIndex = 61;
             this.label1.Text = "IDCliente";
             // 
@@ -245,7 +245,7 @@
             // 
             // ClientesEdicion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(813, 457);
             this.Controls.Add(this.cbDepartamentos);

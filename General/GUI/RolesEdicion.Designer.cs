@@ -41,7 +41,7 @@
             // 
             // txbRol
             // 
-            this.txbRol.Location = new System.Drawing.Point(93, 138);
+            this.txbRol.Location = new System.Drawing.Point(93, 179);
             this.txbRol.Name = "txbRol";
             this.txbRol.Size = new System.Drawing.Size(307, 20);
             this.txbRol.TabIndex = 27;
@@ -57,7 +57,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(90, 122);
+            this.label2.Location = new System.Drawing.Point(90, 163);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(23, 13);
             this.label2.TabIndex = 25;

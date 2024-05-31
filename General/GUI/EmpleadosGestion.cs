@@ -1,4 +1,5 @@
 ﻿using General.CLS;
+using MySql.Data.MySqlClient.Memcached;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -141,6 +142,11 @@ namespace General.GUI
         private void txbFiltro_TextChanged(object sender, EventArgs e)
         {
             FiltrarLocalmente();
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

@@ -146,7 +146,7 @@
             // 
             // txbCorreo
             // 
-            this.txbCorreo.Location = new System.Drawing.Point(90, 373);
+            this.txbCorreo.Location = new System.Drawing.Point(90, 368);
             this.txbCorreo.Name = "txbCorreo";
             this.txbCorreo.Size = new System.Drawing.Size(307, 20);
             this.txbCorreo.TabIndex = 53;
