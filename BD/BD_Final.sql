@@ -4,21 +4,21 @@ USE SistemaVentas;
 
 -- CREACION TABLAS DEL SISTEMA
 create table Departamentos(
-	ID_Departamento char(2) primary key,
+	ID_Departamento int auto_increment primary key,
 	Departamento varchar(60) not null,
 	Pais varchar(60)
 );
 
 create table Municipios(
-	ID_Municipio char(3) primary key,
+	ID_Municipio int auto_increment primary key,
 	Municipio varchar(60) not null,
-	ID_Departamento char(2) not null
+	ID_Departamento int not null
 );
 
 create table Distritos(
-	ID_Distrito varchar(5) primary key,
+	ID_Distrito int auto_increment primary key,
 	Distrito varchar(60) not null,
-	ID_Municipio char(3) not null
+	ID_Municipio int not null
 );
 
 CREATE TABLE Roles(
@@ -144,13 +144,13 @@ ALTER TABLE Usuarios ADD CONSTRAINT fk_usuario_estado FOREIGN KEY (ID_Estado) RE
 ALTER TABLE Productos ADD CONSTRAINT fk_producto_proveedor FOREIGN KEY (ID_Proveedor) REFERENCES Proveedores(ID_Proveedor);
 ALTER TABLE Productos ADD CONSTRAINT fk_producto_categoria FOREIGN KEY (ID_Categoria) REFERENCES Categorias(ID_Categoria);
 ALTER TABLE Compras ADD CONSTRAINT fk_compra_usuario FOREIGN KEY (ID_Usuario) REFERENCES Usuarios(ID_Usuario);
-ALTER TABLE Compras ADD CONSTRAINT fk_compra_provedor FOREIGN KEY (ID_Proveedor) REFERENCES Clientes(ID_Proveedor);
-ALTER TABLE Compras ADD CONSTRAINT fk_compra_producto FOREIGN KEY (ID_Producto) REFERENCES Clientes(ID_Producto);
+ALTER TABLE Compras ADD CONSTRAINT fk_compra_proveedor FOREIGN KEY (ID_Proveedor) REFERENCES Proveedores(ID_Proveedor);
+ALTER TABLE Compras ADD CONSTRAINT fk_compra_producto FOREIGN KEY (ID_Producto) REFERENCES Productos(ID_Producto);
 ALTER TABLE Ventas ADD CONSTRAINT fk_venta_usuario FOREIGN KEY (ID_Usuario) REFERENCES Usuarios(ID_Usuario);
 ALTER TABLE Ventas ADD CONSTRAINT fk_venta_cliente FOREIGN KEY (ID_Cliente) REFERENCES Clientes(ID_Cliente);
-ALTER TABLE Ventas ADD CONSTRAINT fk_venta_producto FOREIGN KEY (ID_Producto) REFERENCES Clientes(ID_Producto);
+ALTER TABLE Ventas ADD CONSTRAINT fk_venta_producto FOREIGN KEY (ID_Producto) REFERENCES Productos(ID_Producto);
 ALTER TABLE Kardex ADD CONSTRAINT fk_kardex_compra FOREIGN KEY (ID_Compra) REFERENCES Compras(ID_Compra);
-ALTER TABLE Kardex ADD CONSTRAINT fk_kardex_venta FOREIGN KEY (ID_Venta) REFERENCES Compras(ID_Venta);
+ALTER TABLE Kardex ADD CONSTRAINT fk_kardex_venta FOREIGN KEY (ID_Venta) REFERENCES Ventas(ID_Venta);
 
 
 -- INSERCIONES 
