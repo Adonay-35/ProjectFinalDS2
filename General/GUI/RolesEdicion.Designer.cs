@@ -41,8 +41,11 @@
             // 
             // txbRol
             // 
+
             this.txbRol.Location = new System.Drawing.Point(140, 212);
             this.txbRol.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txbRol.Location = new System.Drawing.Point(93, 179);
+
             this.txbRol.Name = "txbRol";
             this.txbRol.Size = new System.Drawing.Size(458, 26);
             this.txbRol.TabIndex = 27;
@@ -61,6 +64,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(135, 188);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(90, 163);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(33, 20);
             this.label2.TabIndex = 25;

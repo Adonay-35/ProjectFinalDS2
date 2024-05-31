@@ -60,12 +60,6 @@
     <Compile Include="CLS\Roles.cs" />
     <Compile Include="CLS\Usuarios.cs" />
     <Compile Include="CLS\Ventas.cs" />
-    <Compile Include="GUI\GestionarDirecciones.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\GestionarDirecciones.Designer.cs">
-      <DependentUpon>GestionarDirecciones.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\CategoriasEdicion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,9 +174,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="GUI\GestionarDirecciones.resx">
-      <DependentUpon>GestionarDirecciones.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI\CategoriasEdicion.resx">
       <DependentUpon>CategoriasEdicion.cs</DependentUpon>
     </EmbeddedResource>
@@ -200,6 +191,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\EmpleadosGestion.resx">
       <DependentUpon>EmpleadosGestion.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ProductosEdicion.resx">
       <DependentUpon>ProductosEdicion.cs</DependentUpon>
@@ -212,6 +204,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ProveedoresGestion.resx">
       <DependentUpon>ProveedoresGestion.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\RolesEdicion.resx">
       <DependentUpon>RolesEdicion.cs</DependentUpon>

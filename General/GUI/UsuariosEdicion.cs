@@ -17,9 +17,9 @@ namespace General.GUI
         //DataTable datos;
         //int idUsuario = 0;
 
-        private Boolean Validar()
+        private bool Validar()
         {
-            Boolean Valido = true;
+            bool Valido = true;
             try
             {
                 if (txbUsuario.Text.Trim().Length == 0)
@@ -115,47 +115,50 @@ namespace General.GUI
         {
             try
             {
-                if (string.IsNullOrEmpty(txbIDUsuario.Text))
+                if (Validar())
                 {
-                    // Crear nuevo usuario
-                    CLS.Usuarios nuevoUsuario = new CLS.Usuarios(0, txbUsuario.Text); // Usa 0 para IDUsuario si es un nuevo usuario
-                    nuevoUsuario.Usuario = txbUsuario.Text;
-                    nuevoUsuario.Clave = txbClave.Text;
-                    nuevoUsuario.IDRol = Convert.ToInt32(cbRoles.SelectedIndex);
-                    nuevoUsuario.IDEmpleado = Convert.ToInt32(cbEmpleados.SelectedIndex);
-                    nuevoUsuario.IDEstado = Convert.ToInt32(cbEstados.SelectedIndex);
-                    
-
-                    if (nuevoUsuario.Insertar())
+                    if (string.IsNullOrEmpty(txbIDUsuario.Text))
                     {
-                        MessageBox.Show("Usuario creado exitosamente");
+                        // Crear nuevo usuario
+                        CLS.Usuarios nuevoUsuario = new CLS.Usuarios(0, txbUsuario.Text); // Usa 0 para IDUsuario si es un nuevo usuario
+                        nuevoUsuario.Usuario = txbUsuario.Text;
+                        nuevoUsuario.Clave = txbClave.Text;
+                        nuevoUsuario.IDRol = Convert.ToInt32(cbRoles.SelectedIndex);
+                        nuevoUsuario.IDEmpleado = Convert.ToInt32(cbEmpleados.SelectedIndex);
+                        nuevoUsuario.IDEstado = Convert.ToInt32(cbEstados.SelectedIndex);
+
+
+                        if (nuevoUsuario.Insertar())
+                        {
+                            MessageBox.Show("Usuario creado exitosamente");
+                            Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al crear usuario");
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Error al crear usuario");
+                        // Actualizar usuario existente
+                        CLS.Usuarios usuarioExistente = new CLS.Usuarios(Convert.ToInt32(txbIDUsuario.Text), txbUsuario.Text);
+                        usuarioExistente.Usuario = txbUsuario.Text;
+                        usuarioExistente.Clave = txbClave.Text;
+                        usuarioExistente.IDRol = Convert.ToInt32(cbRoles.SelectedIndex);
+                        usuarioExistente.IDEmpleado = Convert.ToInt32(cbEmpleados.SelectedIndex);
+                        usuarioExistente.IDEstado = Convert.ToInt32(cbEstados.SelectedIndex);
+
+                        if (usuarioExistente.Actualizar())
+                        {
+                            MessageBox.Show("Usuario actualizado exitosamente");
+                            Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al actualizar usuario");
+                        }
                     }
                 }
-                else
-                {
-                    // Actualizar usuario existente
-                    CLS.Usuarios usuarioExistente = new CLS.Usuarios(Convert.ToInt32(txbIDUsuario.Text), txbUsuario.Text);
-                    usuarioExistente.Usuario = txbUsuario.Text;
-                    usuarioExistente.Clave = txbClave.Text;
-                    usuarioExistente.IDRol = Convert.ToInt32(cbRoles.SelectedIndex);
-                    usuarioExistente.IDEmpleado = Convert.ToInt32(cbEmpleados.SelectedIndex);
-                    usuarioExistente.IDEstado = Convert.ToInt32(cbEstados.SelectedIndex);
-
-                    if (usuarioExistente.Actualizar())
-                    {
-                        MessageBox.Show("Usuario actualizado exitosamente");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error al actualizar usuario");
-                    }
-                }
-
-                this.Close();
             }
             catch (Exception ex)
             {

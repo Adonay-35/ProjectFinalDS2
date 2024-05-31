@@ -16,44 +16,44 @@ namespace General.GUI
     {
         Productos metodosProductos = new Productos();
 
-        private Boolean Validar()
+        private bool Validar()
         {
-            Boolean valido = true;
+            bool valido = true;
             try
             {
                 if (txbProducto.Text.Trim().Length == 0)
                 {
-                    Notificador.SetError(txbProducto, "El campo 'Nombre Producto' no puede quedar vacío");
+                    Notificador.SetError(txbProducto, "Este campo' no puede quedar vacío");
                     valido = false;
                 }
                 if (txbStock.Text.Trim().Length == 0)
                 {
-                    Notificador.SetError(txbStock, "El campo 'Stock' debe ser un valor mayor que cero");
+                    Notificador.SetError(txbStock, "Este campo debe ser un valor mayor que cero");
                     valido = false;
                 }
                 if (txbPrecio.Text.Trim().Length == 0)
                 {
-                    Notificador.SetError(txbPrecio, "El campo 'Precio' debe ser un valor mayor que cero");
+                    Notificador.SetError(txbPrecio, "Este campo debe ser un valor mayor que cero");
                     valido = false;
                 }
                 if (txbDescripcion.Text.Trim().Length == 0)
                 {
-                    Notificador.SetError(txbDescripcion, "El campo 'Descripción' no puede quedar vacío");
+                    Notificador.SetError(txbDescripcion, "Este campo no puede quedar vacío");
                     valido = false;
                 }
                 if (txbFechaVencimiento.Text.Trim().Length == 0)
                 {
-                    Notificador.SetError(txbFechaVencimiento, "El campo 'Fecha de Creación' no puede quedar vacío y debe ser una fecha válida");
+                    Notificador.SetError(txbFechaVencimiento, "Este campo no puede quedar vacío");
                     valido = false;
                 }
                 if (txbFechaFabricacion.Text.Trim().Length == 0)
                 {
-                    Notificador.SetError(txbFechaFabricacion, "El campo 'Fecha de Vencimiento' no puede quedar vacío y debe ser una fecha válida");
+                    Notificador.SetError(txbFechaFabricacion, "Este campo no puede quedar vacío");
                     valido = false;
                 }
                 if (cbProveedor.Text.Trim().Length == 0)
                 {
-                    Notificador.SetError(cbProveedor, "El campo 'ID Proveedor' debe ser un valor mayor que cero");
+                    Notificador.SetError(cbProveedor, "Este campo no puede quedar vacío");
                     valido = false;
                 }
                 if (cbCategoria.Text.Trim().Length == 0)
