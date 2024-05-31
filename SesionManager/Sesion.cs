@@ -16,31 +16,7 @@ namespace SesionManager
         private static readonly object _lock = new object();
 
         String _Usuario;
-        string _Clave;
 
-        public Boolean ValidarPermiso(Int32 pIDOpcion)
-        {
-            Boolean Resultado = false;
-            DataTable Result = new DataTable();
-            StringBuilder Sentecia = new StringBuilder();
-            Sentecia.Append("SELECT a.IDOpcion, c.Opcion FROM permisos a");
-            Sentecia.Append("INNER JOIN usuarios b ON b.IDRol=a.IDRol");
-            Sentecia.Append("INNER JOIN opciones c ON c.IDOpcion=a.IDOpcion");
-            Sentecia.Append("WHERE b.Usuario='" + _Usuario + "'");
-            Sentecia.Append("AND a.IDOpcion=" + pIDOpcion.ToString() + ";");
-
-            DataLayer.DBOperacion oOperacion = new DataLayer.DBOperacion();
-            Result = oOperacion.Consultar(Sentecia.ToString());
-            if (Result.Rows.Count > 0)
-            {
-                Resultado = true;
-            }
-            if (!Resultado)
-            {
-                MessageBox.Show("Acceso denegado");
-            }
-            return Resultado;
-        }
 
         public string Usuario
         {

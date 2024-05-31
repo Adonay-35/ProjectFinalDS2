@@ -69,7 +69,6 @@ namespace General.GUI
                     oProveedor.IDProveedor = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDProveedor"].Value.ToString());
                     oProveedor.Proveedor = dataGridView1.CurrentRow.Cells["Proveedor"].Value.ToString();
                     oProveedor.Contacto = dataGridView1.CurrentRow.Cells["Contacto"].Value.ToString();
-                    oProveedor.Direccion = dataGridView1.CurrentRow.Cells["Direccion"].Value.ToString();
                     oProveedor.Correo = dataGridView1.CurrentRow.Cells["Correo"].Value.ToString();
 
                     if (oProveedor.Eliminar())
@@ -98,11 +97,19 @@ namespace General.GUI
                 {
                     ProveedoresEdicion oProveedor = new ProveedoresEdicion();
 
+                    oProveedor.MostrarDepartamentos(oProveedor.cbDepartamentos);
+                    oProveedor.MostrarMunicipios(oProveedor.cbMunicipios);
+                    oProveedor.MostrarDistritos(oProveedor.cbDistritos);
                     oProveedor.txbIDProveedor.Text = dataGridView1.CurrentRow.Cells["IDProveedor"].Value.ToString();
                     oProveedor.txbProveedor.Text = dataGridView1.CurrentRow.Cells["Proveedor"].Value.ToString();
                     oProveedor.txbContacto.Text = Convert.ToDouble(dataGridView1.CurrentRow.Cells["Contacto"].Value).ToString();
-                    oProveedor.txbDireccion.Text = dataGridView1.CurrentRow.Cells["Direccion"].Value.ToString();
                     oProveedor.txbCorreo.Text = dataGridView1.CurrentRow.Cells["Correo"].Value.ToString();
+                    oProveedor.txbLinea1.Text = dataGridView1.CurrentRow.Cells["Linea1"].Value.ToString();
+                    oProveedor.txbLinea2.Text = dataGridView1.CurrentRow.Cells["Linea2"].Value.ToString();
+                    oProveedor.txbCodigoPostal.Text = dataGridView1.CurrentRow.Cells["CodigoPostal"].Value.ToString();
+                    oProveedor.cbDepartamentos.SelectedItem = dataGridView1.CurrentRow.Cells["Departamento"].Value.ToString();
+                    oProveedor.cbMunicipios.SelectedItem = dataGridView1.CurrentRow.Cells["Municipio"].Value.ToString();
+                    oProveedor.cbDistritos.SelectedItem = dataGridView1.CurrentRow.Cells["Distrito"].Value.ToString();
                     oProveedor.ShowDialog();
                     Cargar();
                 }

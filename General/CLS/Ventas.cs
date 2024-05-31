@@ -47,8 +47,9 @@ namespace General.CLS
         {
             Boolean Resultado = false;
             DataLayer.DBOperacion Operacion = new DataLayer.DBOperacion();
-            _FechaVenta = DateTime.Now;
+
             StringBuilder Sentencia = new StringBuilder();
+
             Sentencia.Append("INSERT INTO ventas (FechaVenta, IDUsuario, IDCliente, IDProducto, Precio, Cantidad, Total) VALUES (");
             Sentencia.Append("'" + _FechaVenta.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
             Sentencia.Append(_IDUsuario + ", ");  
@@ -244,8 +245,6 @@ namespace General.CLS
                 }
             }
         }
-
-
     }
 }
 
