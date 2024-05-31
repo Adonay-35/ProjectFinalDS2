@@ -1,4 +1,5 @@
-﻿using System;
+﻿using General.CLS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,8 @@ namespace General.GUI
 {
     public partial class ClientesEdicion : Form
     {
+        Clientes metodosClientes = new Clientes();
+
         private bool Validar()
         {
             Boolean Valido = true;
@@ -40,6 +43,38 @@ namespace General.GUI
             return Valido;
         }
 
+        public void MostrarMunicipios(ComboBox cbMunicipios)
+        {
+            List<Municipios> datos = metodosClientes.ObtenerMunicipios();
+            cbMunicipios.Items.Add("Selecciona una opción");
+            foreach (Municipios dato in datos)
+            {
+                cbMunicipios.Items.Add(dato.Municipio);
+            };
+        }
+
+        public void MostrarDistritos(ComboBox cbDistritos)
+        {
+
+            List<Distritos> datos = metodosClientes.ObtenerDistritos();
+            cbDistritos.Items.Add("Selecciona una opción");
+            foreach (Distritos dato in datos)
+            {
+                cbDistritos.Items.Add(dato.Distrito);
+            }
+        }
+
+        public void MostrarDepartamentos(ComboBox cbDepartamentos)
+        {
+
+            List<Departamentos> datos = metodosClientes.ObtenerDepartamentos();
+            cbDepartamentos.Items.Add("Selecciona una opción");
+            foreach (Departamentos dato in datos)
+            {
+                cbDepartamentos.Items.Add(dato.Departamento);
+            }
+        }
+
         public ClientesEdicion()
         {
             InitializeComponent();
@@ -56,6 +91,12 @@ namespace General.GUI
                     oCliente.Nombres = txbNombres.Text;
                     oCliente.Apellidos = txbApellidos.Text;
                     oCliente.Correo = txbCorreo.Text;
+                    oCliente.Linea1 = txbLinea1.Text;
+                    oCliente.Linea2 = txbLinea2.Text;
+                    oCliente.CodigoPostal = Convert.ToInt32(txbCodigoPostal.Text);
+                    oCliente.IDDepartamento = Convert.ToInt32(cbDepartamentos.SelectedIndex);
+                    oCliente.IDMunicipio = Convert.ToInt32(cbMunicipios.SelectedIndex);
+                    oCliente.IDDistrito = Convert.ToInt32(cbDistritos.SelectedIndex);
 
                     if (txbIDCliente.Text.Trim().Length == 0)
                     {
@@ -72,6 +113,17 @@ namespace General.GUI
                     else
                     {
                         oCliente.IDCliente = Convert.ToInt32(txbIDCliente.Text);
+
+                        oCliente.Nombres = txbNombres.Text;
+                        oCliente.Apellidos = txbApellidos.Text;
+                        oCliente.Correo = txbCorreo.Text;
+                        oCliente.Linea1 = txbLinea1.Text;
+                        oCliente.Linea2 = txbLinea2.Text;
+                        oCliente.CodigoPostal = Convert.ToInt32(txbCodigoPostal.Text);
+                        oCliente.IDDepartamento = Convert.ToInt32(cbDepartamentos.SelectedIndex);
+                        oCliente.IDMunicipio = Convert.ToInt32(cbMunicipios.SelectedIndex);
+                        oCliente.IDDistrito = Convert.ToInt32(cbDistritos.SelectedIndex);
+
                         if (oCliente.Actualizar())
                         {
 
@@ -98,5 +150,19 @@ namespace General.GUI
             Close();
         }
 
+
+        private void ClientesEdicion_Load_1(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txbIDCliente.Text))
+            {
+                this.MostrarMunicipios(cbMunicipios);
+                this.MostrarDistritos(cbDistritos);
+                this.MostrarDepartamentos(cbDepartamentos);
+                cbMunicipios.SelectedIndex = 0;
+                cbDistritos.SelectedIndex = 0;
+                cbDepartamentos.SelectedIndex = 0;
+            }
+        }
     }
 }
+

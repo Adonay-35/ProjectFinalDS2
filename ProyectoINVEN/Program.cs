@@ -8,17 +8,14 @@ namespace ProyectoCRUD
 {
     internal static class Program
     {
-        /// <summary>
-        /// Punto de entrada principal para la aplicación.
-        /// </summary>
+        
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new CLS.AppManager());
-            //Application.Run(new GUI.Principal());
-
+            //Application.Run(new GUI.FPrincipal());
         }
     }
 }

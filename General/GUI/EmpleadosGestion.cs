@@ -76,13 +76,21 @@ namespace General.GUI
                 if (MessageBox.Show("¿Desea EDITAR el registro seleccionado?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     EmpleadosEdicion oEmpleadoEdicion = new EmpleadosEdicion();
+                    oEmpleadoEdicion.MostrarDepartamentos(oEmpleadoEdicion.cbDepartamentos);
+                    oEmpleadoEdicion.MostrarMunicipios(oEmpleadoEdicion.cbMunicipios);
+                    oEmpleadoEdicion.MostrarDistritos(oEmpleadoEdicion.cbDistritos);
                     oEmpleadoEdicion.txbIDEmpleado.Text = dataGridView1.CurrentRow.Cells["IDEmpleado"].Value.ToString();
                     oEmpleadoEdicion.txbNombre.Text = dataGridView1.CurrentRow.Cells["Nombres"].Value.ToString();
                     oEmpleadoEdicion.txbApellido.Text = dataGridView1.CurrentRow.Cells["Apellidos"].Value.ToString();
                     oEmpleadoEdicion.txbDui.Text = dataGridView1.CurrentRow.Cells["DUI"].Value.ToString();
-                    oEmpleadoEdicion.txbDireccion.Text = dataGridView1.CurrentRow.Cells["Direccion"].Value.ToString();
                     oEmpleadoEdicion.txbTelefono.Text = dataGridView1.CurrentRow.Cells["Telefono"].Value.ToString();
                     oEmpleadoEdicion.txbCorreo.Text = dataGridView1.CurrentRow.Cells["Correo"].Value.ToString();
+                    oEmpleadoEdicion.txbLinea1.Text = dataGridView1.CurrentRow.Cells["Linea1"].Value.ToString();
+                    oEmpleadoEdicion.txbLinea2.Text = dataGridView1.CurrentRow.Cells["Linea2"].Value.ToString();
+                    oEmpleadoEdicion.txbCodigoPostal.Text = dataGridView1.CurrentRow.Cells["CodigoPostal"].Value.ToString();
+                    oEmpleadoEdicion.cbDepartamentos.SelectedItem = dataGridView1.CurrentRow.Cells["Departamento"].Value.ToString();
+                    oEmpleadoEdicion.cbMunicipios.SelectedItem = dataGridView1.CurrentRow.Cells["Municipio"].Value.ToString();
+                    oEmpleadoEdicion.cbDistritos.SelectedItem = dataGridView1.CurrentRow.Cells["Distrito"].Value.ToString();
                     oEmpleadoEdicion.ShowDialog();
                     Cargar();
                 }

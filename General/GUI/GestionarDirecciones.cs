@@ -10,23 +10,9 @@ using System.Windows.Forms;
 
 namespace General.GUI
 {
-    public partial class dataGridView1 : Form
+    public partial class GestionarDirecciones : Form
     {
-        BindingSource _DATOS = new BindingSource();
-
-        private void Cargar()
-        {
-            try
-            {
-                _DATOS.DataSource = DataLayer.Consultas.DIRECCIONES();
-            }
-            catch (Exception)
-            {
-
-            }
-        }
-
-        public dataGridView1()
+        public GestionarDirecciones()
         {
             InitializeComponent();
         }
@@ -36,7 +22,7 @@ namespace General.GUI
 
         private void GestionarDirecciones_Load(object sender, EventArgs e)
         {
-            Cargar();
+
         }
     }
 }
