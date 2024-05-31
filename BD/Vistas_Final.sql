@@ -17,7 +17,7 @@ INNER JOIN
 INNER JOIN 
     Estados ES ON U.ID_Estado = ES.ID_Estado;
     
-CREATE VIEW VistaProductos AS
+CREATE VIEW VistaProductosParaCompras AS
 SELECT 
     P.ID_Producto, 
     P.Producto, 
@@ -29,7 +29,7 @@ SELECT
         Compras Com ON Kr.ID_Compra = Com.ID_Compra
     INNER JOIN
         Productos Prod ON Com.ID_Producto = Prod.ID_Producto) AS Stock,
-    P.PrecioCompra, 
+    P.PrecioCompra,
     DATE_FORMAT(P.FechaFabricacion, '%d-%m-%Y') AS FechaFabricacion, 
     DATE_FORMAT(P.FechaVencimiento, '%d-%m-%Y') AS FechaVencimiento, 
     P.Descripcion, 
@@ -44,7 +44,32 @@ INNER JOIN
 ORDER BY 
     P.Producto ASC;
 
-
+CREATE VIEW VistaProductosParaVentas AS
+SELECT 
+    P.ID_Producto, 
+    P.Producto, 
+    (SELECT
+        Kr.Stock
+    FROM
+        Kardex Kr
+    INNER JOIN
+        Compras Com ON Kr.ID_Compra = Com.ID_Compra
+    INNER JOIN
+        Productos Prod ON Com.ID_Producto = Prod.ID_Producto) AS Stock,
+    (P.PrecioCompra * 1.2) as Precio,
+    DATE_FORMAT(P.FechaFabricacion, '%d-%m-%Y') AS FechaFabricacion, 
+    DATE_FORMAT(P.FechaVencimiento, '%d-%m-%Y') AS FechaVencimiento, 
+    P.Descripcion, 
+    PR.Proveedor, 
+    C.Categoria
+FROM 
+    Productos P
+INNER JOIN 
+    Proveedores PR ON P.ID_Proveedor = PR.ID_Proveedor
+INNER JOIN 
+    Categorias C ON P.ID_Categoria = C.ID_Categoria
+ORDER BY 
+    P.Producto ASC;
     
 CREATE VIEW VistaVentas AS
 SELECT 
@@ -55,7 +80,7 @@ SELECT
     P.Producto AS Producto, 
     (P.PrecioCompra * 1.2) as Precio,
     V.CantidadSaliente, 
-    V.TotalCobrar
+    (V.CantidadSaliente * (P.PrecioCompra * 1.2)) as Total
 FROM 
     Ventas V
 INNER JOIN 
