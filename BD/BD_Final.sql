@@ -580,6 +580,12 @@ INSERT INTO Ventas (FechaVenta, ID_Usuario, ID_Cliente, ID_Producto, PrecioVenta
 ('2024-05-04 15:20:00', 3, 4, 5, 1.99, 4, 7.96),
 ('2024-05-05 17:00:00', 5, 5, 2, 0.99, 7, 6.93);
 
+INSERT INTO Kardex (ID_Compra, ID_Venta, Stock) VALUES
+(1, 1, 0),
+(2, 2, 0),
+(3, 3, 0),
+(4, 4, 0),
+(5, 5, 0)
 
 /* PROCEDIMIENTOS ALMACENADOS */
 
