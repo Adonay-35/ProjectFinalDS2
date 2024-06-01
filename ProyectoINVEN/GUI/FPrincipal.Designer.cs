@@ -105,7 +105,7 @@
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold);
             this.btnSalir.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSalir.Location = new System.Drawing.Point(0, 875);
+            this.btnSalir.Location = new System.Drawing.Point(0, 848);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(2);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Padding = new System.Windows.Forms.Padding(23, 0, 0, 0);
@@ -127,7 +127,7 @@
             this.panelReportes.Location = new System.Drawing.Point(0, 585);
             this.panelReportes.Margin = new System.Windows.Forms.Padding(2);
             this.panelReportes.Name = "panelReportes";
-            this.panelReportes.Size = new System.Drawing.Size(195, 290);
+            this.panelReportes.Size = new System.Drawing.Size(195, 263);
             this.panelReportes.TabIndex = 9;
             // 
             // button1

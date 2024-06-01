@@ -137,7 +137,7 @@
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnCancelar.Location = new System.Drawing.Point(569, 536);
+            this.btnCancelar.Location = new System.Drawing.Point(541, 536);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(88, 30);
@@ -203,7 +203,7 @@
             // 
             this.cbDepartamentos.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbDepartamentos.FormattingEnabled = true;
-            this.cbDepartamentos.Location = new System.Drawing.Point(506, 284);
+            this.cbDepartamentos.Location = new System.Drawing.Point(522, 284);
             this.cbDepartamentos.Margin = new System.Windows.Forms.Padding(4);
             this.cbDepartamentos.Name = "cbDepartamentos";
             this.cbDepartamentos.Size = new System.Drawing.Size(314, 24);
@@ -212,7 +212,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(502, 264);
+            this.label5.Location = new System.Drawing.Point(518, 264);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(102, 17);
@@ -223,7 +223,7 @@
             // 
             this.cbDistritos.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbDistritos.FormattingEnabled = true;
-            this.cbDistritos.Location = new System.Drawing.Point(505, 462);
+            this.cbDistritos.Location = new System.Drawing.Point(521, 462);
             this.cbDistritos.Margin = new System.Windows.Forms.Padding(4);
             this.cbDistritos.Name = "cbDistritos";
             this.cbDistritos.Size = new System.Drawing.Size(314, 24);
@@ -232,7 +232,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(503, 437);
+            this.label6.Location = new System.Drawing.Point(519, 437);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(55, 17);
@@ -243,7 +243,7 @@
             // 
             this.cbMunicipios.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbMunicipios.FormattingEnabled = true;
-            this.cbMunicipios.Location = new System.Drawing.Point(506, 378);
+            this.cbMunicipios.Location = new System.Drawing.Point(522, 378);
             this.cbMunicipios.Margin = new System.Windows.Forms.Padding(4);
             this.cbMunicipios.Name = "cbMunicipios";
             this.cbMunicipios.Size = new System.Drawing.Size(314, 24);
@@ -252,7 +252,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(502, 357);
+            this.label10.Location = new System.Drawing.Point(518, 357);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(71, 17);
@@ -262,7 +262,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(502, 185);
+            this.label11.Location = new System.Drawing.Point(518, 185);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(88, 17);
@@ -271,7 +271,7 @@
             // 
             // txbCodigoPostal
             // 
-            this.txbCodigoPostal.Location = new System.Drawing.Point(506, 206);
+            this.txbCodigoPostal.Location = new System.Drawing.Point(522, 206);
             this.txbCodigoPostal.Margin = new System.Windows.Forms.Padding(4);
             this.txbCodigoPostal.Name = "txbCodigoPostal";
             this.txbCodigoPostal.Size = new System.Drawing.Size(107, 22);
@@ -280,7 +280,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(502, 116);
+            this.label12.Location = new System.Drawing.Point(518, 116);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(47, 17);
@@ -289,7 +289,7 @@
             // 
             // txbLinea2
             // 
-            this.txbLinea2.Location = new System.Drawing.Point(506, 136);
+            this.txbLinea2.Location = new System.Drawing.Point(522, 136);
             this.txbLinea2.Margin = new System.Windows.Forms.Padding(4);
             this.txbLinea2.Name = "txbLinea2";
             this.txbLinea2.Size = new System.Drawing.Size(314, 22);
@@ -298,7 +298,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(502, 42);
+            this.label13.Location = new System.Drawing.Point(517, 41);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(47, 17);
@@ -307,7 +307,7 @@
             // 
             // txbLinea1
             // 
-            this.txbLinea1.Location = new System.Drawing.Point(506, 63);
+            this.txbLinea1.Location = new System.Drawing.Point(521, 62);
             this.txbLinea1.Margin = new System.Windows.Forms.Padding(4);
             this.txbLinea1.Name = "txbLinea1";
             this.txbLinea1.Size = new System.Drawing.Size(314, 22);
