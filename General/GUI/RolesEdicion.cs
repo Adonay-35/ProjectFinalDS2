@@ -36,10 +36,6 @@ namespace General.GUI
             InitializeComponent();
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -47,14 +43,15 @@ namespace General.GUI
             {
                 if (Validar())
                 {
-                    if (string.IsNullOrEmpty(txbIDRol.Text))
+                    if (string.IsNullOrEmpty(txbID_Rol.Text))
                     {
-                        CLS.Roles nuevoRol = new CLS.Roles(0, txbRol.Text);
+                        CLS.Roles nuevoRol = new CLS.Roles();
+
                         nuevoRol.Rol = txbRol.Text;
 
                         if (nuevoRol.Insertar())
                         {
-                            MessageBox.Show("Rol creado exitosamente");
+                            MessageBox.Show("Registro creado exitosamente");
                             Close();
                         }
                         else
@@ -64,12 +61,14 @@ namespace General.GUI
                     }
                     else
                     {
-                        CLS.Roles rolExistente = new CLS.Roles(Convert.ToInt32(txbIDRol.Text), txbRol.Text);
+                        CLS.Roles rolExistente = new CLS.Roles();
+
+                        rolExistente.ID_Rol = Convert.ToInt32(txbID_Rol.Text);
                         rolExistente.Rol = txbRol.Text;
 
                         if (rolExistente.Actualizar())
                         {
-                            MessageBox.Show("Usuario actualizado exitosamente");
+                            MessageBox.Show("Registro actualizado exitosamente");
                             Close();
                         }
                         else
@@ -83,6 +82,11 @@ namespace General.GUI
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

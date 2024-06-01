@@ -14,6 +14,7 @@ namespace General.GUI
     public partial class EmpleadosEdicion : Form
     {
         Empleados metodosEmpleados = new Empleados();
+
         private bool Validar()
         {
             bool Valido = true;
@@ -59,7 +60,7 @@ namespace General.GUI
                     Notificador.SetError(txbCodigoPostal, "Este campo no puede estar vacío");
                     Valido = false;
                 }
-                if (cbDepartamentos.SelectedIndex == -1)
+                if (cbDepartamentos.SelectedIndex == -1 || cbDepartamentos.Text.Trim().Length == 0)
                 {
                     Notificador.SetError(cbDepartamentos, "Este campo no puede estar vacío");
                     Valido = false;
@@ -92,6 +93,73 @@ namespace General.GUI
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Validar())
+                {
+                    CLS.Empleados oEmpleado = new CLS.Empleados();
+
+                    oEmpleado.Nombres = txbNombre.Text;
+                    oEmpleado.Apellidos = txbApellido.Text;
+                    oEmpleado.Dui = txbDui.Text;
+                    oEmpleado.Telefono = txbTelefono.Text;
+                    oEmpleado.Correo = txbCorreo.Text;
+                    oEmpleado.Linea1 = txbLinea1.Text;
+                    oEmpleado.Linea2 = txbLinea2.Text;
+                    oEmpleado.CodigoPostal = Convert.ToInt32(txbCodigoPostal.Text);
+                    oEmpleado.IDDepartamento = Convert.ToInt32(cbDepartamentos.SelectedIndex);
+                    oEmpleado.IDMunicipio = Convert.ToInt32(cbMunicipios.SelectedIndex);
+                    oEmpleado.IDDistrito = Convert.ToInt32(cbDistritos.SelectedIndex);
+
+                    if (txbID_Empleado.Text.Trim().Length == 0)
+                    {
+                        if (oEmpleado.Insertar())
+                        {
+                            MessageBox.Show("Registro creado exitosamente");
+                            Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("El registro no pudo ser guardado");
+                        }
+                    }
+                    else
+                    {
+                        oEmpleado.ID_Empleado = Convert.ToInt32(txbID_Empleado.Text);
+
+                        oEmpleado.Nombres = txbNombre.Text;
+                        oEmpleado.Apellidos = txbApellido.Text;
+                        oEmpleado.Dui = txbDui.Text;
+                        oEmpleado.Telefono = txbTelefono.Text;
+                        oEmpleado.Correo = txbCorreo.Text;
+                        oEmpleado.Linea1 = txbLinea1.Text;
+                        oEmpleado.Linea2 = txbLinea2.Text;
+                        oEmpleado.CodigoPostal = Convert.ToInt32(txbCodigoPostal.Text);
+                        oEmpleado.IDDepartamento = Convert.ToInt32(cbDepartamentos.SelectedIndex);
+                        oEmpleado.IDMunicipio = Convert.ToInt32(cbMunicipios.SelectedIndex);
+                        oEmpleado.IDDistrito = Convert.ToInt32(cbDistritos.SelectedIndex);
+
+                        if (oEmpleado.Actualizar())
+                        {
+                            MessageBox.Show("Registro actualizado exitosamente");
+                            Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("El registro no pudo ser actualizado");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+
         }
 
 
@@ -127,76 +195,9 @@ namespace General.GUI
             }
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (Validar())
-                {
-                    CLS.Empleados oEmpleado = new CLS.Empleados();
-
-                    oEmpleado.Nombres = txbNombre.Text;
-                    oEmpleado.Apellidos = txbApellido.Text;
-                    oEmpleado.Dui = txbDui.Text;
-                    oEmpleado.Telefono = txbTelefono.Text;
-                    oEmpleado.Correo = txbCorreo.Text;
-                    oEmpleado.Linea1 = txbLinea1.Text;
-                    oEmpleado.Linea2 = txbLinea2.Text;
-                    oEmpleado.CodigoPostal = Convert.ToInt32(txbCodigoPostal.Text);
-                    oEmpleado.IDDepartamento = Convert.ToInt32(cbDepartamentos.SelectedIndex);
-                    oEmpleado.IDMunicipio = Convert.ToInt32(cbMunicipios.SelectedIndex);
-                    oEmpleado.IDDistrito = Convert.ToInt32(cbDistritos.SelectedIndex);
-
-                    if (txbIDEmpleado.Text.Trim().Length == 0)
-                    {
-                        if (oEmpleado.Insertar())
-                        {
-                            MessageBox.Show("Registro guardado");
-                            Close();
-                        }
-                        else
-                        {
-                            MessageBox.Show("El registro no pudo ser guardado");
-                        }
-                    }
-                    else
-                    {
-                        oEmpleado.IDEmpleado = Convert.ToInt32(txbIDEmpleado.Text);
-
-                        oEmpleado.Nombres = txbNombre.Text;
-                        oEmpleado.Apellidos = txbApellido.Text;
-                        oEmpleado.Dui = txbDui.Text;
-                        oEmpleado.Telefono = txbTelefono.Text;
-                        oEmpleado.Correo = txbCorreo.Text;
-                        oEmpleado.Linea1 = txbLinea1.Text;
-                        oEmpleado.Linea2 = txbLinea2.Text;
-                        oEmpleado.CodigoPostal = Convert.ToInt32(txbCodigoPostal.Text);
-                        oEmpleado.IDDepartamento = Convert.ToInt32(cbDepartamentos.SelectedIndex);
-                        oEmpleado.IDMunicipio = Convert.ToInt32(cbMunicipios.SelectedIndex);
-                        oEmpleado.IDDistrito = Convert.ToInt32(cbDistritos.SelectedIndex);
-
-                        if (oEmpleado.Actualizar())
-                        {
-                            MessageBox.Show("Registro actualizado");
-                            Close();
-                        }
-                        else
-                        {
-                            MessageBox.Show("El registro no pudo ser actualizado");
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-
-        }
-
         private void EmpleadosEdicion_Load_1(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txbIDEmpleado.Text))
+            if (string.IsNullOrEmpty(txbID_Empleado.Text))
             {
                 this.MostrarMunicipios(cbMunicipios);
                 this.MostrarDistritos(cbDistritos);

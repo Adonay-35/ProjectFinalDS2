@@ -34,7 +34,7 @@
             this.txbClave = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txbUsuario = new System.Windows.Forms.TextBox();
-            this.txbIDUsuario = new System.Windows.Forms.TextBox();
+            this.txbID_Usuario = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -44,90 +44,82 @@
             this.cbRoles = new System.Windows.Forms.ComboBox();
             this.Notificador = new System.Windows.Forms.ErrorProvider(this.components);
             this.cbEmpleados = new System.Windows.Forms.ComboBox();
+            this.btnCancealr = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Notificador)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(20, 392);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(13, 255);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(33, 20);
+            this.label5.Size = new System.Drawing.Size(23, 13);
             this.label5.TabIndex = 28;
             this.label5.Text = "Rol";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(20, 307);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(13, 200);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(81, 20);
+            this.label4.Size = new System.Drawing.Size(54, 13);
             this.label4.TabIndex = 26;
             this.label4.Text = "Empleado";
             // 
             // txbClave
             // 
-            this.txbClave.Location = new System.Drawing.Point(24, 242);
-            this.txbClave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txbClave.Location = new System.Drawing.Point(16, 157);
             this.txbClave.Name = "txbClave";
-            this.txbClave.Size = new System.Drawing.Size(458, 26);
+            this.txbClave.Size = new System.Drawing.Size(307, 20);
             this.txbClave.TabIndex = 25;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 218);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(13, 142);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 20);
+            this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 24;
             this.label3.Text = "Clave";
             // 
             // txbUsuario
             // 
-            this.txbUsuario.Location = new System.Drawing.Point(24, 148);
-            this.txbUsuario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txbUsuario.Location = new System.Drawing.Point(16, 96);
             this.txbUsuario.Name = "txbUsuario";
-            this.txbUsuario.Size = new System.Drawing.Size(458, 26);
+            this.txbUsuario.Size = new System.Drawing.Size(307, 20);
             this.txbUsuario.TabIndex = 23;
             // 
-            // txbIDUsuario
+            // txbID_Usuario
             // 
-            this.txbIDUsuario.Location = new System.Drawing.Point(24, 56);
-            this.txbIDUsuario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txbIDUsuario.Name = "txbIDUsuario";
-            this.txbIDUsuario.ReadOnly = true;
-            this.txbIDUsuario.Size = new System.Drawing.Size(152, 26);
-            this.txbIDUsuario.TabIndex = 22;
+            this.txbID_Usuario.Location = new System.Drawing.Point(16, 36);
+            this.txbID_Usuario.Name = "txbID_Usuario";
+            this.txbID_Usuario.ReadOnly = true;
+            this.txbID_Usuario.Size = new System.Drawing.Size(103, 20);
+            this.txbID_Usuario.TabIndex = 22;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 124);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(13, 81);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 20);
+            this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 21;
             this.label2.Text = "Usuario";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 32);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(13, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 20);
+            this.label1.Size = new System.Drawing.Size(60, 13);
             this.label1.TabIndex = 20;
-            this.label1.Text = "IDUsuario";
+            this.label1.Text = "ID_Usuario";
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(558, 598);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCancelar.Location = new System.Drawing.Point(372, 389);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(112, 35);
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 19;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -135,10 +127,9 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(210, 598);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnGuardar.Location = new System.Drawing.Point(16, 398);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(112, 35);
+            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 18;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -147,29 +138,26 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(20, 476);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(13, 309);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(60, 20);
+            this.label6.Size = new System.Drawing.Size(40, 13);
             this.label6.TabIndex = 30;
             this.label6.Text = "Estado";
             // 
             // cbEstados
             // 
             this.cbEstados.FormattingEnabled = true;
-            this.cbEstados.Location = new System.Drawing.Point(24, 501);
-            this.cbEstados.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cbEstados.Location = new System.Drawing.Point(16, 326);
             this.cbEstados.Name = "cbEstados";
-            this.cbEstados.Size = new System.Drawing.Size(458, 28);
+            this.cbEstados.Size = new System.Drawing.Size(307, 21);
             this.cbEstados.TabIndex = 8;
             // 
             // cbRoles
             // 
             this.cbRoles.FormattingEnabled = true;
-            this.cbRoles.Location = new System.Drawing.Point(24, 416);
-            this.cbRoles.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cbRoles.Location = new System.Drawing.Point(16, 270);
             this.cbRoles.Name = "cbRoles";
-            this.cbRoles.Size = new System.Drawing.Size(458, 28);
+            this.cbRoles.Size = new System.Drawing.Size(307, 21);
             this.cbRoles.TabIndex = 32;
             // 
             // Notificador
@@ -180,17 +168,27 @@
             // cbEmpleados
             // 
             this.cbEmpleados.FormattingEnabled = true;
-            this.cbEmpleados.Location = new System.Drawing.Point(24, 348);
-            this.cbEmpleados.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cbEmpleados.Location = new System.Drawing.Point(16, 226);
             this.cbEmpleados.Name = "cbEmpleados";
-            this.cbEmpleados.Size = new System.Drawing.Size(458, 28);
+            this.cbEmpleados.Size = new System.Drawing.Size(307, 21);
             this.cbEmpleados.TabIndex = 33;
+            // 
+            // btnCancealr
+            // 
+            this.btnCancealr.Location = new System.Drawing.Point(224, 398);
+            this.btnCancealr.Name = "btnCancealr";
+            this.btnCancealr.Size = new System.Drawing.Size(75, 23);
+            this.btnCancealr.TabIndex = 34;
+            this.btnCancealr.Text = "Cancelar";
+            this.btnCancealr.UseVisualStyleBackColor = true;
+            this.btnCancealr.Click += new System.EventHandler(this.btnCancealr_Click);
             // 
             // UsuariosEdicion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(515, 692);
+            this.ClientSize = new System.Drawing.Size(343, 450);
+            this.Controls.Add(this.btnCancealr);
             this.Controls.Add(this.cbEmpleados);
             this.Controls.Add(this.cbRoles);
             this.Controls.Add(this.cbEstados);
@@ -200,12 +198,11 @@
             this.Controls.Add(this.txbClave);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txbUsuario);
-            this.Controls.Add(this.txbIDUsuario);
+            this.Controls.Add(this.txbID_Usuario);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "UsuariosEdicion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UsuariosEdicion";
@@ -222,7 +219,7 @@
         public System.Windows.Forms.TextBox txbClave;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.TextBox txbUsuario;
-        public System.Windows.Forms.TextBox txbIDUsuario;
+        public System.Windows.Forms.TextBox txbID_Usuario;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCancelar;
@@ -232,5 +229,6 @@
         public System.Windows.Forms.ComboBox cbRoles;
         private System.Windows.Forms.ErrorProvider Notificador;
         public System.Windows.Forms.ComboBox cbEmpleados;
+        private System.Windows.Forms.Button btnCancealr;
     }
 }

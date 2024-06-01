@@ -38,14 +38,15 @@ namespace General.GUI
                 if (Validar())
                 {
 
-                    if (string.IsNullOrEmpty(txbIDCategoria.Text))
+                    if (string.IsNullOrEmpty(txbID_Categoria.Text))
                     {
                         CLS.Categorias nuevaCategoria = new CLS.Categorias(0, txbCategoria.Text);
                         nuevaCategoria.Categoria = txbCategoria.Text;
 
                         if (nuevaCategoria.InsertarCategoria())
                         {
-                            MessageBox.Show("Categoría creada exitosamente");
+                            MessageBox.Show("Registro creado exitosamente");
+                            Close();
                         }
                         else
                         {
@@ -54,12 +55,12 @@ namespace General.GUI
                     }
                     else
                     {
-                        CLS.Categorias categoriaExistente = new CLS.Categorias(Convert.ToInt32(txbIDCategoria.Text), txbCategoria.Text);
+                        CLS.Categorias categoriaExistente = new CLS.Categorias(Convert.ToInt32(txbID_Categoria.Text), txbCategoria.Text);
                         categoriaExistente.Categoria = txbCategoria.Text;
 
                         if (categoriaExistente.ActualizarCategoria())
                         {
-                            MessageBox.Show("Categoría actualizada exitosamente");
+                            MessageBox.Show("Registro actualizado exitosamente");
                             Close();
                         }
                         else

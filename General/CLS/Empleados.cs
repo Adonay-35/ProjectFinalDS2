@@ -14,7 +14,7 @@ namespace General.CLS
         DataTable tabla = new DataTable();
         MySqlConnection sqlConexion = new MySqlConnection();
 
-        Int32 _IDEmpleado;
+        Int32 _ID_Empleado;
         string _Nombres;
         string _Apellidos;
         string _DUI;
@@ -29,7 +29,7 @@ namespace General.CLS
 
         public Empleados(int idEmpleado, string nombres, string apellidos)
         {
-            this._IDEmpleado = idEmpleado;
+            this._ID_Empleado = idEmpleado;
             this._Nombres = nombres;
             this._Apellidos = apellidos;
         }
@@ -39,7 +39,7 @@ namespace General.CLS
         }
 
 
-        public Int32 IDEmpleado { get => _IDEmpleado; set => _IDEmpleado = value; }
+        public Int32 ID_Empleado { get => _ID_Empleado; set => _ID_Empleado = value; }
         public string Nombres { get => _Nombres; set => _Nombres = value; }
         public string Apellidos { get => _Apellidos; set => _Apellidos = value; }
         public string Dui { get => _DUI; set => _DUI = value; }
@@ -108,7 +108,7 @@ namespace General.CLS
             Sentencia.Append("ID_Departamento =" + _ID_Departamento + ",");
             Sentencia.Append("ID_Distrito =" + _ID_Distrito + ",");
             Sentencia.Append("ID_Municipio =" + _ID_Municipio);
-            Sentencia.Append(" WHERE IDEmpleado ='" + _IDEmpleado + "';");
+            Sentencia.Append(" WHERE ID_Empleado ='" + _ID_Empleado + "';");
             try
             {
                 if (Operacion.EjecutarSentencia(Sentencia.ToString()) >= 0)
@@ -134,7 +134,7 @@ namespace General.CLS
 
             StringBuilder Sentencia = new StringBuilder();
             Sentencia.Append("DELETE FROM Empleados");
-            Sentencia.Append(" WHERE IDEmpleado ='" + _IDEmpleado + "';");
+            Sentencia.Append(" WHERE ID_Empleado ='" + _ID_Empleado + "';");
             try
             {
                 if (Operacion.EjecutarSentencia(Sentencia.ToString()) >= 0)

@@ -46,7 +46,7 @@
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.IDCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID_Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -69,7 +69,7 @@
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IDCategoria,
+            this.ID_Categoria,
             this.Categoria});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
@@ -215,14 +215,14 @@
             this.toolStripButton1.Text = "Cerrar";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
-            // IDCategoria
+            // ID_Categoria
             // 
-            this.IDCategoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.IDCategoria.DataPropertyName = "ID_Categoria";
-            this.IDCategoria.HeaderText = "ID";
-            this.IDCategoria.MinimumWidth = 8;
-            this.IDCategoria.Name = "IDCategoria";
-            this.IDCategoria.ReadOnly = true;
+            this.ID_Categoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ID_Categoria.DataPropertyName = "ID_Categoria";
+            this.ID_Categoria.HeaderText = "ID";
+            this.ID_Categoria.MinimumWidth = 8;
+            this.ID_Categoria.Name = "ID_Categoria";
+            this.ID_Categoria.ReadOnly = true;
             // 
             // Categoria
             // 
@@ -271,7 +271,7 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDCategoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID_Categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
     }
 }

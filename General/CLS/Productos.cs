@@ -15,19 +15,18 @@ namespace General.CLS
         DataTable tabla = new DataTable();
         MySqlConnection sqlConexion = new MySqlConnection();
 
-        Int32 _IDProducto;
+        Int32 _ID_Producto;
         string _Producto;
-        Int32 _Stock;
-        double _Precio;
-        string _Descripcion;
-        Int32 _IDProveedor;
         DateTime _FechaFabricacion;
         DateTime _FechaVencimiento;
-        Int32 _IDCategoria;
+        string _Descripcion;
+        double _PrecioCompra;
+        Int32 _ID_Proveedor;
+        Int32 _ID_Categoria;
 
         public Productos(int idProducto, string producto)
         {
-            this._IDProducto = idProducto;
+            this._ID_Producto = idProducto;
             this._Producto = producto;
         }
 
@@ -35,15 +34,14 @@ namespace General.CLS
         {
         }
 
-        public int IDProducto { get => _IDProducto; set => _IDProducto = value; }
+        public int ID_Producto { get => _ID_Producto; set => _ID_Producto = value; }
         public string Producto { get => _Producto; set => _Producto = value; }
-        public int Stock { get => _Stock; set => _Stock = value; }
-        public double Precio { get => _Precio; set => _Precio = value; }
-        public string Descripcion { get => _Descripcion; set => _Descripcion = value; }
-        public int IDProveedor { get => _IDProveedor; set => _IDProveedor = value; }
         public DateTime FechaFabricacion { get => _FechaFabricacion; set => _FechaFabricacion = value; }
         public DateTime FechaVencimiento { get => _FechaVencimiento; set => _FechaVencimiento = value; }
-        public int IDCategoria { get => _IDCategoria; set => _IDCategoria = value; }
+        public string Descripcion { get => _Descripcion; set => _Descripcion = value; }
+        public double PrecioCompra { get => _PrecioCompra; set => _PrecioCompra = value; }
+        public int ID_Proveedor { get => _ID_Proveedor; set => _ID_Proveedor = value; }
+        public int ID_Categoria { get => _ID_Categoria; set => _ID_Categoria = value; }
 
         public Boolean Insertar()
         {
@@ -51,15 +49,14 @@ namespace General.CLS
             DataLayer.DBOperacion Operacion = new DataLayer.DBOperacion();
 
             StringBuilder Sentencia = new StringBuilder();
-            Sentencia.Append("INSERT INTO Productos(Producto, Stock, Precio, Descripcion, IDProveedor, FechaFabricacion, FechaVencimiento, IDCategoria) VALUES(");
+            Sentencia.Append("INSERT INTO Productos(Producto, FechaFabricacion, FechaVencimiento, Descripcion, PrecioCompra, ID_Proveedor, ID_Categoria) VALUES(");
             Sentencia.Append("'" + _Producto + "',");
-            Sentencia.Append(_Stock + ",");
-            Sentencia.Append(_Precio + ",");
-            Sentencia.Append("'" + _Descripcion + "',");
-            Sentencia.Append(_IDProveedor + ",");
             Sentencia.Append("'" + _FechaFabricacion.ToString("yyyy-MM-dd") + "',");
             Sentencia.Append("'" + _FechaVencimiento.ToString("yyyy-MM-dd") + "',");
-            Sentencia.Append(_IDCategoria + ");");
+            Sentencia.Append("'" + _Descripcion + "',");
+            Sentencia.Append(_PrecioCompra + ",");
+            Sentencia.Append(_ID_Proveedor + ",");
+            Sentencia.Append(_ID_Categoria + ");");
             try
             {
                 if (Operacion.EjecutarSentencia(Sentencia.ToString()) >= 0)
@@ -86,14 +83,13 @@ namespace General.CLS
             StringBuilder Sentencia = new StringBuilder();
             Sentencia.Append("UPDATE productos SET ");
             Sentencia.Append("Producto ='" + _Producto + "',");
-            Sentencia.Append("Stock =" + _Stock + ",");
-            Sentencia.Append("Precio =" + _Precio + ",");
-            Sentencia.Append("Descripcion ='" + _Descripcion + "',");
-            Sentencia.Append("IDProveedor =" + _IDProveedor + ",");
             Sentencia.Append("FechaFabricacion ='" + _FechaFabricacion.ToString("yyyy-MM-dd") + "',");
             Sentencia.Append("FechaVencimiento ='" + _FechaVencimiento.ToString("yyyy-MM-dd") + "',");
-            Sentencia.Append("IDCategoria =" + _IDCategoria);
-            Sentencia.Append(" WHERE IDProducto ='" + _IDProducto + "';");
+            Sentencia.Append("Descripcion ='" + _Descripcion + "',");
+            Sentencia.Append("PrecioCompra =" + _PrecioCompra + ",");
+            Sentencia.Append("ID_Proveedor =" + _ID_Proveedor + ",");
+            Sentencia.Append("ID_Categoria =" + _ID_Categoria);
+            Sentencia.Append(" WHERE ID_Producto ='" + _ID_Producto + "';");
             try
             {
                 if (Operacion.EjecutarSentencia(Sentencia.ToString()) >= 0)
@@ -119,7 +115,7 @@ namespace General.CLS
 
             StringBuilder Sentencia = new StringBuilder();
             Sentencia.Append("DELETE FROM Productos");
-            Sentencia.Append(" WHERE IDProducto ='" + _IDProducto + "';");
+            Sentencia.Append(" WHERE ID_Producto ='" + _ID_Producto + "';");
             try
             {
                 if (Operacion.EjecutarSentencia(Sentencia.ToString()) >= 0)

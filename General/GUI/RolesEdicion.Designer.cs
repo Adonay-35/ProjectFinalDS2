@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.txbRol = new System.Windows.Forms.TextBox();
-            this.txbIDRol = new System.Windows.Forms.TextBox();
+            this.txbID_Rol = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -46,13 +46,13 @@
             this.txbRol.Size = new System.Drawing.Size(307, 20);
             this.txbRol.TabIndex = 27;
             // 
-            // txbIDRol
+            // txbID_Rol
             // 
-            this.txbIDRol.Location = new System.Drawing.Point(93, 78);
-            this.txbIDRol.Name = "txbIDRol";
-            this.txbIDRol.ReadOnly = true;
-            this.txbIDRol.Size = new System.Drawing.Size(103, 20);
-            this.txbIDRol.TabIndex = 26;
+            this.txbID_Rol.Location = new System.Drawing.Point(93, 78);
+            this.txbID_Rol.Name = "txbID_Rol";
+            this.txbID_Rol.ReadOnly = true;
+            this.txbID_Rol.Size = new System.Drawing.Size(103, 20);
+            this.txbID_Rol.TabIndex = 26;
             // 
             // label2
             // 
@@ -68,9 +68,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(90, 62);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 13);
+            this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 24;
-            this.label1.Text = "IDRol";
+            this.label1.Text = "ID_Rol";
             // 
             // btnCancelar
             // 
@@ -105,7 +105,7 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txbRol);
-            this.Controls.Add(this.txbIDRol);
+            this.Controls.Add(this.txbID_Rol);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "RolesEdicion";
@@ -120,7 +120,7 @@
         #endregion
 
         public System.Windows.Forms.TextBox txbRol;
-        public System.Windows.Forms.TextBox txbIDRol;
+        public System.Windows.Forms.TextBox txbID_Rol;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCancelar;
