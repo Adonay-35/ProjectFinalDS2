@@ -192,5 +192,20 @@ namespace General.GUI
                 cbDepartamentos.SelectedIndex = 0;
             }
         }
+
+        private void cbDepartamentos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbMunicipios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbDistritos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
