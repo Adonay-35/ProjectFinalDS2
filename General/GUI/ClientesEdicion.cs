@@ -163,6 +163,7 @@ namespace General.GUI
                 cbDepartamentos.SelectedIndex = 0;
             }
         }
+
     }
 }
 
