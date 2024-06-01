@@ -145,7 +145,7 @@ namespace General.GUI
             FiltrarLocalmente();
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
+        private void toolStripButton1_Click_1(object sender, EventArgs e)
         {
             Close();
         }

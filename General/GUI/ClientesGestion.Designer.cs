@@ -28,23 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientesGestion));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.IDCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Apellidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CodigoPostal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Linea1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Linea2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Departamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Municipio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Distrito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblRegistros = new System.Windows.Forms.ToolStripStatusLabel();
@@ -58,6 +48,16 @@
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.IDCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Apellidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodigoPostal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Linea1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Linea2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Departamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Municipio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Distrito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -67,19 +67,19 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Narrow", 11F);
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial Narrow", 11F);
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.HotTrack;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IDCliente,
@@ -92,125 +92,41 @@
             this.Departamento,
             this.Municipio,
             this.Distrito});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.SteelBlue;
             this.dataGridView1.Location = new System.Drawing.Point(0, 31);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 62;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(883, 379);
             this.dataGridView1.TabIndex = 13;
-            // 
-            // IDCliente
-            // 
-            this.IDCliente.DataPropertyName = "IDCliente";
-            this.IDCliente.HeaderText = "IDCliente";
-            this.IDCliente.MinimumWidth = 8;
-            this.IDCliente.Name = "IDCliente";
-            this.IDCliente.ReadOnly = true;
-            this.IDCliente.Width = 150;
-            // 
-            // Nombres
-            // 
-            this.Nombres.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Nombres.DataPropertyName = "Nombres";
-            this.Nombres.HeaderText = "Nombres";
-            this.Nombres.MinimumWidth = 8;
-            this.Nombres.Name = "Nombres";
-            this.Nombres.ReadOnly = true;
-            // 
-            // Apellidos
-            // 
-            this.Apellidos.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Apellidos.DataPropertyName = "Apellidos";
-            this.Apellidos.HeaderText = "Apellidos";
-            this.Apellidos.MinimumWidth = 8;
-            this.Apellidos.Name = "Apellidos";
-            this.Apellidos.ReadOnly = true;
-            // 
-            // Correo
-            // 
-            this.Correo.DataPropertyName = "Correo";
-            this.Correo.HeaderText = "Correo";
-            this.Correo.MinimumWidth = 8;
-            this.Correo.Name = "Correo";
-            this.Correo.ReadOnly = true;
-            this.Correo.Width = 150;
-            // 
-            // CodigoPostal
-            // 
-            this.CodigoPostal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CodigoPostal.DataPropertyName = "CodigoPostal";
-            this.CodigoPostal.HeaderText = "CodigoPostal";
-            this.CodigoPostal.Name = "CodigoPostal";
-            this.CodigoPostal.ReadOnly = true;
-            // 
-            // Linea1
-            // 
-            this.Linea1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Linea1.DataPropertyName = "Linea1";
-            this.Linea1.HeaderText = "Linea1";
-            this.Linea1.Name = "Linea1";
-            this.Linea1.ReadOnly = true;
-            // 
-            // Linea2
-            // 
-            this.Linea2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Linea2.DataPropertyName = "Linea2";
-            this.Linea2.HeaderText = "Linea2";
-            this.Linea2.Name = "Linea2";
-            this.Linea2.ReadOnly = true;
-            // 
-            // Departamento
-            // 
-            this.Departamento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Departamento.DataPropertyName = "Departamento";
-            this.Departamento.HeaderText = "Departamento";
-            this.Departamento.Name = "Departamento";
-            this.Departamento.ReadOnly = true;
-            // 
-            // Municipio
-            // 
-            this.Municipio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Municipio.DataPropertyName = "Municipio";
-            this.Municipio.HeaderText = "Municipio";
-            this.Municipio.Name = "Municipio";
-            this.Municipio.ReadOnly = true;
-            // 
-            // Distrito
-            // 
-            this.Distrito.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Distrito.DataPropertyName = "Distrito";
-            this.Distrito.HeaderText = "Distrito";
-            this.Distrito.Name = "Distrito";
-            this.Distrito.ReadOnly = true;
             // 
             // statusStrip1
             // 
@@ -328,6 +244,91 @@
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(77, 28);
             this.toolStripButton1.Text = "Cerrar";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click_1);
+            // 
+            // IDCliente
+            // 
+            this.IDCliente.DataPropertyName = "ID_Cliente";
+            this.IDCliente.HeaderText = "ID";
+            this.IDCliente.MinimumWidth = 8;
+            this.IDCliente.Name = "IDCliente";
+            this.IDCliente.ReadOnly = true;
+            this.IDCliente.Width = 150;
+            // 
+            // Nombres
+            // 
+            this.Nombres.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Nombres.DataPropertyName = "Nombres";
+            this.Nombres.HeaderText = "Nombres";
+            this.Nombres.MinimumWidth = 8;
+            this.Nombres.Name = "Nombres";
+            this.Nombres.ReadOnly = true;
+            // 
+            // Apellidos
+            // 
+            this.Apellidos.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Apellidos.DataPropertyName = "Apellidos";
+            this.Apellidos.HeaderText = "Apellidos";
+            this.Apellidos.MinimumWidth = 8;
+            this.Apellidos.Name = "Apellidos";
+            this.Apellidos.ReadOnly = true;
+            // 
+            // Correo
+            // 
+            this.Correo.DataPropertyName = "Correo";
+            this.Correo.HeaderText = "Correo";
+            this.Correo.MinimumWidth = 8;
+            this.Correo.Name = "Correo";
+            this.Correo.ReadOnly = true;
+            this.Correo.Width = 150;
+            // 
+            // CodigoPostal
+            // 
+            this.CodigoPostal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CodigoPostal.DataPropertyName = "CodigoPostal";
+            this.CodigoPostal.HeaderText = "CodigoPostal";
+            this.CodigoPostal.Name = "CodigoPostal";
+            this.CodigoPostal.ReadOnly = true;
+            // 
+            // Linea1
+            // 
+            this.Linea1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Linea1.DataPropertyName = "Linea1";
+            this.Linea1.HeaderText = "Linea1";
+            this.Linea1.Name = "Linea1";
+            this.Linea1.ReadOnly = true;
+            // 
+            // Linea2
+            // 
+            this.Linea2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Linea2.DataPropertyName = "Linea2";
+            this.Linea2.HeaderText = "Linea2";
+            this.Linea2.Name = "Linea2";
+            this.Linea2.ReadOnly = true;
+            // 
+            // Departamento
+            // 
+            this.Departamento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Departamento.DataPropertyName = "Departamento";
+            this.Departamento.HeaderText = "Departamento";
+            this.Departamento.Name = "Departamento";
+            this.Departamento.ReadOnly = true;
+            // 
+            // Municipio
+            // 
+            this.Municipio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Municipio.DataPropertyName = "Municipio";
+            this.Municipio.HeaderText = "Municipio";
+            this.Municipio.Name = "Municipio";
+            this.Municipio.ReadOnly = true;
+            // 
+            // Distrito
+            // 
+            this.Distrito.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Distrito.DataPropertyName = "Distrito";
+            this.Distrito.HeaderText = "Distrito";
+            this.Distrito.Name = "Distrito";
+            this.Distrito.ReadOnly = true;
             // 
             // ClientesGestion
             // 
@@ -337,7 +338,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ClientesGestion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ClientesGestion";

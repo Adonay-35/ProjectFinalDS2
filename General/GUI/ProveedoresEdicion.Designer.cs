@@ -59,7 +59,7 @@
             // 
             this.txbCorreo.Location = new System.Drawing.Point(15, 333);
             this.txbCorreo.Name = "txbCorreo";
-            this.txbCorreo.Size = new System.Drawing.Size(408, 24);
+            this.txbCorreo.Size = new System.Drawing.Size(307, 20);
             this.txbCorreo.TabIndex = 58;
             // 
             // label5
@@ -67,7 +67,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(12, 297);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 17);
+            this.label5.Size = new System.Drawing.Size(38, 13);
             this.label5.TabIndex = 57;
             this.label5.Text = "Correo";
             // 
@@ -76,7 +76,7 @@
             // 
             this.txbContacto.Location = new System.Drawing.Point(15, 168);
             this.txbContacto.Name = "txbContacto";
-            this.txbContacto.Size = new System.Drawing.Size(408, 24);
+            this.txbContacto.Size = new System.Drawing.Size(307, 20);
             this.txbContacto.TabIndex = 54;
             // 
             // label3
@@ -84,7 +84,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(62, 144);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 17);
+            this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 53;
             this.label3.Text = "Cotacto";
             // 
@@ -92,7 +92,7 @@
             // 
             this.txbProveedor.Location = new System.Drawing.Point(65, 88);
             this.txbProveedor.Name = "txbProveedor";
-            this.txbProveedor.Size = new System.Drawing.Size(408, 24);
+            this.txbProveedor.Size = new System.Drawing.Size(307, 20);
             this.txbProveedor.TabIndex = 52;
             // 
             // txbIDProveedor
@@ -100,7 +100,7 @@
             this.txbIDProveedor.Location = new System.Drawing.Point(65, 28);
             this.txbIDProveedor.Name = "txbIDProveedor";
             this.txbIDProveedor.ReadOnly = true;
-            this.txbIDProveedor.Size = new System.Drawing.Size(86, 24);
+            this.txbIDProveedor.Size = new System.Drawing.Size(103, 20);
             this.txbIDProveedor.TabIndex = 51;
             // 
             // label2
@@ -108,7 +108,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(62, 68);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 17);
+            this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 50;
             this.label2.Text = "Proveedor";
             // 
@@ -117,15 +117,15 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(62, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 17);
+            this.label1.Size = new System.Drawing.Size(67, 13);
             this.label1.TabIndex = 49;
-            this.label1.Text = "ID_Proveedor";
+            this.label1.Text = "IDProveedor";
             // 
             // btnCancelar
             // 
             this.btnCancelar.Location = new System.Drawing.Point(459, 405);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(88, 30);
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 48;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -135,7 +135,7 @@
             // 
             this.btnGuardar.Location = new System.Drawing.Point(227, 405);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(88, 30);
+            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 47;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -246,7 +246,7 @@
             // 
             // ProveedoresEdicion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(842, 440);
             this.Controls.Add(this.cbDepartamentos);
