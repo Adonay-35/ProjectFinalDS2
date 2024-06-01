@@ -114,7 +114,7 @@ namespace General.GUI
                     }
                     else
                     {
-                        MessageBox.Show("El usuario no se puede eliminar porque tiene compras asociadas.", "Elimine las compras relacionadas y vuelva a intentarlo.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("El usuario no se puede eliminar porque tiene ventas y compras asociadas.", "Elimine las ventas y compras relacionadas y vuelva a intentarlo.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     Cargar();
                     lblRegistros.Text = _DATOS.Count.ToString();

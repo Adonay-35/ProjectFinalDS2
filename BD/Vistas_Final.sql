@@ -71,7 +71,26 @@ INNER JOIN
 ORDER BY 
     P.Producto ASC;
     
-    
+CREATE VIEW VistaVentas AS
+SELECT 
+    V.ID_Venta,
+    V.FechaVenta, 
+    U.Usuario AS Usuario, 
+    CONCAT(C.Nombres, ' ', C.Apellidos) AS Cliente, 
+    P.Producto AS Producto, 
+    V.PrecioVenta,
+    V.CantidadSaliente, 
+    V.TotalCobrar
+FROM 
+    Ventas V
+INNER JOIN 
+    Usuarios U ON V.ID_Usuario = U.ID_Usuario
+INNER JOIN 
+    Clientes C ON V.ID_Cliente = C.ID_Cliente
+INNER JOIN 
+    Productos P ON V.ID_Producto = P.ID_Producto;
+
+
 CREATE VIEW VistaEmpleados AS
 SELECT 
     e.ID_Empleado,
@@ -136,3 +155,21 @@ LEFT JOIN
     Departamentos d ON p.ID_Departamento = d.ID_Departamento
 LEFT JOIN 
     Distritos dis ON p.ID_Distrito = dis.ID_Distrito;
+    
+CREATE VIEW VistaCompras AS
+SELECT 
+    C.ID_Compra,
+    C.FechaCompra, 
+    U.Usuario AS Usuario, 
+    PR.Proveedor, 
+    P.Producto AS Producto, 
+    C.CantidadEntrante, 
+    C.TotalPagar
+FROM 
+    Compras C
+INNER JOIN 
+    Usuarios U ON C.ID_Usuario = U.ID_Usuario
+INNER JOIN 
+    Proveedores PR ON C.ID_Proveedor = PR.ID_Proveedor
+INNER JOIN 
+    Productos P ON C.ID_Producto = P.ID_Producto;

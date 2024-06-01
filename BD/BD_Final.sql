@@ -100,23 +100,23 @@ CREATE TABLE Productos (
 
 CREATE TABLE Compras (
     ID_Compra int auto_increment primary key,
-    FechaCompra datetime not null,
+    FechaCompra date not null,
     ID_Usuario int not null,
     ID_Proveedor int not null,
     ID_Producto  int not null,
     CantidadEntrante int not null,
-    TotalPagar double not null
+    TotalPagar decimal(18, 2) not null
 );
 
 CREATE TABLE Ventas (
     ID_Venta int auto_increment primary key,
-    FechaVenta datetime not null,
+    FechaVenta date not null,
     ID_Usuario int not null,
     ID_Cliente int not null,
     ID_Producto  int not null,
-    PrecioVenta double not null,
+    PrecioVenta decimal(18, 2) not null, 
     CantidadSaliente int not null,
-    TotalCobrar double not null
+    TotalCobrar decimal(18, 2) not null
 );
 
 CREATE TABLE Kardex(
@@ -527,18 +527,18 @@ INSERT INTO Proveedores (Proveedor, Contacto, Correo, Linea1, Linea2, ID_Distrit
 
 INSERT INTO Categorias (Categoria) VALUES
 ('Lácteos'),
-('Carnes'),/(pollo, res, cerdo)/
-('Mariscos'),/(pescado, camarón, etc.)/
+('Carnes'), -- /(pollo, res, cerdo)/
+('Mariscos'), -- /(pescado, camarón, etc.)/
 ('Alimentos enlatados'),
-('Bebidas embotelladas'),/(plastico y vidrio)/
+('Bebidas embotelladas'), -- /(plastico y vidrio)/
 ('Bebidas enlatadas'),
-('Bebidas para preparar'),/(cafe en polvo, Tang, Yus, etc.)/
-('Cereales'), /(maiz, frijol, arroz, etc)/
+('Bebidas para preparar'), -- /(cafe en polvo, Tang, Yus, etc.)/
+('Cereales'), -- /(maiz, frijol, arroz, etc)/
 ('Frutas'),
-('Pastas'),/(spaggeti, lasagña, etc.)/
-('Hortalizas'),/(incluye verduras y legumbres)/
+('Pastas'), -- /(spaggeti, lasagña, etc.)/
+('Hortalizas'), -- /(incluye verduras y legumbres)/
 ('Desechables'),
-('Cocina'),/(utensilios)/
+('Cocina'), -- /(utensilios)/
 ('Postres'),
 ('Golosinas'),
 ('Deporte'),
@@ -547,7 +547,7 @@ INSERT INTO Categorias (Categoria) VALUES
 ('Limpieza'),
 ('Escolares'),
 ('Juguetes'),
-('Mascotas');/(Comida y accesorios para mascotas)/
+('Mascotas'); -- /(Comida y accesorios para mascotas)/
 
 INSERT INTO Usuarios(Usuario, Clave, ID_Rol, ID_Empleado, ID_Estado) VALUES
 ("Admin",  SHA2('adm', 256), 1, 1, 1),
@@ -631,7 +631,7 @@ END $$
 DELIMITER $$
 CREATE PROCEDURE ObtenerEmpleados()
 BEGIN
-SELECT IDEmpleado, Nombres,Apellidos
+SELECT ID_Empleado, Nombres,Apellidos
 FROM empleados;
 END $$
 
@@ -666,7 +666,7 @@ END $$
 DELIMITER //
 CREATE PROCEDURE ObtenerProductos()
 BEGIN
-    SELECT IDProducto, Producto FROM Productos;
+    SELECT ID_Producto, Producto FROM Productos;
 END //
 DELIMITER ;
 

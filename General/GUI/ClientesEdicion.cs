@@ -98,7 +98,7 @@ namespace General.GUI
                     oCliente.IDMunicipio = Convert.ToInt32(cbMunicipios.SelectedIndex);
                     oCliente.IDDistrito = Convert.ToInt32(cbDistritos.SelectedIndex);
 
-                    if (txbIDCliente.Text.Trim().Length == 0)
+                    if (txbID_Cliente.Text.Trim().Length == 0)
                     {
                         if (oCliente.Insertar())
                         {
@@ -112,7 +112,7 @@ namespace General.GUI
                     }
                     else
                     {
-                        oCliente.IDCliente = Convert.ToInt32(txbIDCliente.Text);
+                        oCliente.ID_Cliente = Convert.ToInt32(txbID_Cliente.Text);
 
                         oCliente.Nombres = txbNombres.Text;
                         oCliente.Apellidos = txbApellidos.Text;
@@ -153,7 +153,7 @@ namespace General.GUI
 
         private void ClientesEdicion_Load_1(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txbIDCliente.Text))
+            if (string.IsNullOrEmpty(txbID_Cliente.Text))
             {
                 this.MostrarMunicipios(cbMunicipios);
                 this.MostrarDistritos(cbDistritos);

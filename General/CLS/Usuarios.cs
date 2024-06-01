@@ -23,9 +23,9 @@ namespace General.CLS
         Int32 _ID_Empleado;
         Int32 _ID_Estado;
 
-        public Usuarios(int idUsuario, string usuario)
+        public Usuarios(int ID_Usuario, string usuario)
         {
-            this._ID_Usuario = idUsuario;
+            this._ID_Usuario = ID_Usuario;
             this._Usuario = usuario;
         }
 

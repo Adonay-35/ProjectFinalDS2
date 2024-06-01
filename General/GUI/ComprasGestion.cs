@@ -11,8 +11,7 @@ using System.Windows.Forms;
 
 namespace General.GUI
 {
-    
-    public partial class VentasGestion : Form
+    public partial class ComprasGestion : Form
     {
         BindingSource _DATOS = new BindingSource();
 
@@ -20,7 +19,7 @@ namespace General.GUI
         {
             try
             {
-                _DATOS.DataSource = DataLayer.Consultas.VENTAS(); // <---- PONER NOMBRE DE CONSULTA
+                _DATOS.DataSource = DataLayer.Consultas.COMPRAS(); // <---- PONER NOMBRE DE CONSULTA
                 FiltrarLocalmente();
             }
             catch (Exception ex)
@@ -39,7 +38,7 @@ namespace General.GUI
                 }
                 else
                 {
-                    _DATOS.Filter = "Cliente like '%" + txbFiltro.Text + "%'"; 
+                    _DATOS.Filter = "Usuario like '%" + txbFiltro.Text + "%'";
 
                 }
                 dataGridView1.AutoGenerateColumns = false;
@@ -47,12 +46,11 @@ namespace General.GUI
             }
             catch (Exception)
             {
-                
+
             }
         }
 
-
-        public VentasGestion()
+        public ComprasGestion()
         {
             InitializeComponent();
         }
@@ -61,15 +59,15 @@ namespace General.GUI
         {
             try
             {
-                VentasEdicion f = new VentasEdicion();
+                ComprasEdicion f = new ComprasEdicion();
                 f.ShowDialog();
                 Cargar();
                 lblRegistros.Text = _DATOS.Count.ToString();
             }
             catch (Exception)
             {
-                throw;
-            }
+
+            } 
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -80,27 +78,26 @@ namespace General.GUI
                 {
                     if (MessageBox.Show("¿Desea EDITAR el registro seleccionado?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        VentasEdicion oVenta = new VentasEdicion();
-                        oVenta.MostrarUsuarios(oVenta.cbUsuarios);
-                        oVenta.MostrarClientes(oVenta.cbClientes);
-                        oVenta.MostrarProductos(oVenta.cbProductos);
-                        oVenta.txbID_Venta.Text = dataGridView1.CurrentRow.Cells["ID_Venta"].Value.ToString();
-                        oVenta.txbFechaVenta.Text = dataGridView1.CurrentRow.Cells["FechaVenta"].Value.ToString();
-                        oVenta.cbUsuarios.SelectedItem = dataGridView1.CurrentRow.Cells["Usuario"].Value.ToString();
-                        oVenta.cbClientes.SelectedItem = dataGridView1.CurrentRow.Cells["Cliente"].Value.ToString();
-                        oVenta.cbProductos.SelectedItem = dataGridView1.CurrentRow.Cells["Producto"].Value.ToString();
-                        oVenta.txbPrecioVenta.Text = dataGridView1.CurrentRow.Cells["PrecioVenta"].Value.ToString();
-                        oVenta.txbCantidadSaliente.Text = dataGridView1.CurrentRow.Cells["CantidadSaliente"].Value.ToString();
-                        oVenta.txbTotalCobrar.Text = dataGridView1.CurrentRow.Cells["TotalCobrar"].Value.ToString();
-                        oVenta.ShowDialog();
+                        ComprasEdicion oCompra = new ComprasEdicion();
+                        oCompra.MostrarUsuarios(oCompra.cbUsuarios);
+                        oCompra.MostrarProveedores(oCompra.cbProveedores);
+                        oCompra.MostrarProductos(oCompra.cbProductos);
+                        oCompra.txbID_Compra.Text = dataGridView1.CurrentRow.Cells["ID_Compra"].Value.ToString();
+                        oCompra.txbFechaCompra.Text = dataGridView1.CurrentRow.Cells["FechaCompra"].Value.ToString();
+                        oCompra.cbUsuarios.SelectedItem = dataGridView1.CurrentRow.Cells["Usuario"].Value.ToString();
+                        oCompra.cbProveedores.SelectedItem = dataGridView1.CurrentRow.Cells["Proveedor"].Value.ToString();
+                        oCompra.cbProductos.SelectedItem = dataGridView1.CurrentRow.Cells["Producto"].Value.ToString();
+                        oCompra.txbCantidadEntrante.Text = dataGridView1.CurrentRow.Cells["CantidadEntrante"].Value.ToString();
+                        oCompra.txbTotalPagar.Text = dataGridView1.CurrentRow.Cells["TotalPagar"].Value.ToString();
+                        oCompra.ShowDialog();
 
                         Cargar();
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception )
             {
-                throw;
+               
             }
         }
 
@@ -112,16 +109,16 @@ namespace General.GUI
                 {
                     if (MessageBox.Show("¿Desea ELIMINAR el registro seleccionado?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        Ventas oVenta = new Ventas();
-                        oVenta.ID_Venta = Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID_Venta"].Value.ToString());
+                        Compras oCompra = new Compras();
+                        oCompra.ID_Compra = Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID_Compra"].Value.ToString());
 
-                        if (oVenta.Eliminar())
+                        if (oCompra.Eliminar())
                         {
-                            MessageBox.Show("Registro eliminado exitosamnete");
+                            MessageBox.Show("Compra eliminada exitosamente");
                         }
                         else
                         {
-                            MessageBox.Show("El registro no ha sido eliminado");
+                            MessageBox.Show("La compra no pudo ser eliminada");
                         }
 
                         Cargar();
@@ -130,31 +127,25 @@ namespace General.GUI
             }
             catch (Exception)
             {
-               
+                
             }
         }
 
 
-        private void VentasGestion_Load(object sender, EventArgs e)
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void GestionarCompras_Load(object sender, EventArgs e)
         {
             Cargar();
             lblRegistros.Text = dataGridView1.Rows.Count.ToString();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //SELECCIONAR TODA LA FILA
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        }
-
         private void txbFiltro_TextChanged(object sender, EventArgs e)
         {
             FiltrarLocalmente();
-        }
-
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-            Close();
         }
     }
 }

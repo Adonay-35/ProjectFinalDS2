@@ -70,7 +70,7 @@ namespace General.GUI
                     if (string.IsNullOrEmpty(txbID_Usuario.Text))
                     {
                         // Crear nuevo usuario
-                        CLS.Usuarios nuevoUsuario = new CLS.Usuarios(0, txbUsuario.Text); // Usa 0 para IDUsuario si es un nuevo usuario
+                        CLS.Usuarios nuevoUsuario = new CLS.Usuarios(0, txbUsuario.Text); // Usa 0 para ID_Usuario si es un nuevo usuario
                         nuevoUsuario.Usuario = txbUsuario.Text;
                         nuevoUsuario.Clave = txbClave.Text;
                         nuevoUsuario.ID_Rol = Convert.ToInt32(cbRoles.SelectedIndex);
