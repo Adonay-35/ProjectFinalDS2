@@ -14,8 +14,6 @@ namespace General.GUI
     public partial class UsuariosEdicion : Form
     {
         Usuarios metodosUsuarios = new Usuarios();
-        //DataTable datos;
-        //int idUsuario = 0;
 
         private bool Validar()
         {
@@ -63,6 +61,61 @@ namespace General.GUI
             InitializeComponent();
         }
 
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Validar())
+                {
+                    if (string.IsNullOrEmpty(txbID_Usuario.Text))
+                    {
+                        // Crear nuevo usuario
+                        CLS.Usuarios nuevoUsuario = new CLS.Usuarios(0, txbUsuario.Text); // Usa 0 para IDUsuario si es un nuevo usuario
+                        nuevoUsuario.Usuario = txbUsuario.Text;
+                        nuevoUsuario.Clave = txbClave.Text;
+                        nuevoUsuario.ID_Rol = Convert.ToInt32(cbRoles.SelectedIndex);
+                        nuevoUsuario.ID_Empleado = Convert.ToInt32(cbEmpleados.SelectedIndex);
+                        nuevoUsuario.ID_Estado = Convert.ToInt32(cbEstados.SelectedIndex);
+
+
+                        if (nuevoUsuario.Insertar())
+                        {
+                            MessageBox.Show("Usuario creado exitosamente");
+                            Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al crear usuario");
+                        }
+                    }
+                    else
+                    {
+                        // Actualizar usuario existente
+                        CLS.Usuarios usuarioExistente = new CLS.Usuarios(Convert.ToInt32(txbID_Usuario.Text), txbUsuario.Text);
+                        usuarioExistente.Usuario = txbUsuario.Text;
+                        usuarioExistente.Clave = txbClave.Text;
+                        usuarioExistente.ID_Rol = Convert.ToInt32(cbRoles.SelectedIndex);
+                        usuarioExistente.ID_Empleado = Convert.ToInt32(cbEmpleados.SelectedIndex);
+                        usuarioExistente.ID_Estado = Convert.ToInt32(cbEstados.SelectedIndex);
+
+                        if (usuarioExistente.Actualizar())
+                        {
+                            MessageBox.Show("Usuario actualizado exitosamente");
+                            Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al actualizar usuario");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         public void MostrarEstados(ComboBox cbEstados)
         {
             List<Estados> datos = metodosUsuarios.ObtenerEstados();
@@ -70,19 +123,6 @@ namespace General.GUI
             foreach (Estados dato in datos)
             {
                 cbEstados.Items.Add(dato.Descripcion);
-            }
-        }
-
-        private void UsuariosEdicion_Load(object sender, EventArgs e)
-        {
-            if(string.IsNullOrEmpty(txbIDUsuario.Text))
-            {
-                this.MostrarEstados(cbEstados);
-                this.MostrarRoles(cbRoles);
-                this.MostrarEmpleados(cbEmpleados);
-                cbEmpleados.SelectedIndex = 0;
-                cbEstados.SelectedIndex = 0;
-                cbRoles.SelectedIndex = 0;
             }
         }
 
@@ -106,64 +146,27 @@ namespace General.GUI
             }
         }
 
+        private void UsuariosEdicion_Load(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txbID_Usuario.Text))
+            {
+                this.MostrarEstados(cbEstados);
+                this.MostrarRoles(cbRoles);
+                this.MostrarEmpleados(cbEmpleados);
+                cbEmpleados.SelectedIndex = 0;
+                cbEstados.SelectedIndex = 0;
+                cbRoles.SelectedIndex = 0;
+            }
+        }
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void btnCancealr_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (Validar())
-                {
-                    if (string.IsNullOrEmpty(txbIDUsuario.Text))
-                    {
-                        // Crear nuevo usuario
-                        CLS.Usuarios nuevoUsuario = new CLS.Usuarios(0, txbUsuario.Text); // Usa 0 para IDUsuario si es un nuevo usuario
-                        nuevoUsuario.Usuario = txbUsuario.Text;
-                        nuevoUsuario.Clave = txbClave.Text;
-                        nuevoUsuario.IDRol = Convert.ToInt32(cbRoles.SelectedIndex);
-                        nuevoUsuario.IDEmpleado = Convert.ToInt32(cbEmpleados.SelectedIndex);
-                        nuevoUsuario.IDEstado = Convert.ToInt32(cbEstados.SelectedIndex);
-
-
-                        if (nuevoUsuario.Insertar())
-                        {
-                            MessageBox.Show("Usuario creado exitosamente");
-                            Close();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Error al crear usuario");
-                        }
-                    }
-                    else
-                    {
-                        // Actualizar usuario existente
-                        CLS.Usuarios usuarioExistente = new CLS.Usuarios(Convert.ToInt32(txbIDUsuario.Text), txbUsuario.Text);
-                        usuarioExistente.Usuario = txbUsuario.Text;
-                        usuarioExistente.Clave = txbClave.Text;
-                        usuarioExistente.IDRol = Convert.ToInt32(cbRoles.SelectedIndex);
-                        usuarioExistente.IDEmpleado = Convert.ToInt32(cbEmpleados.SelectedIndex);
-                        usuarioExistente.IDEstado = Convert.ToInt32(cbEstados.SelectedIndex);
-
-                        if (usuarioExistente.Actualizar())
-                        {
-                            MessageBox.Show("Usuario actualizado exitosamente");
-                            Close();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Error al actualizar usuario");
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            Close();
         }
     }
 }

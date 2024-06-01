@@ -41,13 +41,13 @@
             this.btnAgregar = new System.Windows.Forms.ToolStripButton();
             this.txbFiltro = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblRegistros = new System.Windows.Forms.ToolStripStatusLabel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.IDRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID_Rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -131,6 +131,21 @@
             this.toolStripLabel4.Size = new System.Drawing.Size(60, 22);
             this.toolStripLabel4.Text = "Filtrar";
             // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(69, 22);
+            this.toolStripButton1.Text = "Cerrar";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -170,7 +185,7 @@
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IDRol,
+            this.ID_Rol,
             this.Rol});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
@@ -205,28 +220,13 @@
             this.dataGridView1.Size = new System.Drawing.Size(800, 403);
             this.dataGridView1.TabIndex = 11;
             // 
-            // toolStripSeparator3
+            // ID_Rol
             // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(69, 22);
-            this.toolStripButton1.Text = "Cerrar";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
-            // 
-            // IDRol
-            // 
-            this.IDRol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.IDRol.DataPropertyName = "ID_Rol";
-            this.IDRol.HeaderText = "ID";
-            this.IDRol.Name = "IDRol";
-            this.IDRol.ReadOnly = true;
+            this.ID_Rol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ID_Rol.DataPropertyName = "ID_Rol";
+            this.ID_Rol.HeaderText = "ID";
+            this.ID_Rol.Name = "ID_Rol";
+            this.ID_Rol.ReadOnly = true;
             // 
             // Rol
             // 
@@ -274,7 +274,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDRol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID_Rol;
         private System.Windows.Forms.DataGridViewTextBoxColumn Rol;
     }
 }

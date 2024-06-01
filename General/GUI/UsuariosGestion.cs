@@ -1,5 +1,6 @@
 ﻿using General.CLS;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace General.GUI
 {
@@ -55,17 +57,20 @@ namespace General.GUI
             InitializeComponent();
         }
 
-        private void UsuariosGestion_Load(object sender, EventArgs e)
+        private void btnAgregar_Click(object sender, EventArgs e)
         {
-            Cargar();
-            lblRegistros.Text = _DATOS.Count.ToString();
+            try
+            {
+                UsuariosEdicion f = new UsuariosEdicion();
+                f.ShowDialog();
+                Cargar();
+                lblRegistros.Text = _DATOS.Count.ToString();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
-
-        private void txbFiltro_TextChanged(object sender, EventArgs e)
-        {
-            FiltrarLocalmente();
-        }
-
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
@@ -77,7 +82,7 @@ namespace General.GUI
                     oUsuarioEdicion.MostrarRoles(oUsuarioEdicion.cbRoles);
                     oUsuarioEdicion.MostrarEmpleados(oUsuarioEdicion.cbEmpleados);
                     oUsuarioEdicion.MostrarEstados(oUsuarioEdicion.cbEstados);
-                    oUsuarioEdicion.txbIDUsuario.Text = dataGridView1.CurrentRow.Cells["IDUsuario"].Value.ToString();
+                    oUsuarioEdicion.txbID_Usuario.Text = dataGridView1.CurrentRow.Cells["ID_Usuario"].Value.ToString();
                     oUsuarioEdicion.txbUsuario.Text = dataGridView1.CurrentRow.Cells["Usuario"].Value.ToString();
 
                     //oUsuarioEdicion.txbClave.Text = dataGridView1.CurrentRow.Cells.["Clave"].Value.ToString();
@@ -94,22 +99,22 @@ namespace General.GUI
             }
         }
 
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             try
             {
-                if (MessageBox.Show("¿Desea ELIMINAR el registro seleccionado", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Desea ELIMINAR el registro seleccionado?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    CLS.Usuarios oUsuario = new CLS.Usuarios((Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDUsuario"].Value.ToString())), "dummyUser");
-                    oUsuario.IDUsuario = (Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDUsuario"].Value.ToString()));
+                    CLS.Usuarios oUsuario = new CLS.Usuarios();
+                    oUsuario.ID_Usuario = Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID_Usuario"].Value.ToString());
+
                     if (oUsuario.Elminar())
                     {
-                        MessageBox.Show("Registro eliminado");
+                        MessageBox.Show("Registro eliminado exitosamente");
                     }
                     else
                     {
-                        MessageBox.Show("El Registro no ha sido eliminado");
+                        MessageBox.Show("El usuario no se puede eliminar porque tiene compras asociadas.", "Elimine las compras relacionadas y vuelva a intentarlo.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     Cargar();
                     lblRegistros.Text = _DATOS.Count.ToString();
@@ -122,24 +127,15 @@ namespace General.GUI
             }
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private void UsuariosGestion_Load(object sender, EventArgs e)
         {
-            try
-            {
-                UsuariosEdicion f = new UsuariosEdicion();
-                f.ShowDialog();
-                Cargar();
-                lblRegistros.Text = _DATOS.Count.ToString();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            Cargar();
+            lblRegistros.Text = _DATOS.Count.ToString();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void txbFiltro_TextChanged(object sender, EventArgs e)
         {
-            Close();
+            FiltrarLocalmente();
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)

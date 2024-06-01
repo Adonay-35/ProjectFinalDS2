@@ -16,16 +16,16 @@ namespace General.CLS
         DataTable tabla = new DataTable();
         MySqlConnection sqlConexion = new MySqlConnection();
 
-        Int32 _IDUsuario;
+        Int32 _ID_Usuario;
         String _Usuario;
         String _Clave;
-        Int32 _IDRol;
-        Int32 _IDEmpleado;
-        Int32 _IDEstado;
+        Int32 _ID_Rol;
+        Int32 _ID_Empleado;
+        Int32 _ID_Estado;
 
         public Usuarios(int idUsuario, string usuario)
         {
-            this._IDUsuario = idUsuario;
+            this._ID_Usuario = idUsuario;
             this._Usuario = usuario;
         }
 
@@ -33,12 +33,12 @@ namespace General.CLS
         {
         }
 
-        public int IDUsuario { get => _IDUsuario; set => _IDUsuario = value; }
+        public int ID_Usuario { get => _ID_Usuario; set => _ID_Usuario = value; }
         public string Usuario { get => _Usuario; set => _Usuario = value; }
         public string Clave { get => _Clave; set => _Clave = value; }
-        public int IDRol { get => _IDRol; set => _IDRol = value; }
-        public int IDEmpleado { get => _IDEmpleado; set => _IDEmpleado = value; }
-        public int IDEstado { get => _IDEstado; set => _IDEstado = value; }
+        public int ID_Rol { get => _ID_Rol; set => _ID_Rol = value; }
+        public int ID_Empleado { get => _ID_Empleado; set => _ID_Empleado = value; }
+        public int ID_Estado { get => _ID_Estado; set => _ID_Estado = value; }
 
         public Boolean Insertar()
         {
@@ -48,12 +48,12 @@ namespace General.CLS
             string claveEncriptada = Encryptar.GetSHA256(_Clave);
 
             StringBuilder Sentencia = new StringBuilder();
-            Sentencia.Append("INSERT INTO usuarios(Usuario,Clave,IDRol,IDEmpleado,IDEstado) VALUES(");
+            Sentencia.Append("INSERT INTO usuarios(Usuario,Clave,ID_Rol,ID_Empleado,ID_Estado) VALUES(");
             Sentencia.Append("'" + _Usuario + "',");
             Sentencia.Append("'" + claveEncriptada + "',");
-            Sentencia.Append(_IDRol + ",");
-            Sentencia.Append(_IDEmpleado + ",");
-            Sentencia.Append(_IDEstado + ");");
+            Sentencia.Append(_ID_Rol + ",");
+            Sentencia.Append(_ID_Empleado + ",");
+            Sentencia.Append(_ID_Estado + ");");
             try
             {
                 if (Operacion.EjecutarSentencia(Sentencia.ToString()) >= 0)
@@ -83,10 +83,10 @@ namespace General.CLS
             Sentencia.Append("UPDATE usuarios  SET ");
             Sentencia.Append("Usuario ='" + _Usuario + "',");
             Sentencia.Append("Clave = ('" + claveEncriptada + "'),");
-            Sentencia.Append("IDRol =" + _IDRol + ",");
-            Sentencia.Append("IDEmpleado =" + _IDEmpleado + ",");
-            Sentencia.Append("IDEstado =" + _IDEstado);
-            Sentencia.Append(" WHERE IDUsuario =" + _IDUsuario + ";");
+            Sentencia.Append("ID_Rol =" + _ID_Rol + ",");
+            Sentencia.Append("ID_Empleado =" + _ID_Empleado + ",");
+            Sentencia.Append("ID_Estado =" + _ID_Estado);
+            Sentencia.Append(" WHERE ID_Usuario =" + _ID_Usuario + ";");
             try
             {
                 if (Operacion.EjecutarSentencia(Sentencia.ToString()) >= 0)
@@ -112,7 +112,7 @@ namespace General.CLS
 
             StringBuilder Sentencia = new StringBuilder();
             Sentencia.Append("DELETE FROM  usuarios");
-            Sentencia.Append(" WHERE IDUsuario =" + _IDUsuario + ";");
+            Sentencia.Append(" WHERE ID_Usuario =" + _ID_Usuario + ";");
             try
             {
                 if (Operacion.EjecutarSentencia(Sentencia.ToString()) >= 0)

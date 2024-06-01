@@ -16,7 +16,7 @@ namespace General.CLS
         DataTable tabla = new DataTable();
         MySqlConnection sqlConexion = new MySqlConnection();
 
-        Int32 _IDProveedor;
+        Int32 _ID_Proveedor;
         string _Proveedor;
         string _Contacto;
         string _Correo;
@@ -27,21 +27,21 @@ namespace General.CLS
         Int32 _ID_Distrito;
         Int32 _ID_Municipio;
 
-        public int IDProveedor { get => _IDProveedor; set => _IDProveedor = value; }
+        public int ID_Proveedor { get => _ID_Proveedor; set => _ID_Proveedor = value; }
         public string Proveedor { get => _Proveedor; set => _Proveedor = value; }
         public string Contacto { get => _Contacto; set => _Contacto = value; }
         public string Correo { get => _Correo; set => _Correo = value; }
         public string Linea1 { get => _Linea1; set => _Linea1 = value; }
         public string Linea2 { get => _Linea2; set => _Linea2 = value; }
         public int CodigoPostal { get => _CodigoPostal; set => _CodigoPostal = value; }
-        public int IDDepartamento { get => _ID_Departamento; set => _ID_Departamento = value; }
-        public int IDDistrito { get => _ID_Distrito; set => _ID_Distrito = value; }
-        public int IDMunicipio { get => _ID_Municipio; set => _ID_Municipio = value; }
+        public int ID_Departamento { get => _ID_Departamento; set => _ID_Departamento = value; }
+        public int ID_Distrito { get => _ID_Distrito; set => _ID_Distrito = value; }
+        public int ID_Municipio { get => _ID_Municipio; set => _ID_Municipio = value; }
 
 
         public Proveedores(int idPreveedor, string proveedor)
         {
-            this._IDProveedor = idPreveedor;
+            this._ID_Proveedor = idPreveedor;
             this._Proveedor = proveedor;
         }
 
@@ -99,7 +99,7 @@ namespace General.CLS
             Sentencia.Append("ID_Departamento =" + _ID_Departamento + ",");
             Sentencia.Append("ID_Distrito =" + _ID_Distrito + ",");
             Sentencia.Append("ID_Municipio =" + _ID_Municipio);
-            Sentencia.Append(" WHERE IDProveedor ='" + _IDProveedor + "';");
+            Sentencia.Append(" WHERE ID_Proveedor ='" + _ID_Proveedor + "';");
             try
             {
                 if (Operacion.EjecutarSentencia(Sentencia.ToString()) >= 0)
@@ -125,7 +125,7 @@ namespace General.CLS
 
             StringBuilder Sentencia = new StringBuilder();
             Sentencia.Append("DELETE FROM Proveedores");
-            Sentencia.Append(" WHERE IDProveedor ='" + _IDProveedor + "';");
+            Sentencia.Append(" WHERE ID_Proveedor ='" + _ID_Proveedor + "';");
             try
             {
                 if (Operacion.EjecutarSentencia(Sentencia.ToString()) >= 0)

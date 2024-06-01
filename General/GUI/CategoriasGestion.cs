@@ -74,7 +74,7 @@ namespace General.GUI
                 if (MessageBox.Show("¿Desea EDITAR el registro seleccionado?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     CategoriasEdicion oCategoriasEdicion = new CategoriasEdicion();
-                    oCategoriasEdicion.txbIDCategoria.Text = dataGridView1.CurrentRow.Cells["IDCategoria"].Value.ToString();
+                    oCategoriasEdicion.txbID_Categoria.Text = dataGridView1.CurrentRow.Cells["ID_Categoria"].Value.ToString();
                     oCategoriasEdicion.txbCategoria.Text = dataGridView1.CurrentRow.Cells["Categoria"].Value.ToString();
                     oCategoriasEdicion.ShowDialog();
                     Cargar();
@@ -90,13 +90,13 @@ namespace General.GUI
         {
             try
             {
-                if (MessageBox.Show("¿Desea ELIMINAR el registro seleccionado", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Desea ELIMINAR el registro seleccionado?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    CLS.Categorias oCategoria = new CLS.Categorias((Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDCategoria"].Value.ToString())), "dummyCategoria");
-                    oCategoria.IDCategoria = (Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDCategoria"].Value.ToString()));
+                    CLS.Categorias oCategoria = new CLS.Categorias((Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID_Categoria"].Value.ToString())), "dummyCategoria");
+                    oCategoria.ID_Categoria = (Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID_Categoria"].Value.ToString()));
                     if (oCategoria.EliminarCategoria())
                     {
-                        MessageBox.Show("Registro eliminado");
+                        MessageBox.Show("Registro eliminado exitosamente");
                     }
                     else
                     {

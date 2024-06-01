@@ -80,7 +80,7 @@ namespace General.GUI
                     oEmpleadoEdicion.MostrarDepartamentos(oEmpleadoEdicion.cbDepartamentos);
                     oEmpleadoEdicion.MostrarMunicipios(oEmpleadoEdicion.cbMunicipios);
                     oEmpleadoEdicion.MostrarDistritos(oEmpleadoEdicion.cbDistritos);
-                    oEmpleadoEdicion.txbIDEmpleado.Text = dataGridView1.CurrentRow.Cells["IDEmpleado"].Value.ToString();
+                    oEmpleadoEdicion.txbID_Empleado.Text = dataGridView1.CurrentRow.Cells["ID_Empleado"].Value.ToString();
                     oEmpleadoEdicion.txbNombre.Text = dataGridView1.CurrentRow.Cells["Nombres"].Value.ToString();
                     oEmpleadoEdicion.txbApellido.Text = dataGridView1.CurrentRow.Cells["Apellidos"].Value.ToString();
                     oEmpleadoEdicion.txbDui.Text = dataGridView1.CurrentRow.Cells["DUI"].Value.ToString();
@@ -111,15 +111,15 @@ namespace General.GUI
                     if (MessageBox.Show("¿Desea ELIMINAR el registro seleccionado?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         Empleados oEmpleado = new Empleados();
-                        oEmpleado.IDEmpleado = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDEmpleado"].Value.ToString());
+                        oEmpleado.ID_Empleado = Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID_Empleado"].Value.ToString());
 
                         if (oEmpleado.Eliminar())
                         {
-                            MessageBox.Show("Registro eliminado");
+                            MessageBox.Show("Registro eliminado exitosamente");
                         }
                         else
                         {
-                            MessageBox.Show("El registro no ha sido eliminado");
+                            MessageBox.Show("El empleado no se puede eliminar porque tiene un usuario asociado.", "Elimine el usuario relacionado y vuelva a intentarlo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
                         Cargar();

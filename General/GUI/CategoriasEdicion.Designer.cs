@@ -32,7 +32,7 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.txbCategoria = new System.Windows.Forms.TextBox();
-            this.txbIDCategoria = new System.Windows.Forms.TextBox();
+            this.txbID_Categoria = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.Notificador = new System.Windows.Forms.ErrorProvider(this.components);
@@ -66,13 +66,13 @@
             this.txbCategoria.Size = new System.Drawing.Size(307, 20);
             this.txbCategoria.TabIndex = 33;
             // 
-            // txbIDCategoria
+            // txbID_Categoria
             // 
-            this.txbIDCategoria.Location = new System.Drawing.Point(84, 88);
-            this.txbIDCategoria.Name = "txbIDCategoria";
-            this.txbIDCategoria.ReadOnly = true;
-            this.txbIDCategoria.Size = new System.Drawing.Size(103, 20);
-            this.txbIDCategoria.TabIndex = 32;
+            this.txbID_Categoria.Location = new System.Drawing.Point(84, 88);
+            this.txbID_Categoria.Name = "txbID_Categoria";
+            this.txbID_Categoria.ReadOnly = true;
+            this.txbID_Categoria.Size = new System.Drawing.Size(103, 20);
+            this.txbID_Categoria.TabIndex = 32;
             // 
             // label2
             // 
@@ -88,9 +88,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(81, 52);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 13);
+            this.label1.Size = new System.Drawing.Size(69, 13);
             this.label1.TabIndex = 30;
-            this.label1.Text = "IDCategoria";
+            this.label1.Text = "ID_Categoria";
             // 
             // Notificador
             // 
@@ -105,7 +105,7 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txbCategoria);
-            this.Controls.Add(this.txbIDCategoria);
+            this.Controls.Add(this.txbID_Categoria);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "CategoriasEdicion";
@@ -122,7 +122,7 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
         public System.Windows.Forms.TextBox txbCategoria;
-        public System.Windows.Forms.TextBox txbIDCategoria;
+        public System.Windows.Forms.TextBox txbID_Categoria;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ErrorProvider Notificador;

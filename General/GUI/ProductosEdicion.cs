@@ -26,14 +26,9 @@ namespace General.GUI
                     Notificador.SetError(txbProducto, "Este campo' no puede quedar vacío");
                     valido = false;
                 }
-                if (txbStock.Text.Trim().Length == 0)
+                if (txbPrecioCompra.Text.Trim().Length == 0)
                 {
-                    Notificador.SetError(txbStock, "Este campo debe ser un valor mayor que cero");
-                    valido = false;
-                }
-                if (txbPrecio.Text.Trim().Length == 0)
-                {
-                    Notificador.SetError(txbPrecio, "Este campo debe ser un valor mayor que cero");
+                    Notificador.SetError(txbPrecioCompra, "Este campo debe ser un valor mayor que cero");
                     valido = false;
                 }
                 if (txbDescripcion.Text.Trim().Length == 0)
@@ -58,7 +53,7 @@ namespace General.GUI
                 }
                 if (cbCategoria.Text.Trim().Length == 0)
                 {
-                    Notificador.SetError(cbCategoria, "El campo 'ID Categoría' debe ser un valor mayor que cero");
+                    Notificador.SetError(cbCategoria, "Este campo no puede quedar vacío");
                     valido = false;
                 }
             }
@@ -73,6 +68,70 @@ namespace General.GUI
         {
             InitializeComponent();
         }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Validar())
+                {
+                   
+                    if (string.IsNullOrEmpty(txbID_Producto.Text.Trim()))
+                    {
+                        // Crear un nuevo producto
+                        CLS.Productos oProducto = new CLS.Productos();
+
+                        oProducto.Producto = txbProducto.Text;
+                        oProducto.FechaFabricacion = Convert.ToDateTime(txbFechaFabricacion.Text);
+                        oProducto.FechaVencimiento = Convert.ToDateTime(txbFechaVencimiento.Text);
+                        oProducto.Descripcion = txbDescripcion.Text;
+                        oProducto.PrecioCompra = Convert.ToDouble(txbPrecioCompra.Text);
+                        oProducto.ID_Proveedor = Convert.ToInt32(cbProveedor.SelectedIndex);
+                        oProducto.ID_Categoria = Convert.ToInt32(cbCategoria.SelectedIndex);
+
+                        // Crear un nuevo producto
+                        if (oProducto.Insertar())
+                        {
+                            MessageBox.Show("Producto creado exitosamente");
+                            Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al crear producto");
+                        }
+                    }
+                    else
+                    {
+                       
+                        // Crear un nuevo producto
+                        CLS.Productos oProducto = new CLS.Productos();
+                        oProducto.ID_Producto = Convert.ToInt32(txbID_Producto.Text);
+                        oProducto.Producto = txbProducto.Text;
+                        oProducto.FechaFabricacion = Convert.ToDateTime(txbFechaFabricacion.Text);
+                        oProducto.FechaVencimiento = Convert.ToDateTime(txbFechaVencimiento.Text);
+                        oProducto.Descripcion = txbDescripcion.Text;
+                        oProducto.PrecioCompra = Convert.ToDouble(txbPrecioCompra.Text);
+                        oProducto.ID_Proveedor = Convert.ToInt32(cbProveedor.SelectedIndex);
+                        oProducto.ID_Categoria = Convert.ToInt32(cbCategoria.SelectedIndex);
+                        // Actualizar un producto existente
+                        if (oProducto.Actualizar())
+                        {
+                            MessageBox.Show("Producto actualizado exitosamente");
+                            Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al actualizar producto");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
 
 
         public void MostrarProveedores(ComboBox cbProveedor)
@@ -97,73 +156,6 @@ namespace General.GUI
         }
 
 
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (Validar())
-                {
-                   
-                    if (string.IsNullOrEmpty(txbIDProducto.Text.Trim()))
-                    {
-                        // Crear un nuevo producto
-                        CLS.Productos oProducto = new CLS.Productos();
-
-                        oProducto.Producto = txbProducto.Text;
-                        oProducto.Stock = Convert.ToInt32(txbStock.Text);
-                        oProducto.Precio = Convert.ToDouble(txbPrecio.Text);
-                        oProducto.Descripcion = txbDescripcion.Text;
-                        oProducto.IDProveedor = Convert.ToInt32(cbProveedor.SelectedIndex);
-                        oProducto.FechaFabricacion = Convert.ToDateTime(txbFechaFabricacion.Text);
-                        oProducto.FechaVencimiento = Convert.ToDateTime(txbFechaVencimiento.Text);
-                        oProducto.IDCategoria = Convert.ToInt32(cbCategoria.SelectedIndex);
-
-                        // Crear un nuevo producto
-                        if (oProducto.Insertar())
-                        {
-                            MessageBox.Show("Producto creado exitosamente");
-                            Close();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Error al crear producto");
-                        }
-                    }
-                    else
-                    {
-                       
-                        // Crear un nuevo producto
-                        CLS.Productos oProducto = new CLS.Productos();
-                        oProducto.IDProducto = Convert.ToInt32(txbIDProducto.Text);
-                        oProducto.Producto = txbProducto.Text;
-                        oProducto.Stock = Convert.ToInt32(txbStock.Text);
-                        oProducto.Precio = Convert.ToDouble(txbPrecio.Text);
-                        oProducto.Descripcion = txbDescripcion.Text;
-                        oProducto.IDProveedor = Convert.ToInt32(cbProveedor.SelectedIndex);
-                        oProducto.FechaFabricacion = Convert.ToDateTime(txbFechaFabricacion.Text);
-                        oProducto.FechaVencimiento = Convert.ToDateTime(txbFechaVencimiento.Text);
-                        oProducto.IDCategoria = Convert.ToInt32(cbCategoria.SelectedIndex);
-                        // Actualizar un producto existente
-                        if (oProducto.Actualizar())
-                        {
-                            MessageBox.Show("Producto actualizado exitosamente");
-                            Close();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Error al actualizar producto");
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-        }
-
-
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
@@ -172,7 +164,7 @@ namespace General.GUI
         private void ProductosEdicion_Load(object sender, EventArgs e)
         {
 
-            if (string.IsNullOrEmpty(txbIDProducto.Text))
+            if (string.IsNullOrEmpty(txbID_Producto.Text))
             {
                 this.MostrarProveedores(cbProveedor);
                 this.MostrarCategorias(cbCategoria);

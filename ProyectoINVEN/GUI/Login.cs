@@ -32,7 +32,7 @@ namespace ProyectoCRUD.GUI
 
             DataTable dt = new DataTable();
             DataLayer.DBOperacion oOperacion = new DataLayer.DBOperacion();
-            string query = @"SELECT IDUsuario, Usuario, IDEmpleado, IDRol FROM usuarios WHERE Usuario = '" + txbUsuario.Text + "' AND Clave = '" + claveHasheada + "'";
+            string query = @"SELECT ID_Usuario, Usuario, ID_Empleado, IDRol FROM usuarios WHERE Usuario = '" + txbUsuario.Text + "' AND Clave = '" + claveHasheada + "'";
             dt = oOperacion.Consultar(query);
 
             if (dt.Rows.Count == 1)

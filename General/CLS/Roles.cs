@@ -10,16 +10,12 @@ namespace General.CLS
 {
     internal class Roles
     {
-        MySqlDataReader resultado;
-        DataTable tabla = new DataTable();
-        MySqlConnection sqlConexion = new MySqlConnection();
-
-        Int32 _IDRol;
+        Int32 _ID_Rol;
         String _Rol;
 
         public Roles(int idRol, string rol)
         {
-            this._IDRol = idRol;
+            this._ID_Rol = idRol;
             this._Rol = rol;
         }
 
@@ -27,7 +23,7 @@ namespace General.CLS
         {
         }
 
-        public int IDRol { get => _IDRol; set => _IDRol = value; }
+        public int ID_Rol { get => _ID_Rol; set => _ID_Rol = value; }
         public string Rol { get => _Rol; set => _Rol = value; }
 
         public Boolean Insertar()
@@ -36,8 +32,8 @@ namespace General.CLS
             DataLayer.DBOperacion Operacion = new DataLayer.DBOperacion();
 
             StringBuilder Sentencia = new StringBuilder();
-            Sentencia.Append("INSERT INTO roles(IDRol, Rol) VALUES (");
-            Sentencia.Append(_IDRol + ", '" + _Rol + "');");
+            Sentencia.Append("INSERT INTO roles(ID_Rol, Rol) VALUES (");
+            Sentencia.Append(_ID_Rol + ", '" + _Rol + "');");
 
             try
             {
@@ -64,7 +60,7 @@ namespace General.CLS
             StringBuilder Sentencia = new StringBuilder();
             Sentencia.Append("UPDATE roles SET ");
             Sentencia.Append("Rol='" + _Rol + "' ");
-            Sentencia.Append("WHERE IDRol=" + _IDRol + ";");
+            Sentencia.Append("WHERE ID_Rol=" + _ID_Rol + ";");
 
             try
             {
@@ -91,7 +87,7 @@ namespace General.CLS
 
             StringBuilder Sentencia = new StringBuilder();
             Sentencia.Append("DELETE FROM roles ");
-            Sentencia.Append("WHERE IDRol =" + _IDRol + ";");
+            Sentencia.Append("WHERE ID_Rol =" + _ID_Rol + ";");
 
             try
             {

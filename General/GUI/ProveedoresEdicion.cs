@@ -78,6 +78,68 @@ namespace General.GUI
             InitializeComponent();
         }
 
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Validar())
+                {
+                    CLS.Proveedores oProveedor = new CLS.Proveedores();
+
+                    oProveedor.Proveedor = txbProveedor.Text;
+                    oProveedor.Contacto = txbContacto.Text;
+                    oProveedor.Correo = txbCorreo.Text;
+                    oProveedor.Linea1 = txbLinea1.Text;
+                    oProveedor.Linea2 = txbLinea2.Text;
+                    oProveedor.CodigoPostal = Convert.ToInt32(txbCodigoPostal.Text);
+                    oProveedor.ID_Departamento = Convert.ToInt32(cbDepartamentos.SelectedIndex);
+                    oProveedor.ID_Municipio = Convert.ToInt32(cbMunicipios.SelectedIndex);
+                    oProveedor.ID_Distrito = Convert.ToInt32(cbDistritos.SelectedIndex);
+
+                    if (txbID_Proveedor.Text.Trim().Length == 0)
+                    {
+                        if (oProveedor.Insertar())
+                        {
+                            MessageBox.Show("Registro creado exitosamente");
+                            Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("El registro no pudo ser guardado");
+                        }
+                    }
+                    else
+                    {
+                        oProveedor.ID_Proveedor = Convert.ToInt32(txbID_Proveedor.Text);
+
+                        oProveedor.Proveedor = txbProveedor.Text;
+                        oProveedor.Contacto = txbContacto.Text;
+                        oProveedor.Correo = txbCorreo.Text;
+                        oProveedor.Linea1 = txbLinea1.Text;
+                        oProveedor.Linea2 = txbLinea2.Text;
+                        oProveedor.CodigoPostal = Convert.ToInt32(txbCodigoPostal.Text);
+                        oProveedor.ID_Departamento = Convert.ToInt32(cbDepartamentos.SelectedIndex);
+                        oProveedor.ID_Municipio = Convert.ToInt32(cbMunicipios.SelectedIndex);
+                        oProveedor.ID_Distrito = Convert.ToInt32(cbDistritos.SelectedIndex);
+
+                        if (oProveedor.Actualizar())
+                        {
+                            MessageBox.Show("Registro actualizado exitosamente");
+                            Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("El registro no pudo ser actualizado");
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+        }
 
         public void MostrarMunicipios(ComboBox cbMunicipios)
         {
@@ -111,69 +173,6 @@ namespace General.GUI
             }
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (Validar())
-                {
-                    CLS.Proveedores oProveedor = new CLS.Proveedores();
-
-                    oProveedor.Proveedor = txbProveedor.Text;
-                    oProveedor.Contacto = txbContacto.Text;
-                    oProveedor.Correo = txbCorreo.Text;
-                    oProveedor.Linea1 = txbLinea1.Text;
-                    oProveedor.Linea2 = txbLinea2.Text;
-                    oProveedor.CodigoPostal = Convert.ToInt32(txbCodigoPostal.Text);
-                    oProveedor.IDDepartamento = Convert.ToInt32(cbDepartamentos.SelectedIndex);
-                    oProveedor.IDMunicipio = Convert.ToInt32(cbMunicipios.SelectedIndex);
-                    oProveedor.IDDistrito = Convert.ToInt32(cbDistritos.SelectedIndex);
-
-                    if (txbIDProveedor.Text.Trim().Length == 0)
-                    {
-                        if (oProveedor.Insertar())
-                        {
-                            MessageBox.Show("Registro guardado");
-                            Close();
-                        }
-                        else
-                        {
-                            MessageBox.Show("El registro no pudo ser guardado");
-                        }
-                    }
-                    else
-                    {
-                        oProveedor.IDProveedor = Convert.ToInt32(txbIDProveedor.Text);
-
-                        oProveedor.Proveedor = txbProveedor.Text;
-                        oProveedor.Contacto = txbContacto.Text;
-                        oProveedor.Correo = txbCorreo.Text;
-                        oProveedor.Linea1 = txbLinea1.Text;
-                        oProveedor.Linea2 = txbLinea2.Text;
-                        oProveedor.CodigoPostal = Convert.ToInt32(txbCodigoPostal.Text);
-                        oProveedor.IDDepartamento = Convert.ToInt32(cbDepartamentos.SelectedIndex);
-                        oProveedor.IDMunicipio = Convert.ToInt32(cbMunicipios.SelectedIndex);
-                        oProveedor.IDDistrito = Convert.ToInt32(cbDistritos.SelectedIndex);
-
-                        if (oProveedor.Actualizar())
-                        {
-                            MessageBox.Show("Registro actualizado");
-                            Close();
-                        }
-                        else
-                        {
-                            MessageBox.Show("El registro no pudo ser actualizado");
-                        }
-                    }
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-
-        }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
@@ -191,21 +190,6 @@ namespace General.GUI
                 cbDistritos.SelectedIndex = 0;
                 cbDepartamentos.SelectedIndex = 0;
             }
-        }
-
-        private void cbDepartamentos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cbMunicipios_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cbDistritos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

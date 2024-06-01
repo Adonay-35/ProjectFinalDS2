@@ -53,18 +53,6 @@ namespace General.GUI
             InitializeComponent();
         }
 
-        private void RolesGestion_Load(object sender, EventArgs e)
-        {
-            Cargar();
-            lblRegistros.Text = _DATOS.Count.ToString();
-        }
-
-        private void txbFiltro_TextChanged(object sender, EventArgs e)
-        {
-            FiltrarLocalmente();
-        }
-
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             try
@@ -80,7 +68,6 @@ namespace General.GUI
             }
         }
 
-
         private void btnEditar_Click(object sender, EventArgs e)
         {
             try
@@ -88,7 +75,7 @@ namespace General.GUI
                 if (MessageBox.Show("¿Desea EDITAR el registro seleccionado?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     RolesEdicion oRolesEdicion = new RolesEdicion();
-                    oRolesEdicion.txbIDRol.Text = dataGridView1.CurrentRow.Cells["IDRol"].Value.ToString();
+                    oRolesEdicion.txbID_Rol.Text = dataGridView1.CurrentRow.Cells["ID_Rol"].Value.ToString();
                     oRolesEdicion.txbRol.Text = dataGridView1.CurrentRow.Cells["Rol"].Value.ToString();
                     oRolesEdicion.ShowDialog();
                     Cargar();
@@ -104,13 +91,14 @@ namespace General.GUI
         {
             try
             {
-                if (MessageBox.Show("¿Desea ELIMINAR el registro seleccionado", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Desea ELIMINAR el registro seleccionado?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    CLS.Roles oRol = new CLS.Roles((Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDRol"].Value.ToString())), "dummyRol");
-                    oRol.IDRol = (Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDRol"].Value.ToString()));
+                    CLS.Roles oRol = new CLS.Roles();
+                    oRol.ID_Rol = Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID_Rol"].Value.ToString());
+
                     if (oRol.Eliminar())
                     {
-                        MessageBox.Show("Registro eliminado");
+                        MessageBox.Show("Registro eliminado exitosamente");
                     }
                     else
                     {
@@ -126,6 +114,18 @@ namespace General.GUI
 
             }
         }
+
+        private void RolesGestion_Load(object sender, EventArgs e)
+        {
+            Cargar();
+            lblRegistros.Text = _DATOS.Count.ToString();
+        }
+
+        private void txbFiltro_TextChanged(object sender, EventArgs e)
+        {
+            FiltrarLocalmente();
+        }
+
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {

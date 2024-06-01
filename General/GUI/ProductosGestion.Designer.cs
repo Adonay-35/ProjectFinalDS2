@@ -47,9 +47,9 @@
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.IDProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID_Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaFabricacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaVencimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,9 +76,9 @@
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IDProducto,
+            this.ID_Producto,
             this.Producto,
-            this.Precio,
+            this.PrecioCompra,
             this.FechaFabricacion,
             this.FechaVencimiento,
             this.Descripcion,
@@ -237,14 +237,14 @@
             this.toolStripButton1.Text = "Cerrar";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
-            // IDProducto
+            // ID_Producto
             // 
-            this.IDProducto.DataPropertyName = "ID_Producto";
-            this.IDProducto.HeaderText = "ID";
-            this.IDProducto.MinimumWidth = 8;
-            this.IDProducto.Name = "IDProducto";
-            this.IDProducto.ReadOnly = true;
-            this.IDProducto.Width = 80;
+            this.ID_Producto.DataPropertyName = "ID_Producto";
+            this.ID_Producto.HeaderText = "ID";
+            this.ID_Producto.MinimumWidth = 8;
+            this.ID_Producto.Name = "ID_Producto";
+            this.ID_Producto.ReadOnly = true;
+            this.ID_Producto.Width = 80;
             // 
             // Producto
             // 
@@ -255,14 +255,14 @@
             this.Producto.Name = "Producto";
             this.Producto.ReadOnly = true;
             // 
-            // Precio
+            // PrecioCompra
             // 
-            this.Precio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Precio.DataPropertyName = "PrecioCompra";
-            this.Precio.HeaderText = "PrecioCompra";
-            this.Precio.MinimumWidth = 8;
-            this.Precio.Name = "Precio";
-            this.Precio.ReadOnly = true;
+            this.PrecioCompra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PrecioCompra.DataPropertyName = "PrecioCompra";
+            this.PrecioCompra.HeaderText = "PrecioCompra";
+            this.PrecioCompra.MinimumWidth = 8;
+            this.PrecioCompra.Name = "PrecioCompra";
+            this.PrecioCompra.ReadOnly = true;
             // 
             // FechaFabricacion
             // 
@@ -348,9 +348,9 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID_Producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioCompra;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaFabricacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaVencimiento;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;

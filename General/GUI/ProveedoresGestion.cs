@@ -53,37 +53,17 @@ namespace General.GUI
             InitializeComponent();
         }
 
-        private void ProveedoresGestion_Load(object sender, EventArgs e)
-        {
-            Cargar();
-            lblRegistros.Text = _DATOS.Count.ToString();
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void btnAgregar_Click(object sender, EventArgs e)
         {
             try
             {
-                if (MessageBox.Show("Desea ELIMINAR el registro seleccionado?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    CLS.Proveedores oProveedor = new CLS.Proveedores();
-                    oProveedor.IDProveedor = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDProveedor"].Value.ToString());
-                    oProveedor.Proveedor = dataGridView1.CurrentRow.Cells["Proveedor"].Value.ToString();
-                    oProveedor.Contacto = dataGridView1.CurrentRow.Cells["Contacto"].Value.ToString();
-                    oProveedor.Correo = dataGridView1.CurrentRow.Cells["Correo"].Value.ToString();
-
-                    if (oProveedor.Eliminar())
-                    {
-                        MessageBox.Show("Registro eliminado");
-                    }
-                    else
-                    {
-                        MessageBox.Show("El registro no ha sido eliminado");
-                    }
-                    Cargar();
-                }
+                ProveedoresEdicion f = new ProveedoresEdicion();
+                f.ShowDialog();
+                Cargar();
             }
             catch (Exception)
             {
+
                 throw;
             }
         }
@@ -93,14 +73,14 @@ namespace General.GUI
 
             try
             {
-                if (MessageBox.Show("Desea EDITAR el registro seleccionado?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Desea EDITAR el registro seleccionado?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     ProveedoresEdicion oProveedor = new ProveedoresEdicion();
 
                     oProveedor.MostrarDepartamentos(oProveedor.cbDepartamentos);
                     oProveedor.MostrarMunicipios(oProveedor.cbMunicipios);
                     oProveedor.MostrarDistritos(oProveedor.cbDistritos);
-                    oProveedor.txbIDProveedor.Text = dataGridView1.CurrentRow.Cells["IDProveedor"].Value.ToString();
+                    oProveedor.txbID_Proveedor.Text = dataGridView1.CurrentRow.Cells["ID_Proveedor"].Value.ToString();
                     oProveedor.txbProveedor.Text = dataGridView1.CurrentRow.Cells["Proveedor"].Value.ToString();
                     oProveedor.txbContacto.Text = Convert.ToDouble(dataGridView1.CurrentRow.Cells["Contacto"].Value).ToString();
                     oProveedor.txbCorreo.Text = dataGridView1.CurrentRow.Cells["Correo"].Value.ToString();
@@ -120,19 +100,36 @@ namespace General.GUI
             }
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private void btnEliminar_Click(object sender, EventArgs e)
         {
             try
             {
-                ProveedoresEdicion f = new ProveedoresEdicion();
-                f.ShowDialog();
-                Cargar();
+                if (MessageBox.Show("¿Desea ELIMINAR el registro seleccionado?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    CLS.Proveedores oProveedor = new CLS.Proveedores();
+                    oProveedor.ID_Proveedor = Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID_Proveedor"].Value.ToString());
+
+                    if (oProveedor.Eliminar())
+                    {
+                        MessageBox.Show("Registro eliminado exitosamente");
+                    }
+                    else
+                    {
+                        MessageBox.Show("El registro no ha sido eliminado");
+                    }
+                    Cargar();
+                }
             }
             catch (Exception)
             {
-
                 throw;
             }
+        }
+
+        private void ProveedoresGestion_Load(object sender, EventArgs e)
+        {
+            Cargar();
+            lblRegistros.Text = _DATOS.Count.ToString();
         }
 
         private void txbFiltro_TextChanged(object sender, EventArgs e)

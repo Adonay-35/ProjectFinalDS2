@@ -10,12 +10,12 @@ namespace General.CLS
 {
     internal class Categorias
     {
-        Int32 _IDCategoria;
+        Int32 _ID_Categoria;
         String _Categoria;
 
         public Categorias(int idCategoria, string categoria)
         {
-            this._IDCategoria = idCategoria;
+            this._ID_Categoria = idCategoria;
             this._Categoria = categoria;
         }
 
@@ -23,7 +23,7 @@ namespace General.CLS
         { 
         }
 
-        public Int32 IDCategoria { get => _IDCategoria; set => _IDCategoria = value; }
+        public Int32 ID_Categoria { get => _ID_Categoria; set => _ID_Categoria = value; }
         public string Categoria { get => _Categoria; set => _Categoria = value; }
 
         public Boolean InsertarCategoria()
@@ -32,8 +32,8 @@ namespace General.CLS
             DataLayer.DBOperacion Operacion = new DataLayer.DBOperacion();
 
             StringBuilder Sentencia = new StringBuilder();
-            Sentencia.Append("INSERT INTO categorias(IDCategoria, Categoria) VALUES (");
-            Sentencia.Append(_IDCategoria + ", '" + _Categoria + "');");
+            Sentencia.Append("INSERT INTO categorias(ID_Categoria, Categoria) VALUES (");
+            Sentencia.Append(_ID_Categoria + ", '" + _Categoria + "');");
 
             try
             {
@@ -61,7 +61,7 @@ namespace General.CLS
             StringBuilder Sentencia = new StringBuilder();
             Sentencia.Append("UPDATE categorias SET ");
             Sentencia.Append("Categoria='" + _Categoria + "' ");
-            Sentencia.Append("WHERE IDCategoria=" + _IDCategoria + ";");
+            Sentencia.Append("WHERE ID_Categoria=" + _ID_Categoria + ";");
 
             try
             {
@@ -88,7 +88,7 @@ namespace General.CLS
 
             StringBuilder Sentencia = new StringBuilder();
             Sentencia.Append("DELETE FROM categorias ");
-            Sentencia.Append("WHERE IDCategoria=" + _IDCategoria + ";");
+            Sentencia.Append("WHERE ID_Categoria=" + _ID_Categoria + ";");
 
             try
             {
