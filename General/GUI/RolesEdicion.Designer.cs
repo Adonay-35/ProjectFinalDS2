@@ -43,7 +43,7 @@
             // 
             this.txbRol.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.txbRol.Location = new System.Drawing.Point(277, 284);
-            this.txbRol.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbRol.Margin = new System.Windows.Forms.Padding(4);
             this.txbRol.Name = "txbRol";
             this.txbRol.Size = new System.Drawing.Size(358, 22);
             this.txbRol.TabIndex = 27;
@@ -52,7 +52,7 @@
             // 
             this.txbID_Rol.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.txbID_Rol.Location = new System.Drawing.Point(277, 129);
-            this.txbID_Rol.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbID_Rol.Margin = new System.Windows.Forms.Padding(4);
             this.txbID_Rol.Name = "txbID_Rol";
             this.txbID_Rol.ReadOnly = true;
             this.txbID_Rol.Size = new System.Drawing.Size(76, 22);
@@ -84,7 +84,7 @@
             // 
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnCancelar.Location = new System.Drawing.Point(549, 425);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(88, 28);
             this.btnCancelar.TabIndex = 29;
@@ -96,10 +96,10 @@
             // 
             this.btnGuardar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnGuardar.Location = new System.Drawing.Point(277, 425);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(88, 28);
-            this.btnGuardar.TabIndex = 28;
+            this.btnGuardar.TabIndex = 2;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -123,7 +123,7 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "RolesEdicion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RolesEdicion";
