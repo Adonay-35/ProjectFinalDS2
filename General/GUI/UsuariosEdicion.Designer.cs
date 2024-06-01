@@ -73,7 +73,7 @@
             // 
             this.txbClave.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbClave.Location = new System.Drawing.Point(70, 316);
-            this.txbClave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbClave.Margin = new System.Windows.Forms.Padding(4);
             this.txbClave.Name = "txbClave";
             this.txbClave.Size = new System.Drawing.Size(278, 22);
             this.txbClave.TabIndex = 25;
@@ -93,7 +93,7 @@
             // 
             this.txbUsuario.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbUsuario.Location = new System.Drawing.Point(70, 199);
-            this.txbUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.txbUsuario.Name = "txbUsuario";
             this.txbUsuario.Size = new System.Drawing.Size(278, 22);
             this.txbUsuario.TabIndex = 23;
@@ -102,7 +102,7 @@
             // 
             this.txbID_Usuario.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbID_Usuario.Location = new System.Drawing.Point(69, 98);
-            this.txbID_Usuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbID_Usuario.Margin = new System.Windows.Forms.Padding(4);
             this.txbID_Usuario.Name = "txbID_Usuario";
             this.txbID_Usuario.ReadOnly = true;
             this.txbID_Usuario.Size = new System.Drawing.Size(76, 22);
@@ -134,10 +134,10 @@
             // 
             this.btnGuardar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnGuardar.Location = new System.Drawing.Point(260, 442);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(88, 30);
-            this.btnGuardar.TabIndex = 18;
+            this.btnGuardar.TabIndex = 2;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -158,7 +158,7 @@
             this.cbEstados.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbEstados.FormattingEnabled = true;
             this.cbEstados.Location = new System.Drawing.Point(558, 316);
-            this.cbEstados.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbEstados.Margin = new System.Windows.Forms.Padding(4);
             this.cbEstados.Name = "cbEstados";
             this.cbEstados.Size = new System.Drawing.Size(262, 24);
             this.cbEstados.TabIndex = 8;
@@ -168,7 +168,7 @@
             this.cbRoles.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbRoles.FormattingEnabled = true;
             this.cbRoles.Location = new System.Drawing.Point(558, 199);
-            this.cbRoles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbRoles.Margin = new System.Windows.Forms.Padding(4);
             this.cbRoles.Name = "cbRoles";
             this.cbRoles.Size = new System.Drawing.Size(262, 24);
             this.cbRoles.TabIndex = 32;
@@ -183,7 +183,7 @@
             this.cbEmpleados.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbEmpleados.FormattingEnabled = true;
             this.cbEmpleados.Location = new System.Drawing.Point(558, 98);
-            this.cbEmpleados.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbEmpleados.Margin = new System.Windows.Forms.Padding(4);
             this.cbEmpleados.Name = "cbEmpleados";
             this.cbEmpleados.Size = new System.Drawing.Size(262, 24);
             this.cbEmpleados.TabIndex = 33;
@@ -193,7 +193,7 @@
             this.btnCancealr.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancealr.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnCancealr.Location = new System.Drawing.Point(558, 442);
-            this.btnCancealr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancealr.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancealr.Name = "btnCancealr";
             this.btnCancealr.Size = new System.Drawing.Size(88, 30);
             this.btnCancealr.TabIndex = 34;
@@ -223,7 +223,7 @@
             this.Controls.Add(this.btnGuardar);
             this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.ForeColor = System.Drawing.SystemColors.Control;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UsuariosEdicion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UsuariosEdicion";

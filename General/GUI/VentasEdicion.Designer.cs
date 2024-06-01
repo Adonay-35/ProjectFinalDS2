@@ -56,7 +56,7 @@
             this.cbProductos.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbProductos.FormattingEnabled = true;
             this.cbProductos.Location = new System.Drawing.Point(514, 78);
-            this.cbProductos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbProductos.Margin = new System.Windows.Forms.Padding(4);
             this.cbProductos.Name = "cbProductos";
             this.cbProductos.Size = new System.Drawing.Size(297, 24);
             this.cbProductos.TabIndex = 46;
@@ -66,7 +66,7 @@
             this.cbClientes.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbClientes.FormattingEnabled = true;
             this.cbClientes.Location = new System.Drawing.Point(79, 355);
-            this.cbClientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbClientes.Margin = new System.Windows.Forms.Padding(4);
             this.cbClientes.Name = "cbClientes";
             this.cbClientes.Size = new System.Drawing.Size(297, 24);
             this.cbClientes.TabIndex = 33;
@@ -99,7 +99,7 @@
             // 
             this.txbPrecioVenta.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbPrecioVenta.Location = new System.Drawing.Point(514, 164);
-            this.txbPrecioVenta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbPrecioVenta.Margin = new System.Windows.Forms.Padding(4);
             this.txbPrecioVenta.Name = "txbPrecioVenta";
             this.txbPrecioVenta.Size = new System.Drawing.Size(297, 22);
             this.txbPrecioVenta.TabIndex = 43;
@@ -145,7 +145,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnCancelar.Location = new System.Drawing.Point(564, 460);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(88, 30);
             this.btnCancelar.TabIndex = 35;
@@ -158,10 +158,10 @@
             this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnGuardar.Location = new System.Drawing.Point(248, 460);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(88, 30);
-            this.btnGuardar.TabIndex = 34;
+            this.btnGuardar.TabIndex = 2;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -170,7 +170,7 @@
             // 
             this.txbTotalCobrar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbTotalCobrar.Location = new System.Drawing.Point(514, 355);
-            this.txbTotalCobrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbTotalCobrar.Margin = new System.Windows.Forms.Padding(4);
             this.txbTotalCobrar.Name = "txbTotalCobrar";
             this.txbTotalCobrar.Size = new System.Drawing.Size(297, 22);
             this.txbTotalCobrar.TabIndex = 48;
@@ -192,7 +192,7 @@
             this.cbUsuarios.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbUsuarios.FormattingEnabled = true;
             this.cbUsuarios.Location = new System.Drawing.Point(79, 258);
-            this.cbUsuarios.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbUsuarios.Margin = new System.Windows.Forms.Padding(4);
             this.cbUsuarios.Name = "cbUsuarios";
             this.cbUsuarios.Size = new System.Drawing.Size(297, 24);
             this.cbUsuarios.TabIndex = 49;
@@ -218,7 +218,7 @@
             // 
             this.txbFechaVenta.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbFechaVenta.Location = new System.Drawing.Point(79, 164);
-            this.txbFechaVenta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbFechaVenta.Margin = new System.Windows.Forms.Padding(4);
             this.txbFechaVenta.Name = "txbFechaVenta";
             this.txbFechaVenta.Size = new System.Drawing.Size(297, 22);
             this.txbFechaVenta.TabIndex = 50;
@@ -226,7 +226,7 @@
             // txbID_Venta
             // 
             this.txbID_Venta.Location = new System.Drawing.Point(79, 80);
-            this.txbID_Venta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbID_Venta.Margin = new System.Windows.Forms.Padding(4);
             this.txbID_Venta.Name = "txbID_Venta";
             this.txbID_Venta.ReadOnly = true;
             this.txbID_Venta.Size = new System.Drawing.Size(76, 22);
@@ -236,7 +236,7 @@
             // 
             this.txbCantidadSaliente.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbCantidadSaliente.Location = new System.Drawing.Point(514, 258);
-            this.txbCantidadSaliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbCantidadSaliente.Margin = new System.Windows.Forms.Padding(4);
             this.txbCantidadSaliente.Name = "txbCantidadSaliente";
             this.txbCantidadSaliente.Size = new System.Drawing.Size(297, 22);
             this.txbCantidadSaliente.TabIndex = 53;
@@ -279,7 +279,7 @@
             this.Controls.Add(this.btnGuardar);
             this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.Control;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "VentasEdicion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VentasEdicion";

@@ -70,7 +70,7 @@
             this.txbCategoria.Margin = new System.Windows.Forms.Padding(4);
             this.txbCategoria.Name = "txbCategoria";
             this.txbCategoria.Size = new System.Drawing.Size(358, 22);
-            this.txbCategoria.TabIndex = 1;
+            this.txbCategoria.TabIndex = 45;
             // 
             // txbID_Categoria
             // 
