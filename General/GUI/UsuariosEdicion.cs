@@ -159,11 +159,6 @@ namespace General.GUI
             }
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
         private void btnCancealr_Click(object sender, EventArgs e)
         {
             Close();

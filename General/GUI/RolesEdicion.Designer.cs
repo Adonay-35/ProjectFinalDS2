@@ -41,42 +41,52 @@
             // 
             // txbRol
             // 
-            this.txbRol.Location = new System.Drawing.Point(93, 179);
+            this.txbRol.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.txbRol.Location = new System.Drawing.Point(277, 284);
+            this.txbRol.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txbRol.Name = "txbRol";
-            this.txbRol.Size = new System.Drawing.Size(307, 20);
+            this.txbRol.Size = new System.Drawing.Size(358, 22);
             this.txbRol.TabIndex = 27;
             // 
             // txbID_Rol
             // 
-            this.txbID_Rol.Location = new System.Drawing.Point(93, 78);
+            this.txbID_Rol.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.txbID_Rol.Location = new System.Drawing.Point(277, 129);
+            this.txbID_Rol.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txbID_Rol.Name = "txbID_Rol";
             this.txbID_Rol.ReadOnly = true;
-            this.txbID_Rol.Size = new System.Drawing.Size(103, 20);
+            this.txbID_Rol.Size = new System.Drawing.Size(76, 22);
             this.txbID_Rol.TabIndex = 26;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(90, 163);
+            this.label2.ForeColor = System.Drawing.SystemColors.Control;
+            this.label2.Location = new System.Drawing.Point(274, 225);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(23, 13);
+            this.label2.Size = new System.Drawing.Size(25, 16);
             this.label2.TabIndex = 25;
             this.label2.Text = "Rol";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(90, 62);
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(274, 63);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.Size = new System.Drawing.Size(43, 16);
             this.label1.TabIndex = 24;
             this.label1.Text = "ID_Rol";
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(325, 346);
+            this.btnCancelar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnCancelar.Location = new System.Drawing.Point(549, 425);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(88, 28);
             this.btnCancelar.TabIndex = 29;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -84,9 +94,11 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(93, 346);
+            this.btnGuardar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnGuardar.Location = new System.Drawing.Point(277, 425);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardar.Size = new System.Drawing.Size(88, 28);
             this.btnGuardar.TabIndex = 28;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -99,15 +111,19 @@
             // 
             // RolesEdicion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(492, 390);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.ClientSize = new System.Drawing.Size(898, 513);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txbRol);
             this.Controls.Add(this.txbID_Rol);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "RolesEdicion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RolesEdicion";

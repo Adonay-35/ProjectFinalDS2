@@ -57,10 +57,11 @@
             // 
             // txbCorreo
             // 
+            this.txbCorreo.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.txbCorreo.Location = new System.Drawing.Point(47, 378);
             this.txbCorreo.Margin = new System.Windows.Forms.Padding(4);
             this.txbCorreo.Name = "txbCorreo";
-            this.txbCorreo.Size = new System.Drawing.Size(358, 22);
+            this.txbCorreo.Size = new System.Drawing.Size(319, 22);
             this.txbCorreo.TabIndex = 58;
             // 
             // label5
@@ -75,10 +76,11 @@
             // 
             // txbContacto
             // 
+            this.txbContacto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.txbContacto.Location = new System.Drawing.Point(48, 254);
             this.txbContacto.Margin = new System.Windows.Forms.Padding(4);
             this.txbContacto.Name = "txbContacto";
-            this.txbContacto.Size = new System.Drawing.Size(358, 22);
+            this.txbContacto.Size = new System.Drawing.Size(219, 22);
             this.txbContacto.TabIndex = 54;
             // 
             // label3
@@ -93,15 +95,17 @@
             // 
             // txbProveedor
             // 
+            this.txbProveedor.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.txbProveedor.Location = new System.Drawing.Point(48, 135);
             this.txbProveedor.Margin = new System.Windows.Forms.Padding(4);
             this.txbProveedor.Name = "txbProveedor";
-            this.txbProveedor.Size = new System.Drawing.Size(358, 22);
+            this.txbProveedor.Size = new System.Drawing.Size(318, 22);
             this.txbProveedor.TabIndex = 52;
             // 
             // txbID_Proveedor
             // 
-            this.txbID_Proveedor.Location = new System.Drawing.Point(48, 37);
+            this.txbID_Proveedor.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.txbID_Proveedor.Location = new System.Drawing.Point(47, 48);
             this.txbID_Proveedor.Margin = new System.Windows.Forms.Padding(4);
             this.txbID_Proveedor.Name = "txbID_Proveedor";
             this.txbID_Proveedor.ReadOnly = true;
@@ -132,7 +136,7 @@
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnCancelar.Location = new System.Drawing.Point(536, 530);
+            this.btnCancelar.Location = new System.Drawing.Point(552, 502);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(88, 30);
@@ -145,7 +149,7 @@
             // 
             this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.btnGuardar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnGuardar.Location = new System.Drawing.Point(243, 530);
+            this.btnGuardar.Location = new System.Drawing.Point(253, 502);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(88, 30);
@@ -160,18 +164,18 @@
             // 
             // cbDepartamentos
             // 
-            this.cbDepartamentos.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbDepartamentos.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.cbDepartamentos.FormattingEnabled = true;
-            this.cbDepartamentos.Location = new System.Drawing.Point(478, 264);
+            this.cbDepartamentos.Location = new System.Drawing.Point(512, 269);
             this.cbDepartamentos.Margin = new System.Windows.Forms.Padding(4);
             this.cbDepartamentos.Name = "cbDepartamentos";
-            this.cbDepartamentos.Size = new System.Drawing.Size(341, 24);
+            this.cbDepartamentos.Size = new System.Drawing.Size(265, 24);
             this.cbDepartamentos.TabIndex = 104;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(475, 243);
+            this.label6.Location = new System.Drawing.Point(509, 248);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(102, 17);
@@ -180,18 +184,18 @@
             // 
             // cbDistritos
             // 
-            this.cbDistritos.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbDistritos.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.cbDistritos.FormattingEnabled = true;
-            this.cbDistritos.Location = new System.Drawing.Point(478, 445);
+            this.cbDistritos.Location = new System.Drawing.Point(512, 450);
             this.cbDistritos.Margin = new System.Windows.Forms.Padding(4);
             this.cbDistritos.Name = "cbDistritos";
-            this.cbDistritos.Size = new System.Drawing.Size(341, 24);
+            this.cbDistritos.Size = new System.Drawing.Size(265, 24);
             this.cbDistritos.TabIndex = 102;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(475, 424);
+            this.label9.Location = new System.Drawing.Point(509, 429);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(55, 17);
@@ -200,18 +204,18 @@
             // 
             // cbMunicipios
             // 
-            this.cbMunicipios.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMunicipios.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.cbMunicipios.FormattingEnabled = true;
-            this.cbMunicipios.Location = new System.Drawing.Point(478, 353);
+            this.cbMunicipios.Location = new System.Drawing.Point(512, 358);
             this.cbMunicipios.Margin = new System.Windows.Forms.Padding(4);
             this.cbMunicipios.Name = "cbMunicipios";
-            this.cbMunicipios.Size = new System.Drawing.Size(341, 24);
+            this.cbMunicipios.Size = new System.Drawing.Size(265, 24);
             this.cbMunicipios.TabIndex = 100;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(475, 332);
+            this.label8.Location = new System.Drawing.Point(509, 337);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(71, 17);
@@ -221,7 +225,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(475, 159);
+            this.label7.Location = new System.Drawing.Point(509, 164);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(88, 17);
@@ -230,7 +234,8 @@
             // 
             // txbCodigoPostal
             // 
-            this.txbCodigoPostal.Location = new System.Drawing.Point(478, 180);
+            this.txbCodigoPostal.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.txbCodigoPostal.Location = new System.Drawing.Point(512, 185);
             this.txbCodigoPostal.Margin = new System.Windows.Forms.Padding(4);
             this.txbCodigoPostal.Name = "txbCodigoPostal";
             this.txbCodigoPostal.Size = new System.Drawing.Size(107, 22);
@@ -239,7 +244,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(475, 90);
+            this.label10.Location = new System.Drawing.Point(509, 89);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(47, 17);
@@ -248,16 +253,17 @@
             // 
             // txbLinea2
             // 
-            this.txbLinea2.Location = new System.Drawing.Point(478, 111);
+            this.txbLinea2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.txbLinea2.Location = new System.Drawing.Point(512, 116);
             this.txbLinea2.Margin = new System.Windows.Forms.Padding(4);
             this.txbLinea2.Name = "txbLinea2";
-            this.txbLinea2.Size = new System.Drawing.Size(341, 22);
+            this.txbLinea2.Size = new System.Drawing.Size(327, 22);
             this.txbLinea2.TabIndex = 95;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(475, 16);
+            this.label11.Location = new System.Drawing.Point(509, 16);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(47, 17);
@@ -266,10 +272,11 @@
             // 
             // txbLinea1
             // 
-            this.txbLinea1.Location = new System.Drawing.Point(478, 37);
+            this.txbLinea1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.txbLinea1.Location = new System.Drawing.Point(512, 42);
             this.txbLinea1.Margin = new System.Windows.Forms.Padding(4);
             this.txbLinea1.Name = "txbLinea1";
-            this.txbLinea1.Size = new System.Drawing.Size(341, 22);
+            this.txbLinea1.Size = new System.Drawing.Size(327, 22);
             this.txbLinea1.TabIndex = 93;
             // 
             // ProveedoresEdicion
@@ -277,7 +284,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.ClientSize = new System.Drawing.Size(898, 579);
+            this.ClientSize = new System.Drawing.Size(898, 545);
             this.Controls.Add(this.cbDepartamentos);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cbDistritos);

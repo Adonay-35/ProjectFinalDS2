@@ -157,6 +157,8 @@ namespace ProyectoCRUD.GUI
         {
             MostrarSubmenu(panelRegistros);
         }
+
+
         private Form FormActivo = null;
         private void AbrirPanelContenedor(Form FormularioHijo)
         {
@@ -258,7 +260,7 @@ namespace ProyectoCRUD.GUI
             DialogResult result = MessageBox.Show("¿Estás seguro de que deseas salir del sistema de ventas?", "Salir del sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                Close(); // Cierra el formulario solo si el usuario elige "Sí"
+                Application.Exit();
             }
         }
 

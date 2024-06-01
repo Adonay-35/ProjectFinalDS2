@@ -132,7 +132,7 @@
             this.label1.Location = new System.Drawing.Point(63, 28);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 17);
+            this.label1.Size = new System.Drawing.Size(69, 17);
             this.label1.TabIndex = 61;
             this.label1.Text = "ID_Cliente";
             // 
@@ -140,10 +140,10 @@
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnCancelar.Location = new System.Drawing.Point(519, 476);
+            this.btnCancelar.Location = new System.Drawing.Point(517, 492);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(80, 31);
+            this.btnCancelar.Size = new System.Drawing.Size(88, 30);
             this.btnCancelar.TabIndex = 60;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -153,10 +153,10 @@
             // 
             this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnGuardar.Location = new System.Drawing.Point(252, 476);
+            this.btnGuardar.Location = new System.Drawing.Point(248, 492);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(80, 31);
+            this.btnGuardar.Size = new System.Drawing.Size(88, 30);
             this.btnGuardar.TabIndex = 59;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
