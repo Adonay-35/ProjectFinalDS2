@@ -34,7 +34,7 @@
             this.txbApellidos = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txbNombres = new System.Windows.Forms.TextBox();
-            this.txbIDCliente = new System.Windows.Forms.TextBox();
+            this.txbID_Cliente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -103,14 +103,14 @@
             this.txbNombres.Size = new System.Drawing.Size(346, 22);
             this.txbNombres.TabIndex = 64;
             // 
-            // txbIDCliente
+            // txbID_Cliente
             // 
-            this.txbIDCliente.Location = new System.Drawing.Point(66, 59);
-            this.txbIDCliente.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txbIDCliente.Name = "txbIDCliente";
-            this.txbIDCliente.ReadOnly = true;
-            this.txbIDCliente.Size = new System.Drawing.Size(76, 22);
-            this.txbIDCliente.TabIndex = 63;
+            this.txbID_Cliente.Location = new System.Drawing.Point(66, 59);
+            this.txbID_Cliente.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txbID_Cliente.Name = "txbID_Cliente";
+            this.txbID_Cliente.ReadOnly = true;
+            this.txbID_Cliente.Size = new System.Drawing.Size(76, 22);
+            this.txbID_Cliente.TabIndex = 63;
             // 
             // label2
             // 
@@ -134,7 +134,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 17);
             this.label1.TabIndex = 61;
-            this.label1.Text = "IDCliente";
+            this.label1.Text = "ID_Cliente";
             // 
             // btnCancelar
             // 
@@ -315,7 +315,7 @@
             this.Controls.Add(this.txbApellidos);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txbNombres);
-            this.Controls.Add(this.txbIDCliente);
+            this.Controls.Add(this.txbID_Cliente);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancelar);
@@ -340,7 +340,7 @@
         public System.Windows.Forms.TextBox txbApellidos;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.TextBox txbNombres;
-        public System.Windows.Forms.TextBox txbIDCliente;
+        public System.Windows.Forms.TextBox txbID_Cliente;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCancelar;

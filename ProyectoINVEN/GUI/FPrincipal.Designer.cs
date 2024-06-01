@@ -30,13 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FPrincipal));
             this.panelMenulateral = new System.Windows.Forms.Panel();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.panelReportes = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.btnReportes = new System.Windows.Forms.Button();
             this.panelRegistros = new System.Windows.Forms.Panel();
+            this.btnCompras = new System.Windows.Forms.Button();
             this.btnCategorias = new System.Windows.Forms.Button();
             this.btnVentas = new System.Windows.Forms.Button();
             this.btnRegistros = new System.Windows.Forms.Button();
             this.panelInventarioSumin = new System.Windows.Forms.Panel();
             this.btnProveedor = new System.Windows.Forms.Button();
-            this.btnInventario = new System.Windows.Forms.Button();
             this.btnProductos = new System.Windows.Forms.Button();
             this.btnInventarioSumin = new System.Windows.Forms.Button();
             this.panelPersonalClientes = new System.Windows.Forms.Panel();
@@ -56,6 +62,7 @@
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.panelMenulateral.SuspendLayout();
+            this.panelReportes.SuspendLayout();
             this.panelRegistros.SuspendLayout();
             this.panelInventarioSumin.SuspendLayout();
             this.panelPersonalClientes.SuspendLayout();
@@ -72,6 +79,8 @@
             // 
             this.panelMenulateral.AutoScroll = true;
             this.panelMenulateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.panelMenulateral.Controls.Add(this.btnSalir);
+            this.panelMenulateral.Controls.Add(this.panelReportes);
             this.panelMenulateral.Controls.Add(this.panelRegistros);
             this.panelMenulateral.Controls.Add(this.btnRegistros);
             this.panelMenulateral.Controls.Add(this.panelInventarioSumin);
@@ -89,17 +98,136 @@
             this.panelMenulateral.Size = new System.Drawing.Size(212, 441);
             this.panelMenulateral.TabIndex = 0;
             // 
+            // btnSalir
+            // 
+            this.btnSalir.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSalir.FlatAppearance.BorderSize = 0;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold);
+            this.btnSalir.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSalir.Location = new System.Drawing.Point(0, 875);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Padding = new System.Windows.Forms.Padding(23, 0, 0, 0);
+            this.btnSalir.Size = new System.Drawing.Size(195, 51);
+            this.btnSalir.TabIndex = 10;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // panelReportes
+            // 
+            this.panelReportes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.panelReportes.Controls.Add(this.button1);
+            this.panelReportes.Controls.Add(this.button2);
+            this.panelReportes.Controls.Add(this.button3);
+            this.panelReportes.Controls.Add(this.btnReportes);
+            this.panelReportes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelReportes.Location = new System.Drawing.Point(0, 585);
+            this.panelReportes.Margin = new System.Windows.Forms.Padding(2);
+            this.panelReportes.Name = "panelReportes";
+            this.panelReportes.Size = new System.Drawing.Size(195, 290);
+            this.panelReportes.TabIndex = 9;
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.Location = new System.Drawing.Point(0, 103);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(23, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(195, 26);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Compras";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button2.Location = new System.Drawing.Point(0, 77);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Name = "button2";
+            this.button2.Padding = new System.Windows.Forms.Padding(23, 0, 0, 0);
+            this.button2.Size = new System.Drawing.Size(195, 26);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Clientes";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button3.Location = new System.Drawing.Point(0, 51);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
+            this.button3.Name = "button3";
+            this.button3.Padding = new System.Windows.Forms.Padding(23, 0, 0, 0);
+            this.button3.Size = new System.Drawing.Size(195, 26);
+            this.button3.TabIndex = 0;
+            this.button3.Text = "Ventas";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // btnReportes
+            // 
+            this.btnReportes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.btnReportes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReportes.FlatAppearance.BorderSize = 0;
+            this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportes.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReportes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnReportes.Image = ((System.Drawing.Image)(resources.GetObject("btnReportes.Image")));
+            this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReportes.Location = new System.Drawing.Point(0, 0);
+            this.btnReportes.Margin = new System.Windows.Forms.Padding(2);
+            this.btnReportes.Name = "btnReportes";
+            this.btnReportes.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
+            this.btnReportes.Size = new System.Drawing.Size(195, 51);
+            this.btnReportes.TabIndex = 8;
+            this.btnReportes.Text = "Reportes";
+            this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnReportes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReportes.UseVisualStyleBackColor = false;
+            // 
             // panelRegistros
             // 
             this.panelRegistros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.panelRegistros.Controls.Add(this.btnCompras);
             this.panelRegistros.Controls.Add(this.btnCategorias);
             this.panelRegistros.Controls.Add(this.btnVentas);
             this.panelRegistros.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelRegistros.Location = new System.Drawing.Point(0, 532);
+            this.panelRegistros.Location = new System.Drawing.Point(0, 503);
             this.panelRegistros.Margin = new System.Windows.Forms.Padding(2);
             this.panelRegistros.Name = "panelRegistros";
-            this.panelRegistros.Size = new System.Drawing.Size(195, 56);
+            this.panelRegistros.Size = new System.Drawing.Size(195, 82);
             this.panelRegistros.TabIndex = 8;
+            // 
+            // btnCompras
+            // 
+            this.btnCompras.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCompras.FlatAppearance.BorderSize = 0;
+            this.btnCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCompras.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCompras.Location = new System.Drawing.Point(0, 52);
+            this.btnCompras.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCompras.Name = "btnCompras";
+            this.btnCompras.Padding = new System.Windows.Forms.Padding(23, 0, 0, 0);
+            this.btnCompras.Size = new System.Drawing.Size(195, 26);
+            this.btnCompras.TabIndex = 2;
+            this.btnCompras.Text = "Compras";
+            this.btnCompras.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCompras.UseVisualStyleBackColor = true;
+            this.btnCompras.Click += new System.EventHandler(this.btnCompras_Click);
             // 
             // btnCategorias
             // 
@@ -144,7 +272,7 @@
             this.btnRegistros.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnRegistros.Image = ((System.Drawing.Image)(resources.GetObject("btnRegistros.Image")));
             this.btnRegistros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRegistros.Location = new System.Drawing.Point(0, 481);
+            this.btnRegistros.Location = new System.Drawing.Point(0, 452);
             this.btnRegistros.Margin = new System.Windows.Forms.Padding(2);
             this.btnRegistros.Name = "btnRegistros";
             this.btnRegistros.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
@@ -162,13 +290,12 @@
             // 
             this.panelInventarioSumin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
             this.panelInventarioSumin.Controls.Add(this.btnProveedor);
-            this.panelInventarioSumin.Controls.Add(this.btnInventario);
             this.panelInventarioSumin.Controls.Add(this.btnProductos);
             this.panelInventarioSumin.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelInventarioSumin.Location = new System.Drawing.Point(0, 396);
+            this.panelInventarioSumin.Location = new System.Drawing.Point(0, 392);
             this.panelInventarioSumin.Margin = new System.Windows.Forms.Padding(2);
             this.panelInventarioSumin.Name = "panelInventarioSumin";
-            this.panelInventarioSumin.Size = new System.Drawing.Size(195, 85);
+            this.panelInventarioSumin.Size = new System.Drawing.Size(195, 60);
             this.panelInventarioSumin.TabIndex = 6;
             // 
             // btnProveedor
@@ -177,7 +304,7 @@
             this.btnProveedor.FlatAppearance.BorderSize = 0;
             this.btnProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProveedor.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnProveedor.Location = new System.Drawing.Point(0, 52);
+            this.btnProveedor.Location = new System.Drawing.Point(0, 26);
             this.btnProveedor.Margin = new System.Windows.Forms.Padding(2);
             this.btnProveedor.Name = "btnProveedor";
             this.btnProveedor.Padding = new System.Windows.Forms.Padding(23, 0, 0, 0);
@@ -187,23 +314,6 @@
             this.btnProveedor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProveedor.UseVisualStyleBackColor = true;
             this.btnProveedor.Click += new System.EventHandler(this.btnProveedor_Click);
-            // 
-            // btnInventario
-            // 
-            this.btnInventario.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnInventario.FlatAppearance.BorderSize = 0;
-            this.btnInventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInventario.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnInventario.Location = new System.Drawing.Point(0, 26);
-            this.btnInventario.Margin = new System.Windows.Forms.Padding(2);
-            this.btnInventario.Name = "btnInventario";
-            this.btnInventario.Padding = new System.Windows.Forms.Padding(23, 0, 0, 0);
-            this.btnInventario.Size = new System.Drawing.Size(195, 26);
-            this.btnInventario.TabIndex = 1;
-            this.btnInventario.Text = "Inventario";
-            this.btnInventario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInventario.UseVisualStyleBackColor = true;
-            this.btnInventario.Click += new System.EventHandler(this.btnInventario_Click);
             // 
             // btnProductos
             // 
@@ -235,13 +345,13 @@
             this.btnInventarioSumin.Margin = new System.Windows.Forms.Padding(2);
             this.btnInventarioSumin.Name = "btnInventarioSumin";
             this.btnInventarioSumin.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.btnInventarioSumin.Size = new System.Drawing.Size(195, 55);
+            this.btnInventarioSumin.Size = new System.Drawing.Size(195, 51);
             this.btnInventarioSumin.TabIndex = 5;
             this.btnInventarioSumin.Text = "Inventario y Suministro";
             this.btnInventarioSumin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnInventarioSumin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnInventarioSumin.UseVisualStyleBackColor = true;
-            this.btnInventarioSumin.Click += new System.EventHandler(this.btnInventarioSumin_Click);
+            this.btnInventarioSumin.Click += new System.EventHandler(this.btnInventarioSumin_Click_1);
             this.btnInventarioSumin.MouseEnter += new System.EventHandler(this.btnInventarioSumin_MouseEnter);
             this.btnInventarioSumin.MouseLeave += new System.EventHandler(this.btnInventarioSumin_MouseLeave);
             // 
@@ -499,6 +609,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FPrincipal_Load);
             this.panelMenulateral.ResumeLayout(false);
+            this.panelReportes.ResumeLayout(false);
             this.panelRegistros.ResumeLayout(false);
             this.panelInventarioSumin.ResumeLayout(false);
             this.panelPersonalClientes.ResumeLayout(false);
@@ -517,7 +628,6 @@
 
         private System.Windows.Forms.Panel panelMenulateral;
         private System.Windows.Forms.Button btnControlAcceso;
-        private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.Panel panelControlAcceso;
         private System.Windows.Forms.Button btnRoles;
         private System.Windows.Forms.Button btnUsuarios;
@@ -526,7 +636,6 @@
         private System.Windows.Forms.Button btnVentas;
         private System.Windows.Forms.Button btnRegistros;
         private System.Windows.Forms.Panel panelInventarioSumin;
-        private System.Windows.Forms.Button btnInventario;
         private System.Windows.Forms.Button btnProductos;
         private System.Windows.Forms.Button btnInventarioSumin;
         private System.Windows.Forms.Panel panelPersonalClientes;
@@ -535,11 +644,19 @@
         private System.Windows.Forms.Button btnPersonalClientes;
         private System.Windows.Forms.Panel panelContenedor;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panelSuperior;
         private System.Windows.Forms.Button btnMinimizar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnProveedor;
+        private System.Windows.Forms.Button btnCompras;
+        private System.Windows.Forms.Panel panelReportes;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnReportes;
+        private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Panel panelLogo;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

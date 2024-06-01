@@ -109,6 +109,26 @@ namespace ProyectoCRUD.GUI
             OcultarSubmenu();
         }
 
+        private void btnProveedor_Click(object sender, EventArgs e)
+        {
+            AbrirPanelContenedor(new General.GUI.ProveedoresGestion());
+
+            OcultarSubmenu();
+        }
+
+        private void btnInventarioSumin_Click_1(object sender, EventArgs e)
+        {
+            MostrarSubmenu(panelInventarioSumin);
+        }
+
+        private void btnCompras_Click(object sender, EventArgs e)
+        {
+            AbrirPanelContenedor(new General.GUI.ComprasGestion());
+
+            OcultarSubmenu();
+        }
+
+
         private void btnProductos_Click(object sender, EventArgs e)
         {
             AbrirPanelContenedor(new General.GUI.ProductosGestion());
@@ -116,12 +136,6 @@ namespace ProyectoCRUD.GUI
             OcultarSubmenu();
         }
 
-        private void btnInventario_Click(object sender, EventArgs e)
-        {
-            AbrirPanelContenedor(new General.GUI.ProductosGestion());
-
-            OcultarSubmenu();
-        }
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
@@ -138,10 +152,6 @@ namespace ProyectoCRUD.GUI
             OcultarSubmenu();
         }
 
-        private void btnInventarioSumin_Click(object sender, EventArgs e)
-        {
-            MostrarSubmenu(panelInventarioSumin);
-        }
 
         private void btnRegistros_Click(object sender, EventArgs e)
         {
@@ -243,9 +253,14 @@ namespace ProyectoCRUD.GUI
             btnRegistros.BackColor = Color.FromArgb(11, 7, 17);
         }
 
-        private void btnProveedor_Click(object sender, EventArgs e)
+        private void btnSalir_Click(object sender, EventArgs e)
         {
-            AbrirPanelContenedor(new General.GUI.ProveedoresGestion());
+            DialogResult result = MessageBox.Show("¿Estás seguro de que deseas salir del sistema de ventas?", "Salir del sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Close(); // Cierra el formulario solo si el usuario elige "Sí"
+            }
         }
+
     }
 }

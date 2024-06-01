@@ -121,7 +121,24 @@ namespace DataLayer
         public static DataTable VENTAS()
         {
             DataTable resultado = new DataTable();
-            string consulta = @"SELECT *  FROM VistaProductosParaVentas";
+            string consulta = @"SELECT *  FROM VistaVentas";
+            DBOperacion operacion = new DBOperacion();
+            try
+            {
+                resultado = operacion.Consultar(consulta);
+            }
+            catch (Exception)
+            {
+
+            }
+            return resultado;
+        }
+
+
+        public static DataTable COMPRAS()
+        {
+            DataTable resultado = new DataTable();
+            string consulta = @"SELECT *  FROM VistaCompras";
             DBOperacion operacion = new DBOperacion();
             try
             {

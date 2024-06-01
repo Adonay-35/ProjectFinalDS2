@@ -14,6 +14,7 @@ namespace General.GUI
     public partial class VentasEdicion : Form
     {
         Ventas metodosventas = new Ventas();
+
         private bool Validar()
         {
             bool Valido = true;
@@ -34,20 +35,20 @@ namespace General.GUI
                     Notificador.SetError(cbProductos, "Este campo no puede quedar vacío");
                     Valido = false;
                 }
-                if (txbCantidad.Text.Trim().Length == 0)
+                if (txbCantidadSaliente.Text.Trim().Length == 0)
                 {
-                    Notificador.SetError(txbCantidad, "Este campo no puede quedar vacío");
+                    Notificador.SetError(txbCantidadSaliente, "Este campo no puede quedar vacío");
                     Valido = false;
                 }
-                if (txbPrecio.Text.Trim().Length == 0)
+                if (txbPrecioVenta.Text.Trim().Length == 0)
                 {
-                    Notificador.SetError(txbPrecio, "Este campo no puede quedar vacío");
+                    Notificador.SetError(txbPrecioVenta, "Este campo no puede quedar vacío");
                     Valido = false;
                 }
 
-                if (txbTotal.Text.Trim().Length == 0)
+                if (txbTotalCobrar.Text.Trim().Length == 0)
                 {
-                    Notificador.SetError(txbTotal, "Este campo no puede quedar vacío");
+                    Notificador.SetError(txbTotalCobrar, "Este campo no puede quedar vacío");
                     Valido = false;
                 }
             }
@@ -59,13 +60,83 @@ namespace General.GUI
             return Valido;
         }
 
+        public VentasEdicion()
+        {
+            InitializeComponent();
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Validar())
+                {
+                    if (string.IsNullOrEmpty(txbID_Venta.Text.Trim()))
+                    {
+
+                        Ventas oVenta = new Ventas();
+
+                        //oVenta.ID_Venta = Convert.ToInt32(txbID_Venta.Text);
+                        oVenta.FechaVenta = Convert.ToDateTime(txbFechaVenta.Text);
+                        oVenta.ID_Usuario = Convert.ToInt32(cbUsuarios.SelectedIndex);
+                        oVenta.ID_Cliente = Convert.ToInt32(cbClientes.SelectedIndex);
+                        oVenta.ID_Producto = Convert.ToInt32(cbProductos.SelectedIndex);
+                        oVenta.PrecioVenta = Convert.ToDecimal(txbPrecioVenta.Text);
+                        oVenta.CantidadSaliente = Convert.ToInt32(txbPrecioVenta.Text);
+                        oVenta.TotalCobrar = Convert.ToDecimal(txbTotalCobrar.Text);
+
+                        // GUARDAR NUEVO REGISTRO
+                        if (oVenta.Insertar())
+                        {
+                            MessageBox.Show("Venta creada exitosamnete");
+                            Close();
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("La venta no pudo ser almacenado");
+                        }
+                    }
+                    else
+                    {
+                        Ventas oVenta = new Ventas();
+
+                        oVenta.ID_Venta = Convert.ToInt32(txbID_Venta.Text);
+                        oVenta.FechaVenta = Convert.ToDateTime(txbFechaVenta.Text);
+                        oVenta.ID_Usuario = Convert.ToInt32(cbUsuarios.SelectedIndex);
+                        oVenta.ID_Cliente = Convert.ToInt32(cbClientes.SelectedIndex);
+                        oVenta.ID_Producto = Convert.ToInt32(cbProductos.SelectedIndex);
+                        oVenta.PrecioVenta = Convert.ToDecimal(txbPrecioVenta.Text);
+                        oVenta.CantidadSaliente = Convert.ToInt32(txbCantidadSaliente.Text);
+                        oVenta.TotalCobrar = Convert.ToDecimal(txbTotalCobrar.Text);
+
+                        // ACTUALIZAR REGISTRO
+                        if (oVenta.Actualizar())
+                        {
+                            MessageBox.Show("Registro actualizado exitosamente");
+                            Close();
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("La venta no pudo ser actualizado");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         public void MostrarUsuarios(ComboBox cbUsarios)
         {
             List<Usuarios> datos = metodosventas.ObtenerUsuarios();
             cbUsuarios.Items.Add("Selecciona una opción");
             foreach (Usuarios dato in datos)
             {
-               cbUsarios.Items.Add(dato.Usuario);
+                cbUsarios.Items.Add(dato.Usuario);
             }
         }
 
@@ -90,83 +161,9 @@ namespace General.GUI
             }
         }
 
-        public VentasEdicion()
-        {
-            InitializeComponent();
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (Validar())
-                {
-                    if (string.IsNullOrEmpty(txbIDVenta.Text.Trim()))
-                    {
-
-                        Ventas oVenta = new Ventas();
-
-                        //oVenta.FechaVenta = Convert.ToDateTime(txbFechaVenta.Text);
-                        oVenta.IDUsuario = Convert.ToInt32(cbUsuarios.SelectedIndex);
-                        oVenta.IDCliente = Convert.ToInt32(cbClientes.SelectedIndex);
-                        oVenta.IDProducto = Convert.ToInt32(cbProductos.SelectedIndex);
-                        oVenta.Precio = Convert.ToDouble(txbPrecio.Text);
-                        oVenta.Cantidad = Convert.ToInt32(txbPrecio.Text);
-                        oVenta.Total = Convert.ToDouble(txbTotal.Text);
-
-                        // GUARDAR NUEVO REGISTRO
-                        if (oVenta.Insertar())
-                        {
-                            MessageBox.Show("Registro Guardado");
-                            Close();
-
-                        }
-                        else
-                        {
-                            MessageBox.Show("El registro no pudo ser almacenado");
-                        }
-                    }
-                    else
-                    {
-                        Ventas oVenta = new Ventas();
-
-                        //oVenta.FechaVenta = Convert.ToDateTime(txbFechaVenta.Text);
-                        oVenta.IDUsuario = Convert.ToInt32(cbUsuarios.SelectedIndex);
-                        oVenta.IDCliente = Convert.ToInt32(cbClientes.SelectedIndex);
-                        oVenta.IDProducto = Convert.ToInt32(cbProductos.SelectedIndex);
-                        oVenta.Precio = Convert.ToDouble(txbPrecio.Text);
-                        oVenta.Cantidad = Convert.ToInt32(txbCantidad.Text);
-                        oVenta.Total = Convert.ToDouble(txbTotal.Text);
-                        oVenta.IDVenta = Convert.ToInt32(txbIDVenta.Text);
-
-                        // ACTUALIZAR REGISTRO
-                        if (oVenta.Actualizar())
-                        {
-                            MessageBox.Show("Registro Actualizado");
-                            Close();
-
-                        }
-                        else
-                        {
-                            MessageBox.Show("El registro no pudo ser actualizado");
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
         private void VentasEdicion_Load(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txbIDVenta.Text))
+            if (string.IsNullOrEmpty(txbID_Venta.Text))
             {
                 this.MostrarUsuarios(cbUsuarios);
                 this.MostrarClientes(cbClientes);
@@ -178,10 +175,9 @@ namespace General.GUI
  
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
-
     }   
 }

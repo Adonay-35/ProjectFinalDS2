@@ -81,9 +81,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(202, 293);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(37, 13);
+            this.label4.Size = new System.Drawing.Size(73, 13);
             this.label4.TabIndex = 40;
-            this.label4.Text = "Precio";
+            this.label4.Text = "PrecioCompra";
             // 
             // txbProducto
             // 

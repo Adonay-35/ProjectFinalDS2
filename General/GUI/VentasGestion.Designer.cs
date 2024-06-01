@@ -43,14 +43,14 @@
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.IDVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID_Venta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CantidadSaliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalCobrar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -63,14 +63,14 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IDVenta,
+            this.ID_Venta,
             this.FechaVenta,
             this.Usuario,
             this.Cliente,
             this.Producto,
-            this.Precio,
-            this.Cantidad,
-            this.Total});
+            this.PrecioVenta,
+            this.CantidadSaliente,
+            this.TotalCobrar});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 31);
             this.dataGridView1.Name = "dataGridView1";
@@ -193,14 +193,14 @@
             this.toolStripButton1.Text = "Cerrar";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
-            // IDVenta
+            // ID_Venta
             // 
-            this.IDVenta.DataPropertyName = "ID_Venta";
-            this.IDVenta.HeaderText = "ID";
-            this.IDVenta.MinimumWidth = 8;
-            this.IDVenta.Name = "IDVenta";
-            this.IDVenta.ReadOnly = true;
-            this.IDVenta.Width = 80;
+            this.ID_Venta.DataPropertyName = "ID_Venta";
+            this.ID_Venta.HeaderText = "ID";
+            this.ID_Venta.MinimumWidth = 8;
+            this.ID_Venta.Name = "ID_Venta";
+            this.ID_Venta.ReadOnly = true;
+            this.ID_Venta.Width = 80;
             // 
             // FechaVenta
             // 
@@ -239,31 +239,31 @@
             this.Producto.Name = "Producto";
             this.Producto.ReadOnly = true;
             // 
-            // Precio
+            // PrecioVenta
             // 
-            this.Precio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Precio.DataPropertyName = "Precio";
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            this.Precio.ReadOnly = true;
+            this.PrecioVenta.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PrecioVenta.DataPropertyName = "PrecioVenta";
+            this.PrecioVenta.HeaderText = "PrecioVenta";
+            this.PrecioVenta.Name = "PrecioVenta";
+            this.PrecioVenta.ReadOnly = true;
             // 
-            // Cantidad
+            // CantidadSaliente
             // 
-            this.Cantidad.DataPropertyName = "CantidadSaliente";
-            this.Cantidad.HeaderText = "CantidadSaliente";
-            this.Cantidad.MinimumWidth = 8;
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.ReadOnly = true;
-            this.Cantidad.Width = 90;
+            this.CantidadSaliente.DataPropertyName = "CantidadSaliente";
+            this.CantidadSaliente.HeaderText = "CantidadSaliente";
+            this.CantidadSaliente.MinimumWidth = 8;
+            this.CantidadSaliente.Name = "CantidadSaliente";
+            this.CantidadSaliente.ReadOnly = true;
+            this.CantidadSaliente.Width = 90;
             // 
-            // Total
+            // TotalCobrar
             // 
-            this.Total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Total.DataPropertyName = "TotalCobrar";
-            this.Total.HeaderText = "TotalCobrar";
-            this.Total.MinimumWidth = 8;
-            this.Total.Name = "Total";
-            this.Total.ReadOnly = true;
+            this.TotalCobrar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TotalCobrar.DataPropertyName = "TotalCobrar";
+            this.TotalCobrar.HeaderText = "TotalCobrar";
+            this.TotalCobrar.MinimumWidth = 8;
+            this.TotalCobrar.Name = "TotalCobrar";
+            this.TotalCobrar.ReadOnly = true;
             // 
             // VentasGestion
             // 
@@ -305,13 +305,13 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDVenta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID_Venta;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaVenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn Usuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioVenta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CantidadSaliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalCobrar;
     }
 }

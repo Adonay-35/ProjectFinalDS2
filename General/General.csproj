@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="CLS\Categorias.cs" />
     <Compile Include="CLS\Clientes.cs" />
+    <Compile Include="CLS\Compras.cs" />
     <Compile Include="CLS\Departamentos.cs" />
     <Compile Include="CLS\Distritos.cs" />
     <Compile Include="CLS\Empleados.cs" />
@@ -77,6 +78,12 @@
     <Compile Include="GUI\ClientesGestion.Designer.cs">
       <DependentUpon>ClientesGestion.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\ComprasEdicion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ComprasEdicion.Designer.cs">
+      <DependentUpon>ComprasEdicion.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\EmpleadosEdicion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +101,12 @@
     </Compile>
     <Compile Include="GUI\CategoriasGestion.Designer.cs">
       <DependentUpon>CategoriasGestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ComprasGestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ComprasGestion.Designer.cs">
+      <DependentUpon>ComprasGestion.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\ProductosEdicion.cs">
       <SubType>Form</SubType>
@@ -185,12 +198,18 @@
     <EmbeddedResource Include="GUI\ClientesGestion.resx">
       <DependentUpon>ClientesGestion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ComprasEdicion.resx">
+      <DependentUpon>ComprasEdicion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\EmpleadosEdicion.resx">
       <DependentUpon>EmpleadosEdicion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\EmpleadosGestion.resx">
       <DependentUpon>EmpleadosGestion.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ComprasGestion.resx">
+      <DependentUpon>ComprasGestion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ProductosEdicion.resx">
       <DependentUpon>ProductosEdicion.cs</DependentUpon>

@@ -89,7 +89,7 @@ namespace General.GUI
                     oCliente.MostrarDepartamentos(oCliente.cbDepartamentos);
                     oCliente.MostrarMunicipios(oCliente.cbMunicipios);
                     oCliente.MostrarDistritos(oCliente.cbDistritos);
-                    oCliente.txbIDCliente.Text = dataGridView1.CurrentRow.Cells["IDCliente"].Value.ToString();
+                    oCliente.txbID_Cliente.Text = dataGridView1.CurrentRow.Cells["ID_Cliente"].Value.ToString();
                     oCliente.txbNombres.Text = dataGridView1.CurrentRow.Cells["Nombres"].Value.ToString();
                     oCliente.txbApellidos.Text = dataGridView1.CurrentRow.Cells["Apellidos"].Value.ToString();
                     oCliente.txbCorreo.Text = dataGridView1.CurrentRow.Cells["Correo"].Value.ToString();
@@ -117,7 +117,7 @@ namespace General.GUI
                 if (MessageBox.Show("Desea ELIMINAR el registro seleccionado?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     CLS.Clientes oCliente = new CLS.Clientes();
-                    oCliente.IDCliente = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDCliente"].Value.ToString());
+                    oCliente.ID_Cliente = Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID_Cliente"].Value.ToString());
                     oCliente.Nombres = dataGridView1.CurrentRow.Cells["Nombres"].Value.ToString();
                     oCliente.Apellidos = dataGridView1.CurrentRow.Cells["Apellidos"].Value.ToString();
                     oCliente.Correo = dataGridView1.CurrentRow.Cells["Correo"].Value.ToString();

@@ -5,50 +5,30 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace General.CLS
 {
-    internal class Clientes
+    internal class Compras
     {
         MySqlDataReader resultado;
         DataTable tabla = new DataTable();
         MySqlConnection sqlConexion = new MySqlConnection();
 
-        Int32 _ID_Cliente;
-        string _Nombres;
-        string _Apellidos;
-        string _Correo;
-        string _Linea1;
-        string _Linea2;
-        Int32 _CodigoPostal;
-        Int32 _ID_Departamento;
-        Int32 _ID_Distrito;
-        Int32 _ID_Municipio;
+        Int32 _ID_Compra;
+        DateTime _FechaCompra;
+        Int32 _ID_Usuario;
+        Int32 _ID_Proveedor;
+        Int32 _ID_Producto;
+        Int32 _CantidadEntrante;
+        Decimal _TotalPagar;
 
-        public int ID_Cliente { get => _ID_Cliente; set => _ID_Cliente = value; }
-        public string Nombres { get => _Nombres; set => _Nombres = value; }
-        public string Apellidos { get => _Apellidos; set => _Apellidos = value; }
-        public string Correo { get => _Correo; set => _Correo = value; }
-        public string Linea1 { get => _Linea1; set => _Linea1 = value; }
-        public string Linea2 { get => _Linea2; set => _Linea2 = value; }
-        public int CodigoPostal { get => _CodigoPostal; set => _CodigoPostal = value; }
-        public int IDDepartamento { get => _ID_Departamento; set => _ID_Departamento = value; }
-        public int IDDistrito { get => _ID_Distrito; set => _ID_Distrito = value; }
-        public int IDMunicipio { get => _ID_Municipio; set => _ID_Municipio = value; }
-
-
-
-        public Clientes(int ID_Cliente, string nombre, string apellidos)
-        {
-            this._ID_Cliente = ID_Cliente;
-            this._Nombres = nombre;
-            this._Apellidos = apellidos;
-        }
-
-        public Clientes()
-        {
-        }
+        public int ID_Compra { get => _ID_Compra; set => _ID_Compra = value; }
+        public DateTime FechaCompra { get => _FechaCompra; set => _FechaCompra = value; }
+        public int ID_Usuario { get => _ID_Usuario; set => _ID_Usuario = value; }
+        public int ID_Proveedor { get => _ID_Proveedor; set => _ID_Proveedor = value; }
+        public int ID_Producto { get => _ID_Producto; set => _ID_Producto = value; }
+        public int CantidadEntrante { get => _CantidadEntrante; set => _CantidadEntrante = value; }
+        public decimal TotalPagar { get => _TotalPagar; set => _TotalPagar = value; }
 
         public Boolean Insertar()
         {
@@ -56,16 +36,16 @@ namespace General.CLS
             DataLayer.DBOperacion Operacion = new DataLayer.DBOperacion();
 
             StringBuilder Sentencia = new StringBuilder();
-            Sentencia.Append("INSERT INTO Clientes(Nombres, Apellidos, Correo, Linea1, Linea2, CodigoPostal, ID_Departamento, ID_Distrito, ID_Municipio) VALUES(");
-            Sentencia.Append("'" + _Nombres + "',");
-            Sentencia.Append("'" + _Apellidos + "',");
-            Sentencia.Append("'" + _Correo + "',");
-            Sentencia.Append("'" + _Linea1 + "',");
-            Sentencia.Append("'" + _Linea2 + "',");
-            Sentencia.Append(_CodigoPostal + ",");
-            Sentencia.Append(_ID_Departamento + ",");
-            Sentencia.Append(_ID_Distrito + ",");
-            Sentencia.Append(_ID_Municipio + ");");
+
+            Sentencia.Append("INSERT INTO Compras (FechaCompra, ID_Usuario, ID_Proveedor, ID_Producto, CantidadEntrante, TotalPagar) VALUES (");
+            Sentencia.Append("'" + _FechaCompra.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
+            Sentencia.Append(_ID_Usuario + ", ");
+            Sentencia.Append(_ID_Proveedor + ", ");
+            Sentencia.Append(_ID_Producto + ", ");
+            Sentencia.Append(_CantidadEntrante + ", ");
+            Sentencia.Append(_TotalPagar.ToString());
+            Sentencia.Append(");");
+
             try
             {
                 if (Operacion.EjecutarSentencia(Sentencia.ToString()) >= 0)
@@ -90,17 +70,15 @@ namespace General.CLS
             DataLayer.DBOperacion Operacion = new DataLayer.DBOperacion();
 
             StringBuilder Sentencia = new StringBuilder();
-            Sentencia.Append("UPDATE Clientes SET ");
-            Sentencia.Append("Nombres ='" + _Nombres + "',");
-            Sentencia.Append("Apellidos ='" + _Apellidos + "',");
-            Sentencia.Append("Correo ='" + _Correo + "',");
-            Sentencia.Append("Linea1 ='" + _Linea1 + "',");
-            Sentencia.Append("Linea2 ='" + _Linea2 + "',");
-            Sentencia.Append("CodigoPostal =" + _CodigoPostal + ",");
-            Sentencia.Append("ID_Departamento =" + _ID_Departamento + ",");
-            Sentencia.Append("ID_Distrito =" + _ID_Distrito + ",");
-            Sentencia.Append("ID_Municipio =" + _ID_Municipio);
-            Sentencia.Append(" WHERE ID_Cliente ='" + _ID_Cliente + "';");
+            Sentencia.Append("UPDATE Compras SET ");
+            Sentencia.Append("FechaCompra = '" + _FechaCompra.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
+            Sentencia.Append("ID_Usuario = " + _ID_Usuario + ", ");
+            Sentencia.Append("ID_Proveedor = " + _ID_Proveedor + ", ");
+            Sentencia.Append("ID_Producto = " + _ID_Producto + ", ");
+            Sentencia.Append("CantidadEntrante = " + _CantidadEntrante + ", ");
+            Sentencia.Append("TotalPagar = " + _TotalPagar.ToString());
+            Sentencia.Append(" WHERE ID_Compra = " + _ID_Compra + ";");
+
             try
             {
                 if (Operacion.EjecutarSentencia(Sentencia.ToString()) >= 0)
@@ -119,14 +97,15 @@ namespace General.CLS
             return Resultado;
         }
 
-        public Boolean Eliminar()
+        public bool Eliminar()
         {
-            Boolean Resultado = false;
+            bool Resultado = false;
             DataLayer.DBOperacion Operacion = new DataLayer.DBOperacion();
 
             StringBuilder Sentencia = new StringBuilder();
-            Sentencia.Append("DELETE FROM Clientes");
-            Sentencia.Append(" WHERE ID_Cliente ='" + _ID_Cliente + "';");
+            Sentencia.Append("DELETE FROM Compras ");
+            Sentencia.Append("WHERE ID_Compra=" + _ID_Compra + ";");
+
             try
             {
                 if (Operacion.EjecutarSentencia(Sentencia.ToString()) >= 0)
@@ -145,28 +124,64 @@ namespace General.CLS
             return Resultado;
         }
 
-        public List<Municipios> ObtenerMunicipios()
+
+        public List<Usuarios> ObtenerUsuarios()
         {
-            List<Municipios> listaMunicipios = new List<Municipios>();
+            List<Usuarios> listaUsuarios = new List<Usuarios>();
 
             try
             {
                 sqlConexion.ConnectionString = "Server=localhost;Port=3306;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
-                MySqlCommand comando = new MySqlCommand("ObtenerMunicipios", sqlConexion);
+                MySqlCommand comando = new MySqlCommand("ObtenerUsuarios", sqlConexion);
                 comando.CommandType = CommandType.StoredProcedure;
                 sqlConexion.Open();
                 resultado = comando.ExecuteReader();
 
                 while (resultado.Read())
                 {
-                    listaMunicipios.Add(new Municipios(
+                    listaUsuarios.Add(new Usuarios(
+                        resultado.GetInt32(0),
+                        resultado.GetString(1)
+                        ));
+                }
+
+                return listaUsuarios;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (sqlConexion.State == ConnectionState.Open)
+                {
+                    sqlConexion.Close();
+                }
+            }
+        }
+
+        public List<Proveedores> ObtenerProveedores()
+        {
+            List<Proveedores> listaProveedores = new List<Proveedores>();
+
+            try
+            {
+                sqlConexion.ConnectionString = "Server=localhost;Port=3306;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
+                MySqlCommand comando = new MySqlCommand("ObtenerProveedores", sqlConexion);
+                comando.CommandType = CommandType.StoredProcedure;
+                sqlConexion.Open();
+                resultado = comando.ExecuteReader();
+
+                while (resultado.Read())
+                {
+                    listaProveedores.Add(new Proveedores(
                         resultado.GetInt32(0),
                         resultado.GetString(1)
                         )
                      );
                 }
 
-                return listaMunicipios;
+                return listaProveedores;
             }
             catch (Exception ex)
             {
@@ -181,26 +196,27 @@ namespace General.CLS
             }
         }
 
-        public List<Distritos> ObtenerDistritos()
+        public List<Productos> ObtenerProductos()
         {
-            List<Distritos> listaDistritos = new List<Distritos>();
+            List<Productos> listaProductos = new List<Productos>();
+
             try
             {
                 sqlConexion.ConnectionString = "Server=localhost;Port=3306;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
-                MySqlCommand comando = new MySqlCommand("ObtenerDistritos", sqlConexion);
+                MySqlCommand comando = new MySqlCommand("ObtenerProductos", sqlConexion);
                 comando.CommandType = CommandType.StoredProcedure;
                 sqlConexion.Open();
                 resultado = comando.ExecuteReader();
 
                 while (resultado.Read())
                 {
-                    listaDistritos.Add(new Distritos(
+                    listaProductos.Add(new Productos(
                         resultado.GetInt32(0),
                         resultado.GetString(1)
-                    ));
+                        ));
                 }
 
-                return listaDistritos;
+                return listaProductos;
             }
             catch (Exception ex)
             {
@@ -215,40 +231,5 @@ namespace General.CLS
             }
         }
 
-        public List<Departamentos> ObtenerDepartamentos()
-        {
-            List<Departamentos> listaDepartamentos = new List<Departamentos>();
-            try
-            {
-                sqlConexion.ConnectionString = "Server=localhost;Port=3306;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
-                MySqlCommand comando = new MySqlCommand("ObtenerDepartamentos", sqlConexion);
-                comando.CommandType = CommandType.StoredProcedure;
-                sqlConexion.Open();
-                resultado = comando.ExecuteReader();
-
-                while (resultado.Read())
-                {
-                    listaDepartamentos.Add(new Departamentos(
-                        resultado.GetInt32(0),
-                        resultado.GetString(1),
-                        resultado.GetString(1)
-                    ));
-                }
-
-                return listaDepartamentos;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                if (sqlConexion.State == ConnectionState.Open)
-                {
-                    sqlConexion.Close();
-                }
-            }
-        }
     }
 }
-

@@ -14,34 +14,23 @@ namespace General.CLS
         DataTable tabla = new DataTable();
         MySqlConnection sqlConexion = new MySqlConnection();
 
-        Int32 _IDVenta;
+        Int32 _ID_Venta;
         DateTime _FechaVenta;
-        Int32 _IDUsuario;
-        Int32 _IDCliente;
-        Int32 _IDProducto;
-        double _Precio;
-        Int32 _Cantidad;
-        double _Total;
+        Int32 _ID_Usuario;
+        Int32 _ID_Cliente;
+        Int32 _ID_Producto;
+        Decimal _PrecioVenta;
+        Int32 _CantidadSaliente;
+        Decimal _TotalCobrar;
 
-        public Ventas(int idVenta)
-        {
-            this._IDVenta = idVenta;
-        }
-
-        public Ventas()
-        { 
-        }
-
-        public int IDVenta { get => _IDVenta; set => _IDVenta = value; }
+        public int ID_Venta { get => _ID_Venta; set => _ID_Venta = value; }
         public DateTime FechaVenta { get => _FechaVenta; set => _FechaVenta = value; }
-        public int IDUsuario { get => _IDUsuario; set => _IDUsuario = value; }
-        public int IDCliente { get => _IDCliente; set => _IDCliente = value; }
-        public int IDProducto { get => _IDProducto; set => _IDProducto = value; }
-        public double Precio { get => _Precio; set => _Precio = value; }
-        public int Cantidad { get => _Cantidad; set => _Cantidad = value; }
-        public double Total { get => _Total; set => _Total = value; }
-
-
+        public int ID_Usuario { get => _ID_Usuario; set => _ID_Usuario = value; }
+        public int ID_Cliente { get => _ID_Cliente; set => _ID_Cliente = value; }
+        public int ID_Producto { get => _ID_Producto; set => _ID_Producto = value; }
+        public decimal PrecioVenta { get => _PrecioVenta; set => _PrecioVenta = value; }
+        public int CantidadSaliente { get => _CantidadSaliente; set => _CantidadSaliente = value; }
+        public decimal TotalCobrar { get => _TotalCobrar; set => _TotalCobrar = value; }
 
         public Boolean Insertar()
         {
@@ -50,14 +39,15 @@ namespace General.CLS
 
             StringBuilder Sentencia = new StringBuilder();
 
-            Sentencia.Append("INSERT INTO ventas (FechaVenta, IDUsuario, IDCliente, IDProducto, Precio, Cantidad, Total) VALUES (");
+            Sentencia.Append("INSERT INTO ventas (FechaVenta, ID_Usuario, ID_Cliente, ID_Producto, PrecioVenta, CantidadSaliente, TotalCobrar) VALUES (");
             Sentencia.Append("'" + _FechaVenta.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
-            Sentencia.Append(_IDUsuario + ", ");  
-            Sentencia.Append(_IDCliente + ", ");  
-            Sentencia.Append(_IDProducto + ", ");
-            Sentencia.Append(_Precio + ", ");
-            Sentencia.Append(_Cantidad + ", "); 
-            Sentencia.Append(_Total + ");"); 
+            Sentencia.Append(_ID_Usuario + ", ");
+            Sentencia.Append(_ID_Cliente + ", ");
+            Sentencia.Append(_ID_Producto + ", ");
+            Sentencia.Append(_PrecioVenta.ToString() + ", ");
+            Sentencia.Append(_CantidadSaliente + ", ");
+            Sentencia.Append(_TotalCobrar.ToString());
+            Sentencia.Append(");");
 
             try
             {
@@ -86,13 +76,13 @@ namespace General.CLS
             StringBuilder Sentencia = new StringBuilder();
             Sentencia.Append("UPDATE Ventas SET ");
             Sentencia.Append("FechaVenta = '" + _FechaVenta.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
-            Sentencia.Append("IDUsuario = " + _IDUsuario + ", ");
-            Sentencia.Append("IDCliente = " + _IDCliente + ", ");
-            Sentencia.Append("IDProducto = '" + _IDProducto + "', ");
-            Sentencia.Append("Precio = " + _Precio + ", ");
-            Sentencia.Append("Cantidad = " + _Cantidad + ", "); 
-            Sentencia.Append("Total = " + _Total);
-            Sentencia.Append(" WHERE IDVenta = '" + _IDVenta + "';");
+            Sentencia.Append("ID_Usuario = " + _ID_Usuario + ", ");
+            Sentencia.Append("ID_Cliente = " + _ID_Cliente + ", ");
+            Sentencia.Append("ID_Producto = '" + _ID_Producto + "', ");
+            Sentencia.Append("PrecioVenta = " + _PrecioVenta.ToString() + ", ");
+            Sentencia.Append("CantidadSaliente = " + _CantidadSaliente + ", ");
+            Sentencia.Append("TotalCobrar = " + _TotalCobrar.ToString());
+            Sentencia.Append(" WHERE ID_Venta = '" + _ID_Venta + "';");
 
             try
             {
@@ -120,7 +110,7 @@ namespace General.CLS
 
             StringBuilder Sentencia = new StringBuilder();
             Sentencia.Append("DELETE FROM ventas ");
-            Sentencia.Append("WHERE IDVenta='" + _IDVenta + "';");
+            Sentencia.Append("WHERE ID_Venta='" + _ID_Venta + "';");
 
             try
             {
@@ -146,7 +136,7 @@ namespace General.CLS
 
             try
             {
-                sqlConexion.ConnectionString = "Server=localhost;Port=3007;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
+                sqlConexion.ConnectionString = "Server=localhost;Port=3306;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
                 MySqlCommand comando = new MySqlCommand("ObtenerUsuarios", sqlConexion);
                 comando.CommandType = CommandType.StoredProcedure;
                 sqlConexion.Open();
@@ -181,7 +171,7 @@ namespace General.CLS
 
             try
             {
-                sqlConexion.ConnectionString = "Server=localhost;Port=3007;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
+                sqlConexion.ConnectionString = "Server=localhost;Port=3306;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
                 MySqlCommand comando = new MySqlCommand("ObtenerClientes", sqlConexion);
                 comando.CommandType = CommandType.StoredProcedure;
                 sqlConexion.Open();
@@ -217,7 +207,7 @@ namespace General.CLS
 
             try
             {
-                sqlConexion.ConnectionString = "Server=localhost;Port=3007;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
+                sqlConexion.ConnectionString = "Server=localhost;Port=3306;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
                 MySqlCommand comando = new MySqlCommand("ObtenerProductos", sqlConexion);
                 comando.CommandType = CommandType.StoredProcedure;
                 sqlConexion.Open();

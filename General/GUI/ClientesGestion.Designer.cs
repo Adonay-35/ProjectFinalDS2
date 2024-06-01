@@ -48,7 +48,7 @@
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.IDCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,7 +82,7 @@
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IDCliente,
+            this.ID_Cliente,
             this.Nombres,
             this.Apellidos,
             this.Correo,
@@ -246,14 +246,14 @@
             this.toolStripButton1.Text = "Cerrar";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click_1);
             // 
-            // IDCliente
+            // ID_Cliente
             // 
-            this.IDCliente.DataPropertyName = "ID_Cliente";
-            this.IDCliente.HeaderText = "ID";
-            this.IDCliente.MinimumWidth = 8;
-            this.IDCliente.Name = "IDCliente";
-            this.IDCliente.ReadOnly = true;
-            this.IDCliente.Width = 150;
+            this.ID_Cliente.DataPropertyName = "ID_Cliente";
+            this.ID_Cliente.HeaderText = "ID";
+            this.ID_Cliente.MinimumWidth = 8;
+            this.ID_Cliente.Name = "ID_Cliente";
+            this.ID_Cliente.ReadOnly = true;
+            this.ID_Cliente.Width = 150;
             // 
             // Nombres
             // 
@@ -371,7 +371,7 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID_Cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombres;
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellidos;
         private System.Windows.Forms.DataGridViewTextBoxColumn Correo;
