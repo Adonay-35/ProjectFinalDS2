@@ -9,15 +9,16 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="dtsReporteClientesSegunZona" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="dtsReporteClientesSegunZona" msprop:Generator_DataSetName="dtsReporteClientesSegunZona">
+  <xs:element name="dtsReporteClientesSegunZona" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dtsReporteClientesSegunZona" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dtsReporteClientesSegunZona">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Clientes" msprop:Generator_RowEvHandlerName="ClientesRowChangeEventHandler" msprop:Generator_RowDeletedName="ClientesRowDeleted" msprop:Generator_RowDeletingName="ClientesRowDeleting" msprop:Generator_RowEvArgName="ClientesRowChangeEvent" msprop:Generator_TablePropName="Clientes" msprop:Generator_RowChangedName="ClientesRowChanged" msprop:Generator_RowChangingName="ClientesRowChanging" msprop:Generator_TableClassName="ClientesDataTable" msprop:Generator_RowClassName="ClientesRow" msprop:Generator_TableVarName="tableClientes" msprop:Generator_UserTableName="Clientes">
+        <xs:element name="ClientesPorZona" msprop:Generator_RowClassName="ClientesPorZonaRow" msprop:Generator_RowEvHandlerName="ClientesPorZonaRowChangeEventHandler" msprop:Generator_RowDeletedName="ClientesPorZonaRowDeleted" msprop:Generator_RowDeletingName="ClientesPorZonaRowDeleting" msprop:Generator_RowEvArgName="ClientesPorZonaRowChangeEvent" msprop:Generator_TablePropName="ClientesPorZona" msprop:Generator_RowChangedName="ClientesPorZonaRowChanged" msprop:Generator_UserTableName="ClientesPorZona" msprop:Generator_RowChangingName="ClientesPorZonaRowChanging" msprop:Generator_TableClassName="ClientesPorZonaDataTable" msprop:Generator_TableVarName="tableClientesPorZona">
           <xs:complexType>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="Direcciones" msprop:Generator_RowEvHandlerName="DireccionesRowChangeEventHandler" msprop:Generator_RowDeletedName="DireccionesRowDeleted" msprop:Generator_RowDeletingName="DireccionesRowDeleting" msprop:Generator_RowEvArgName="DireccionesRowChangeEvent" msprop:Generator_TablePropName="Direcciones" msprop:Generator_RowChangedName="DireccionesRowChanged" msprop:Generator_RowChangingName="DireccionesRowChanging" msprop:Generator_TableClassName="DireccionesDataTable" msprop:Generator_RowClassName="DireccionesRow" msprop:Generator_TableVarName="tableDirecciones" msprop:Generator_UserTableName="Direcciones">
-          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Departamento" msprop:Generator_ColumnPropNameInRow="Departamento" msprop:Generator_ColumnPropNameInTable="DepartamentoColumn" msprop:Generator_ColumnVarNameInTable="columnDepartamento" msprop:Generator_UserColumnName="Departamento" type="xs:string" minOccurs="0" />
+              <xs:element name="Municipio" msprop:Generator_ColumnPropNameInRow="Municipio" msprop:Generator_ColumnPropNameInTable="MunicipioColumn" msprop:Generator_ColumnVarNameInTable="columnMunicipio" msprop:Generator_UserColumnName="Municipio" type="xs:string" minOccurs="0" />
+              <xs:element name="NumeroDeClientes" msprop:Generator_ColumnPropNameInRow="NumeroDeClientes" msprop:Generator_ColumnPropNameInTable="NumeroDeClientesColumn" msprop:Generator_ColumnVarNameInTable="columnNumeroDeClientes" msprop:Generator_UserColumnName="NumeroDeClientes" type="xs:int" minOccurs="0" />
+            </xs:sequence>
           </xs:complexType>
         </xs:element>
       </xs:choice>

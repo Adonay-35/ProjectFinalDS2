@@ -9,15 +9,15 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="dtsReporteVentasSegunCategoria" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="dtsReporteVentasSegunCategoria" msprop:Generator_DataSetName="dtsReporteVentasSegunCategoria">
+  <xs:element name="dtsReporteVentasSegunCategoria" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dtsReporteVentasSegunCategoria" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dtsReporteVentasSegunCategoria">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Categorías" msprop:Generator_RowEvHandlerName="CategoríasRowChangeEventHandler" msprop:Generator_RowDeletedName="CategoríasRowDeleted" msprop:Generator_RowDeletingName="CategoríasRowDeleting" msprop:Generator_RowEvArgName="CategoríasRowChangeEvent" msprop:Generator_TablePropName="Categorías" msprop:Generator_RowChangedName="CategoríasRowChanged" msprop:Generator_RowChangingName="CategoríasRowChanging" msprop:Generator_TableClassName="CategoríasDataTable" msprop:Generator_RowClassName="CategoríasRow" msprop:Generator_TableVarName="tableCategorías" msprop:Generator_UserTableName="Categorías">
+        <xs:element name="VentasSegunCategorias" msprop:Generator_RowEvHandlerName="VentasSegunCategoriasRowChangeEventHandler" msprop:Generator_RowDeletedName="VentasSegunCategoriasRowDeleted" msprop:Generator_RowDeletingName="VentasSegunCategoriasRowDeleting" msprop:Generator_RowEvArgName="VentasSegunCategoriasRowChangeEvent" msprop:Generator_TablePropName="VentasSegunCategorias" msprop:Generator_RowChangedName="VentasSegunCategoriasRowChanged" msprop:Generator_UserTableName="VentasSegunCategorias" msprop:Generator_RowChangingName="VentasSegunCategoriasRowChanging" msprop:Generator_RowClassName="VentasSegunCategoriasRow" msprop:Generator_TableClassName="VentasSegunCategoriasDataTable" msprop:Generator_TableVarName="tableVentasSegunCategorias">
           <xs:complexType>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="Productos" msprop:Generator_RowEvHandlerName="ProductosRowChangeEventHandler" msprop:Generator_RowDeletedName="ProductosRowDeleted" msprop:Generator_RowDeletingName="ProductosRowDeleting" msprop:Generator_RowEvArgName="ProductosRowChangeEvent" msprop:Generator_TablePropName="Productos" msprop:Generator_RowChangedName="ProductosRowChanged" msprop:Generator_RowChangingName="ProductosRowChanging" msprop:Generator_TableClassName="ProductosDataTable" msprop:Generator_RowClassName="ProductosRow" msprop:Generator_TableVarName="tableProductos" msprop:Generator_UserTableName="Productos">
-          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Categoria" msprop:Generator_UserColumnName="Categoria" msprop:Generator_ColumnPropNameInTable="CategoriaColumn" msprop:Generator_ColumnPropNameInRow="Categoria" msprop:Generator_ColumnVarNameInTable="columnCategoria" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalVendido" msprop:Generator_UserColumnName="TotalVendido" msprop:Generator_ColumnPropNameInTable="TotalVendidoColumn" msprop:Generator_ColumnPropNameInRow="TotalVendido" msprop:Generator_ColumnVarNameInTable="columnTotalVendido" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
           </xs:complexType>
         </xs:element>
       </xs:choice>

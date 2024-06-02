@@ -9,11 +9,17 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="dtsReporteClientesFrecuentes" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="dtsReporteClientesFrecuentes" msprop:Generator_DataSetName="dtsReporteClientesFrecuentes">
+  <xs:element name="dtsReporteClientesFrecuentes" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dtsReporteClientesFrecuentes" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dtsReporteClientesFrecuentes">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Clientes" msprop:Generator_RowEvHandlerName="ClientesRowChangeEventHandler" msprop:Generator_RowDeletedName="ClientesRowDeleted" msprop:Generator_RowDeletingName="ClientesRowDeleting" msprop:Generator_RowEvArgName="ClientesRowChangeEvent" msprop:Generator_TablePropName="Clientes" msprop:Generator_RowChangedName="ClientesRowChanged" msprop:Generator_RowChangingName="ClientesRowChanging" msprop:Generator_TableClassName="ClientesDataTable" msprop:Generator_RowClassName="ClientesRow" msprop:Generator_TableVarName="tableClientes" msprop:Generator_UserTableName="Clientes">
+        <xs:element name="ClientesFrecuentes" msprop:Generator_RowClassName="ClientesFrecuentesRow" msprop:Generator_RowEvHandlerName="ClientesFrecuentesRowChangeEventHandler" msprop:Generator_RowDeletedName="ClientesFrecuentesRowDeleted" msprop:Generator_RowDeletingName="ClientesFrecuentesRowDeleting" msprop:Generator_RowEvArgName="ClientesFrecuentesRowChangeEvent" msprop:Generator_TablePropName="ClientesFrecuentes" msprop:Generator_RowChangedName="ClientesFrecuentesRowChanged" msprop:Generator_UserTableName="ClientesFrecuentes" msprop:Generator_RowChangingName="ClientesFrecuentesRowChanging" msprop:Generator_TableClassName="ClientesFrecuentesDataTable" msprop:Generator_TableVarName="tableClientesFrecuentes">
           <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID_Cliente" msprop:Generator_ColumnPropNameInRow="ID_Cliente" msprop:Generator_ColumnPropNameInTable="ID_ClienteColumn" msprop:Generator_ColumnVarNameInTable="columnID_Cliente" msprop:Generator_UserColumnName="ID_Cliente" type="xs:int" minOccurs="0" />
+              <xs:element name="Nombres" msprop:Generator_ColumnPropNameInRow="Nombres" msprop:Generator_ColumnPropNameInTable="NombresColumn" msprop:Generator_ColumnVarNameInTable="columnNombres" msprop:Generator_UserColumnName="Nombres" type="xs:string" minOccurs="0" />
+              <xs:element name="Apellidos" msprop:Generator_ColumnPropNameInRow="Apellidos" msprop:Generator_ColumnPropNameInTable="ApellidosColumn" msprop:Generator_ColumnVarNameInTable="columnApellidos" msprop:Generator_UserColumnName="Apellidos" type="xs:string" minOccurs="0" />
+              <xs:element name="NumeroDeCompras" msprop:Generator_ColumnPropNameInRow="NumeroDeCompras" msprop:Generator_ColumnPropNameInTable="NumeroDeComprasColumn" msprop:Generator_ColumnVarNameInTable="columnNumeroDeCompras" msprop:Generator_UserColumnName="NumeroDeCompras" type="xs:int" minOccurs="0" />
+            </xs:sequence>
           </xs:complexType>
         </xs:element>
       </xs:choice>

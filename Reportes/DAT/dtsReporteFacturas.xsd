@@ -9,11 +9,21 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="dtsReporteFacturas" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="dtsReporteFacturas" msprop:Generator_DataSetName="dtsReporteFacturas">
+  <xs:element name="dtsReporteFacturas" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dtsReporteFacturas" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dtsReporteFacturas">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Ventas" msprop:Generator_RowEvHandlerName="VentasRowChangeEventHandler" msprop:Generator_RowDeletedName="VentasRowDeleted" msprop:Generator_RowDeletingName="VentasRowDeleting" msprop:Generator_RowEvArgName="VentasRowChangeEvent" msprop:Generator_TablePropName="Ventas" msprop:Generator_RowChangedName="VentasRowChanged" msprop:Generator_RowChangingName="VentasRowChanging" msprop:Generator_TableClassName="VentasDataTable" msprop:Generator_RowClassName="VentasRow" msprop:Generator_TableVarName="tableVentas" msprop:Generator_UserTableName="Ventas">
+        <xs:element name="Facturas" msprop:Generator_RowClassName="FacturasRow" msprop:Generator_RowEvHandlerName="FacturasRowChangeEventHandler" msprop:Generator_RowDeletedName="FacturasRowDeleted" msprop:Generator_RowDeletingName="FacturasRowDeleting" msprop:Generator_RowEvArgName="FacturasRowChangeEvent" msprop:Generator_TablePropName="Facturas" msprop:Generator_RowChangedName="FacturasRowChanged" msprop:Generator_UserTableName="Facturas" msprop:Generator_RowChangingName="FacturasRowChanging" msprop:Generator_TableClassName="FacturasDataTable" msprop:Generator_TableVarName="tableFacturas">
           <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID_Venta" msprop:Generator_ColumnPropNameInRow="ID_Venta" msprop:Generator_ColumnPropNameInTable="ID_VentaColumn" msprop:Generator_ColumnVarNameInTable="columnID_Venta" msprop:Generator_UserColumnName="ID_Venta" type="xs:int" minOccurs="0" />
+              <xs:element name="FechaVenta" msprop:Generator_ColumnPropNameInRow="FechaVenta" msprop:Generator_ColumnPropNameInTable="FechaVentaColumn" msprop:Generator_ColumnVarNameInTable="columnFechaVenta" msprop:Generator_UserColumnName="FechaVenta" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Vendedor" msprop:Generator_ColumnPropNameInRow="Vendedor" msprop:Generator_ColumnPropNameInTable="VendedorColumn" msprop:Generator_ColumnVarNameInTable="columnVendedor" msprop:Generator_UserColumnName="Vendedor" type="xs:string" minOccurs="0" />
+              <xs:element name="Cliente" msprop:Generator_ColumnPropNameInRow="Cliente" msprop:Generator_ColumnPropNameInTable="ClienteColumn" msprop:Generator_ColumnVarNameInTable="columnCliente" msprop:Generator_UserColumnName="Cliente" type="xs:string" minOccurs="0" />
+              <xs:element name="Producto" msprop:Generator_ColumnPropNameInRow="Producto" msprop:Generator_ColumnPropNameInTable="ProductoColumn" msprop:Generator_ColumnVarNameInTable="columnProducto" msprop:Generator_UserColumnName="Producto" type="xs:string" minOccurs="0" />
+              <xs:element name="PrecioVenta" msprop:Generator_ColumnPropNameInRow="PrecioVenta" msprop:Generator_ColumnPropNameInTable="PrecioVentaColumn" msprop:Generator_ColumnVarNameInTable="columnPrecioVenta" msprop:Generator_UserColumnName="PrecioVenta" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CantidadSaliente" msprop:Generator_ColumnPropNameInRow="CantidadSaliente" msprop:Generator_ColumnPropNameInTable="CantidadSalienteColumn" msprop:Generator_ColumnVarNameInTable="columnCantidadSaliente" msprop:Generator_UserColumnName="CantidadSaliente" type="xs:int" minOccurs="0" />
+              <xs:element name="TotalCobrar" msprop:Generator_ColumnPropNameInRow="TotalCobrar" msprop:Generator_ColumnPropNameInTable="TotalCobrarColumn" msprop:Generator_ColumnVarNameInTable="columnTotalCobrar" msprop:Generator_UserColumnName="TotalCobrar" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
           </xs:complexType>
         </xs:element>
       </xs:choice>
