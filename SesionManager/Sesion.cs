@@ -17,7 +17,6 @@ namespace SesionManager
 
         String _Usuario;
 
-
         public string Usuario
         {
             get => _Usuario;

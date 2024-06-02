@@ -16,9 +16,9 @@ namespace ProyectoCRUD
         {
             InitializeComponent();
         }
+
         private void Cronometro_Tick(object sender, EventArgs e)
         {
-           
             Cronometro.Stop();
             Close();
         }

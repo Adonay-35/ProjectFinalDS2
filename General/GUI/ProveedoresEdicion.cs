@@ -78,6 +78,38 @@ namespace General.GUI
             InitializeComponent();
         }
 
+        public void MostrarMunicipios(ComboBox cbMunicipios)
+        {
+            List<Municipios> datos = metodosProveedores.ObtenerMunicipios();
+            cbMunicipios.Items.Add("Selecciona una opción");
+            foreach (Municipios dato in datos)
+            {
+                cbMunicipios.Items.Add(dato.Municipio);
+            };
+        }
+
+        public void MostrarDistritos(ComboBox cbDistritos)
+        {
+
+            List<Distritos> datos = metodosProveedores.ObtenerDistritos();
+            cbDistritos.Items.Add("Selecciona una opción");
+            foreach (Distritos dato in datos)
+            {
+                cbDistritos.Items.Add(dato.Distrito);
+            }
+        }
+
+        public void MostrarDepartamentos(ComboBox cbDepartamentos)
+        {
+
+            List<Departamentos> datos = metodosProveedores.ObtenerDepartamentos();
+            cbDepartamentos.Items.Add("Selecciona una opción");
+            foreach (Departamentos dato in datos)
+            {
+                cbDepartamentos.Items.Add(dato.Departamento);
+            }
+        }
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
@@ -141,43 +173,10 @@ namespace General.GUI
 
         }
 
-        public void MostrarMunicipios(ComboBox cbMunicipios)
-        {
-            List<Municipios> datos = metodosProveedores.ObtenerMunicipios();
-            cbMunicipios.Items.Add("Selecciona una opción");
-            foreach (Municipios dato in datos)
-            {
-                cbMunicipios.Items.Add(dato.Municipio);
-            };
-        }
-
-        public void MostrarDistritos(ComboBox cbDistritos)
-        {
-
-            List<Distritos> datos = metodosProveedores.ObtenerDistritos();
-            cbDistritos.Items.Add("Selecciona una opción");
-            foreach (Distritos dato in datos)
-            {
-                cbDistritos.Items.Add(dato.Distrito);
-            }
-        }
-
-        public void MostrarDepartamentos(ComboBox cbDepartamentos)
-        {
-
-            List<Departamentos> datos = metodosProveedores.ObtenerDepartamentos();
-            cbDepartamentos.Items.Add("Selecciona una opción");
-            foreach (Departamentos dato in datos)
-            {
-                cbDepartamentos.Items.Add(dato.Departamento);
-            }
-        }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
         }
-
 
         private void ProveedoresEdicion_Load_1(object sender, EventArgs e)
         {

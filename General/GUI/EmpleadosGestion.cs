@@ -83,6 +83,7 @@ namespace General.GUI
                     oEmpleadoEdicion.txbID_Empleado.Text = dataGridView1.CurrentRow.Cells["ID_Empleado"].Value.ToString();
                     oEmpleadoEdicion.txbNombre.Text = dataGridView1.CurrentRow.Cells["Nombres"].Value.ToString();
                     oEmpleadoEdicion.txbApellido.Text = dataGridView1.CurrentRow.Cells["Apellidos"].Value.ToString();
+                    oEmpleadoEdicion.txbFechaNacimiento.Text = dataGridView1.CurrentRow.Cells["FechaNac"].Value.ToString();
                     oEmpleadoEdicion.txbDui.Text = dataGridView1.CurrentRow.Cells["DUI"].Value.ToString();
                     oEmpleadoEdicion.txbTelefono.Text = dataGridView1.CurrentRow.Cells["Telefono"].Value.ToString();
                     oEmpleadoEdicion.txbCorreo.Text = dataGridView1.CurrentRow.Cells["Correo"].Value.ToString();
@@ -131,7 +132,6 @@ namespace General.GUI
 
             }
         }
-
 
         private void EmpleadosGestion_Load(object sender, EventArgs e)
         {

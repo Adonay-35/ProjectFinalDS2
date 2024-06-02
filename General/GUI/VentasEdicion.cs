@@ -1,4 +1,5 @@
 ﻿using General.CLS;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,10 @@ namespace General.GUI
 {
     public partial class VentasEdicion : Form
     {
+        MySqlDataReader resultado;
+        DataTable tabla = new DataTable();
+        MySqlConnection sqlConexion = new MySqlConnection();
+
         Ventas metodosventas = new Ventas();
 
         private bool Validar()
@@ -152,6 +157,8 @@ namespace General.GUI
             }
         }
 
+        private List<Productos> listaProductos; // Declarar la variable de clase
+
         public void MostrarProductos(ComboBox cbProductos)
         {
             // Obtener la lista de productos y almacenarla en la variable de clase
@@ -169,28 +176,6 @@ namespace General.GUI
 
            cbProductos.SelectedIndex = 0; 
         }
-
-        private void VentasEdicion_Load(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(txbID_Venta.Text))
-            {
-                this.MostrarUsuarios(cbUsuarios);
-                this.MostrarClientes(cbClientes);
-                this.MostrarProductos(cbProductos);
-                cbUsuarios.SelectedIndex = 0;
-                cbClientes.SelectedIndex = 0;
-                cbProductos.SelectedIndex = 0;
-            }
- 
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-    
-        private List<Productos> listaProductos; // Declarar la variable de clase
 
         private void cbProductos_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -219,6 +204,40 @@ namespace General.GUI
             }
         }
 
+        public void ActualizarStockSaliente(int idProducto, int cantidadSaliente)
+        {
+            try
+            {
+                // Configuración de la conexión
+                sqlConexion.ConnectionString = "Server=localhost;Port=3306;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
+
+                // Consulta para actualizar el stock en la tabla Kardex
+                string query = @" UPDATE Kardex SET Stock = Stock - @CantidadSaliente WHERE ID_Kardex = (SELECT ID_Kardex
+                                  FROM Compras WHERE ID_Producto = @ID_Producto LIMIT 1)";
+
+                // Configuración del comando
+                MySqlCommand comando = new MySqlCommand(query, sqlConexion);
+                comando.Parameters.AddWithValue("@CantidadSaliente", cantidadSaliente);
+                comando.Parameters.AddWithValue("@ID_Producto", idProducto);
+
+                // Abrir la conexión y ejecutar la consulta
+                sqlConexion.Open();
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                // Asegurarse de que la conexión se cierre
+                if (sqlConexion.State == ConnectionState.Open)
+                {
+                    sqlConexion.Close();
+                }
+            }
+        }
+
         private void txbCantidadSaliente_TextChanged(object sender, EventArgs e)
         {
             // Ajustar el índice porque el primer elemento es "Selecciona una opción"
@@ -232,9 +251,28 @@ namespace General.GUI
                 // Intentar obtener la cantidad saliente
                 if (int.TryParse(txbCantidadSaliente.Text, out int cantidadSaliente))
                 {
-                    // Calcular el total a cobrar
-                    decimal totalCobrar = (decimal)(productoSeleccionado.PrecioCompra * cantidadSaliente);
-                    txbTotalCobrar.Text = totalCobrar.ToString();
+                    // Verificar el stock actual
+                    int stockActual = ObtenerStockActual(productoSeleccionado.ID_Producto);
+
+                    if (stockActual == 0)
+                    {
+                        MessageBox.Show("Ya no hay stock disponible.");
+                        txbTotalCobrar.Text = "0";
+                    }
+                    else if (stockActual < cantidadSaliente)
+                    {
+                        MessageBox.Show("No hay suficiente stock disponible.");
+                        txbTotalCobrar.Text = "0";
+                    }
+                    else
+                    {
+                        // Calcular el total a cobrar
+                        decimal totalCobrar = (decimal)(productoSeleccionado.PrecioCompra * cantidadSaliente);
+                        txbTotalCobrar.Text = totalCobrar.ToString();
+
+                        // Actualizar el stock en la base de datos
+                        ActualizarStockSaliente(productoSeleccionado.ID_Producto, cantidadSaliente);
+                    }
                 }
                 else
                 {
@@ -242,5 +280,62 @@ namespace General.GUI
                 }
             }
         }
-    }   
+
+        private int ObtenerStockActual(int idProducto)
+        {
+            int stockActual = 0;
+
+            try
+            {
+                // Configuración de la conexión
+                using (MySqlConnection sqlConexion = new MySqlConnection("Server=localhost;Port=3306;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;"))
+                {
+                    // Consulta para obtener el stock actual
+                    string checkStockQuery = @"SELECT Stock FROM Kardex WHERE ID_Kardex = (SELECT ID_Kardex FROM Compras WHERE ID_Producto = @ID_Producto LIMIT 1)";
+
+                    // Configuración del comando para verificar el stock
+                    MySqlCommand checkStockCommand = new MySqlCommand(checkStockQuery, sqlConexion);
+                    checkStockCommand.Parameters.AddWithValue("@ID_Producto", idProducto);
+
+                    // Abrir la conexión
+                    sqlConexion.Open();
+
+                    // Ejecutar la consulta de verificación del stock
+                    object result = checkStockCommand.ExecuteScalar();
+
+                    // Verificar si el resultado es nulo o DBNull
+                    if (result != null && result != DBNull.Value)
+                    {
+                        stockActual = Convert.ToInt32(result);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error al verificar el stock: " + ex.Message);
+            }
+
+            return stockActual;
+        }
+
+        private void VentasEdicion_Load(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txbID_Venta.Text))
+            {
+                this.MostrarUsuarios(cbUsuarios);
+                this.MostrarClientes(cbClientes);
+                this.MostrarProductos(cbProductos);
+                cbUsuarios.SelectedIndex = 0;
+                cbClientes.SelectedIndex = 0;
+                cbProductos.SelectedIndex = 0;
+            }
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+    }
 }

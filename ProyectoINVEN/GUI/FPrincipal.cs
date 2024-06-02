@@ -1,4 +1,5 @@
 ﻿using General.GUI;
+using SesionManager;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,8 @@ namespace ProyectoCRUD.GUI
 {
     public partial class FPrincipal : Form
     {
+
+
         public FPrincipal()
         {
             InitializeComponent();
@@ -159,6 +162,28 @@ namespace ProyectoCRUD.GUI
         }
 
 
+        private void btnCientesFrecuentes_Click(object sender, EventArgs e)
+        {
+            AbrirPanelContenedor(new Reportes.GUI.VisorClientesFrecuentes());
+        }
+
+        private void btnClientesZonas_Click(object sender, EventArgs e)
+        {
+            AbrirPanelContenedor(new Reportes.GUI.VisorClientesSegunZona());
+        }
+
+        private void btnFacturas_Click(object sender, EventArgs e)
+        {
+            AbrirPanelContenedor(new Reportes.GUI.VisorFacturas());
+        }
+
+        private void btnReporteVentas_Click(object sender, EventArgs e)
+        {
+            AbrirPanelContenedor(new Reportes.GUI.VisorVentasSegunCategoria());
+
+            OcultarSubmenu();
+        }
+
         private Form FormActivo = null;
         private void AbrirPanelContenedor(Form FormularioHijo)
         {
@@ -175,14 +200,16 @@ namespace ProyectoCRUD.GUI
                     FormularioHijo.Show();
         }
 
+
         private void FPrincipal_Load(object sender, EventArgs e)
         {
-
+            // Mostrar mensaje de bienvenida
+            MessageBox.Show($"Bienvenido {Sesion.ObtenerInstancia().Usuario}", "Inicio de sesión exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Close();
+            this.WindowState = FormWindowState.Minimized;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -263,15 +290,6 @@ namespace ProyectoCRUD.GUI
                 Application.Exit();
             }
         }
-
-        private void btnReportes_Click(object sender, EventArgs e)
-        {
- 
-        }
-
-        private void btnReporteVentas_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

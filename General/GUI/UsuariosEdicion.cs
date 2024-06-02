@@ -26,12 +26,6 @@ namespace General.GUI
                     Valido = false;
                 }
 
-                if (txbClave.Text.Trim().Length == 0)
-                {
-                    Notificador.SetError(txbClave, "Este campo no puede quedar vacio");
-                    Valido = false;
-                }
-
                 if (cbEmpleados.Text.Trim().Length == 0)
                 {
                     Notificador.SetError(cbEmpleados, "Este campo no puede quedar vacio");
@@ -59,6 +53,26 @@ namespace General.GUI
         public UsuariosEdicion()
         {
             InitializeComponent();
+        }
+
+        public void MostrarEstados(ComboBox cbEstados)
+        {
+            List<Estados> datos = metodosUsuarios.ObtenerEstados();
+            cbEstados.Items.Add("Selecciona una opción");
+            foreach (Estados dato in datos)
+            {
+                cbEstados.Items.Add(dato.Descripcion);
+            }
+        }
+
+        public void MostrarRoles(ComboBox cbRoles)
+        {
+            List<Roles> datos = metodosUsuarios.ObtenerRoles();
+            cbRoles.Items.Add("Selecciona una opción");
+            foreach (Roles dato in datos)
+            {
+                cbRoles.Items.Add(dato.Rol);
+            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -113,26 +127,6 @@ namespace General.GUI
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-        }
-
-        public void MostrarEstados(ComboBox cbEstados)
-        {
-            List<Estados> datos = metodosUsuarios.ObtenerEstados();
-            cbEstados.Items.Add("Selecciona una opción");
-            foreach (Estados dato in datos)
-            {
-                cbEstados.Items.Add(dato.Descripcion);
-            }
-        }
-
-        public void MostrarRoles(ComboBox cbRoles)
-        {
-            List<Roles> datos = metodosUsuarios.ObtenerRoles();
-            cbRoles.Items.Add("Selecciona una opción");
-            foreach (Roles dato in datos)
-            {
-                cbRoles.Items.Add(dato.Rol);
             }
         }
 

@@ -101,8 +101,6 @@ namespace General.CLS
             return Resultado;
         }
 
-
-
         public bool Eliminar()
         {
             bool Resultado = false;

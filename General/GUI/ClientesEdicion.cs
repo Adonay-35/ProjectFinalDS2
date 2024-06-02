@@ -150,7 +150,6 @@ namespace General.GUI
             Close();
         }
 
-
         private void ClientesEdicion_Load_1(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txbID_Cliente.Text))

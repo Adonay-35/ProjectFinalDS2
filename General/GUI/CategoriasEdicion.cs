@@ -77,9 +77,6 @@ namespace General.GUI
             }
         }
 
-
-
-
         public CategoriasEdicion()
         {
             InitializeComponent();

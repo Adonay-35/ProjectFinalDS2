@@ -21,28 +21,30 @@ CREATE VIEW VistaProductosParaCompras AS
 SELECT 
     P.ID_Producto, 
     P.Producto, 
-    (SELECT
-        Kr.Stock
-    FROM
-        Kardex Kr
-    INNER JOIN
-        Compras Com ON Kr.ID_Compra = Com.ID_Compra
-    INNER JOIN
-        Productos Prod ON Com.ID_Producto = Prod.ID_Producto) AS Stock,
-    P.PrecioCompra,
+    (SELECT 
+        Kr.Stock 
+     FROM 
+        Kardex Kr 
+     INNER JOIN 
+        Compras Com ON Kr.ID_Compra = Com.ID_Compra 
+     WHERE 
+        Com.ID_Producto = P.ID_Producto 
+     LIMIT 1) AS Stock, 
+    P.PrecioCompra, 
     DATE_FORMAT(P.FechaFabricacion, '%d-%m-%Y') AS FechaFabricacion, 
     DATE_FORMAT(P.FechaVencimiento, '%d-%m-%Y') AS FechaVencimiento, 
     P.Descripcion, 
     PR.Proveedor, 
-    C.Categoria
+    C.Categoria 
 FROM 
-    Productos P
+    Productos P 
 INNER JOIN 
-    Proveedores PR ON P.ID_Proveedor = PR.ID_Proveedor
+    Proveedores PR ON P.ID_Proveedor = PR.ID_Proveedor 
 INNER JOIN 
-    Categorias C ON P.ID_Categoria = C.ID_Categoria
+    Categorias C ON P.ID_Categoria = C.ID_Categoria 
 ORDER BY 
     P.Producto ASC;
+
 
 CREATE VIEW VistaProductosParaVentas AS
 SELECT 
@@ -96,6 +98,7 @@ SELECT
     e.ID_Empleado,
     e.Nombres,
     e.Apellidos,
+	DATE_FORMAT(e.FechaNac, '%d-%m-%Y') AS FechaNac,
     e.DUI,
     e.Telefono,
     e.Correo,
