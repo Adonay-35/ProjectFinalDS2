@@ -264,5 +264,14 @@ namespace ProyectoCRUD.GUI
             }
         }
 
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+ 
+        }
+
+        private void btnReporteVentas_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
