@@ -100,7 +100,7 @@ CREATE TABLE Productos (
 
 CREATE TABLE Compras (
     ID_Compra int auto_increment primary key,
-    FechaCompra datetime not null,
+    FechaCompra date not null,
     ID_Usuario int not null,
     ID_Proveedor int not null,
     ID_Producto  int not null,
@@ -110,19 +110,19 @@ CREATE TABLE Compras (
 
 CREATE TABLE Ventas (
     ID_Venta int auto_increment primary key,
-    FechaVenta datetime not null,
+    FechaVenta date not null,
     ID_Usuario int not null,
     ID_Cliente int not null,
     ID_Producto  int not null,
     PrecioVenta decimal(18, 2) not null, 
-    CantidadSaliente double not null,
+    CantidadSaliente int not null,
     TotalCobrar decimal(18, 2) not null
 );
 
 CREATE TABLE Kardex(
 	ID_Kardex int auto_increment primary key,
-    ID_Compra int not null,
-    ID_Venta int not null,
+    ID_Compra int null,
+    ID_Venta int null,
     Stock int not null
 );
 
@@ -151,7 +151,13 @@ ALTER TABLE Ventas ADD CONSTRAINT fk_venta_cliente FOREIGN KEY (ID_Cliente) REFE
 ALTER TABLE Ventas ADD CONSTRAINT fk_venta_producto FOREIGN KEY (ID_Producto) REFERENCES Productos(ID_Producto);
 ALTER TABLE Kardex ADD CONSTRAINT fk_kardex_compra FOREIGN KEY (ID_Compra) REFERENCES Compras(ID_Compra);
 ALTER TABLE Kardex ADD CONSTRAINT fk_kardex_venta FOREIGN KEY (ID_Venta) REFERENCES Ventas(ID_Venta);
-
+/*
+En base a esta BD creame las vistas para MySQL para generar los siguientes reportes:
+-Clientes frecuentes ordenados de mayor a menor
+-Clientes según zona ordenados de mayor a menor
+-Ventas según categoría ordenados de mayor a menor
+-Facturas
+*/
 
 -- INSERCIONES 
 -- DIRECCIONES
@@ -502,6 +508,26 @@ INSERT INTO Estados (Estado, Descripcion) VALUES
 ('1', "Activo");
 
 INSERT INTO Clientes (Nombres, Apellidos, Correo, Linea1, Linea2, ID_Distrito, CodigoPostal, ID_Departamento, ID_Municipio) VALUES
+('Juan', 'Pérez', 'juan.perez@example.com', 'Calle 123', 'Apto. 456', 1, '12345', 1, 1),
+('María', 'García', 'maria.garcia@example.com', 'Avenida Principal', 'Torre A', 2, '54321', 2, 2),
+('Luis', 'Rodríguez', 'luis.rodriguez@example.com', 'Calle Central', 'Piso 3', 3, '67890', 3, 3),
+('Ana', 'Martínez', 'ana.martinez@example.com', 'Calle Norte', 'Apartamento 5', 4, '09876', 4, 4),
+('Pedro', 'Hernández', 'pedro.hernandez@example.com', 'Avenida Sur', 'Casa 10', 5, '56789', 5, 5),
+('Laura', 'López', 'laura.lopez@example.com', 'Calle Este', 'Bloque B', 6, '43210', 6, 6),
+('Carlos', 'Gómez', 'carlos.gomez@example.com', 'Avenida Oeste', 'Piso 2', 7, '98765', 7, 7),
+('Marta', 'Díaz', 'marta.diaz@example.com', 'Carrera 45', 'Casa 15', 8, '13579', 8, 8),
+('Javier', 'Sánchez', 'javier.sanchez@example.com', 'Calle 67', 'Apto. 20', 9, '24680', 9, 9),
+('Sofía', 'Pérez', 'sofia.perez@example.com', 'Avenida 34', 'Piso 5', 10, '97531', 10, 10),
+('Diego', 'González', 'diego.gonzalez@example.com', 'Calle 78', 'Casa 30', 11, '31456', 11, 11),
+('Elena', 'Ramírez', 'elena.ramirez@example.com', 'Avenida 90', 'Apartamento 25', 12, '56712', 12, 12),
+('Mario', 'Flores', 'mario.flores@example.com', 'Calle 12', 'Bloque C', 13, '75321', 13, 13),
+('Silvia', 'Álvarez', 'silvia.alvarez@example.com', 'Carrera 56', 'Piso 4', 14, '98213', 14, 14),
+('Ricardo', 'Molina', 'ricardo.molina@example.com', 'Avenida 23', 'Casa 18', 15, '45678', 1, 15),
+('Paula', 'Ortega', 'paula.ortega@example.com', 'Calle 78', 'Apto. 15', 16, '12398', 10, 16),
+('Daniel', 'Suárez', 'daniel.suarez@example.com', 'Avenida 21', 'Casa 22', 17, '56723', 7, 17),
+('Andrea', 'Torres', 'andrea.torres@example.com', 'Calle 43', 'Bloque D', 18, '38901', 9, 18),
+('Santiago', 'Reyes', 'santiago.reyes@example.com', 'Carrera 89', 'Piso 7', 19, '89012', 9, 19),
+('Valentina', 'Gutiérrez', 'valentina.gutierrez@example.com', 'Avenida 56', 'Casa 12', 20, '76123', 2, 20),
 ("Juan Daniel", "López Pérez", "cliente1@correo.com", "Col Madera, Calle 1, #1N", "Frente al parque", 1, 1001, 1, 1),
 ("Pedro Armando", "Escamoso Barrientos", "cliente2@correo.com", "Col Madera, Calle 1, #1N", "Frente al parque", 2, 1002, 2, 2),
 ("José María", "Zotelo Bran", "cliente3@correo.com", "Col Madera, Calle 1, #1N", "Frente al parque", 3, 1003, 3, 3),
@@ -518,6 +544,26 @@ INSERT INTO Empleados (Nombres, Apellidos, DUI, Telefono, Correo, Linea1, Linea2
 
 
 INSERT INTO Proveedores (Proveedor, Contacto, Correo, Linea1, Linea2, ID_Distrito, CodigoPostal, ID_Departamento, ID_Municipio) VALUES
+('LácteosExpress S.A.', '21234567', 'info@lacteosexpress.com', 'Avenida Leche 123', 'Edificio Quesos, Local 5', 5, 10101, 5, 21),
+('Carnicería Santa María', '21234568', 'info@carniceriasantamaria.com', 'Calle Carne 456', 'Plaza del Asado, Piso 2', 8, 10202, 8, 33),
+('Mariscos del Pacífico', '21234569', 'ventas@mariscosdelpacifico.com', 'Calle Langosta 789', 'Torre del Sabor, Oficina 10', 12, 10303, 12, 7),
+('Alimentos enlatados Inc.', '21234570', 'ventas@alimentos.enlatados.inc', 'Calle Enlatado 456', 'Plaza de los Enlatados, Piso 1', 4, 10404, 4, 25),
+('Bebidas Embotelladas S.A.', '21234571', 'info@bebidasembotelladas.com', 'Avenida Botella 789', 'Edificio Embotellados, Piso 3', 14, 10505, 14, 15),
+('Bebidas enlatadas Internacional', '21234572', 'info@bebidasenlatadas.com', 'Calle Lata 888', 'Centro de Bebidas, Local 20', 9, 10606, 9, 40),
+('Café del Mundo Importaciones', '21234573', 'info@cafedelmundo.com', 'Calle Aroma 345', 'Edificio Café, Oficina 8', 2, 10707, 2, 22),
+('Cereales Crunchy Inc.', '21234574', 'ventas@cerealescrunchy.com', 'Avenida Cereal 666', 'Edificio Crunchy, Piso 2', 10, 10808, 10, 13),
+('Frutas Frescas del Valle', '21234575', 'info@frutasfrescas.com', 'Calle Frutal 222', 'Plaza de las Frutas, Piso 1', 11, 10909, 11, 32),
+('Pastas Artesanales Italianas', '21234576', 'ventas@pastasartesanales.com', 'Calle Pasta 777', 'Galería de la Pasta, Local 12', 1, 11010, 1, 19),
+('Hortalizas y Legumbres S.A.', '21234577', 'info@hortalizaslegumbres.com', 'Calle Hortaliza 333', 'Edificio Legumbres, Oficina 9', 7, 11111, 7, 10),
+('Desechables Durables S.A.', '21234578', 'ventas@desechablesdurables.com', 'Avenida Desecho 111', 'Centro de Desechables, Local 4', 8, 11212, 8, 3),
+('Cocina Total Accesorios', '21234579', 'info@cocinatotal.com', 'Boulevard de la Cocina 999', 'Edificio Utensilios, Oficina 7', 6, 11313, 6, 28),
+('Postres Deliciosos S.A.', '21234580', 'info@postresdeliciosos.com', 'Calle Dulce 444', 'Plaza de los Postres, Piso 2', 5, 11414, 5, 44),
+('Artículos Deportivos Veloz', '21234581', 'ventas@articulosdeportivosveloz.com', 'Avenida Deporte 777', 'Edificio Velocidad, Oficina 10', 13, 11515, 13, 17),
+('Productos de Belleza Elegance', '21234582', 'info@productosbellezaelegance.com', 'Calle Belleza 666', 'Galería de la Belleza, Local 3', 3, 11616, 3, 24),
+('Electrodomésticos Modernos S.A.', '21234583', 'ventas@electrodomesticosmodernos.com', 'Boulevard Electrodoméstico 333', 'Edificio Moderno, Piso 1', 12, 11717, 12, 5),
+('Productos de Limpieza Profunda', '21234584', 'info@limpiezaprofunda.com', 'Carrera Limpia 222', 'Centro de Limpieza, Local 5', 8, 11818, 8, 27),
+('Suministros Escolares Intelecto', '21234585', 'info@suministrosintelecto.com', 'Calle Escolar 111', 'Plaza de los Suministros, Piso 3', 6, 11919, 6, 38),
+('Juguetes y Más Diversión', '21234586', 'info@juguetesydiversion.com', 'Calle Juguete 888', 'Centro de Juguetes, Local 8', 2, 12020, 2, 12),
 ('Refrescos Delicia', '12345678', 'ventas@refrescosdelicia.com', 'Col Central, Calle A, #101', 'Cerca de la plaza', 1, 1101, 1, 1),
 ('Distribuidora de Golosinas', '98765432', 'ventas@golosinasdistribuidora.com', 'Col Las Delicias, Calle B, #202', 'Frente al estadio', 2, 1102, 2, 2),
 ('Suministros Industriales Hermanos Pérez', '32178904', 'ventas@suministroshermanosperez.com', 'Col Industrial, Calle C, #303', 'A un costado del hospital', 3, 1103, 3, 3),
@@ -559,7 +605,27 @@ INSERT INTO Usuarios(Usuario, Clave, ID_Rol, ID_Empleado, ID_Estado) VALUES
 /*A los productos que no venzan se les pondrá como año de vencimiento "2100-01-01" y a los productos tales como frutas u hortalizas
 que no tengan fechas especificadas se les dará un aproximado de vida de 10 días a partir de
 su ingreso al sistema (se debe verificar su estado de manera física)*/
-INSERT INTO Productos (Producto, FechaFabricacion, FechaVencimiento,Descripcion, PrecioCompra, ID_Proveedor, ID_Categoria) VALUES
+INSERT INTO Productos (Producto, FechaFabricacion, FechaVencimiento, Descripcion, PrecioCompra, ID_Proveedor, ID_Categoria) VALUES
+('Leche Deslactosada 1L', '2024-05-15', '2024-12-15', 'Leche deslactosada en envase de 1 litro', 1.50, 1, 1),
+('Queso Gouda 200g', '2024-05-20', '2024-11-20', 'Queso Gouda en porción de 200 gramos', 3.20, 1, 1),
+('Filete de Res 500g', '2024-05-17', '2024-06-17', 'Filete de res en porción de 500 gramos', 5.50, 2, 2),
+('Pescado Fresco 1kg', '2024-05-18', '2024-05-25', 'Pescado fresco en pieza de 1 kilogramo', 7.80, 3, 3),
+('Sardinas en Lata 200g', '2024-04-30', '2026-04-30', 'Sardinas enlatadas en conserva de 200 gramos', 1.80, 4, 4),
+('Agua Mineral 500ml', '2024-05-10', '2024-11-10', 'Agua mineral en botella de 500 mililitros', 0.75, 5, 5),
+('Refresco de Cola 2L', '2024-05-12', '2024-10-12', 'Refresco de cola en botella de 2 litros', 1.20, 6, 6),
+('Café Instantáneo 200g', '2024-05-14', '2024-09-14', 'Café instantáneo en frasco de 200 gramos', 4.00, 7, 7),
+('Arroz Blanco 1kg', '2024-05-16', '2025-05-16', 'Arroz blanco en paquete de 1 kilogramo', 1.10, 8, 8),
+('Manzanas 1kg', '2024-05-11', '2024-05-18', 'Manzanas frescas en bolsa de 1 kilogramo', 2.50, 9, 9),
+('Espaguetis 500g', '2024-05-13', '2024-08-13', 'Espaguetis en paquete de 500 gramos', 1.30, 10, 10),
+('Zanahorias 500g', '2024-05-21', '2024-05-28', 'Zanahorias frescas en bolsa de 500 gramos', 0.90, 11, 11),
+('Platos Desechables x10', '2024-04-25', '2024-04-30', 'Paquete de 10 platos desechables', 1.20, 12, 12),
+('Cuchillos de Cocina', '2024-05-08', '2024-05-15', 'Set de 6 cuchillos de cocina', 9.50, 13, 13),
+('Tarta de Manzana', '2024-05-19', '2024-05-21', 'Tarta de manzana lista para consumir', 8.00, 14, 14),
+('Golosinas Variadas', '2024-05-22', '2024-06-22', 'Paquete surtido de golosinas', 3.50, 15, 15),
+('Pelota de Fútbol', '2024-05-23', '2025-05-23', 'Pelota de fútbol tamaño oficial', 12.00, 16, 16),
+('Esmalte de Uñas', '2024-05-24', '2024-08-24', 'Esmalte de uñas de diversos colores', 2.50, 17, 17),
+('Aspiradora Compacta', '2024-05-25', '2025-05-25', 'Aspiradora compacta para el hogar', 45.00, 18, 18),
+('Detergente Multiusos', '2024-05-26', '2024-08-26', 'Detergente multiusos para limpieza', 4.80, 19, 19),
 ('Refresco de cola', '2024-01-01 13:00:00', '2025-01-01 13:00:00', 'Refresco de cola en lata de 355ml', 1.99, 1, 6),
 ('Bolsa de papas fritas', '2024-01-01 14:00:00', '2024-01-02 14:00:00', 'Bolsa de papas fritas de 100g', 2.49, 2, 15),
 ('Jabón de manos', '2023-01-01 15:00:00', '2026-01-01 15:00:00', 'Jabón líquido para manos con aroma a manzana', 5.99, 3, 19),
@@ -567,25 +633,92 @@ INSERT INTO Productos (Producto, FechaFabricacion, FechaVencimiento,Descripcion,
 ('Lápiz de colores', '2022-01-01 17:00:00', '2100-01-01 17:00:00', 'Paquete de 12 lápices de colores surtidos', 0.99, 5, 21);
 
 INSERT INTO Compras (FechaCompra, ID_Usuario, ID_Proveedor, ID_Producto, CantidadEntrante, TotalPagar) VALUES
-('2024-01-01 08:30:00', 4, 1, 1, 4, 7.96),
-('2024-01-02 10:15:00', 4, 2, 3, 3, 7.47),
-('2024-01-03 13:45:00', 5, 3, 4, 5, 29.95),
-('2024-01-04 15:20:00', 3, 4, 5, 4, 7.96),
-('2024-01-05 17:00:00', 5, 5, 2, 7, 6.93);
+('2024-05-01 08:30:00', 2, 1, 1, 20, 30.00),
+('2024-05-02 09:15:00', 2, 2, 2, 25, 80.00),
+('2024-05-03 10:00:00', 2, 3, 3, 15, 82.50),
+('2024-05-04 11:20:00', 2, 4, 4, 12, 93.60),
+('2024-05-05 12:45:00', 4, 5, 5, 15, 27.00),
+('2024-05-06 13:30:00', 4, 6, 6, 20, 15.00),
+('2024-05-07 14:10:00', 4, 7, 7, 40, 48.00),
+('2024-05-08 15:00:00', 4, 8, 8, 20, 80.00),
+('2024-05-09 16:20:00', 2, 9, 9, 10, 11.00),
+('2024-05-10 17:05:00', 2, 10, 10, 30, 75.00),
+('2024-05-11 18:30:00', 4, 11, 11, 35, 87.50),
+('2024-05-12 19:15:00', 2, 12, 12, 25, 87.50),
+('2024-05-13 20:00:00', 4, 13, 13, 10, 95.00),
+('2024-05-14 21:30:00', 2, 14, 14, 35, 280.00),
+('2024-05-15 22:10:00', 2, 15, 15, 40, 140.00),
+('2024-05-16 23:00:00', 4, 16, 16, 20, 240.00),
+('2024-05-17 08:45:00', 4, 17, 17, 50, 125.00),
+('2024-05-18 09:20:00', 2, 18, 18, 10, 450.00),
+('2024-05-19 10:15:00', 2, 19, 19, 30, 144.00),
+('2024-05-20 11:00:00', 4, 20, 20, 26, 78.00); 	
+
 
 INSERT INTO Ventas (FechaVenta, ID_Usuario, ID_Cliente, ID_Producto, PrecioVenta, CantidadSaliente, TotalCobrar) VALUES
-('2024-05-01 08:30:00', 4, 1, 1, 1.99, 4, 7.96),
-('2024-05-02 10:15:00', 4, 2, 3, 2.49, 3, 7.47),
-('2024-05-03 13:45:00', 5, 3, 4, 5.99, 5, 29.95),
-('2024-05-04 15:20:00', 3, 4, 5, 1.99, 4, 7.96),
-('2024-05-05 17:00:00', 5, 5, 2, 0.99, 7, 6.93);
+('2024-05-01 08:30:00', 3, 1, 1, 1.99, 4, 7.96),
+('2024-05-02 10:15:00', 5, 2, 2, 2.49, 3, 7.47),
+('2024-05-03 13:45:00', 5, 3, 3, 5.99, 5, 29.95),
+('2024-05-04 15:20:00', 3, 4, 4, 1.99, 4, 7.96),
+('2024-05-05 17:00:00', 5, 5, 5, 0.99, 7, 6.93),
+('2024-05-06 13:30:00', 3, 6, 6, 1.20, 6, 7.20),
+('2024-05-07 14:10:00', 5, 7, 7, 4.00, 4, 16.00),
+('2024-05-08 15:00:00', 3, 8, 8, 1.10, 7, 7.70),
+('2024-05-09 16:20:00', 5, 9, 9, 2.50, 4, 10.00),
+('2024-05-10 17:05:00', 5, 10, 10, 1.30, 5, 6.50),
+('2024-05-11 18:30:00', 3, 11, 11, 0.90, 6, 5.40),
+('2024-05-12 19:15:00', 3, 12, 12, 1.20, 9, 10.80),
+('2024-05-13 20:00:00', 3, 13, 13, 9.50, 1, 9.50),
+('2024-05-14 21:30:00', 3, 14, 14, 8.00, 3, 24.00),
+('2024-05-15 22:10:00', 5, 15, 15, 3.50, 4, 14.00),
+('2024-05-16 23:00:00', 5, 16, 16, 12.00, 2, 24.00),
+('2024-05-17 08:45:00', 5, 17, 17, 2.50, 5, 12.50),
+('2024-05-18 09:20:00', 3, 18, 18, 45.00, 1, 45.00),
+('2024-05-19 10:15:00', 5, 19, 19, 4.80, 3, 14.40),
+('2024-05-20 11:00:00', 5, 20, 20, 3.00, 6, 18.00);
 
 INSERT INTO Kardex (ID_Compra, ID_Venta, Stock) VALUES
-(1, 1, 0),
-(2, 2, 0),
-(3, 3, 0),
-(4, 4, 0),
-(5, 5, 0)
+(1, NULL, 20),
+(NULL, 1, 19),
+(2, NULL, 25),
+(NULL, 2, 21),
+(3, NULL, 15),
+(NULL, 3, 12),
+(4, NULL, 12),
+(NULL, 4, 7),
+(5, NULL, 15),
+(NULL, 5, 11),
+(6, NULL, 20),
+(NULL, 6, 13),
+(7, NULL, 40),
+(NULL, 7, 34),
+(8, NULL, 20),
+(NULL, 8, 16),
+(9, NULL, 10),
+(NULL, 9, 3),
+(10, NULL, 30),
+(NULL, 10, 26),
+(11, NULL, 35),
+(NULL, 11, 30),
+(12, NULL, 25),
+(NULL, 12, 19),
+(13, NULL, 10),
+(NULL, 13, 1),
+(14, NULL, 35),
+(NULL, 14, 32),
+(15, NULL, 40),
+(NULL, 15, 36),
+(16, NULL, 20),
+(NULL, 16, 18),
+(17, NULL, 50),
+(NULL, 17, 45),
+(18, NULL, 10),
+(NULL, 18, 9),
+(19, NULL, 30),
+(NULL, 19, 27),
+(20, NULL, 26),
+(NULL, 20, 20);
+
 
 /* PROCEDIMIENTOS ALMACENADOS */
 
