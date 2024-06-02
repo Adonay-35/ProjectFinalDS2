@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -76,13 +77,13 @@ namespace General.GUI
 
                         Ventas oVenta = new Ventas();
 
-                        //oVenta.ID_Venta = Convert.ToInt32(txbID_Venta.Text);
+
                         oVenta.FechaVenta = Convert.ToDateTime(txbFechaVenta.Text);
                         oVenta.ID_Usuario = Convert.ToInt32(cbUsuarios.SelectedIndex);
                         oVenta.ID_Cliente = Convert.ToInt32(cbClientes.SelectedIndex);
                         oVenta.ID_Producto = Convert.ToInt32(cbProductos.SelectedIndex);
                         oVenta.PrecioVenta = Convert.ToDecimal(txbPrecioVenta.Text);
-                        oVenta.CantidadSaliente = Convert.ToInt32(txbPrecioVenta.Text);
+                        oVenta.CantidadSaliente = Convert.ToInt32(txbCantidadSaliente.Text);
                         oVenta.TotalCobrar = Convert.ToDecimal(txbTotalCobrar.Text);
 
                         // GUARDAR NUEVO REGISTRO
@@ -124,9 +125,9 @@ namespace General.GUI
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message);
+
             }
         }
 
@@ -153,12 +154,20 @@ namespace General.GUI
 
         public void MostrarProductos(ComboBox cbProductos)
         {
-            List<Productos> datos = metodosventas.ObtenerProductos();
+            // Obtener la lista de productos y almacenarla en la variable de clase
+            listaProductos = metodosventas.ObtenerProductos();
+
+            // Limpiar el ComboBox antes de llenarlo
+            cbProductos.Items.Clear();
             cbProductos.Items.Add("Selecciona una opción");
-            foreach (Productos dato in datos)
+
+            // Agregar los nombres de los productos al ComboBox
+            foreach (Productos producto in listaProductos)
             {
-                cbProductos.Items.Add(dato.Producto);
+                cbProductos.Items.Add(producto.Producto);
             }
+
+           cbProductos.SelectedIndex = 0; 
         }
 
         private void VentasEdicion_Load(object sender, EventArgs e)
@@ -178,6 +187,60 @@ namespace General.GUI
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+    
+        private List<Productos> listaProductos; // Declarar la variable de clase
+
+        private void cbProductos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Ajustar el índice porque el primer elemento es "Selecciona una opción"
+            int indice = cbProductos.SelectedIndex - 1;
+
+            if (indice >= 0 && indice < listaProductos.Count)
+            {
+                // Obtener el producto seleccionado
+                Productos productoSeleccionado = listaProductos[indice];
+
+                // Actualizar el precio de venta en el TextBox
+                txbPrecioVenta.Text = productoSeleccionado.PrecioCompra.ToString();
+
+                // Intentar obtener la cantidad saliente
+                if (int.TryParse(txbCantidadSaliente.Text, out int cantidadSaliente))
+                {
+                    // Calcular el total a cobrar
+                    decimal totalCobrar = (decimal)(productoSeleccionado.PrecioCompra * cantidadSaliente);
+                    txbTotalCobrar.Text = totalCobrar.ToString();
+                }
+                else
+                {
+                    txbTotalCobrar.Text = "0"; // Reiniciar si la cantidad no es válida
+                }
+            }
+        }
+
+        private void txbCantidadSaliente_TextChanged(object sender, EventArgs e)
+        {
+            // Ajustar el índice porque el primer elemento es "Selecciona una opción"
+            int indice = cbProductos.SelectedIndex - 1;
+
+            if (indice >= 0 && indice < listaProductos.Count)
+            {
+                // Obtener el producto seleccionado
+                Productos productoSeleccionado = listaProductos[indice];
+
+                // Intentar obtener la cantidad saliente
+                if (int.TryParse(txbCantidadSaliente.Text, out int cantidadSaliente))
+                {
+                    // Calcular el total a cobrar
+                    decimal totalCobrar = (decimal)(productoSeleccionado.PrecioCompra * cantidadSaliente);
+                    txbTotalCobrar.Text = totalCobrar.ToString();
+                }
+                else
+                {
+                    txbTotalCobrar.Text = "0"; // Reiniciar si la cantidad no es válida
+                }
+            }
         }
     }   
 }

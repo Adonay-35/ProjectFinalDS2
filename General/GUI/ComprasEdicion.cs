@@ -139,15 +139,73 @@ namespace General.GUI
             }
         }
 
+        private List<Productos> listaProductos; // Declarar la variable de clase
+
         public void MostrarProductos(ComboBox cbProductos)
         {
-            List<Productos> datos = metodosCompras.ObtenerProductos();
+            // Obtener la lista de productos y almacenarla en la variable de clase
+            listaProductos = metodosCompras.ObtenerProductos();
+
+            // Limpiar el ComboBox antes de llenarlo
+            cbProductos.Items.Clear();
             cbProductos.Items.Add("Selecciona una opción");
-            foreach (Productos dato in datos)
+
+            // Agregar los nombres de los productos al ComboBox
+            foreach (Productos producto in listaProductos)
             {
-                cbProductos.Items.Add(dato.Producto);
+                cbProductos.Items.Add(producto.Producto);
+            }
+
+            cbProductos.SelectedIndex = 0;
+        }
+
+        private void cbProductos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int indice = cbProductos.SelectedIndex - 1;
+
+            if (indice >= 0 && indice < listaProductos.Count)
+            {
+                // Obtener el producto seleccionado
+                Productos productoSeleccionado = listaProductos[indice];
+
+                // Intentar obtener la cantidad entrante
+                if (int.TryParse(txbCantidadEntrante.Text, out int cantidadEntrante))
+                {
+                    // Calcular el total a pagar
+                    decimal totalPagar = (decimal)(productoSeleccionado.PrecioCompra * cantidadEntrante);
+                    txbTotalPagar.Text = totalPagar.ToString();
+                }
+                else
+                {
+                    txbTotalPagar.Text = "0"; // Reiniciar si la cantidad no es válida
+                }
             }
         }
+
+        private void txbCantidadEntrante_TextChanged(object sender, EventArgs e)
+        {
+
+            int indice = cbProductos.SelectedIndex - 1;
+
+            if (indice >= 0 && indice < listaProductos.Count)
+            {
+                // Obtener el producto seleccionado
+                Productos productoSeleccionado = listaProductos[indice];
+
+                // Intentar obtener la cantidad entrante
+                if (int.TryParse(txbCantidadEntrante.Text, out int cantidadEntrante))
+                {
+                    // Calcular el total a pagar
+                    decimal totalPagar = (decimal)(productoSeleccionado.PrecioCompra * cantidadEntrante);
+                    txbTotalPagar.Text = totalPagar.ToString();
+                }
+                else
+                {
+                    txbTotalPagar.Text = "0"; // Reiniciar si la cantidad no es válida
+                }
+            }
+        }
+
 
         private void ComprasEdicion_Load(object sender, EventArgs e)
         {
@@ -166,5 +224,6 @@ namespace General.GUI
         {
             Close();
         }
+
     }
 }

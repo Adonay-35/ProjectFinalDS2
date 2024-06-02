@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,7 +39,6 @@ namespace General.CLS
             DataLayer.DBOperacion Operacion = new DataLayer.DBOperacion();
 
             StringBuilder Sentencia = new StringBuilder();
-
             Sentencia.Append("INSERT INTO ventas (FechaVenta, ID_Usuario, ID_Cliente, ID_Producto, PrecioVenta, CantidadSaliente, TotalCobrar) VALUES (");
             Sentencia.Append("'" + _FechaVenta.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
             Sentencia.Append(_ID_Usuario + ", ");
@@ -60,13 +60,12 @@ namespace General.CLS
                     Resultado = false;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                Resultado = false;
+                throw new Exception("Error al insertar la venta: " + ex.Message);
             }
             return Resultado;
         }
-
 
         public Boolean Actualizar()
         {
@@ -74,15 +73,15 @@ namespace General.CLS
             DataLayer.DBOperacion Operacion = new DataLayer.DBOperacion();
 
             StringBuilder Sentencia = new StringBuilder();
-            Sentencia.Append("UPDATE Ventas SET ");
+            Sentencia.Append("UPDATE ventas SET ");
             Sentencia.Append("FechaVenta = '" + _FechaVenta.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
             Sentencia.Append("ID_Usuario = " + _ID_Usuario + ", ");
             Sentencia.Append("ID_Cliente = " + _ID_Cliente + ", ");
-            Sentencia.Append("ID_Producto = '" + _ID_Producto + "', ");
+            Sentencia.Append("ID_Producto = " + _ID_Producto + ", ");
             Sentencia.Append("PrecioVenta = " + _PrecioVenta.ToString() + ", ");
             Sentencia.Append("CantidadSaliente = " + _CantidadSaliente + ", ");
             Sentencia.Append("TotalCobrar = " + _TotalCobrar.ToString());
-            Sentencia.Append(" WHERE ID_Venta = '" + _ID_Venta + "';");
+            Sentencia.Append(" WHERE ID_Venta = " + _ID_Venta + ";");
 
             try
             {
@@ -95,12 +94,13 @@ namespace General.CLS
                     Resultado = false;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                Resultado = false;
+                throw new Exception("Error al actualizar la venta: " + ex.Message);
             }
             return Resultado;
         }
+
 
 
         public bool Eliminar()
@@ -217,8 +217,9 @@ namespace General.CLS
                 {
                     listaProductos.Add(new Productos(
                         resultado.GetInt32(0),
-                        resultado.GetString(1)
-                        ));
+                        resultado.GetString(1),
+                        resultado.GetDouble(2)
+                    ));
                 }
 
                 return listaProductos;
