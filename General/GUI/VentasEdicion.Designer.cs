@@ -60,6 +60,7 @@
             this.cbProductos.Name = "cbProductos";
             this.cbProductos.Size = new System.Drawing.Size(297, 24);
             this.cbProductos.TabIndex = 46;
+            this.cbProductos.SelectedIndexChanged += new System.EventHandler(this.cbProductos_SelectedIndexChanged);
             // 
             // cbClientes
             // 
@@ -101,6 +102,7 @@
             this.txbPrecioVenta.Location = new System.Drawing.Point(514, 164);
             this.txbPrecioVenta.Margin = new System.Windows.Forms.Padding(4);
             this.txbPrecioVenta.Name = "txbPrecioVenta";
+            this.txbPrecioVenta.ReadOnly = true;
             this.txbPrecioVenta.Size = new System.Drawing.Size(297, 22);
             this.txbPrecioVenta.TabIndex = 43;
             // 
@@ -172,6 +174,7 @@
             this.txbTotalCobrar.Location = new System.Drawing.Point(514, 355);
             this.txbTotalCobrar.Margin = new System.Windows.Forms.Padding(4);
             this.txbTotalCobrar.Name = "txbTotalCobrar";
+            this.txbTotalCobrar.ReadOnly = true;
             this.txbTotalCobrar.Size = new System.Drawing.Size(297, 22);
             this.txbTotalCobrar.TabIndex = 48;
             // 
@@ -240,6 +243,7 @@
             this.txbCantidadSaliente.Name = "txbCantidadSaliente";
             this.txbCantidadSaliente.Size = new System.Drawing.Size(297, 22);
             this.txbCantidadSaliente.TabIndex = 53;
+            this.txbCantidadSaliente.TextChanged += new System.EventHandler(this.txbCantidadSaliente_TextChanged);
             // 
             // label5
             // 

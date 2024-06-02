@@ -24,10 +24,11 @@ namespace General.CLS
         Int32 _ID_Proveedor;
         Int32 _ID_Categoria;
 
-        public Productos(int idproducto, string producto)
+        public Productos(int idproducto, string producto, double preciocompra)
         {
             this._ID_Producto = idproducto;
             this._Producto = producto;
+            this._PrecioCompra = preciocompra;
         }
 
         public Productos()

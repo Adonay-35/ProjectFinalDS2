@@ -56,6 +56,7 @@
             this.txbCantidadEntrante.Name = "txbCantidadEntrante";
             this.txbCantidadEntrante.Size = new System.Drawing.Size(282, 22);
             this.txbCantidadEntrante.TabIndex = 57;
+            this.txbCantidadEntrante.TextChanged += new System.EventHandler(this.txbCantidadEntrante_TextChanged);
             // 
             // label5
             // 
@@ -123,6 +124,7 @@
             this.cbProductos.Name = "cbProductos";
             this.cbProductos.Size = new System.Drawing.Size(280, 24);
             this.cbProductos.TabIndex = 32;
+            this.cbProductos.SelectedIndexChanged += new System.EventHandler(this.cbProductos_SelectedIndexChanged);
             // 
             // cbProveedores
             // 

@@ -100,7 +100,7 @@ CREATE TABLE Productos (
 
 CREATE TABLE Compras (
     ID_Compra int auto_increment primary key,
-    FechaCompra date not null,
+    FechaCompra datetime not null,
     ID_Usuario int not null,
     ID_Proveedor int not null,
     ID_Producto  int not null,
@@ -110,12 +110,12 @@ CREATE TABLE Compras (
 
 CREATE TABLE Ventas (
     ID_Venta int auto_increment primary key,
-    FechaVenta date not null,
+    FechaVenta datetime not null,
     ID_Usuario int not null,
     ID_Cliente int not null,
     ID_Producto  int not null,
     PrecioVenta decimal(18, 2) not null, 
-    CantidadSaliente int not null,
+    CantidadSaliente double not null,
     TotalCobrar decimal(18, 2) not null
 );
 
@@ -666,7 +666,7 @@ END $$
 DELIMITER //
 CREATE PROCEDURE ObtenerProductos()
 BEGIN
-    SELECT ID_Producto, Producto FROM Productos;
+    SELECT ID_Producto, Producto, PrecioCompra FROM Productos;
 END //
 DELIMITER ;
 
