@@ -309,6 +309,7 @@
             this.Controls.Add(this.btnGuardar);
             this.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.ForeColor = System.Drawing.SystemColors.Control;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "ProveedoresEdicion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

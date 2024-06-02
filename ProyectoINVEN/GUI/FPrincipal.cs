@@ -207,11 +207,6 @@ namespace ProyectoCRUD.GUI
             MessageBox.Show($"Bienvenido {Sesion.ObtenerInstancia().Usuario}", "Inicio de sesión exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -224,12 +219,12 @@ namespace ProyectoCRUD.GUI
 
         private void btnCancelar_MouseEnter(object sender, EventArgs e)
         {
-            btnCancelar.BackColor = Color.LightSlateGray;
+            btnSalirSistema.BackColor = Color.LightSlateGray;
         }
 
         private void btnCancelar_MouseLeave(object sender, EventArgs e)
         {
-            btnCancelar.BackColor = Color.FromArgb(11, 7, 17);
+            btnSalirSistema.BackColor = Color.FromArgb(11, 7, 17);
         }
 
         private void btnMinimizar_MouseEnter(object sender, EventArgs e)
@@ -290,6 +285,15 @@ namespace ProyectoCRUD.GUI
                 Application.Exit();
             }
         }
-        
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
