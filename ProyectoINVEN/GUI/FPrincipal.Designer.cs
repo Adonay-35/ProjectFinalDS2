@@ -32,6 +32,7 @@
             this.panelMenulateral = new System.Windows.Forms.Panel();
             this.btnSalir = new System.Windows.Forms.Button();
             this.panelReportes = new System.Windows.Forms.Panel();
+            this.btnFacturas = new System.Windows.Forms.Button();
             this.btnClientesZonas = new System.Windows.Forms.Button();
             this.btnCientesFrecuentes = new System.Windows.Forms.Button();
             this.btnVentasCategorias = new System.Windows.Forms.Button();
@@ -60,8 +61,7 @@
             this.panelSuperior = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnMinimizar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnFacturas = new System.Windows.Forms.Button();
+            this.btnSalirSistema = new System.Windows.Forms.Button();
             this.panelMenulateral.SuspendLayout();
             this.panelReportes.SuspendLayout();
             this.panelRegistros.SuspendLayout();
@@ -131,6 +131,23 @@
             this.panelReportes.Name = "panelReportes";
             this.panelReportes.Size = new System.Drawing.Size(195, 270);
             this.panelReportes.TabIndex = 9;
+            // 
+            // btnFacturas
+            // 
+            this.btnFacturas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnFacturas.FlatAppearance.BorderSize = 0;
+            this.btnFacturas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFacturas.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnFacturas.Location = new System.Drawing.Point(0, 129);
+            this.btnFacturas.Margin = new System.Windows.Forms.Padding(2);
+            this.btnFacturas.Name = "btnFacturas";
+            this.btnFacturas.Padding = new System.Windows.Forms.Padding(23, 0, 0, 0);
+            this.btnFacturas.Size = new System.Drawing.Size(195, 26);
+            this.btnFacturas.TabIndex = 9;
+            this.btnFacturas.Text = "Fatcuras";
+            this.btnFacturas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFacturas.UseVisualStyleBackColor = true;
+            this.btnFacturas.Click += new System.EventHandler(this.btnFacturas_Click);
             // 
             // btnClientesZonas
             // 
@@ -556,7 +573,7 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.btnMinimizar);
-            this.panel2.Controls.Add(this.btnCancelar);
+            this.panel2.Controls.Add(this.btnSalirSistema);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(750, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
@@ -577,43 +594,26 @@
             this.btnMinimizar.Size = new System.Drawing.Size(53, 31);
             this.btnMinimizar.TabIndex = 23;
             this.btnMinimizar.UseVisualStyleBackColor = false;
-            this.btnMinimizar.Click += new System.EventHandler(this.button1_Click);
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             this.btnMinimizar.MouseEnter += new System.EventHandler(this.btnMinimizar_MouseEnter);
             this.btnMinimizar.MouseLeave += new System.EventHandler(this.btnMinimizar_MouseLeave);
             // 
-            // btnCancelar
+            // btnSalirSistema
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancelar.FlatAppearance.BorderSize = 0;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
-            this.btnCancelar.Location = new System.Drawing.Point(85, 0);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(0);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(52, 31);
-            this.btnCancelar.TabIndex = 22;
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.button1_Click);
-            this.btnCancelar.MouseEnter += new System.EventHandler(this.btnCancelar_MouseEnter);
-            this.btnCancelar.MouseLeave += new System.EventHandler(this.btnCancelar_MouseLeave);
-            // 
-            // btnFacturas
-            // 
-            this.btnFacturas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnFacturas.FlatAppearance.BorderSize = 0;
-            this.btnFacturas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFacturas.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnFacturas.Location = new System.Drawing.Point(0, 129);
-            this.btnFacturas.Margin = new System.Windows.Forms.Padding(2);
-            this.btnFacturas.Name = "btnFacturas";
-            this.btnFacturas.Padding = new System.Windows.Forms.Padding(23, 0, 0, 0);
-            this.btnFacturas.Size = new System.Drawing.Size(195, 26);
-            this.btnFacturas.TabIndex = 9;
-            this.btnFacturas.Text = "Fatcuras";
-            this.btnFacturas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFacturas.UseVisualStyleBackColor = true;
-            this.btnFacturas.Click += new System.EventHandler(this.btnFacturas_Click);
+            this.btnSalirSistema.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.btnSalirSistema.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSalirSistema.FlatAppearance.BorderSize = 0;
+            this.btnSalirSistema.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalirSistema.Image = ((System.Drawing.Image)(resources.GetObject("btnSalirSistema.Image")));
+            this.btnSalirSistema.Location = new System.Drawing.Point(85, 0);
+            this.btnSalirSistema.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSalirSistema.Name = "btnSalirSistema";
+            this.btnSalirSistema.Size = new System.Drawing.Size(52, 31);
+            this.btnSalirSistema.TabIndex = 22;
+            this.btnSalirSistema.UseVisualStyleBackColor = false;
+            this.btnSalirSistema.Click += new System.EventHandler(this.button1_Click);
+            this.btnSalirSistema.MouseEnter += new System.EventHandler(this.btnCancelar_MouseEnter);
+            this.btnSalirSistema.MouseLeave += new System.EventHandler(this.btnCancelar_MouseLeave);
             // 
             // FPrincipal
             // 
@@ -668,7 +668,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panelSuperior;
         private System.Windows.Forms.Button btnMinimizar;
-        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnSalirSistema;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnProveedor;
         private System.Windows.Forms.Button btnCompras;

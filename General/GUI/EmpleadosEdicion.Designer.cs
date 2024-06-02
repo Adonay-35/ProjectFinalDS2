@@ -73,7 +73,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(60, 186);
+            this.label4.Location = new System.Drawing.Point(60, 176);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(25, 16);
@@ -100,7 +100,7 @@
             // 
             // txbNombre
             // 
-            this.txbNombre.Location = new System.Drawing.Point(63, 62);
+            this.txbNombre.Location = new System.Drawing.Point(63, 74);
             this.txbNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txbNombre.Name = "txbNombre";
             this.txbNombre.Size = new System.Drawing.Size(358, 22);
@@ -118,7 +118,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(60, 41);
+            this.label2.Location = new System.Drawing.Point(60, 46);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 17);
@@ -190,7 +190,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(58, 357);
+            this.label8.Location = new System.Drawing.Point(58, 345);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(59, 17);
@@ -214,7 +214,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(518, 264);
+            this.label5.Location = new System.Drawing.Point(519, 254);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(102, 17);
@@ -245,7 +245,7 @@
             // 
             this.cbMunicipios.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbMunicipios.FormattingEnabled = true;
-            this.cbMunicipios.Location = new System.Drawing.Point(522, 378);
+            this.cbMunicipios.Location = new System.Drawing.Point(521, 376);
             this.cbMunicipios.Margin = new System.Windows.Forms.Padding(4);
             this.cbMunicipios.Name = "cbMunicipios";
             this.cbMunicipios.Size = new System.Drawing.Size(314, 24);
@@ -254,7 +254,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(518, 357);
+            this.label10.Location = new System.Drawing.Point(519, 345);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(71, 17);
@@ -264,7 +264,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(518, 185);
+            this.label11.Location = new System.Drawing.Point(519, 175);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(88, 17);
@@ -282,7 +282,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(518, 116);
+            this.label12.Location = new System.Drawing.Point(518, 115);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(47, 17);
@@ -300,7 +300,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(517, 41);
+            this.label13.Location = new System.Drawing.Point(519, 46);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(47, 17);
@@ -309,7 +309,7 @@
             // 
             // txbLinea1
             // 
-            this.txbLinea1.Location = new System.Drawing.Point(521, 62);
+            this.txbLinea1.Location = new System.Drawing.Point(521, 74);
             this.txbLinea1.Margin = new System.Windows.Forms.Padding(4);
             this.txbLinea1.Name = "txbLinea1";
             this.txbLinea1.Size = new System.Drawing.Size(314, 22);
@@ -318,7 +318,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(58, 264);
+            this.label9.Location = new System.Drawing.Point(58, 254);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(118, 17);
@@ -328,7 +328,7 @@
             // txbFechaNacimiento
             // 
             this.txbFechaNacimiento.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbFechaNacimiento.Location = new System.Drawing.Point(58, 310);
+            this.txbFechaNacimiento.Location = new System.Drawing.Point(63, 286);
             this.txbFechaNacimiento.Margin = new System.Windows.Forms.Padding(4);
             this.txbFechaNacimiento.Name = "txbFechaNacimiento";
             this.txbFechaNacimiento.Size = new System.Drawing.Size(297, 22);
@@ -370,6 +370,7 @@
             this.Controls.Add(this.btnGuardar);
             this.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.ForeColor = System.Drawing.SystemColors.Control;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EmpleadosEdicion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
