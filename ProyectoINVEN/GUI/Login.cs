@@ -31,24 +31,23 @@ namespace ProyectoCRUD.GUI
             string claveHasheada = Encryptar.GetSHA256(txbClave.Text.Trim());
 
             DataTable dt = new DataTable();
-            DataLayer.DBOperacion oOperacion = new DataLayer.DBOperacion();
-            string query = @"SELECT ID_Usuario, Usuario, ID_Empleado, IDRol FROM usuarios WHERE Usuario = '" + txbUsuario.Text + "' AND Clave = '" + claveHasheada + "'";
+            DBOperacion oOperacion = new DBOperacion();
+            string query = @"SELECT ID_Usuario, Usuario, ID_Empleado, ID_Rol FROM usuarios WHERE Usuario = '" + txbUsuario.Text + "' AND Clave = '" + claveHasheada + "'";
             dt = oOperacion.Consultar(query);
 
             if (dt.Rows.Count == 1)
             {
-                SesionManager.Sesion oSesion = SesionManager.Sesion.ObtenerInstancia();
+                Sesion oSesion = Sesion.ObtenerInstancia();
                 oSesion.Usuario = txbUsuario.Text;
                 _Autorizado = true;
+
+
                 Close();
             }
             else
             {
                 MessageBox.Show("Las credenciales ingresadas no son válidas. Por favor, inténtelo nuevamente.", 
                 "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //lblMensaje.ForeColor = Color.Red;
-                //lblMensaje.Text = "USUARIO O CLAVE ERRONEOS";
-
             }
         }
 
@@ -135,15 +134,6 @@ namespace ProyectoCRUD.GUI
 
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            DialogResult opcion = MessageBox.Show("¿Deseas salir?", "SIV", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            if (opcion == DialogResult.OK)
-            {
-                Application.Exit();
-            }
-        }
-
     }
-    }
+}
 

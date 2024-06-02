@@ -128,6 +128,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Downloads\ReportesProyecto\ProjectFinalDS2-kevin\Reportes\Reportes.csproj">
+      <Project>{fc6f6746-5a7b-4f14-bda9-273c3886caf6}</Project>
+      <Name>Reportes</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataLayer\DataLayer.csproj">
       <Project>{68e802ad-2c17-4aee-b642-51f5c2056770}</Project>
       <Name>DataLayer</Name>

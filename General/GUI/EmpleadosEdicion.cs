@@ -83,16 +83,9 @@ namespace General.GUI
             return Valido;
         }
 
-
-
         public EmpleadosEdicion()
         {
             InitializeComponent();
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            Close();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -106,6 +99,7 @@ namespace General.GUI
                     oEmpleado.Nombres = txbNombre.Text;
                     oEmpleado.Apellidos = txbApellido.Text;
                     oEmpleado.Dui = txbDui.Text;
+                    oEmpleado.FechaNacimiento = Convert.ToDateTime(txbFechaNacimiento.Text);
                     oEmpleado.Telefono = txbTelefono.Text;
                     oEmpleado.Correo = txbCorreo.Text;
                     oEmpleado.Linea1 = txbLinea1.Text;
@@ -133,6 +127,7 @@ namespace General.GUI
 
                         oEmpleado.Nombres = txbNombre.Text;
                         oEmpleado.Apellidos = txbApellido.Text;
+                        oEmpleado.FechaNacimiento = Convert.ToDateTime(txbFechaNacimiento.Text);
                         oEmpleado.Dui = txbDui.Text;
                         oEmpleado.Telefono = txbTelefono.Text;
                         oEmpleado.Correo = txbCorreo.Text;
@@ -162,6 +157,10 @@ namespace General.GUI
 
         }
 
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
 
         public void MostrarMunicipios(ComboBox cbMunicipios)
         {

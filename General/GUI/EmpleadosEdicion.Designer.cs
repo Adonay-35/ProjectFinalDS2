@@ -56,12 +56,14 @@
             this.txbLinea2 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txbLinea1 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txbFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.Notificador)).BeginInit();
             this.SuspendLayout();
             // 
             // txbDui
             // 
-            this.txbDui.Location = new System.Drawing.Point(61, 256);
+            this.txbDui.Location = new System.Drawing.Point(61, 206);
             this.txbDui.Margin = new System.Windows.Forms.Padding(4);
             this.txbDui.Name = "txbDui";
             this.txbDui.Size = new System.Drawing.Size(358, 22);
@@ -71,7 +73,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(58, 220);
+            this.label4.Location = new System.Drawing.Point(60, 186);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(25, 16);
@@ -80,7 +82,7 @@
             // 
             // txbApellido
             // 
-            this.txbApellido.Location = new System.Drawing.Point(61, 180);
+            this.txbApellido.Location = new System.Drawing.Point(63, 137);
             this.txbApellido.Margin = new System.Windows.Forms.Padding(4);
             this.txbApellido.Name = "txbApellido";
             this.txbApellido.Size = new System.Drawing.Size(358, 22);
@@ -89,7 +91,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(58, 141);
+            this.label3.Location = new System.Drawing.Point(60, 116);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 17);
@@ -98,7 +100,7 @@
             // 
             // txbNombre
             // 
-            this.txbNombre.Location = new System.Drawing.Point(61, 98);
+            this.txbNombre.Location = new System.Drawing.Point(63, 62);
             this.txbNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txbNombre.Name = "txbNombre";
             this.txbNombre.Size = new System.Drawing.Size(358, 22);
@@ -106,7 +108,7 @@
             // 
             // txbID_Empleado
             // 
-            this.txbID_Empleado.Location = new System.Drawing.Point(61, 32);
+            this.txbID_Empleado.Location = new System.Drawing.Point(61, 20);
             this.txbID_Empleado.Margin = new System.Windows.Forms.Padding(4);
             this.txbID_Empleado.Name = "txbID_Empleado";
             this.txbID_Empleado.ReadOnly = true;
@@ -116,7 +118,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(58, 62);
+            this.label2.Location = new System.Drawing.Point(60, 41);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 17);
@@ -126,7 +128,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(58, 11);
+            this.label1.Location = new System.Drawing.Point(58, -1);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 17);
@@ -161,7 +163,7 @@
             // 
             // txbCorreo
             // 
-            this.txbCorreo.Location = new System.Drawing.Point(61, 462);
+            this.txbCorreo.Location = new System.Drawing.Point(63, 464);
             this.txbCorreo.Margin = new System.Windows.Forms.Padding(4);
             this.txbCorreo.Name = "txbCorreo";
             this.txbCorreo.Size = new System.Drawing.Size(358, 22);
@@ -170,7 +172,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(58, 413);
+            this.label7.Location = new System.Drawing.Point(60, 437);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(49, 17);
@@ -179,7 +181,7 @@
             // 
             // txbTelefono
             // 
-            this.txbTelefono.Location = new System.Drawing.Point(61, 357);
+            this.txbTelefono.Location = new System.Drawing.Point(61, 378);
             this.txbTelefono.Margin = new System.Windows.Forms.Padding(4);
             this.txbTelefono.Name = "txbTelefono";
             this.txbTelefono.Size = new System.Drawing.Size(358, 22);
@@ -188,7 +190,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(58, 314);
+            this.label8.Location = new System.Drawing.Point(58, 357);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(59, 17);
@@ -313,12 +315,33 @@
             this.txbLinea1.Size = new System.Drawing.Size(314, 22);
             this.txbLinea1.TabIndex = 93;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(58, 264);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(118, 17);
+            this.label9.TabIndex = 106;
+            this.label9.Text = "Fecha Nacimiento";
+            // 
+            // txbFechaNacimiento
+            // 
+            this.txbFechaNacimiento.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbFechaNacimiento.Location = new System.Drawing.Point(58, 310);
+            this.txbFechaNacimiento.Margin = new System.Windows.Forms.Padding(4);
+            this.txbFechaNacimiento.Name = "txbFechaNacimiento";
+            this.txbFechaNacimiento.Size = new System.Drawing.Size(297, 22);
+            this.txbFechaNacimiento.TabIndex = 107;
+            // 
             // EmpleadosEdicion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(898, 579);
+            this.Controls.Add(this.txbFechaNacimiento);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.cbDepartamentos);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cbDistritos);
@@ -386,5 +409,7 @@
         public System.Windows.Forms.TextBox txbLinea2;
         private System.Windows.Forms.Label label13;
         public System.Windows.Forms.TextBox txbLinea1;
+        private System.Windows.Forms.Label label9;
+        public System.Windows.Forms.DateTimePicker txbFechaNacimiento;
     }
 }

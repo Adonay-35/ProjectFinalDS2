@@ -18,6 +18,7 @@ namespace General.CLS
         string _Nombres;
         string _Apellidos;
         string _DUI;
+        DateTime _FechaNac;
         string _Telefono;
         string _Correo;
         string _Linea1;
@@ -43,6 +44,7 @@ namespace General.CLS
         public string Nombres { get => _Nombres; set => _Nombres = value; }
         public string Apellidos { get => _Apellidos; set => _Apellidos = value; }
         public string Dui { get => _DUI; set => _DUI = value; }
+        public DateTime FechaNacimiento { get => _FechaNac; set => _FechaNac = value; }
         public string Telefono { get => _Telefono; set => _Telefono = value; }
         public string Correo { get => _Correo; set => _Correo = value; }
         public string Linea1 { get => _Linea1; set => _Linea1 = value; }
@@ -60,9 +62,10 @@ namespace General.CLS
             DataLayer.DBOperacion Operacion = new DataLayer.DBOperacion();
 
             StringBuilder Sentencia = new StringBuilder();
-            Sentencia.Append("INSERT INTO Empleados(Nombres, Apellidos, Dui, Telefono, Correo, Linea1, Linea2, CodigoPostal, ID_Departamento, ID_Distrito, ID_Municipio) VALUES(");
+            Sentencia.Append("INSERT INTO Empleados(Nombres, Apellidos, FechaNac, Dui, Telefono, Correo, Linea1, Linea2, CodigoPostal, ID_Departamento, ID_Distrito, ID_Municipio) VALUES(");
             Sentencia.Append("'" + _Nombres + "',");
             Sentencia.Append("'" + _Apellidos + "',");
+            Sentencia.Append("'" + _FechaNac.ToString("yyyy-MM-dd HH:mm:ss") + "', "); ;
             Sentencia.Append("'" + _DUI + "',");
             Sentencia.Append("'" + _Telefono + "',");
             Sentencia.Append("'" + _Correo + "',");
@@ -99,6 +102,7 @@ namespace General.CLS
             Sentencia.Append("UPDATE Empleados SET ");
             Sentencia.Append("Nombres ='" + _Nombres + "',");
             Sentencia.Append("Apellidos ='" + _Apellidos + "',");
+            Sentencia.Append("FechaNac ='" + _FechaNac.ToString("yyyy-MM-dd HH:mm:ss") + "', ");
             Sentencia.Append("Dui ='" + _DUI + "',");
             Sentencia.Append("Telefono ='" + _Telefono + "',");
             Sentencia.Append("Correo ='" + _Correo + "',");

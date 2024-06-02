@@ -1,4 +1,5 @@
 ﻿using General.CLS;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,11 @@ namespace General.GUI
 {
     public partial class ComprasEdicion : Form
     {
+        MySqlDataReader resultado;
+        DataTable tabla = new DataTable();
+        MySqlConnection sqlConexion = new MySqlConnection();
+
+
         Compras metodosCompras = new Compras();
 
         private bool Validar()
@@ -182,6 +188,40 @@ namespace General.GUI
             }
         }
 
+        public void ActualizarStock(int idProducto, int cantidadEntrante)
+        {
+            try
+            {
+                // Configuración de la conexión
+                sqlConexion.ConnectionString = "Server=localhost;Port=3306;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
+
+                    // Consulta para actualizar el stock en la tabla Kardex
+                    string query = @"UPDATE Kardex SET Stock = Stock + @CantidadEntrante WHERE ID_Kardex = (SELECT ID_Kardex
+                                     FROM Compras WHERE ID_Producto = @ID_Producto LIMIT 1)";
+
+                // Configuración del comando
+                MySqlCommand comando = new MySqlCommand(query, sqlConexion);
+                comando.Parameters.AddWithValue("@CantidadEntrante", cantidadEntrante);
+                comando.Parameters.AddWithValue("@ID_Producto", idProducto);
+
+                // Abrir la conexión y ejecutar la consulta
+                sqlConexion.Open();
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                // Asegurarse de que la conexión se cierre
+                if (sqlConexion.State == ConnectionState.Open)
+                {
+                    sqlConexion.Close();
+                }
+            }
+        }
+
         private void txbCantidadEntrante_TextChanged(object sender, EventArgs e)
         {
 
@@ -198,6 +238,9 @@ namespace General.GUI
                     // Calcular el total a pagar
                     decimal totalPagar = (decimal)(productoSeleccionado.PrecioCompra * cantidadEntrante);
                     txbTotalPagar.Text = totalPagar.ToString();
+
+                    // Actualizar el stock en la base de datos
+                    ActualizarStock(productoSeleccionado.ID_Producto, cantidadEntrante);
                 }
                 else
                 {
@@ -205,7 +248,6 @@ namespace General.GUI
                 }
             }
         }
-
 
         private void ComprasEdicion_Load(object sender, EventArgs e)
         {

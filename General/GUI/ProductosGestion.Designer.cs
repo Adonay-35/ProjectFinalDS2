@@ -49,6 +49,7 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.ID_Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaFabricacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaVencimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,6 +79,7 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID_Producto,
             this.Producto,
+            this.Stock,
             this.FechaFabricacion,
             this.FechaVencimiento,
             this.Descripcion,
@@ -255,6 +257,14 @@
             this.Producto.Name = "Producto";
             this.Producto.ReadOnly = true;
             // 
+            // Stock
+            // 
+            this.Stock.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Stock.DataPropertyName = "Stock";
+            this.Stock.HeaderText = "Stock";
+            this.Stock.Name = "Stock";
+            this.Stock.ReadOnly = true;
+            // 
             // FechaFabricacion
             // 
             this.FechaFabricacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -350,6 +360,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID_Producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Stock;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaFabricacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaVencimiento;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;

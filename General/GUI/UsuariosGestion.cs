@@ -42,6 +42,7 @@ namespace General.GUI
                 else
                 {
                     _DATOS.Filter = "Usuario like '%" + txbFiltro.Text + "%'";
+
                 }
                 dataGridView1.AutoGenerateColumns = false;
                 dataGridView1.DataSource = _DATOS;
@@ -51,6 +52,7 @@ namespace General.GUI
 
             }
         }
+
 
         public UsuariosGestion()
         {
@@ -133,14 +135,14 @@ namespace General.GUI
             lblRegistros.Text = _DATOS.Count.ToString();
         }
 
-        private void txbFiltro_TextChanged(object sender, EventArgs e)
-        {
-            FiltrarLocalmente();
-        }
-
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void txbFiltro_TextChanged(object sender, EventArgs e)
+        {
+            FiltrarLocalmente();
         }
     }
 }

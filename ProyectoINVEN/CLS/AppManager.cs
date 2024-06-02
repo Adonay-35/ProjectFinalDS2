@@ -12,8 +12,15 @@ namespace ProyectoCRUD.CLS
     {
         private void SplashScreen()
         {
-             Splash f = new Splash();
-             f.ShowDialog();
+            try
+            {
+                Splash f = new Splash();
+                f.ShowDialog();
+            }
+            catch (Exception)
+            {
+
+            }
 
         }
 
@@ -35,7 +42,7 @@ namespace ProyectoCRUD.CLS
 
         public AppManager()
         {
-            //SplashScreen();
+            SplashScreen();
             if (LoginScreen())
             {
                 FPrincipal f = new FPrincipal();

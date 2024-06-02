@@ -139,7 +139,6 @@ namespace General.GUI
             }
         }
 
-
         private void txbFiltro_TextChanged(object sender, EventArgs e)
         {
             FiltrarLocalmente();

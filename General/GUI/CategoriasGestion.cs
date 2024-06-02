@@ -47,6 +47,7 @@ namespace General.GUI
 
             }
         }
+
         public CategoriasGestion()
         {
             InitializeComponent();
@@ -111,7 +112,6 @@ namespace General.GUI
 
             }
         }
-
 
         private void CategoriasGestion_Load(object sender, EventArgs e)
         {

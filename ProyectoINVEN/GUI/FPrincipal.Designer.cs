@@ -32,9 +32,9 @@
             this.panelMenulateral = new System.Windows.Forms.Panel();
             this.btnSalir = new System.Windows.Forms.Button();
             this.panelReportes = new System.Windows.Forms.Panel();
-            this.btnReporteCompras = new System.Windows.Forms.Button();
-            this.btnReporteClientes = new System.Windows.Forms.Button();
-            this.btnReporteVentas = new System.Windows.Forms.Button();
+            this.btnClientesZonas = new System.Windows.Forms.Button();
+            this.btnCientesFrecuentes = new System.Windows.Forms.Button();
+            this.btnVentasCategorias = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
             this.panelRegistros = new System.Windows.Forms.Panel();
             this.btnCompras = new System.Windows.Forms.Button();
@@ -61,6 +61,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnFacturas = new System.Windows.Forms.Button();
             this.panelMenulateral.SuspendLayout();
             this.panelReportes.SuspendLayout();
             this.panelRegistros.SuspendLayout();
@@ -105,7 +106,7 @@
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold);
             this.btnSalir.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSalir.Location = new System.Drawing.Point(0, 848);
+            this.btnSalir.Location = new System.Drawing.Point(0, 855);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(2);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Padding = new System.Windows.Forms.Padding(23, 0, 0, 0);
@@ -119,65 +120,68 @@
             // panelReportes
             // 
             this.panelReportes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.panelReportes.Controls.Add(this.btnReporteCompras);
-            this.panelReportes.Controls.Add(this.btnReporteClientes);
-            this.panelReportes.Controls.Add(this.btnReporteVentas);
+            this.panelReportes.Controls.Add(this.btnFacturas);
+            this.panelReportes.Controls.Add(this.btnClientesZonas);
+            this.panelReportes.Controls.Add(this.btnCientesFrecuentes);
+            this.panelReportes.Controls.Add(this.btnVentasCategorias);
             this.panelReportes.Controls.Add(this.btnReportes);
             this.panelReportes.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelReportes.Location = new System.Drawing.Point(0, 585);
             this.panelReportes.Margin = new System.Windows.Forms.Padding(2);
             this.panelReportes.Name = "panelReportes";
-            this.panelReportes.Size = new System.Drawing.Size(195, 263);
+            this.panelReportes.Size = new System.Drawing.Size(195, 270);
             this.panelReportes.TabIndex = 9;
             // 
-            // btnReporteCompras
+            // btnClientesZonas
             // 
-            this.btnReporteCompras.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnReporteCompras.FlatAppearance.BorderSize = 0;
-            this.btnReporteCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReporteCompras.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnReporteCompras.Location = new System.Drawing.Point(0, 103);
-            this.btnReporteCompras.Margin = new System.Windows.Forms.Padding(2);
-            this.btnReporteCompras.Name = "btnReporteCompras";
-            this.btnReporteCompras.Padding = new System.Windows.Forms.Padding(23, 0, 0, 0);
-            this.btnReporteCompras.Size = new System.Drawing.Size(195, 26);
-            this.btnReporteCompras.TabIndex = 2;
-            this.btnReporteCompras.Text = "Compras";
-            this.btnReporteCompras.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReporteCompras.UseVisualStyleBackColor = true;
+            this.btnClientesZonas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnClientesZonas.FlatAppearance.BorderSize = 0;
+            this.btnClientesZonas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClientesZonas.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnClientesZonas.Location = new System.Drawing.Point(0, 103);
+            this.btnClientesZonas.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClientesZonas.Name = "btnClientesZonas";
+            this.btnClientesZonas.Padding = new System.Windows.Forms.Padding(23, 0, 0, 0);
+            this.btnClientesZonas.Size = new System.Drawing.Size(195, 26);
+            this.btnClientesZonas.TabIndex = 2;
+            this.btnClientesZonas.Text = "Clientes Zonas";
+            this.btnClientesZonas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClientesZonas.UseVisualStyleBackColor = true;
+            this.btnClientesZonas.Click += new System.EventHandler(this.btnClientesZonas_Click);
             // 
-            // btnReporteClientes
+            // btnCientesFrecuentes
             // 
-            this.btnReporteClientes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnReporteClientes.FlatAppearance.BorderSize = 0;
-            this.btnReporteClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReporteClientes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnReporteClientes.Location = new System.Drawing.Point(0, 77);
-            this.btnReporteClientes.Margin = new System.Windows.Forms.Padding(2);
-            this.btnReporteClientes.Name = "btnReporteClientes";
-            this.btnReporteClientes.Padding = new System.Windows.Forms.Padding(23, 0, 0, 0);
-            this.btnReporteClientes.Size = new System.Drawing.Size(195, 26);
-            this.btnReporteClientes.TabIndex = 1;
-            this.btnReporteClientes.Text = "Clientes";
-            this.btnReporteClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReporteClientes.UseVisualStyleBackColor = true;
+            this.btnCientesFrecuentes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCientesFrecuentes.FlatAppearance.BorderSize = 0;
+            this.btnCientesFrecuentes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCientesFrecuentes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCientesFrecuentes.Location = new System.Drawing.Point(0, 77);
+            this.btnCientesFrecuentes.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCientesFrecuentes.Name = "btnCientesFrecuentes";
+            this.btnCientesFrecuentes.Padding = new System.Windows.Forms.Padding(23, 0, 0, 0);
+            this.btnCientesFrecuentes.Size = new System.Drawing.Size(195, 26);
+            this.btnCientesFrecuentes.TabIndex = 1;
+            this.btnCientesFrecuentes.Text = "Clientes Frecuentes";
+            this.btnCientesFrecuentes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCientesFrecuentes.UseVisualStyleBackColor = true;
+            this.btnCientesFrecuentes.Click += new System.EventHandler(this.btnCientesFrecuentes_Click);
             // 
-            // btnReporteVentas
+            // btnVentasCategorias
             // 
-            this.btnReporteVentas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnReporteVentas.FlatAppearance.BorderSize = 0;
-            this.btnReporteVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReporteVentas.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnReporteVentas.Location = new System.Drawing.Point(0, 51);
-            this.btnReporteVentas.Margin = new System.Windows.Forms.Padding(2);
-            this.btnReporteVentas.Name = "btnReporteVentas";
-            this.btnReporteVentas.Padding = new System.Windows.Forms.Padding(23, 0, 0, 0);
-            this.btnReporteVentas.Size = new System.Drawing.Size(195, 26);
-            this.btnReporteVentas.TabIndex = 0;
-            this.btnReporteVentas.Text = "Ventas";
-            this.btnReporteVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReporteVentas.UseVisualStyleBackColor = true;
-            this.btnReporteVentas.Click += new System.EventHandler(this.btnReporteVentas_Click);
+            this.btnVentasCategorias.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnVentasCategorias.FlatAppearance.BorderSize = 0;
+            this.btnVentasCategorias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVentasCategorias.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnVentasCategorias.Location = new System.Drawing.Point(0, 51);
+            this.btnVentasCategorias.Margin = new System.Windows.Forms.Padding(2);
+            this.btnVentasCategorias.Name = "btnVentasCategorias";
+            this.btnVentasCategorias.Padding = new System.Windows.Forms.Padding(23, 0, 0, 0);
+            this.btnVentasCategorias.Size = new System.Drawing.Size(195, 26);
+            this.btnVentasCategorias.TabIndex = 0;
+            this.btnVentasCategorias.Text = "Ventas Categorias";
+            this.btnVentasCategorias.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVentasCategorias.UseVisualStyleBackColor = true;
+            this.btnVentasCategorias.Click += new System.EventHandler(this.btnReporteVentas_Click);
             // 
             // btnReportes
             // 
@@ -199,7 +203,6 @@
             this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnReportes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnReportes.UseVisualStyleBackColor = false;
-            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
             // panelRegistros
             // 
@@ -595,6 +598,23 @@
             this.btnCancelar.MouseEnter += new System.EventHandler(this.btnCancelar_MouseEnter);
             this.btnCancelar.MouseLeave += new System.EventHandler(this.btnCancelar_MouseLeave);
             // 
+            // btnFacturas
+            // 
+            this.btnFacturas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnFacturas.FlatAppearance.BorderSize = 0;
+            this.btnFacturas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFacturas.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnFacturas.Location = new System.Drawing.Point(0, 129);
+            this.btnFacturas.Margin = new System.Windows.Forms.Padding(2);
+            this.btnFacturas.Name = "btnFacturas";
+            this.btnFacturas.Padding = new System.Windows.Forms.Padding(23, 0, 0, 0);
+            this.btnFacturas.Size = new System.Drawing.Size(195, 26);
+            this.btnFacturas.TabIndex = 9;
+            this.btnFacturas.Text = "Fatcuras";
+            this.btnFacturas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFacturas.UseVisualStyleBackColor = true;
+            this.btnFacturas.Click += new System.EventHandler(this.btnFacturas_Click);
+            // 
             // FPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -653,12 +673,13 @@
         private System.Windows.Forms.Button btnProveedor;
         private System.Windows.Forms.Button btnCompras;
         private System.Windows.Forms.Panel panelReportes;
-        private System.Windows.Forms.Button btnReporteCompras;
-        private System.Windows.Forms.Button btnReporteClientes;
-        private System.Windows.Forms.Button btnReporteVentas;
+        private System.Windows.Forms.Button btnClientesZonas;
+        private System.Windows.Forms.Button btnCientesFrecuentes;
+        private System.Windows.Forms.Button btnVentasCategorias;
         private System.Windows.Forms.Button btnReportes;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button btnFacturas;
     }
 }

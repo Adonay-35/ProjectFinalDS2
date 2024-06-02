@@ -69,6 +69,28 @@ namespace General.GUI
             InitializeComponent();
         }
 
+
+        public void MostrarProveedores(ComboBox cbProveedor)
+        {
+            List<Proveedores> datos = metodosProductos.ObtenerProveedores();
+            cbProveedor.Items.Add("Selecciona una opción");
+            foreach (Proveedores dato in datos)
+            {
+                cbProveedor.Items.Add(dato.Proveedor);
+            };
+        }
+
+        public void MostrarCategorias(ComboBox cbCategoria)
+        {
+
+            List<Categorias> datos = metodosProductos.ObtenerCategorias();
+            cbCategoria.Items.Add("Selecciona una opción");
+            foreach (Categorias dato in datos)
+            {
+                cbCategoria.Items.Add(dato.Categoria);
+            }
+        }
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
@@ -132,30 +154,6 @@ namespace General.GUI
             }
         }
 
-
-
-        public void MostrarProveedores(ComboBox cbProveedor)
-        {
-            List<Proveedores> datos = metodosProductos.ObtenerProveedores();
-            cbProveedor.Items.Add("Selecciona una opción");
-            foreach (Proveedores dato in datos)
-            {
-                cbProveedor.Items.Add(dato.Proveedor);
-            };
-        }
-
-        public void MostrarCategorias(ComboBox cbCategoria)
-        {
-
-            List<Categorias> datos = metodosProductos.ObtenerCategorias();
-            cbCategoria.Items.Add("Selecciona una opción");
-            foreach (Categorias dato in datos)
-            {
-                cbCategoria.Items.Add(dato.Categoria);
-            }
-        }
-
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
@@ -170,7 +168,7 @@ namespace General.GUI
                 this.MostrarCategorias(cbCategoria);
                 cbProveedor.SelectedIndex = 0;
                 cbCategoria.SelectedIndex = 0;
-            }    
+            }
         }
     }
 }

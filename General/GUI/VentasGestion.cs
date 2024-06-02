@@ -134,7 +134,6 @@ namespace General.GUI
             }
         }
 
-
         private void VentasGestion_Load(object sender, EventArgs e)
         {
             Cargar();
