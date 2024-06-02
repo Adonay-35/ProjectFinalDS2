@@ -173,3 +173,80 @@ INNER JOIN
     Proveedores PR ON C.ID_Proveedor = PR.ID_Proveedor
 INNER JOIN 
     Productos P ON C.ID_Producto = P.ID_Producto;
+    
+    
+-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-- VISTAS PARA REPORTES
+-- Vista para clientes frecuentes
+CREATE VIEW ClientesFrecuentes AS
+SELECT 
+    c.ID_Cliente,
+    c.Nombres,
+    c.Apellidos,
+    COUNT(v.ID_Venta) AS NumeroDeCompras
+FROM 
+    Clientes c
+JOIN 
+    Ventas v ON c.ID_Cliente = v.ID_Cliente
+GROUP BY 
+    c.ID_Cliente, c.Nombres, c.Apellidos
+HAVING COUNT(v.ID_Venta) BETWEEN 1 AND 10
+ORDER BY 
+    NumeroDeCompras DESC;
+
+-- Vista para clientes por zona
+CREATE VIEW ClientesPorZona AS
+SELECT 
+    d.Departamento,
+    m.Municipio,
+    COUNT(c.ID_Cliente) AS NumeroDeClientes
+FROM 
+    Clientes c
+JOIN 
+    Departamentos d ON c.ID_Departamento = d.ID_Departamento
+JOIN 
+    Municipios m ON c.ID_Municipio = m.ID_Municipio
+GROUP BY 
+    d.Departamento, m.Municipio
+HAVING COUNT(c.ID_Cliente) BETWEEN 1 AND 10
+ORDER BY 
+    NumeroDeClientes DESC;
+
+-- Vista para ventas por categoría
+CREATE VIEW VentasPorCategoria AS
+SELECT 
+    cat.Categoria,
+    SUM(v.TotalCobrar) AS TotalVendido
+FROM 
+    Ventas v
+JOIN 
+    Productos p ON v.ID_Producto = p.ID_Producto
+JOIN 
+    Categorias cat ON p.ID_Categoria = cat.ID_Categoria
+GROUP BY 
+    cat.Categoria
+HAVING SUM(v.TotalCobrar) BETWEEN 5 AND 30
+ORDER BY 
+    TotalVendido DESC;
+
+-- Vista para facturas
+CREATE VIEW Facturas AS
+SELECT 
+    v.ID_Venta,
+    v.FechaVenta,
+    u.Usuario AS Vendedor,
+    CONCAT(c.Nombres, ' ', c.Apellidos) AS Cliente,
+    p.Producto,
+    v.PrecioVenta,
+    v.CantidadSaliente,
+    v.TotalCobrar
+FROM 
+    Ventas v
+JOIN 
+    Usuarios u ON v.ID_Usuario = u.ID_Usuario
+JOIN 
+    Clientes c ON v.ID_Cliente = c.ID_Cliente
+JOIN 
+    Productos p ON v.ID_Producto = p.ID_Producto
+WHERE CAST(V.FechaVenta AS DATE) BETWEEN '2024-05-13' AND '2024-05-14'
+GROUP BY v.ID_Venta;
