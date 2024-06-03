@@ -11,6 +11,7 @@ namespace General.CLS
     internal class Categorias
     {
         Int32 _ID_Categoria;
+
         String _Categoria;
 
         public Categorias(int idCategoria, string categoria)
