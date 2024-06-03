@@ -14,8 +14,6 @@ namespace ProyectoCRUD.GUI
 {
     public partial class FPrincipal : Form
     {
-
-
         public FPrincipal()
         {
             InitializeComponent();

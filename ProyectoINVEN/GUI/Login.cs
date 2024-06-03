@@ -32,23 +32,34 @@ namespace ProyectoCRUD.GUI
 
             DataTable dt = new DataTable();
             DBOperacion oOperacion = new DBOperacion();
-            string query = @"SELECT ID_Usuario, Usuario, ID_Empleado, ID_Rol FROM usuarios WHERE Usuario = '" + txbUsuario.Text + "' AND Clave = '" + claveHasheada + "'";
+            string query = @"SELECT ID_Usuario, Usuario, ID_Empleado, ID_Rol, ID_Estado FROM usuarios WHERE Usuario = '" + txbUsuario.Text + "' AND Clave = '" + claveHasheada + "'";
             dt = oOperacion.Consultar(query);
 
             if (dt.Rows.Count == 1)
             {
-                Sesion oSesion = Sesion.ObtenerInstancia();
-                oSesion.Usuario = txbUsuario.Text;
-                _Autorizado = true;
+                DataRow row = dt.Rows[0];
+                int estado = Convert.ToInt32(row["ID_Estado"]);
 
-
-                Close();
+                if (estado == 2) // 2 es activo
+                {
+                    Sesion oSesion = Sesion.ObtenerInstancia();
+                    oSesion.Usuario = txbUsuario.Text;
+                    _Autorizado = true;
+                    Close();
+                }
+                else // 1 es inactivo
+                {
+                    MessageBox.Show("El usuario está inactivo. Por favor, contacte al administrador.",
+                    "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                 
+                }
             }
             else
             {
-                MessageBox.Show("Las credenciales ingresadas no son válidas. Por favor, inténtelo nuevamente.", 
+                MessageBox.Show("Las credenciales ingresadas no son válidas o el usuario no existe. Por favor, inténtelo nuevamente.",
                 "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -126,7 +137,7 @@ namespace ProyectoCRUD.GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Close();
+            Application.Exit();
         }
 
         private void txbClave_TextChanged(object sender, EventArgs e)
