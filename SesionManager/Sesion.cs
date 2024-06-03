@@ -17,6 +17,9 @@ namespace SesionManager
 
         String _Usuario;
 
+        string _Rol;
+        public string Rol { get; set; } // ObtenerRol
+
         public string Usuario
         {
             get => _Usuario;

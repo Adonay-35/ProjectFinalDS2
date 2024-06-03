@@ -203,6 +203,39 @@ namespace ProyectoCRUD.GUI
         {
             // Mostrar mensaje de bienvenida
             MessageBox.Show($"Bienvenido {Sesion.ObtenerInstancia().Usuario}", "Inicio de sesión exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            // Verificar el rol del usuario y habilitar/deshabilitar los botones
+            string rol = Sesion.ObtenerInstancia().Rol;
+
+            if (rol == "Administrador")
+            {
+                btnControlAcceso.Enabled = true;
+                btnPersonalClientes.Enabled = true;
+                btnInventarioSumin.Enabled = true;
+                btnRegistros.Enabled = true;
+                btnReportes.Enabled = true;
+            }
+            else if (rol == "Almacenista")
+            {
+                btnInventarioSumin.Enabled = true;
+                btnProductos.Enabled = true;
+                btnProveedor.Enabled = true;
+                btnControlAcceso.Enabled = false;
+                btnPersonalClientes.Enabled = false;
+                btnRegistros.Enabled = false;
+                btnReportes.Enabled = false;
+            }
+            else if (rol == "Vendedor")
+            {
+                btnRegistros.Enabled = true;
+                btnVentas.Enabled = true;
+                btnCategorias.Enabled = false;
+                btnControlAcceso.Enabled = false;
+                btnPersonalClientes.Enabled = false;
+                btnInventarioSumin.Enabled = false;
+                btnReportes.Enabled = false;
+                btnCompras.Enabled = false;
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)

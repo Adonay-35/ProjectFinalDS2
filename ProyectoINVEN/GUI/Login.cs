@@ -32,7 +32,9 @@ namespace ProyectoCRUD.GUI
 
             DataTable dt = new DataTable();
             DBOperacion oOperacion = new DBOperacion();
-            string query = @"SELECT ID_Usuario, Usuario, ID_Empleado, ID_Rol, ID_Estado FROM usuarios WHERE Usuario = '" + txbUsuario.Text + "' AND Clave = '" + claveHasheada + "'";
+           // string query = @"SELECT ID_Usuario, Usuario, ID_Empleado, ID_Rol, ID_Estado FROM usuarios WHERE Usuario = '" + txbUsuario.Text + "' AND Clave = '" + claveHasheada + "'";
+            string query = @"SELECT u.ID_Usuario, u.Usuario, u.ID_Empleado, r.Rol, u.ID_Estado FROM usuarios u JOIN Roles r ON u.ID_Rol = r.ID_Rol
+                             WHERE u.Usuario = '" + txbUsuario.Text + "' AND Clave = '" + claveHasheada + "'";
             dt = oOperacion.Consultar(query);
 
             if (dt.Rows.Count == 1)
@@ -44,6 +46,7 @@ namespace ProyectoCRUD.GUI
                 {
                     Sesion oSesion = Sesion.ObtenerInstancia();
                     oSesion.Usuario = txbUsuario.Text;
+                    oSesion.Rol = row["Rol"].ToString(); //Permisios segun Rol
                     _Autorizado = true;
                     Close();
                 }
