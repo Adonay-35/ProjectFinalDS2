@@ -104,6 +104,7 @@ namespace General.GUI
                         CLS.Productos oProducto = new CLS.Productos();
 
                         oProducto.Producto = txbProducto.Text;
+                        oProducto.Stock = Convert.ToInt32(txbStock.Text);
                         oProducto.FechaFabricacion = Convert.ToDateTime(txbFechaFabricacion.Text);
                         oProducto.FechaVencimiento = Convert.ToDateTime(txbFechaVencimiento.Text);
                         oProducto.Descripcion = txbDescripcion.Text;
@@ -129,6 +130,7 @@ namespace General.GUI
                         CLS.Productos oProducto = new CLS.Productos();
                         oProducto.ID_Producto = Convert.ToInt32(txbID_Producto.Text);
                         oProducto.Producto = txbProducto.Text;
+                        oProducto.Stock = Convert.ToInt32(txbStock.Text);
                         oProducto.FechaFabricacion = Convert.ToDateTime(txbFechaFabricacion.Text);
                         oProducto.FechaVencimiento = Convert.ToDateTime(txbFechaVencimiento.Text);
                         oProducto.Descripcion = txbDescripcion.Text;

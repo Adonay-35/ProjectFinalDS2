@@ -72,49 +72,71 @@ namespace General.GUI
             {
                 if (Validar())
                 {
-                    if (string.IsNullOrEmpty(txbID_Compra.Text.Trim()))
+                    // Ajustar el índice porque el primer elemento es "Selecciona una opción"
+                    int indice = cbProductos.SelectedIndex - 1;
+
+                    if (indice >= 0 && indice < listaProductos.Count)
                     {
-                        Compras oCompra = new Compras();
+                        // Obtener el producto seleccionado
+                        Productos productoSeleccionado = listaProductos[indice];
 
-                        oCompra.FechaCompra = Convert.ToDateTime(txbFechaCompra.Text);
-                        oCompra.ID_Usuario = Convert.ToInt32(cbUsuarios.SelectedIndex);
-                        oCompra.ID_Proveedor = Convert.ToInt32(cbProveedores.SelectedIndex);
-                        oCompra.ID_Producto = Convert.ToInt32(cbProductos.SelectedIndex);
-                        oCompra.CantidadEntrante = Convert.ToInt32(txbCantidadEntrante.Text);
-                        oCompra.TotalPagar = Convert.ToDecimal(txbTotalPagar.Text);
-
-                        // GUARDAR NUEVO REGISTRO
-                        if (oCompra.Insertar())
+                        // Intentar obtener la cantidad entrante
+                        if (int.TryParse(txbCantidadEntrante.Text, out int cantidadEntrante))
                         {
-                            MessageBox.Show("Compra creada exitosamente");
-                            Close();
+                            Compras oCompra = new Compras();
+
+                            // Si es una nueva compra
+                            if (string.IsNullOrEmpty(txbID_Compra.Text.Trim()))
+                            {
+                                oCompra.FechaCompra = Convert.ToDateTime(txbFechaCompra.Text);
+                                oCompra.ID_Usuario = Convert.ToInt32(cbUsuarios.SelectedIndex);
+                                oCompra.ID_Proveedor = Convert.ToInt32(cbProveedores.SelectedIndex);
+                                oCompra.ID_Producto = productoSeleccionado.ID_Producto;
+                                oCompra.CantidadEntrante = cantidadEntrante;
+                                oCompra.TotalPagar = Convert.ToDecimal(txbTotalPagar.Text);
+
+                                // Guardar nuevo registro
+                                if (oCompra.Insertar())
+                                {
+                                    // Actualizar el stock en la base de datos
+                                    ActualizarStock(productoSeleccionado.ID_Producto, cantidadEntrante);
+
+                                    MessageBox.Show("Compra creada exitosamente");
+                                    Close();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("La compra no pudo ser almacenada");
+                                }
+                            }
+                            else // Si es una compra existente que se está actualizando
+                            {
+                                oCompra.ID_Compra = Convert.ToInt32(txbID_Compra.Text);
+                                oCompra.FechaCompra = Convert.ToDateTime(txbFechaCompra.Text);
+                                oCompra.ID_Usuario = Convert.ToInt32(cbUsuarios.SelectedIndex);
+                                oCompra.ID_Proveedor = Convert.ToInt32(cbProveedores.SelectedIndex);
+                                oCompra.ID_Producto = productoSeleccionado.ID_Producto;
+                                oCompra.CantidadEntrante = cantidadEntrante;
+                                oCompra.TotalPagar = Convert.ToDecimal(txbTotalPagar.Text);
+
+                                // Actualizar registro
+                                if (oCompra.Actualizar())
+                                {
+                                    // Actualizar el stock en la base de datos
+                                    ActualizarStock(productoSeleccionado.ID_Producto, cantidadEntrante);
+
+                                    MessageBox.Show("Registro actualizado exitosamente");
+                                    Close();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("La compra no pudo ser actualizada");
+                                }
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("La compra no pudo ser almacenada");
-                        }
-                    }
-                    else
-                    {
-                        Compras oCompra = new Compras();
-
-                        oCompra.ID_Compra = Convert.ToInt32(txbID_Compra.Text);
-                        oCompra.FechaCompra = Convert.ToDateTime(txbFechaCompra.Text);
-                        oCompra.ID_Usuario = Convert.ToInt32(cbUsuarios.SelectedIndex);
-                        oCompra.ID_Proveedor = Convert.ToInt32(cbProveedores.SelectedIndex);
-                        oCompra.ID_Producto = Convert.ToInt32(cbProductos.SelectedIndex);
-                        oCompra.CantidadEntrante = Convert.ToInt32(txbCantidadEntrante.Text);
-                        oCompra.TotalPagar = Convert.ToDecimal(txbTotalPagar.Text);
-
-                        // ACTUALIZAR REGISTRO
-                        if (oCompra.Actualizar())
-                        {
-                            MessageBox.Show("Registro actualizado exitosamente");
-                            Close();
-                        }
-                        else
-                        {
-                            MessageBox.Show("La compra no pudo ser actualizada");
+                            MessageBox.Show("La cantidad entrante no es válida");
                         }
                     }
                 }
@@ -193,38 +215,30 @@ namespace General.GUI
             try
             {
                 // Configuración de la conexión
-                sqlConexion.ConnectionString = "Server=localhost;Port=3306;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
+                using (MySqlConnection sqlConexion = new MySqlConnection("Server=localhost;Port=3306;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;"))
+                {
+                    // Consulta para actualizar el stock en la tabla Productos
+                    string query = @"UPDATE Productos SET Stock = Stock + @CantidadEntrante WHERE ID_Producto = @ID_Producto";
 
-                    // Consulta para actualizar el stock en la tabla Kardex
-                    string query = @"UPDATE Kardex SET Stock = Stock + @CantidadEntrante WHERE ID_Kardex = (SELECT ID_Kardex
-                                     FROM Compras WHERE ID_Producto = @ID_Producto LIMIT 1)";
+                    // Configuración del comando
+                    MySqlCommand comando = new MySqlCommand(query, sqlConexion);
+                    comando.Parameters.AddWithValue("@CantidadEntrante", cantidadEntrante);
+                    comando.Parameters.AddWithValue("@ID_Producto", idProducto);
 
-                // Configuración del comando
-                MySqlCommand comando = new MySqlCommand(query, sqlConexion);
-                comando.Parameters.AddWithValue("@CantidadEntrante", cantidadEntrante);
-                comando.Parameters.AddWithValue("@ID_Producto", idProducto);
-
-                // Abrir la conexión y ejecutar la consulta
-                sqlConexion.Open();
-                comando.ExecuteNonQuery();
+                    // Abrir la conexión y ejecutar la consulta
+                    sqlConexion.Open();
+                    comando.ExecuteNonQuery();
+                }
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            finally
-            {
-                // Asegurarse de que la conexión se cierre
-                if (sqlConexion.State == ConnectionState.Open)
-                {
-                    sqlConexion.Close();
-                }
-            }
         }
+
 
         private void txbCantidadEntrante_TextChanged(object sender, EventArgs e)
         {
-
             int indice = cbProductos.SelectedIndex - 1;
 
             if (indice >= 0 && indice < listaProductos.Count)
@@ -238,9 +252,6 @@ namespace General.GUI
                     // Calcular el total a pagar
                     decimal totalPagar = (decimal)(productoSeleccionado.PrecioCompra * cantidadEntrante);
                     txbTotalPagar.Text = totalPagar.ToString();
-
-                    // Actualizar el stock en la base de datos
-                    ActualizarStock(productoSeleccionado.ID_Producto, cantidadEntrante);
                 }
                 else
                 {
@@ -248,6 +259,7 @@ namespace General.GUI
                 }
             }
         }
+
 
         private void ComprasEdicion_Load(object sender, EventArgs e)
         {

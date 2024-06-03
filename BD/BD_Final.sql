@@ -1,4 +1,164 @@
-USE sistemaventas;
+-- CREACION BASE DE DATOS
+CREATE DATABASE SistemaVentas;
+USE SistemaVentas;
+
+-- CREACION TABLAS DEL SISTEMA
+create table Departamentos(
+	ID_Departamento int auto_increment primary key,
+	Departamento varchar(60) not null,
+	Pais varchar(60)
+);
+
+create table Municipios(
+	ID_Municipio int auto_increment primary key,
+	Municipio varchar(60) not null,
+	ID_Departamento int not null
+);
+
+create table Distritos(
+	ID_Distrito int auto_increment primary key,
+	Distrito varchar(60) not null,
+	ID_Municipio int not null
+);
+
+CREATE TABLE Roles(
+	ID_Rol int auto_increment primary key,
+	Rol varchar(50) not null
+);
+
+CREATE TABLE Estados(
+	ID_Estado int auto_increment primary key,
+	Estado boolean not null,
+	Descripcion varchar(10) not null
+);
+
+CREATE TABLE Empleados (
+	ID_Empleado int auto_increment primary key,
+    Nombres varchar(50) not null,
+    Apellidos varchar(50) not null,
+    FechaNac date not null,
+    DUI varchar(10) not null,
+    Telefono varchar(9) not null,
+    Correo varchar(50) not null,
+    Linea1 varchar(100) not null,
+	Linea2 varchar(100) not null,
+	ID_Distrito int not null,
+	CodigoPostal int not null,
+	ID_Departamento int not null,
+	ID_Municipio int not null
+);
+
+CREATE TABLE Clientes (
+	ID_Cliente int auto_increment primary key,
+    Nombres varchar(50) not null,
+    Apellidos varchar(50) not null,
+    Correo varchar(50) not null,
+    Linea1 varchar(100) not null,
+	Linea2 varchar(100) not null,
+	ID_Distrito int not null,
+	CodigoPostal int not null,
+	ID_Departamento int not null,
+	ID_Municipio int not null
+);
+
+CREATE TABLE Proveedores(
+	ID_Proveedor int auto_increment primary key,
+	Proveedor varchar(100) not null,
+	Contacto double not null,
+	Correo varchar(80) not null,
+	Linea1 varchar(100) not null,
+	Linea2 varchar(100) not null,
+	ID_Distrito int not null,
+	CodigoPostal int not null,
+	ID_Departamento int not null,
+	ID_Municipio int not null
+);
+
+CREATE TABLE Categorias(
+	ID_Categoria int auto_increment primary key,
+    Categoria varchar(50) not null
+);
+
+CREATE TABLE Usuarios(
+	ID_Usuario int auto_increment primary key,
+	Usuario varchar(50) not null,
+	Clave varchar(200) not null,
+	ID_Rol int not null,
+	ID_Empleado int not null,
+    ID_Estado int not null
+);
+
+CREATE TABLE Productos (
+    ID_Producto int auto_increment primary key,
+    Producto varchar(200) not null,
+    FechaFabricacion datetime not null,
+    FechaVencimiento datetime not null,
+    Descripcion varchar(100) not null,
+    PrecioCompra double not null,
+    ID_Proveedor int not null,
+    ID_Categoria int not null
+);
+
+CREATE TABLE Compras (
+    ID_Compra int auto_increment primary key,
+    FechaCompra date not null,
+    ID_Usuario int not null,
+    ID_Proveedor int not null,
+    ID_Producto  int not null,
+    CantidadEntrante int not null,
+    TotalPagar decimal(18, 2) not null
+);
+
+CREATE TABLE Ventas (
+    ID_Venta int auto_increment primary key,
+    FechaVenta date not null,
+    ID_Usuario int not null,
+    ID_Cliente int not null,
+    ID_Producto  int not null,
+    PrecioVenta decimal(18, 2) not null, 
+    CantidadSaliente int not null,
+    TotalCobrar decimal(18, 2) not null
+);
+
+CREATE TABLE Kardex(
+	ID_Kardex int auto_increment primary key,
+    ID_Compra int null,
+    ID_Venta int null,
+    Stock int not null
+);
+
+-- LLAVES FORANEAS
+ALTER TABLE Municipios ADD CONSTRAINT fk_municipio_departamento FOREIGN KEY (ID_Departamento) REFERENCES Departamentos(ID_Departamento);
+ALTER TABLE Distritos ADD CONSTRAINT fk_distrito_muncipio FOREIGN KEY (ID_Municipio) REFERENCES Municipios(ID_Municipio);
+ALTER TABLE Empleados ADD CONSTRAINT fk_empleado_departamento FOREIGN KEY (ID_Departamento) REFERENCES Departamentos(ID_Departamento);
+ALTER TABLE Empleados ADD CONSTRAINT fk_empleado_distrito FOREIGN KEY (ID_Distrito) REFERENCES Distritos(ID_Distrito);
+ALTER TABLE Empleados ADD CONSTRAINT fk_empleado_municipio FOREIGN KEY (ID_Municipio) REFERENCES Municipios(ID_Municipio);
+ALTER TABLE Clientes ADD CONSTRAINT fk_cliente_departamento FOREIGN KEY (ID_Departamento) REFERENCES Departamentos(ID_Departamento);
+ALTER TABLE Clientes ADD CONSTRAINT fk_cliente_distrito FOREIGN KEY (ID_Distrito) REFERENCES Distritos(ID_Distrito);
+ALTER TABLE Clientes ADD CONSTRAINT fk_cliente_municipio FOREIGN KEY (ID_Municipio) REFERENCES Municipios(ID_Municipio);
+ALTER TABLE Proveedores ADD CONSTRAINT fk_proveedor_distrito FOREIGN KEY (ID_Distrito) REFERENCES Distritos(ID_Distrito);
+ALTER TABLE Proveedores ADD CONSTRAINT fk_proveedor_departamento FOREIGN KEY (ID_Departamento) REFERENCES Departamentos(ID_Departamento);
+ALTER TABLE Proveedores ADD CONSTRAINT fk_proveedor_municipio FOREIGN KEY (ID_Municipio) REFERENCES Municipios(ID_Municipio);
+ALTER TABLE Usuarios ADD CONSTRAINT fk_usuario_rol FOREIGN KEY (ID_Rol) REFERENCES Roles(ID_Rol);
+ALTER TABLE Usuarios ADD CONSTRAINT fk_usuario_empleado FOREIGN KEY (ID_Empleado) REFERENCES Empleados(ID_Empleado);
+ALTER TABLE Usuarios ADD CONSTRAINT fk_usuario_estado FOREIGN KEY (ID_Estado) REFERENCES Estados(ID_Estado);
+ALTER TABLE Productos ADD CONSTRAINT fk_producto_proveedor FOREIGN KEY (ID_Proveedor) REFERENCES Proveedores(ID_Proveedor);
+ALTER TABLE Productos ADD CONSTRAINT fk_producto_categoria FOREIGN KEY (ID_Categoria) REFERENCES Categorias(ID_Categoria);
+ALTER TABLE Compras ADD CONSTRAINT fk_compra_usuario FOREIGN KEY (ID_Usuario) REFERENCES Usuarios(ID_Usuario);
+ALTER TABLE Compras ADD CONSTRAINT fk_compra_proveedor FOREIGN KEY (ID_Proveedor) REFERENCES Proveedores(ID_Proveedor);
+ALTER TABLE Compras ADD CONSTRAINT fk_compra_producto FOREIGN KEY (ID_Producto) REFERENCES Productos(ID_Producto);
+ALTER TABLE Ventas ADD CONSTRAINT fk_venta_usuario FOREIGN KEY (ID_Usuario) REFERENCES Usuarios(ID_Usuario);
+ALTER TABLE Ventas ADD CONSTRAINT fk_venta_cliente FOREIGN KEY (ID_Cliente) REFERENCES Clientes(ID_Cliente);
+ALTER TABLE Ventas ADD CONSTRAINT fk_venta_producto FOREIGN KEY (ID_Producto) REFERENCES Productos(ID_Producto);
+ALTER TABLE Kardex ADD CONSTRAINT fk_kardex_compra FOREIGN KEY (ID_Compra) REFERENCES Compras(ID_Compra);
+ALTER TABLE Kardex ADD CONSTRAINT fk_kardex_venta FOREIGN KEY (ID_Venta) REFERENCES Ventas(ID_Venta);
+/*
+En base a esta BD creame las vistas para MySQL para generar los siguientes reportes:
+-Clientes frecuentes ordenados de mayor a menor
+-Clientes según zona ordenados de mayor a menor
+-Ventas según categoría ordenados de mayor a menor
+-Facturas
+*/
 
 -- INSERCIONES 
 -- DIRECCIONES
@@ -446,33 +606,32 @@ INSERT INTO Usuarios(Usuario, Clave, ID_Rol, ID_Empleado, ID_Estado) VALUES
 /*A los productos que no venzan se les pondrá como año de vencimiento "2100-01-01" y a los productos tales como frutas u hortalizas
 que no tengan fechas especificadas se les dará un aproximado de vida de 10 días a partir de
 su ingreso al sistema (se debe verificar su estado de manera física)*/
-INSERT INTO Productos (Producto, Stock, FechaFabricacion, FechaVencimiento, Descripcion, PrecioCompra, ID_Proveedor, ID_Categoria) VALUES
-('Leche Deslactosada 1L', 100, '2024-05-15', '2024-12-15', 'Leche deslactosada en envase de 1 litro', 1.50, 1, 1),
-('Queso Gouda 200g', 150, '2024-05-20', '2024-11-20', 'Queso Gouda en porción de 200 gramos', 3.20, 1, 1),
-('Filete de Res 500g', 80, '2024-05-17', '2024-06-17', 'Filete de res en porción de 500 gramos', 5.50, 2, 2),
-('Pescado Fresco 1kg', 50, '2024-05-18', '2024-05-25', 'Pescado fresco en pieza de 1 kilogramo', 7.80, 3, 3),
-('Sardinas en Lata 200g', 200, '2024-04-30', '2026-04-30', 'Sardinas enlatadas en conserva de 200 gramos', 1.80, 4, 4),
-('Agua Mineral 500ml', 300, '2024-05-10', '2024-11-10', 'Agua mineral en botella de 500 mililitros', 0.75, 5, 5),
-('Refresco de Cola 2L', 100, '2024-05-12', '2024-10-12', 'Refresco de cola en botella de 2 litros', 1.20, 6, 6),
-('Café Instantáneo 200g', 120, '2024-05-14', '2024-09-14', 'Café instantáneo en frasco de 200 gramos', 4.00, 7, 7),
-('Arroz Blanco 1kg', 90, '2024-05-16', '2025-05-16', 'Arroz blanco en paquete de 1 kilogramo', 1.10, 8, 8),
-('Manzanas 1kg', 70, '2024-05-11', '2024-05-18', 'Manzanas frescas en bolsa de 1 kilogramo', 2.50, 9, 9),
-('Espaguetis 500g', 100, '2024-05-13', '2024-08-13', 'Espaguetis en paquete de 500 gramos', 1.30, 10, 10),
-('Zanahorias 500g', 120, '2024-05-21', '2024-05-28', 'Zanahorias frescas en bolsa de 500 gramos', 0.90, 11, 11),
-('Platos Desechables x10', 150, '2024-04-25', '2024-04-30', 'Paquete de 10 platos desechables', 1.20, 12, 12),
-('Cuchillos de Cocina', 50, '2024-05-08', '2024-05-15', 'Set de 6 cuchillos de cocina', 9.50, 13, 13),
-('Tarta de Manzana', 20, '2024-05-19', '2024-05-21', 'Tarta de manzana lista para consumir', 8.00, 14, 14),
-('Golosinas Variadas', 300, '2024-05-22', '2024-06-22', 'Paquete surtido de golosinas', 3.50, 15, 15),
-('Pelota de Fútbol', 40, '2024-05-23', '2025-05-23', 'Pelota de fútbol tamaño oficial', 12.00, 16, 16),
-('Esmalte de Uñas', 200, '2024-05-24', '2024-08-24', 'Esmalte de uñas de diversos colores', 2.50, 17, 17),
-('Aspiradora Compacta', 10, '2024-05-25', '2025-05-25', 'Aspiradora compacta para el hogar', 45.00, 18, 18),
-('Detergente Multiusos', 80, '2024-05-26', '2024-08-26', 'Detergente multiusos para limpieza', 4.80, 19, 19),
-('Refresco de cola', 100, '2024-01-01 13:00:00', '2025-01-01 13:00:00', 'Refresco de cola en lata de 355ml', 1.99, 1, 6),
-('Bolsa de papas fritas', 150, '2024-01-01 14:00:00', '2024-01-02 14:00:00', 'Bolsa de papas fritas de 100g', 2.49, 2, 15),
-('Jabón de manos', 200, '2023-01-01 15:00:00', '2026-01-01 15:00:00', 'Jabón líquido para manos con aroma a manzana', 5.99, 3, 19),
-('Caja de dulces surtidos', 100, '2024-01-01 16:00:00', '2024-05-01 16:00:00', 'Caja de dulces surtidos, ideal para regalo', 1.99, 4, 15),
-('Lápiz de colores', 300, '2022-01-01 17:00:00', '2100-01-01 17:00:00', 'Paquete de 12 lápices de colores surtidos', 0.99, 5, 21);
-
+INSERT INTO Productos (Producto, FechaFabricacion, FechaVencimiento, Descripcion, PrecioCompra, ID_Proveedor, ID_Categoria) VALUES
+('Leche Deslactosada 1L', '2024-05-15', '2024-12-15', 'Leche deslactosada en envase de 1 litro', 1.50, 1, 1),
+('Queso Gouda 200g', '2024-05-20', '2024-11-20', 'Queso Gouda en porción de 200 gramos', 3.20, 1, 1),
+('Filete de Res 500g', '2024-05-17', '2024-06-17', 'Filete de res en porción de 500 gramos', 5.50, 2, 2),
+('Pescado Fresco 1kg', '2024-05-18', '2024-05-25', 'Pescado fresco en pieza de 1 kilogramo', 7.80, 3, 3),
+('Sardinas en Lata 200g', '2024-04-30', '2026-04-30', 'Sardinas enlatadas en conserva de 200 gramos', 1.80, 4, 4),
+('Agua Mineral 500ml', '2024-05-10', '2024-11-10', 'Agua mineral en botella de 500 mililitros', 0.75, 5, 5),
+('Refresco de Cola 2L', '2024-05-12', '2024-10-12', 'Refresco de cola en botella de 2 litros', 1.20, 6, 6),
+('Café Instantáneo 200g', '2024-05-14', '2024-09-14', 'Café instantáneo en frasco de 200 gramos', 4.00, 7, 7),
+('Arroz Blanco 1kg', '2024-05-16', '2025-05-16', 'Arroz blanco en paquete de 1 kilogramo', 1.10, 8, 8),
+('Manzanas 1kg', '2024-05-11', '2024-05-18', 'Manzanas frescas en bolsa de 1 kilogramo', 2.50, 9, 9),
+('Espaguetis 500g', '2024-05-13', '2024-08-13', 'Espaguetis en paquete de 500 gramos', 1.30, 10, 10),
+('Zanahorias 500g', '2024-05-21', '2024-05-28', 'Zanahorias frescas en bolsa de 500 gramos', 0.90, 11, 11),
+('Platos Desechables x10', '2024-04-25', '2024-04-30', 'Paquete de 10 platos desechables', 1.20, 12, 12),
+('Cuchillos de Cocina', '2024-05-08', '2024-05-15', 'Set de 6 cuchillos de cocina', 9.50, 13, 13),
+('Tarta de Manzana', '2024-05-19', '2024-05-21', 'Tarta de manzana lista para consumir', 8.00, 14, 14),
+('Golosinas Variadas', '2024-05-22', '2024-06-22', 'Paquete surtido de golosinas', 3.50, 15, 15),
+('Pelota de Fútbol', '2024-05-23', '2025-05-23', 'Pelota de fútbol tamaño oficial', 12.00, 16, 16),
+('Esmalte de Uñas', '2024-05-24', '2024-08-24', 'Esmalte de uñas de diversos colores', 2.50, 17, 17),
+('Aspiradora Compacta', '2024-05-25', '2025-05-25', 'Aspiradora compacta para el hogar', 45.00, 18, 18),
+('Detergente Multiusos', '2024-05-26', '2024-08-26', 'Detergente multiusos para limpieza', 4.80, 19, 19),
+('Refresco de cola', '2024-01-01 13:00:00', '2025-01-01 13:00:00', 'Refresco de cola en lata de 355ml', 1.99, 1, 6),
+('Bolsa de papas fritas', '2024-01-01 14:00:00', '2024-01-02 14:00:00', 'Bolsa de papas fritas de 100g', 2.49, 2, 15),
+('Jabón de manos', '2023-01-01 15:00:00', '2026-01-01 15:00:00', 'Jabón líquido para manos con aroma a manzana', 5.99, 3, 19),
+('Caja de dulces surtidos', '2024-01-01 16:00:00', '2024-05-01 16:00:00', 'Caja de dulces surtidos, ideal para regalo', 1.99, 4, 15),
+('Lápiz de colores', '2022-01-01 17:00:00', '2100-01-01 17:00:00', 'Paquete de 12 lápices de colores surtidos', 0.99, 5, 21);
 
 INSERT INTO Compras (FechaCompra, ID_Usuario, ID_Proveedor, ID_Producto, CantidadEntrante, TotalPagar) VALUES
 ('2024-05-01 08:30:00', 2, 1, 1, 20, 30.00),
@@ -518,3 +677,289 @@ INSERT INTO Ventas (FechaVenta, ID_Usuario, ID_Cliente, ID_Producto, PrecioVenta
 ('2024-05-18 09:20:00', 3, 18, 18, 45.00, 1, 45.00),
 ('2024-05-19 10:15:00', 5, 19, 19, 4.80, 3, 14.40),
 ('2024-05-20 11:00:00', 5, 20, 20, 3.00, 6, 18.00);
+
+INSERT INTO Kardex (ID_Compra, ID_Venta, Stock) VALUES
+(1, NULL, 20),
+(NULL, 1, 19),
+(2, NULL, 25),
+(NULL, 2, 21),
+(3, NULL, 15),
+(NULL, 3, 12),
+(4, NULL, 12),
+(NULL, 4, 7),
+(5, NULL, 15),
+(NULL, 5, 11),
+(6, NULL, 20),
+(NULL, 6, 13),
+(7, NULL, 40),
+(NULL, 7, 34),
+(8, NULL, 20),
+(NULL, 8, 16),
+(9, NULL, 10),
+(NULL, 9, 3),
+(10, NULL, 30),
+(NULL, 10, 26),
+(11, NULL, 35),
+(NULL, 11, 30),
+(12, NULL, 25),
+(NULL, 12, 19),
+(13, NULL, 10),
+(NULL, 13, 1),
+(14, NULL, 35),
+(NULL, 14, 32),
+(15, NULL, 40),
+(NULL, 15, 36),
+(16, NULL, 20),
+(NULL, 16, 18),
+(17, NULL, 50),
+(NULL, 17, 45),
+(18, NULL, 10),
+(NULL, 18, 9),
+(19, NULL, 30),
+(NULL, 19, 27),
+(20, NULL, 26),
+(NULL, 20, 20);
+
+
+/* PROCEDIMIENTOS ALMACENADOS */
+
+/* ESTADOS */
+DELIMITER $$
+CREATE PROCEDURE ObtenerEstados()
+BEGIN
+SELECT * 
+FROM estados;
+END $$
+
+/* PERMISOS */
+DELIMITER $$
+CREATE PROCEDURE ObtenerRoles()
+BEGIN
+SELECT *
+FROM roles;
+END $$
+
+/* PERMISOS */
+DELIMITER $$
+CREATE PROCEDURE ObtenerPermisos()
+BEGIN
+SELECT *
+FROM permisos;
+END $$
+
+/* USUARIOS */
+DELIMITER $$
+CREATE PROCEDURE ObtenerUsuarios()
+BEGIN
+SELECT *
+FROM usuarios;
+END $$
+
+DELIMITER $$
+CREATE PROCEDURE ObtenerClientes()
+BEGIN
+SELECT *
+FROM clientes;
+END $$
+
+DELIMITER $$
+CREATE PROCEDURE ObtenerEmpleados()
+BEGIN
+SELECT ID_Empleado, Nombres,Apellidos
+FROM empleados;
+END $$
+
+DELIMITER $$
+CREATE PROCEDURE ObtenerDepartamentos()
+BEGIN
+SELECT ID_Departamento, Departamento
+FROM departamentos;
+END $$
+
+DELIMITER $$
+CREATE PROCEDURE ObtenerMunicipios()
+BEGIN
+SELECT ID_Municipio, Municipio
+FROM municipios;
+END $$
+
+DELIMITER $$
+CREATE PROCEDURE ObtenerDistritos()
+BEGIN
+SELECT ID_Distrito, Distrito
+FROM distritos;
+END $$
+
+DELIMITER $$
+CREATE PROCEDURE ObtenerDirecciones()
+BEGIN
+SELECT ID_Direccion, Linea
+FROM direcciones;
+END $$
+
+/*DELIMITER //
+CREATE PROCEDURE ObtenerProductos()
+BEGIN
+    SELECT ID_Producto, Producto, PrecioCompra FROM Productos;
+END //
+DELIMITER ;*/
+
+DELIMITER //
+CREATE PROCEDURE ObtenerProductos()
+BEGIN
+    SELECT 
+        P.ID_Producto, 
+        P.Producto, 
+        P.PrecioCompra,
+        (SELECT 
+            SUM(Kr.Stock)
+         FROM 
+            Kardex Kr 
+         INNER JOIN 
+            Compras Com ON Kr.ID_Compra = Com.ID_Compra 
+         WHERE 
+            Com.ID_Producto = P.ID_Producto 
+        ) AS Stock
+    FROM 
+        Productos P;
+END //
+DELIMITER ;
+
+
+
+DELIMITER $$
+CREATE PROCEDURE BuscarUsuario(IN usuario varchar(200))
+BEGIN
+SELECT *
+FROM usuarios
+WHERE nomUsuario LIKE CONCAT(usuario,'%');
+END
+
+DELIMITER $$
+CREATE PROCEDURE InsertarUsuario(IN nomUsuario varchar(200), usuario varchar(50), contrasena varchar(10), idPermiso int, idEstado int)
+BEGIN
+INSERT INTO usuarios (nomUsuario, usuario, contrasena, idPermiso, idEstado)
+VALUES (nomUsuario, usuario, contrasena, idPermiso, idEstado);
+END
+
+DELIMITER $$
+CREATE PROCEDURE ActualizarUsuario(IN id int, nomUsuario varchar(200), usuario varchar(50), contrasena varchar(10), idPermiso int, idEstado int)
+BEGIN
+UPDATE usuarios 
+SET nomUsuario=nomUsuario, usuario=usuario, contrasena=contrasena, idPermiso=idPermiso, idEstado=idEstado
+WHERE idUsuario=id;
+END
+
+/* PROVEEDORES */
+DELIMITER $$
+CREATE PROCEDURE ObtenerProveedores()
+BEGIN
+SELECT *
+FROM proveedores;
+END $$
+
+/* PROVEEDORES */
+DELIMITER $$
+CREATE PROCEDURE ObtenerCategorias()
+BEGIN
+SELECT *
+FROM categorias;
+END $$
+
+DELIMITER $$
+CREATE PROCEDURE BuscarProveedor(IN proveedor varchar(100))
+BEGIN
+SELECT *
+FROM proveedores
+WHERE nomProveedor LIKE CONCAT(proveedor,'%');
+END
+
+DELIMITER $$
+CREATE PROCEDURE InsertarProveedor(IN nomProveedor varchar(100), numContacto double, direccion varchar(200), email varchar(80))
+BEGIN
+INSERT INTO proveedores (nomProveedor, numContacto, direccion, email)
+VALUES (nomProveedor, numContacto, direccion, email);
+END
+
+DELIMITER $$
+CREATE PROCEDURE ActualizarProveedor(IN id int, nomProveedor varchar(100), numContacto double, direccion varchar(200), email varchar(80))
+BEGIN
+UPDATE proveedores 
+SET nomProveedor=nomProveedor, numContacto=numContacto, direccion=direccion, email=email
+WHERE idProveedor=id;
+END
+
+DELIMITER $$
+CREATE PROCEDURE InsertarProducto(IN idProducto int, nomProducto varchar(200), stock int, precio double, descripcion text, idProveedor int)
+BEGIN
+INSERT INTO productos (idProducto, nomProducto, stock, precio, descripcion, idProveedor)
+VALUES (idProducto, nomProducto, stock, precio, descripcion, idProveedor);
+END
+
+DELIMITER $$
+CREATE PROCEDURE ActualizarProducto(IN id int, nomProducto varchar(200), stock int, precio double, descripcion text, idProveedor int)
+BEGIN
+UPDATE productos 
+SET nomProducto=nomProducto, stock=stock, precio=precio, descripcion=descripcion, idProveedor=idProveedor
+WHERE idProducto=id;
+END
+
+DELIMITER $$
+CREATE PROCEDURE BuscarProducto(IN producto varchar(200))
+BEGIN
+SELECT prod.*, prov.nomProveedor
+FROM productos prod
+INNER JOIN proveedores prov ON prod.idProveedor=prov.idProveedor
+WHERE idProducto LIKE CONCAT(producto,'%') OR nomProducto LIKE CONCAT(producto, '%');
+END
+
+DELIMITER $$
+CREATE PROCEDURE BuscarProductoVenta(IN codigo varchar(200))
+BEGIN
+SELECT idProducto, nomProducto, stock, precio, descripcion
+FROM productos
+WHERE idProducto LIKE CONCAT(codigo,'%');
+END
+
+DELIMITER $$
+CREATE PROCEDURE ObtenerNombreProducto(IN codigo varchar(200))
+BEGIN
+SELECT idProducto, nomProducto, descripcion
+FROM productos
+WHERE idProducto LIKE CONCAT(codigo,'%');
+END
+
+/* VENTAS */
+DELIMITER $$
+CREATE PROCEDURE InsertarVenta(IN idVenta varchar(20), fechaVenta datetime, idUsuario int, idProductos mediumtext, total double)
+BEGIN
+INSERT INTO ventas(idVenta, fechaVenta, idUsuario, idProductos, total)
+VALUES (idVenta, fechaVenta, idUsuario, idProductos, total);
+END
+
+DELIMITER $$
+CREATE PROCEDURE ActualizarStock(IN codigo varchar(100), cantidad int)
+BEGIN
+UPDATE productos
+SET stock=stock-cantidad
+WHERE idProducto=codigo;
+END
+
+/* REPORTES */
+DELIMITER $$
+CREATE PROCEDURE ObtenerVentas(IN fechaInicial varchar(20), fechaFinal varchar(20))
+BEGIN
+SELECT ventas.*, usuarios.nomUsuario 
+FROM ventas 
+INNER JOIN usuarios ON ventas.idUsuario=usuarios.idUsuario
+WHERE idVenta BETWEEN (fechaInicial) AND (fechaFinal);
+END
+
+/* PROCEDIMIENTO ALMACENADO LOGIN */
+DELIMITER $$
+CREATE PROCEDURE LoginUsuario(IN Usuario varchar(50), Clave varchar(32))
+BEGIN
+SELECT *
+FROM Usuarios
+WHERE Usuarios.Usuario=Usuario AND Usuarios.Clave=Clave;
+END

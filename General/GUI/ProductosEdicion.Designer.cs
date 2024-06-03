@@ -48,6 +48,8 @@
             this.Notificador = new System.Windows.Forms.ErrorProvider(this.components);
             this.txbFechaFabricacion = new System.Windows.Forms.DateTimePicker();
             this.txbFechaVencimiento = new System.Windows.Forms.DateTimePicker();
+            this.txbStock = new System.Windows.Forms.TextBox();
+            this.g = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Notificador)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,7 +58,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(43, 355);
+            this.label6.Location = new System.Drawing.Point(43, 338);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(122, 17);
@@ -68,7 +70,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(43, 238);
+            this.label5.Location = new System.Drawing.Point(43, 251);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(116, 17);
@@ -78,7 +80,7 @@
             // txbPrecioCompra
             // 
             this.txbPrecioCompra.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbPrecioCompra.Location = new System.Drawing.Point(527, 178);
+            this.txbPrecioCompra.Location = new System.Drawing.Point(527, 196);
             this.txbPrecioCompra.Margin = new System.Windows.Forms.Padding(4);
             this.txbPrecioCompra.Name = "txbPrecioCompra";
             this.txbPrecioCompra.Size = new System.Drawing.Size(173, 22);
@@ -89,7 +91,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(524, 141);
+            this.label4.Location = new System.Drawing.Point(524, 159);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(94, 17);
@@ -99,7 +101,7 @@
             // txbProducto
             // 
             this.txbProducto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbProducto.Location = new System.Drawing.Point(46, 178);
+            this.txbProducto.Location = new System.Drawing.Point(46, 119);
             this.txbProducto.Margin = new System.Windows.Forms.Padding(4);
             this.txbProducto.Name = "txbProducto";
             this.txbProducto.Size = new System.Drawing.Size(304, 22);
@@ -107,7 +109,7 @@
             // 
             // txbID_Producto
             // 
-            this.txbID_Producto.Location = new System.Drawing.Point(46, 82);
+            this.txbID_Producto.Location = new System.Drawing.Point(46, 45);
             this.txbID_Producto.Margin = new System.Windows.Forms.Padding(4);
             this.txbID_Producto.Name = "txbID_Producto";
             this.txbID_Producto.ReadOnly = true;
@@ -119,7 +121,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(43, 141);
+            this.label2.Location = new System.Drawing.Point(43, 82);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 17);
@@ -131,7 +133,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(43, 48);
+            this.label1.Location = new System.Drawing.Point(43, 11);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 17);
@@ -155,7 +157,7 @@
             // 
             this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnGuardar.Location = new System.Drawing.Point(238, 490);
+            this.btnGuardar.Location = new System.Drawing.Point(230, 490);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(88, 28);
@@ -167,7 +169,7 @@
             // txbDescripcion
             // 
             this.txbDescripcion.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbDescripcion.Location = new System.Drawing.Point(527, 82);
+            this.txbDescripcion.Location = new System.Drawing.Point(527, 115);
             this.txbDescripcion.Margin = new System.Windows.Forms.Padding(4);
             this.txbDescripcion.Name = "txbDescripcion";
             this.txbDescripcion.Size = new System.Drawing.Size(325, 22);
@@ -178,7 +180,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.label7.ForeColor = System.Drawing.SystemColors.Control;
-            this.label7.Location = new System.Drawing.Point(524, 48);
+            this.label7.Location = new System.Drawing.Point(529, 82);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(79, 17);
@@ -189,7 +191,7 @@
             // 
             this.cbCategoria.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCategoria.FormattingEnabled = true;
-            this.cbCategoria.Location = new System.Drawing.Point(527, 393);
+            this.cbCategoria.Location = new System.Drawing.Point(527, 378);
             this.cbCategoria.Margin = new System.Windows.Forms.Padding(4);
             this.cbCategoria.Name = "cbCategoria";
             this.cbCategoria.Size = new System.Drawing.Size(280, 24);
@@ -200,7 +202,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.label8.ForeColor = System.Drawing.SystemColors.Control;
-            this.label8.Location = new System.Drawing.Point(529, 355);
+            this.label8.Location = new System.Drawing.Point(524, 338);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(74, 17);
@@ -222,7 +224,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.label9.ForeColor = System.Drawing.SystemColors.Control;
-            this.label9.Location = new System.Drawing.Point(524, 240);
+            this.label9.Location = new System.Drawing.Point(524, 251);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(84, 17);
@@ -237,7 +239,7 @@
             // txbFechaFabricacion
             // 
             this.txbFechaFabricacion.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbFechaFabricacion.Location = new System.Drawing.Point(46, 282);
+            this.txbFechaFabricacion.Location = new System.Drawing.Point(46, 284);
             this.txbFechaFabricacion.Margin = new System.Windows.Forms.Padding(4);
             this.txbFechaFabricacion.Name = "txbFechaFabricacion";
             this.txbFechaFabricacion.Size = new System.Drawing.Size(304, 22);
@@ -246,11 +248,33 @@
             // txbFechaVencimiento
             // 
             this.txbFechaVencimiento.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbFechaVencimiento.Location = new System.Drawing.Point(46, 395);
+            this.txbFechaVencimiento.Location = new System.Drawing.Point(46, 380);
             this.txbFechaVencimiento.Margin = new System.Windows.Forms.Padding(4);
             this.txbFechaVencimiento.Name = "txbFechaVencimiento";
             this.txbFechaVencimiento.Size = new System.Drawing.Size(304, 22);
             this.txbFechaVencimiento.TabIndex = 56;
+            // 
+            // txbStock
+            // 
+            this.txbStock.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbStock.Location = new System.Drawing.Point(46, 196);
+            this.txbStock.Margin = new System.Windows.Forms.Padding(4);
+            this.txbStock.Name = "txbStock";
+            this.txbStock.ReadOnly = true;
+            this.txbStock.Size = new System.Drawing.Size(128, 22);
+            this.txbStock.TabIndex = 58;
+            // 
+            // g
+            // 
+            this.g.AutoSize = true;
+            this.g.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.g.ForeColor = System.Drawing.SystemColors.Control;
+            this.g.Location = new System.Drawing.Point(43, 159);
+            this.g.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.g.Name = "g";
+            this.g.Size = new System.Drawing.Size(42, 17);
+            this.g.TabIndex = 57;
+            this.g.Text = "Stock";
             // 
             // ProductosEdicion
             // 
@@ -258,6 +282,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(898, 545);
+            this.Controls.Add(this.txbStock);
+            this.Controls.Add(this.g);
             this.Controls.Add(this.txbFechaVencimiento);
             this.Controls.Add(this.txbFechaFabricacion);
             this.Controls.Add(this.cbProveedor);
@@ -310,5 +336,7 @@
         private System.Windows.Forms.ErrorProvider Notificador;
         public System.Windows.Forms.DateTimePicker txbFechaVencimiento;
         public System.Windows.Forms.DateTimePicker txbFechaFabricacion;
+        public System.Windows.Forms.TextBox txbStock;
+        private System.Windows.Forms.Label g;
     }
 }

@@ -213,7 +213,8 @@ namespace General.CLS
                     listaProductos.Add(new Productos(
                         resultado.GetInt32(0),
                         resultado.GetString(1),
-                        resultado.GetDouble(2)
+                        resultado.GetDouble(2),
+                        resultado.GetInt32(3)
                         ));
                 }
 

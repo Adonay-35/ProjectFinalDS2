@@ -91,6 +91,7 @@ CREATE TABLE Usuarios(
 CREATE TABLE Productos (
     ID_Producto int auto_increment primary key,
     Producto varchar(200) not null,
+    Stock int not null,
     FechaFabricacion datetime not null,
     FechaVencimiento datetime not null,
     Descripcion varchar(100) not null,
@@ -101,7 +102,7 @@ CREATE TABLE Productos (
 
 CREATE TABLE Compras (
     ID_Compra int auto_increment primary key,
-    FechaCompra date not null,
+    FechaCompra datetime not null,
     ID_Usuario int not null,
     ID_Proveedor int not null,
     ID_Producto  int not null,
@@ -111,20 +112,13 @@ CREATE TABLE Compras (
 
 CREATE TABLE Ventas (
     ID_Venta int auto_increment primary key,
-    FechaVenta date not null,
+    FechaVenta datetime not null,
     ID_Usuario int not null,
     ID_Cliente int not null,
     ID_Producto  int not null,
     PrecioVenta decimal(18, 2) not null, 
     CantidadSaliente int not null,
     TotalCobrar decimal(18, 2) not null
-);
-
-CREATE TABLE Kardex(
-	ID_Kardex int auto_increment primary key,
-    ID_Compra int null,
-    ID_Venta int null,
-    Stock int not null
 );
 
 -- LLAVES FORANEAS
@@ -150,8 +144,6 @@ ALTER TABLE Compras ADD CONSTRAINT fk_compra_producto FOREIGN KEY (ID_Producto) 
 ALTER TABLE Ventas ADD CONSTRAINT fk_venta_usuario FOREIGN KEY (ID_Usuario) REFERENCES Usuarios(ID_Usuario);
 ALTER TABLE Ventas ADD CONSTRAINT fk_venta_cliente FOREIGN KEY (ID_Cliente) REFERENCES Clientes(ID_Cliente);
 ALTER TABLE Ventas ADD CONSTRAINT fk_venta_producto FOREIGN KEY (ID_Producto) REFERENCES Productos(ID_Producto);
-ALTER TABLE Kardex ADD CONSTRAINT fk_kardex_compra FOREIGN KEY (ID_Compra) REFERENCES Compras(ID_Compra);
-ALTER TABLE Kardex ADD CONSTRAINT fk_kardex_venta FOREIGN KEY (ID_Venta) REFERENCES Ventas(ID_Venta);
 
 /* PROCEDIMIENTOS ALMACENADOS */
 
@@ -229,6 +221,13 @@ SELECT ID_Direccion, Linea
 FROM direcciones;
 END $$
 
+/*DELIMITER //
+CREATE PROCEDURE ObtenerProductos()
+BEGIN
+    SELECT ID_Producto, Producto, PrecioCompra FROM Productos;
+END //
+DELIMITER ;*/
+
 DELIMITER //
 CREATE PROCEDURE ObtenerProductos()
 BEGIN
@@ -236,19 +235,36 @@ BEGIN
         P.ID_Producto, 
         P.Producto, 
         P.PrecioCompra,
-        (SELECT 
-            SUM(Kr.Stock)
-         FROM 
-            Kardex Kr 
-         INNER JOIN 
-            Compras Com ON Kr.ID_Compra = Com.ID_Compra 
-         WHERE 
-            Com.ID_Producto = P.ID_Producto 
-        ) AS Stock
+        P.Stock
     FROM 
         Productos P;
 END //
 DELIMITER ;
+
+
+
+DELIMITER $$
+CREATE PROCEDURE BuscarUsuario(IN usuario varchar(200))
+BEGIN
+SELECT *
+FROM usuarios
+WHERE nomUsuario LIKE CONCAT(usuario,'%');
+END
+
+DELIMITER $$
+CREATE PROCEDURE InsertarUsuario(IN nomUsuario varchar(200), usuario varchar(50), contrasena varchar(10), idPermiso int, idEstado int)
+BEGIN
+INSERT INTO usuarios (nomUsuario, usuario, contrasena, idPermiso, idEstado)
+VALUES (nomUsuario, usuario, contrasena, idPermiso, idEstado);
+END
+
+DELIMITER $$
+CREATE PROCEDURE ActualizarUsuario(IN id int, nomUsuario varchar(200), usuario varchar(50), contrasena varchar(10), idPermiso int, idEstado int)
+BEGIN
+UPDATE usuarios 
+SET nomUsuario=nomUsuario, usuario=usuario, contrasena=contrasena, idPermiso=idPermiso, idEstado=idEstado
+WHERE idUsuario=id;
+END
 
 /* PROVEEDORES */
 DELIMITER $$
@@ -265,3 +281,101 @@ BEGIN
 SELECT *
 FROM categorias;
 END $$
+
+DELIMITER $$
+CREATE PROCEDURE BuscarProveedor(IN proveedor varchar(100))
+BEGIN
+SELECT *
+FROM proveedores
+WHERE nomProveedor LIKE CONCAT(proveedor,'%');
+END
+
+DELIMITER $$
+CREATE PROCEDURE InsertarProveedor(IN nomProveedor varchar(100), numContacto double, direccion varchar(200), email varchar(80))
+BEGIN
+INSERT INTO proveedores (nomProveedor, numContacto, direccion, email)
+VALUES (nomProveedor, numContacto, direccion, email);
+END
+
+DELIMITER $$
+CREATE PROCEDURE ActualizarProveedor(IN id int, nomProveedor varchar(100), numContacto double, direccion varchar(200), email varchar(80))
+BEGIN
+UPDATE proveedores 
+SET nomProveedor=nomProveedor, numContacto=numContacto, direccion=direccion, email=email
+WHERE idProveedor=id;
+END
+
+DELIMITER $$
+CREATE PROCEDURE InsertarProducto(IN idProducto int, nomProducto varchar(200), stock int, precio double, descripcion text, idProveedor int)
+BEGIN
+INSERT INTO productos (idProducto, nomProducto, stock, precio, descripcion, idProveedor)
+VALUES (idProducto, nomProducto, stock, precio, descripcion, idProveedor);
+END
+
+DELIMITER $$
+CREATE PROCEDURE ActualizarProducto(IN id int, nomProducto varchar(200), stock int, precio double, descripcion text, idProveedor int)
+BEGIN
+UPDATE productos 
+SET nomProducto=nomProducto, stock=stock, precio=precio, descripcion=descripcion, idProveedor=idProveedor
+WHERE idProducto=id;
+END
+
+DELIMITER $$
+CREATE PROCEDURE BuscarProducto(IN producto varchar(200))
+BEGIN
+SELECT prod.*, prov.nomProveedor
+FROM productos prod
+INNER JOIN proveedores prov ON prod.idProveedor=prov.idProveedor
+WHERE idProducto LIKE CONCAT(producto,'%') OR nomProducto LIKE CONCAT(producto, '%');
+END
+
+DELIMITER $$
+CREATE PROCEDURE BuscarProductoVenta(IN codigo varchar(200))
+BEGIN
+SELECT idProducto, nomProducto, stock, precio, descripcion
+FROM productos
+WHERE idProducto LIKE CONCAT(codigo,'%');
+END
+
+DELIMITER $$
+CREATE PROCEDURE ObtenerNombreProducto(IN codigo varchar(200))
+BEGIN
+SELECT idProducto, nomProducto, descripcion
+FROM productos
+WHERE idProducto LIKE CONCAT(codigo,'%');
+END
+
+/* VENTAS */
+DELIMITER $$
+CREATE PROCEDURE InsertarVenta(IN idVenta varchar(20), fechaVenta datetime, idUsuario int, idProductos mediumtext, total double)
+BEGIN
+INSERT INTO ventas(idVenta, fechaVenta, idUsuario, idProductos, total)
+VALUES (idVenta, fechaVenta, idUsuario, idProductos, total);
+END
+
+DELIMITER $$
+CREATE PROCEDURE ActualizarStock(IN codigo varchar(100), cantidad int)
+BEGIN
+UPDATE productos
+SET stock=stock-cantidad
+WHERE idProducto=codigo;
+END
+
+/* REPORTES */
+DELIMITER $$
+CREATE PROCEDURE ObtenerVentas(IN fechaInicial varchar(20), fechaFinal varchar(20))
+BEGIN
+SELECT ventas.*, usuarios.nomUsuario 
+FROM ventas 
+INNER JOIN usuarios ON ventas.idUsuario=usuarios.idUsuario
+WHERE idVenta BETWEEN (fechaInicial) AND (fechaFinal);
+END
+
+/* PROCEDIMIENTO ALMACENADO LOGIN */
+DELIMITER $$
+CREATE PROCEDURE LoginUsuario(IN Usuario varchar(50), Clave varchar(32))
+BEGIN
+SELECT *
+FROM Usuarios
+WHERE Usuarios.Usuario=Usuario AND Usuarios.Clave=Clave;
+END

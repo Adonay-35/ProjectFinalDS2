@@ -17,6 +17,7 @@ namespace General.CLS
 
         Int32 _ID_Producto;
         string _Producto;
+        Int32 _Stock;
         DateTime _FechaFabricacion;
         DateTime _FechaVencimiento;
         string _Descripcion;
@@ -24,11 +25,12 @@ namespace General.CLS
         Int32 _ID_Proveedor;
         Int32 _ID_Categoria;
 
-        public Productos(int idproducto, string producto, double preciocompra)
+        public Productos(int idproducto, string producto, double preciocompra, int stock)
         {
             this._ID_Producto = idproducto;
             this._Producto = producto;
             this._PrecioCompra = preciocompra;
+            this._Stock = stock;
         }
 
         public Productos()
@@ -37,6 +39,7 @@ namespace General.CLS
 
         public int ID_Producto { get => _ID_Producto; set => _ID_Producto = value; }
         public string Producto { get => _Producto; set => _Producto = value; }
+        public int Stock { get => _Stock; set => _Stock = value; }
         public DateTime FechaFabricacion { get => _FechaFabricacion; set => _FechaFabricacion = value; }
         public DateTime FechaVencimiento { get => _FechaVencimiento; set => _FechaVencimiento = value; }
         public string Descripcion { get => _Descripcion; set => _Descripcion = value; }
@@ -50,8 +53,9 @@ namespace General.CLS
             DataLayer.DBOperacion Operacion = new DataLayer.DBOperacion();
 
             StringBuilder Sentencia = new StringBuilder();
-            Sentencia.Append("INSERT INTO Productos(Producto, FechaFabricacion, FechaVencimiento, Descripcion, PrecioCompra, ID_Proveedor, ID_Categoria) VALUES(");
+            Sentencia.Append("INSERT INTO Productos(Producto, Stock, FechaFabricacion, FechaVencimiento, Descripcion, PrecioCompra, ID_Proveedor, ID_Categoria) VALUES(");
             Sentencia.Append("'" + _Producto + "',");
+            Sentencia.Append(_Stock + ",");
             Sentencia.Append("'" + _FechaFabricacion.ToString("yyyy-MM-dd") + "',");
             Sentencia.Append("'" + _FechaVencimiento.ToString("yyyy-MM-dd") + "',");
             Sentencia.Append("'" + _Descripcion + "',");
@@ -84,6 +88,7 @@ namespace General.CLS
             StringBuilder Sentencia = new StringBuilder();
             Sentencia.Append("UPDATE productos SET ");
             Sentencia.Append("Producto ='" + _Producto + "',");
+            Sentencia.Append("Stock =" + _Stock + ",");
             Sentencia.Append("FechaFabricacion ='" + _FechaFabricacion.ToString("yyyy-MM-dd") + "',");
             Sentencia.Append("FechaVencimiento ='" + _FechaVencimiento.ToString("yyyy-MM-dd") + "',");
             Sentencia.Append("Descripcion ='" + _Descripcion + "',");
@@ -134,7 +139,6 @@ namespace General.CLS
             }
             return Resultado;
         }
-
 
         public List<Proveedores> ObtenerProveedores()
         {

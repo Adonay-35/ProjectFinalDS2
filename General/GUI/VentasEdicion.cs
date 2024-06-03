@@ -77,62 +77,88 @@ namespace General.GUI
             {
                 if (Validar())
                 {
-                    if (string.IsNullOrEmpty(txbID_Venta.Text.Trim()))
+                    // Ajustar el índice porque el primer elemento es "Selecciona una opción"
+                    int indice = cbProductos.SelectedIndex - 1;
+
+                    if (indice >= 0 && indice < listaProductos.Count)
                     {
+                        // Obtener el producto seleccionado
+                        Productos productoSeleccionado = listaProductos[indice];
 
-                        Ventas oVenta = new Ventas();
-
-
-                        oVenta.FechaVenta = Convert.ToDateTime(txbFechaVenta.Text);
-                        oVenta.ID_Usuario = Convert.ToInt32(cbUsuarios.SelectedIndex);
-                        oVenta.ID_Cliente = Convert.ToInt32(cbClientes.SelectedIndex);
-                        oVenta.ID_Producto = Convert.ToInt32(cbProductos.SelectedIndex);
-                        oVenta.PrecioVenta = Convert.ToDecimal(txbPrecioVenta.Text);
-                        oVenta.CantidadSaliente = Convert.ToInt32(txbCantidadSaliente.Text);
-                        oVenta.TotalCobrar = Convert.ToDecimal(txbTotalCobrar.Text);
-
-                        // GUARDAR NUEVO REGISTRO
-                        if (oVenta.Insertar())
+                        // Intentar obtener la cantidad saliente
+                        if (int.TryParse(txbCantidadSaliente.Text, out int cantidadSaliente))
                         {
-                            MessageBox.Show("Venta creada exitosamnete");
-                            Close();
+                            // Verificar el stock actual
+                            int stockActual = ObtenerStockActual(productoSeleccionado.ID_Producto);
 
-                        }
-                        else
-                        {
-                            MessageBox.Show("La venta no pudo ser almacenado");
-                        }
-                    }
-                    else
-                    {
-                        Ventas oVenta = new Ventas();
+                            if (stockActual == 0)
+                            {
+                                MessageBox.Show("Ya no hay stock disponible.",
+                                "Error de stock", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                            else if (stockActual < cantidadSaliente)
+                            {
+                                MessageBox.Show($"No hay suficiente stock disponible. Stock actual: {stockActual}",
+                                "Error de stock", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                            else
+                            {
+                                Ventas oVenta = new Ventas();
 
-                        oVenta.ID_Venta = Convert.ToInt32(txbID_Venta.Text);
-                        oVenta.FechaVenta = Convert.ToDateTime(txbFechaVenta.Text);
-                        oVenta.ID_Usuario = Convert.ToInt32(cbUsuarios.SelectedIndex);
-                        oVenta.ID_Cliente = Convert.ToInt32(cbClientes.SelectedIndex);
-                        oVenta.ID_Producto = Convert.ToInt32(cbProductos.SelectedIndex);
-                        oVenta.PrecioVenta = Convert.ToDecimal(txbPrecioVenta.Text);
-                        oVenta.CantidadSaliente = Convert.ToInt32(txbCantidadSaliente.Text);
-                        oVenta.TotalCobrar = Convert.ToDecimal(txbTotalCobrar.Text);
+                                oVenta.FechaVenta = Convert.ToDateTime(txbFechaVenta.Text);
+                                oVenta.ID_Usuario = Convert.ToInt32(cbUsuarios.SelectedIndex);
+                                oVenta.ID_Cliente = Convert.ToInt32(cbClientes.SelectedIndex);
+                                oVenta.ID_Producto = productoSeleccionado.ID_Producto;  // Usar el ID_Producto del producto seleccionado
+                                oVenta.PrecioVenta = Convert.ToDecimal(txbPrecioVenta.Text);
+                                oVenta.CantidadSaliente = cantidadSaliente;
+                                oVenta.TotalCobrar = Convert.ToDecimal(txbTotalCobrar.Text);
 
-                        // ACTUALIZAR REGISTRO
-                        if (oVenta.Actualizar())
-                        {
-                            MessageBox.Show("Registro actualizado exitosamente");
-                            Close();
+                                // Guardar nuevo registro
+                                if (string.IsNullOrEmpty(txbID_Venta.Text.Trim()))
+                                {
+                                    if (oVenta.Insertar())
+                                    {
+                                        // Actualizar el stock en la base de datos
+                                        ActualizarStockSaliente(productoSeleccionado.ID_Producto, cantidadSaliente);
+                                        MessageBox.Show("Venta creada exitosamente",
+                                        "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        Close();
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("La venta no pudo ser almacenada",
+                                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    }
+                                }
+                                else
+                                {
+                                    oVenta.ID_Venta = Convert.ToInt32(txbID_Venta.Text);
 
-                        }
-                        else
-                        {
-                            MessageBox.Show("La venta no pudo ser actualizado");
+                                    if (oVenta.Actualizar())
+                                    {
+                                        // Actualizar el stock en la base de datos
+                                        ActualizarStockSaliente(productoSeleccionado.ID_Producto, cantidadSaliente);
+                                        MessageBox.Show("Registro actualizado exitosamente",
+                                        "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        Close();
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("La venta no pudo ser actualizada",
+                                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    }
+                                }
+                            }
                         }
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                MessageBox.Show("Ocurrió un error: " + ex.Message,
+                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -209,32 +235,34 @@ namespace General.GUI
             try
             {
                 // Configuración de la conexión
-                sqlConexion.ConnectionString = "Server=localhost;Port=3306;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;";
+                using (MySqlConnection sqlConexion = new MySqlConnection("Server=localhost;Port=3306;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;"))
+                {
+                    // Consulta para actualizar el stock en la tabla Productos
+                    string query = @"UPDATE Productos 
+                             SET Stock = Stock - @CantidadSaliente 
+                             WHERE ID_Producto = @ID_Producto";
 
-                // Consulta para actualizar el stock en la tabla Kardex
-                string query = @" UPDATE Kardex SET Stock = Stock - @CantidadSaliente WHERE ID_Kardex = (SELECT ID_Kardex
-                                  FROM Compras WHERE ID_Producto = @ID_Producto LIMIT 1)";
+                    // Configuración del comando
+                    MySqlCommand comando = new MySqlCommand(query, sqlConexion);
+                    comando.Parameters.AddWithValue("@CantidadSaliente", cantidadSaliente);
+                    comando.Parameters.AddWithValue("@ID_Producto", idProducto);
 
-                // Configuración del comando
-                MySqlCommand comando = new MySqlCommand(query, sqlConexion);
-                comando.Parameters.AddWithValue("@CantidadSaliente", cantidadSaliente);
-                comando.Parameters.AddWithValue("@ID_Producto", idProducto);
+                    // Abrir la conexión y ejecutar la consulta
+                    sqlConexion.Open();
+                    int filasAfectadas = comando.ExecuteNonQuery();
 
-                // Abrir la conexión y ejecutar la consulta
-                sqlConexion.Open();
-                comando.ExecuteNonQuery();
+                    // Verificar si se actualizó alguna fila
+                    if (filasAfectadas == 0)
+                    {
+                        MessageBox.Show("No se encontró ningún registro para actualizar.",
+                                        "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
             }
             catch (Exception ex)
             {
-                throw ex;
-            }
-            finally
-            {
-                // Asegurarse de que la conexión se cierre
-                if (sqlConexion.State == ConnectionState.Open)
-                {
-                    sqlConexion.Close();
-                }
+                MessageBox.Show("Ocurrió un error al actualizar el stock: " + ex.Message,
+                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -256,22 +284,21 @@ namespace General.GUI
 
                     if (stockActual == 0)
                     {
-                        MessageBox.Show("Ya no hay stock disponible.");
+                        MessageBox.Show("Producto agotado actualmente.",
+                        "Sin existencias", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txbTotalCobrar.Text = "0";
                     }
                     else if (stockActual < cantidadSaliente)
                     {
-                        MessageBox.Show("No hay suficiente stock disponible.");
+                        MessageBox.Show($"No hay suficiente stock disponible. Stock actual: {stockActual}",
+                        "Error de stock", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txbTotalCobrar.Text = "0";
                     }
                     else
                     {
                         // Calcular el total a cobrar
-                        decimal totalCobrar = (decimal)(productoSeleccionado.PrecioCompra * cantidadSaliente);
+                        decimal totalCobrar = (decimal)productoSeleccionado.PrecioCompra * cantidadSaliente;
                         txbTotalCobrar.Text = totalCobrar.ToString();
-
-                        // Actualizar el stock en la base de datos
-                        ActualizarStockSaliente(productoSeleccionado.ID_Producto, cantidadSaliente);
                     }
                 }
                 else
@@ -290,8 +317,8 @@ namespace General.GUI
                 // Configuración de la conexión
                 using (MySqlConnection sqlConexion = new MySqlConnection("Server=localhost;Port=3306;Database=sistemaventas;Uid=sistema-user;Pwd=root;SslMode=None;"))
                 {
-                    // Consulta para obtener el stock actual
-                    string checkStockQuery = @"SELECT Stock FROM Kardex WHERE ID_Kardex = (SELECT ID_Kardex FROM Compras WHERE ID_Producto = @ID_Producto LIMIT 1)";
+                    // Consulta para obtener el stock actual de la tabla Productos
+                    string checkStockQuery = @"SELECT Stock FROM Productos WHERE ID_Producto = @ID_Producto";
 
                     // Configuración del comando para verificar el stock
                     MySqlCommand checkStockCommand = new MySqlCommand(checkStockQuery, sqlConexion);

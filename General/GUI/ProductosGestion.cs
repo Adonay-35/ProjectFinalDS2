@@ -55,7 +55,6 @@ namespace General.GUI
             InitializeComponent();
         }
 
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             try
@@ -84,6 +83,7 @@ namespace General.GUI
                         oProducto.MostrarCategorias(oProducto.cbCategoria);
                         oProducto.txbID_Producto.Text = dataGridView1.CurrentRow.Cells["ID_Producto"].Value.ToString();
                         oProducto.txbProducto.Text = dataGridView1.CurrentRow.Cells["Producto"].Value.ToString();
+                        oProducto.txbStock.Text = dataGridView1.CurrentRow.Cells["Stock"].Value.ToString();
                         oProducto.txbFechaFabricacion.Text = dataGridView1.CurrentRow.Cells["FechaFabricacion"].Value.ToString();
                         oProducto.txbFechaVencimiento.Text = dataGridView1.CurrentRow.Cells["FechaVencimiento"].Value.ToString();
                         oProducto.txbDescripcion.Text = dataGridView1.CurrentRow.Cells["Descripcion"].Value.ToString();
